@@ -1,0 +1,87 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  @font-face { font-family: "Bagel"; src: url("BagelFatOne-Regular.ttf"); }
+  @font-face { font-family: "Lilita"; src: url("LilitaOne-Regular.ttf"); }
+  html, body { margin: 0; background: transparent; }
+  canvas { display: block; }
+</style></head>
+<body>
+<div style="font-family:Bagel;position:absolute;left:-99px">a</div><div style="font-family:Lilita;position:absolute;left:-99px">a</div>
+<canvas id="c"></canvas>
+<script>
+// es_enserio.tv · piezas de marca: ?v=a|b|c|d (fotos de perfil 1080) y ?v=banner (YouTube 2560×1440)
+const INK = "#1f1622", AMA = "#ffd23f", PAPEL = "#fff8ea", PLUM = "#2a1d33";
+const v = new URLSearchParams(location.search).get("v") || "a";
+const FOTOS = [1, 2, 3, 4].map((i) => { const im = new Image(); im.src = `f${i}.jpg`; return im; });
+const cv = document.getElementById("c"), g = cv.getContext("2d");
+const W = v === "banner" ? 2560 : 1080, H = v === "banner" ? 1440 : 1080;
+cv.width = W; cv.height = H;
+
+// recorte de papel: borde blanco y sombra
+function recorte(dibujar, x, y, esc = 1, rot = 0, w = 1400, h = 1400) {
+  const a = document.createElement("canvas"), b = document.createElement("canvas"); a.width = b.width = w; a.height = b.height = h;
+  const ca = a.getContext("2d"); ca.translate(w / 2, h / 2); ca.lineJoin = ca.lineCap = "round"; dibujar(ca);
+  const cb = b.getContext("2d"); cb.drawImage(a, 0, 0); cb.globalCompositeOperation = "source-in"; cb.fillStyle = PAPEL; cb.fillRect(0, 0, w, h);
+  g.save(); g.translate(x, y); g.rotate(rot); g.scale(esc, esc); g.translate(-w / 2, -h / 2);
+  g.shadowColor = "rgba(20,8,20,.35)"; g.shadowBlur = 30; g.shadowOffsetX = 12; g.shadowOffsetY = 18; g.drawImage(b, 0, 0); g.shadowColor = "transparent";
+  for (let k = 0; k < 16; k++) { const an = k / 16 * Math.PI * 2; g.drawImage(b, Math.cos(an) * 12, Math.sin(an) * 12); }
+  g.drawImage(a, 0, 0); g.restore();
+}
+function forma(c, fill, path, lw = 8) { c.beginPath(); path(c); c.fillStyle = fill; c.fill(); c.lineWidth = lw; c.strokeStyle = INK; c.stroke(); }
+
+// la cara del títere sorprendido (la cara de quien acaba de oír la historia)
+function cara(c, o = {}) {
+  const piel = o.piel || "#f1c49b";
+  forma(c, piel, (p) => p.ellipse(0, 0, 330, 360, 0, 0, 7), 10);
+  // pelo de papel
+  forma(c, o.pelo || "#3a2a26", (p) => { p.moveTo(-320, -90); p.quadraticCurveTo(-330, -380, 0, -372); p.quadraticCurveTo(330, -380, 320, -90); p.quadraticCurveTo(250, -250, 60, -230); p.quadraticCurveTo(-40, -290, -150, -220); p.quadraticCurveTo(-260, -200, -320, -90); }, 10);
+  // cejas muy arriba
+  c.lineWidth = 26; c.strokeStyle = INK; for (const s of [-1, 1]) { c.beginPath(); c.moveTo(s * 70, -200); c.quadraticCurveTo(s * 140, -250, s * 215, -195); c.stroke(); }
+  // ojos enormes
+  for (const s of [-1, 1]) { forma(c, "#fff", (p) => p.ellipse(s * 135, -70, 92, 110, 0, 0, 7), 10); c.fillStyle = INK; c.beginPath(); c.arc(s * 128, -55, 40, 0, 7); c.fill(); c.fillStyle = "#fff"; c.beginPath(); c.arc(s * 140, -72, 13, 0, 7); c.fill(); }
+  // mejillas
+  c.fillStyle = "rgba(230,110,110,.35)"; for (const s of [-1, 1]) { c.beginPath(); c.ellipse(s * 215, 80, 55, 32, 0, 0, 7); c.fill(); }
+  // nariz
+  forma(c, "#e49a72", (p) => p.ellipse(0, 50, 46, 38, 0, 0, 7), 9);
+  // la boca: una «O» de asombro
+  forma(c, "#5a1a22", (p) => p.ellipse(0, 210, 78, 98, 0, 0, 7), 10);
+  c.fillStyle = "#e0606a"; c.beginPath(); c.ellipse(0, 258, 44, 30, 0, 0, 7); c.fill();
+  // las manos en las mejillas
+  if (o.manos) for (const s of [-1, 1]) forma(c, piel, (p) => { p.ellipse(s * 300, 170, 82, 120, s * 0.25, 0, 7); }, 10);
+}
+function sticker(texto, x, y, tam, rot = -0.04, fondo = AMA) {
+  g.save(); g.translate(x, y); g.rotate(rot);
+  g.font = `${tam}px Bagel`; const w = g.measureText(texto).width, h = tam * 1.18, pad = tam * 0.34;
+  g.fillStyle = INK; g.beginPath(); g.roundRect(-w / 2 - pad + tam * 0.09, -h / 2 + tam * 0.09, w + pad * 2, h, tam * 0.28); g.fill();
+  g.fillStyle = fondo; g.lineWidth = tam * 0.07; g.strokeStyle = INK; g.beginPath(); g.roundRect(-w / 2 - pad, -h / 2, w + pad * 2, h, tam * 0.28); g.fill(); g.stroke();
+  g.fillStyle = INK; g.textAlign = "center"; g.textBaseline = "middle"; g.fillText(texto, 0, tam * 0.06);
+  g.restore();
+}
+function grano() { for (let i = 0; i < W * H / 900; i++) { g.fillStyle = `rgba(60,30,10,${Math.random() * .05})`; g.fillRect(Math.random() * W, Math.random() * H, 2, 2); } }
+
+function pintar() {
+  if (v === "a") { // el sticker
+    g.fillStyle = AMA; g.fillRect(0, 0, W, H); grano();
+    sticker("¿En", 540, 400, 250, -0.05, PAPEL); sticker("serio?", 540, 700, 250, 0.03, PAPEL);
+  } else if (v === "b") { // los signos
+    g.fillStyle = AMA; g.fillRect(0, 0, W, H); grano();
+    g.font = "640px Bagel"; g.textAlign = "center"; g.textBaseline = "middle"; g.fillStyle = INK; g.fillText("¿?", 540, 590);
+  } else if (v === "c") { // el títere asombrado, fondo amarillo
+    g.fillStyle = AMA; g.fillRect(0, 0, W, H); grano();
+    recorte((c) => cara(c, { manos: true }), 540, 560, 1.12);
+  } else if (v === "d") { // el títere asombrado, fondo oscuro + globo «¿?»
+    g.fillStyle = PLUM; g.fillRect(0, 0, W, H);
+    recorte((c) => cara(c, { piel: "#e9b38a", pelo: "#1f1622" }), 500, 610, 1.0);
+    recorte((c) => { forma(c, AMA, (p) => { p.ellipse(0, 0, 190, 150, 0, 0, 7); p.moveTo(-60, 120); p.lineTo(-150, 220); p.lineTo(10, 140); }, 10); c.font = "190px Bagel"; c.textAlign = "center"; c.textBaseline = "middle"; c.fillStyle = INK; c.fillText("¿?", 0, 10); }, 820, 250, 1.0, 0.08);
+  } else { // banner de YouTube: lo importante en el centro (1546×423)
+    g.fillStyle = AMA; g.fillRect(0, 0, W, H); grano();
+    // sin fotos a los lados (26/11): solo el títere, el letrero y la frase
+    recorte((c) => cara(c, { manos: true }), 700, 700, 0.55);
+    sticker("¿En serio?", 1430, 650, 180, -0.04, PAPEL);
+    g.font = "60px Lilita"; g.fillStyle = INK; g.textAlign = "center"; g.fillText("Historias reales que no te vas a creer", 1430, 850);
+  }
+}
+Promise.all(FOTOS.map((im) => new Promise((r) => (im.complete ? r() : (im.onload = r))))).then(() => document.fonts.load("100px Bagel")).then(() => document.fonts.load("60px Lilita")).then(() => { pintar(); document.title = "listo"; });
+</script>
+</body></html>

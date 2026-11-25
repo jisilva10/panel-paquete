@@ -1,0 +1,21 @@
+# Nunca a GitHub
+.secretos/
+**/.secretos/
+.env*
+**/.env*
+# Se instalan de nuevo
+.motor/venv/
+node_modules/
+**/node_modules/
+.next/
+**/.next/
+.motor/viejo/
+# Lo pesado y lo que se borra
+laboratorio/
+2 Funciones/**/salida/
+2 Funciones/**/.voz/
+2 Funciones/**/material/
+2 Funciones/**/*.wav
+2 Funciones/**/*.mp4
+.DS_Store
+*.log

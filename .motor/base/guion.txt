@@ -1,0 +1,15 @@
+# La guerra de los emús (v2) · Australia, 1932
+# Fuentes: en.wikipedia.org/wiki/Emu_War · noticiero «Western Australia Makes War On Emus», British Movietone (AP Archive)
+# Frase de Meredith: entrevista de 1953 (citada en Wikipedia), resumida.
+# Formato: QUIEN [emoción]: texto  ·  «...» = pausa larga  ·  *palabra* = con fuerza
+NARRADOR [misterio]: En 1932... Australia le declaró la guerra... a veinte mil *emús*.
+NARRADOR [indignado]: Se estaban comiendo todo el trigo de los granjeros.
+NARRADOR [solemne]: Así que el ejército mandó a un mayor, dos soldados... y dos *ametralladoras*.
+NARRADOR [confidencial]: Y esto es real: hasta llevaron una cámara para filmar la victoria.
+NARRADOR [burla]: Pero los emús se separaron en grupitos... y salieron corriendo.
+NARRADOR [tensión]: Días después, mil emús venían directo hacia ellos. Apuntaron... y la ametralladora... se *trabó*.
+NARRADOR [asombro]: Cada grupo tenía un vigía: un emú enorme que avisaba a los demás.
+EMU [alarma]: ¡Ahí vienen otra vez!
+NARRADOR [resignado]: Al mes, el ejército se rindió. Y el mayor dijo esto:
+MAYOR [admiración]: Si tuviera soldados que aguanten balas como estos pájaros... le gano a cualquier ejército del mundo.
+NARRADOR [cierre]: Hoy se calcula que en Australia viven más de seiscientos mil emús. El ejército... nunca volvió.

@@ -1,0 +1,5 @@
+.env*
+.trabajo
+.secretos
+node_modules
+.next

@@ -1,0 +1,13 @@
+{
+  "framework": "nextjs",
+  "crons": [
+    {
+      "path": "/api/cron/publicar",
+      "schedule": "0 13 * * *"
+    },
+    {
+      "path": "/api/cron/estadisticas",
+      "schedule": "0 11 * * *"
+    }
+  ]
+}

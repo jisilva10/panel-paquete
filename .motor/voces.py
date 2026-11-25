@@ -1,0 +1,139 @@
+"""Voces que actúan. guion.txt → voz.wav + tiempos.json
+Uso: voces2.py CARPETA edge|qwen
+Marcas del guion: QUIEN [emoción]: texto · «...» pausa larga · *palabra* con fuerza
+- edge: la línea se parte en trozos; cada trozo con su velocidad/tono/volumen según la emoción, las pausas
+  se ponen a mano y la palabra con fuerza va más lenta y más alta.
+- qwen: una voz diseñada (siempre la misma descripción) + la emoción de la línea; local y gratis.
+Los tiempos de cada palabra salen de Whisper y se asignan contando las palabras del guion."""
+import asyncio, json, os, re, subprocess, sys, wave
+import numpy as np
+
+SR, FPS = 24000, 30
+CARPETA, MOTOR = sys.argv[1], sys.argv[2]
+
+# emoción → (velocidad, tono, volumen) en Edge, y frase para Qwen
+EMO = {
+  'misterio':     ('-6%',  '-6Hz', '+0%',  'en voz baja y misteriosa, como quien cuenta un secreto increíble, con pausas largas'),
+  'indignado':    ('+6%',  '+4Hz', '+8%',  'indignado y rápido, con fuerza'),
+  'solemne':      ('-4%',  '-8Hz', '+4%',  'solemne y exagerado, como anunciando algo épico, con ironía'),
+  'confidencial': ('+2%',  '+0Hz', '-6%',  'en tono confidencial y cómplice, casi susurrando, sorprendido'),
+  'burla':        ('+4%',  '+6Hz', '+0%',  'aguantándose la risa, burlón'),
+  'tension':      ('+0%',  '-2Hz', '+6%',  'con tensión creciente, como narrando una película de suspenso'),
+  'asombro':      ('-2%',  '+8Hz', '+6%',  'asombrado de verdad, sin poder creerlo'),
+  'resignado':    ('-6%',  '-6Hz', '-4%',  'resignado, con un suspiro, lento'),
+  'cierre':       ('-8%',  '-8Hz', '+0%',  'lento y contundente, dejando la última frase en el aire, con una sonrisa'),
+  'alarma':       ('+16%', '+30Hz','+10%', 'alarmado, gritando un aviso'),
+  'admiracion':   ('-4%',  '-10Hz','+4%',  'militar viejo, admirado a su pesar, con voz ronca'),
+}
+VOZ_EDGE = {'NARRADOR': ('es-EC-LuisNeural', '+4%', '-4Hz'), 'MAYOR': ('es-AR-TomasNeural', '+0%', '-14Hz'), 'EMU': ('es-MX-DaliaNeural', '+8%', '+22Hz')}
+VOZ_QWEN = {
+  'NARRADOR': 'Narrador latinoamericano de unos cuarenta años, voz cálida y grave, cuenta historias reales increíbles como un buen contador de anécdotas',
+  'MAYOR': 'Militar australiano de sesenta años hablando español con acento, voz ronca y grave',
+  'EMU': 'Voz aguda y nasal de un ave caricaturesca, rápida',
+}
+PAUSA = {'...': 0.42, ',': 0.12, '.': 0.30, ':': 0.30, '?': 0.30, '!': 0.28}
+
+def leer():
+    out = []
+    for l in open(os.path.join(CARPETA, 'guion.txt'), encoding='utf8'):
+        m = re.match(r'^([A-ZÁÉÍÓÚÑ]+)\s*(?:\[([^\]]+)\])?:\s*(.+)$', l.strip())
+        if m and not l.startswith('#'):
+            out.append(dict(quien=m[1], emo=(m[2] or 'cierre').replace('ó','o').replace('ñ','n'), texto=m[3]))
+    return out
+
+def a_wav(src, dst):
+    subprocess.run(['ffmpeg','-loglevel','error','-y','-i',src,'-ac','1','-ar',str(SR),dst], check=True)
+def leer_wav(p):
+    with wave.open(p) as w: return np.frombuffer(w.readframes(w.getnframes()), np.int16).astype(np.float32)/32768
+def recorta(x):
+    on = np.where(np.abs(x) > 0.012)[0]
+    return x if not len(on) else x[max(0, on[0]-int(.02*SR)): on[-1]+int(.06*SR)]
+
+def edge_linea(L, i):
+    import edge_tts
+    voz, r0, p0 = VOZ_EDGE[L['quien']]; r, p, v = EMO[L['emo']][:3]
+    suma = lambda a, b, u: f"{int(a[:-len(u)])+int(b[:-len(u)]):+d}{u}"
+    # trozos: corta en «...», «,», «:», «.» y alrededor de *palabras con fuerza*
+    trozos = [t for t in re.split(r'(\.\.\.|[,:.?!¿¡]|\*[^*]+\*)', L['texto']) if t and t.strip()]
+    partes = []
+    for t in trozos:
+        if t in PAUSA: partes.append(np.zeros(int(PAUSA[t]*SR), np.float32)); continue
+        fuerte = t.startswith('*')
+        txt = t.strip('* ')
+        if not re.search(r'\w', txt): continue
+        rate = suma(suma(r0, r, '%'), '-10%' if fuerte else '+0%', '%')
+        pitch = suma(suma(p0, p, 'Hz'), '+6Hz' if fuerte else '+0Hz', 'Hz')
+        vol = suma(v, '+15%' if fuerte else '+0%', '%')
+        ruta = os.path.join(CARPETA, '.voz', f'{i:02d}-{len(partes)}')
+        async def uno():
+            await edge_tts.Communicate(txt, voz, rate=rate, pitch=pitch, volume=vol).save(ruta + '.mp3')
+        asyncio.run(uno()); a_wav(ruta + '.mp3', ruta + '.wav')
+        x = recorta(leer_wav(ruta + '.wav')) * (1.0 if fuerte else 0.92)
+        partes.append(x); partes.append(np.zeros(int(0.03*SR), np.float32))
+    return np.concatenate(partes)
+
+def en_palabras(t):
+    """La voz lee los números en palabras (en cifras, Qwen los decía con acento inglés). El subtítulo sigue con cifras."""
+    from num2words import num2words
+    return re.sub(r'\d+(?:\.\d{3})*', lambda m: num2words(int(m.group(0).replace('.', '')), lang='es'), t)
+
+ACENTO = ' Habla en español latinoamericano neutro, con pronunciación nativa (nada de acento inglés).'
+
+MODELO = None
+def qwen_linea(L, i):
+    global MODELO
+    import mlx.core as mx
+    if MODELO is None:
+        from mlx_audio.tts.utils import load_model
+        MODELO = load_model('mlx-community/Qwen3-TTS-12Hz-1.7B-VoiceDesign-5bit')
+    texto = en_palabras(L['texto'].replace('*', ''))
+    fuertes = re.findall(r'\*([^*]+)\*', L['texto'])
+    instr = VOZ_QWEN[L['quien']] + '.' + ACENTO + ' Habla ' + EMO[L['emo']][3] + '.' + (f' Pone mucha fuerza en «{", ".join(fuertes)}».' if fuertes else '') + ' Respeta las pausas de los puntos suspensivos.'
+    mx.random.seed(7 + i)
+    trozos = [np.array(r.audio, dtype=np.float32) for r in MODELO.generate(text=texto, instruct=instr, lang_code='spanish', temperature=0.8)]
+    return recorta(np.concatenate(trozos))
+
+def tiempos_palabras(y, lineas):
+    """Whisper da los tiempos; las palabras del guion se reparten contando, línea por línea."""
+    tmp = os.path.join(CARPETA, '.voz', 'todo.wav'); escribir(tmp, y)
+    r = subprocess.run(['/opt/homebrew/bin/python3', '-c', f'''
+import json, mlx_whisper
+r = mlx_whisper.transcribe({tmp!r}, path_or_hf_repo="mlx-community/whisper-small-mlx", language="es", word_timestamps=True)
+print(json.dumps([[w["start"], w["end"]] for s in r["segments"] for w in s["words"]]))'''], capture_output=True, text=True)
+    W = json.loads(r.stdout.strip().splitlines()[-1])
+    for L in lineas:
+        tok = L['texto'].replace('*', '').split()
+        dentro = [w for w in W if w[0] >= L['ini'] - 0.15 and w[1] <= L['fin'] + 0.15]
+        if not dentro: dentro = [[L['ini'], L['fin']]]
+        # reparto proporcional: la palabra k del guion toma la palabra de Whisper en la misma fracción
+        L['palabras'] = []
+        for k, t in enumerate(tok):
+            j = min(len(dentro)-1, int(k * len(dentro) / len(tok)))
+            a = dentro[j][0] if len(dentro) >= len(tok) else L['ini'] + (L['fin']-L['ini']) * k / len(tok)
+            f = dentro[j][1] if len(dentro) >= len(tok) else L['ini'] + (L['fin']-L['ini']) * (k+1) / len(tok)
+            L['palabras'].append(dict(p=t, a=round(a, 3), f=round(f, 3)))
+
+def escribir(p, y):
+    with wave.open(p, 'wb') as w:
+        w.setnchannels(1); w.setsampwidth(2); w.setframerate(SR); w.writeframes((np.clip(y, -1, 1)*32767).astype(np.int16).tobytes())
+
+def main():
+    os.makedirs(os.path.join(CARPETA, '.voz'), exist_ok=True)
+    lineas, pista, t = leer(), [], 0.0
+    for i, L in enumerate(lineas):
+        x = edge_linea(L, i) if MOTOR == 'edge' else qwen_linea(L, i)
+        x = x / max(1e-6, np.sqrt(np.mean(x[np.abs(x) > 0.01]**2))) * 0.12  # cada línea al mismo nivel
+        gap = 0.45 if L['emo'] in ('misterio', 'cierre', 'resignado') else 0.22
+        L.update(ini=round(t, 3), fin=round(t + len(x)/SR, 3))
+        pista += [x, np.zeros(int(gap*SR), np.float32)]; t += len(x)/SR + gap
+        print(f'· {i+1}/{len(lineas)} {L["quien"]} [{L["emo"]}] {len(x)/SR:.1f}s', flush=True)
+    y = np.concatenate(pista); y = y / max(1e-6, np.abs(y).max()) * 0.89
+    escribir(os.path.join(CARPETA, f'voz-{MOTOR}.wav'), y)
+    tiempos_palabras(y, lineas)
+    hop = SR // FPS; n = int(len(y)/SR*FPS)+1
+    rms = np.array([np.sqrt(np.mean(y[i*hop:(i+1)*hop]**2)) if i*hop < len(y) else 0 for i in range(n)])
+    boca = np.clip(rms / np.percentile(rms[rms > 0.01], 90), 0, 1)
+    json.dump(dict(fps=FPS, dura=round(len(y)/SR + 1.2, 3), lineas=lineas, boca=[round(float(v), 2) for v in boca]),
+              open(os.path.join(CARPETA, f'tiempos-{MOTOR}.json'), 'w'), ensure_ascii=False)
+    print('listo', MOTOR, round(len(y)/SR, 1), 's')
+main()

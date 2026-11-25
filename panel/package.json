@@ -1,0 +1,22 @@
+{
+  "name": "cuenta-panel",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3210",
+    "build": "next build",
+    "start": "next start",
+    "db": "node scripts/base.mjs",
+    "programar": "node scripts/programar.mjs",
+    "cola": "node scripts/programar.mjs --cola",
+    "estado": "node scripts/base.mjs estado",
+    "numeros": "node -e \"import('./scripts/panel.mjs').then(async m=>console.log(JSON.stringify(await m.panel('/api/cron/estadisticas'),null,1)))\""
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.119.2",
+    "@vercel/blob": "^2.9.0",
+    "next": "^15.5.29",
+    "pg": "^8.23.1",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  }
+}

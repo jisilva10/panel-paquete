@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="vendor/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Lilita"; src: url("fuentes/LilitaOne-Regular.ttf"); }
+      @font-face { font-family: "Rye"; src: url("fuentes/Rye-Regular.ttf"); }
+      @font-face { font-family: "Bagel"; src: url("fuentes/BagelFatOne-Regular.ttf"); }
+      html, body { margin: 0; background: #8cc6e8; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #8cc6e8; }
+      canvas { position: absolute; inset: 0; }
+      .pre { position: absolute; left: -999px; font-size: 10px; }
+    </style>
+  </head>
+  <body>
+    <div class="pre" style="font-family: Lilita">a</div><div class="pre" style="font-family: Rye">a</div><div class="pre" style="font-family: Bagel">a</div>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="__DURA__" data-width="1080" data-height="1920">
+      <canvas id="lienzo" class="clip" width="1080" height="1920" data-start="0" data-duration="__DURA__" data-track-index="1"></canvas>
+      <audio id="mezcla" src="mezcla.wav" data-start="0" data-duration="__DURA__" data-track-index="30" data-volume="1"></audio>
+    </div>
+    <script>
+      const T = __TIEMPOS__;
+      // ================= utilidades =================
+      const cl = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+      const prog = (t, a, b) => cl((t - a) / (b - a));
+      const eOut = (x) => 1 - Math.pow(1 - x, 3);
+      const eIO = (x) => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2);
+      const eBack = (x) => { const c = 1.9; return x <= 0 ? 0 : 1 + (c + 1) * Math.pow(x - 1, 3) + c * Math.pow(x - 1, 2); };
+      const lerp = (a, b, k) => a + (b - a) * k;
+      const INK = "#2b1e2e", PAPEL = "#fff8ea";
+      function rnd(s) { s = Math.sin(s * 127.1 + 311.7) * 43758.5453; return s - Math.floor(s); }
+      // cada cosa se ata a una PALABRA del guion, no a un segundo: sirve igual con cualquier voz
+      const norm = (s) => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]/g, "");
+      const PAL = T.lineas.flatMap((l) => l.palabras.map((w) => ({ ...w, n: norm(w.p) })));
+      function W(p, k = 1) { const n = norm(p); let c = 0; for (const w of PAL) if (w.n === n && ++c === k) return w.a; throw new Error("falta la palabra " + p + " #" + k); }
+      const LINEA = (q, k = 1) => T.lineas.filter((l) => l.quien === q)[k - 1];
+      const boca = (t, q) => { const l = T.lineas.find((l) => t >= l.ini && t <= l.fin); return l && l.quien === q ? T.boca[Math.min(T.boca.length - 1, Math.round(t * T.fps))] || 0 : 0; };
+
+      // recorte de papel: dibuja aparte, borde blanco y sombra
+      const capas = {};
+      function recorte(ctx, id, w, h, ox, oy, dibujar, x, y, rot = 0, esc = 1, fx = 1) {
+        let c = capas[id];
+        if (!c) { c = capas[id] = { a: document.createElement("canvas"), b: document.createElement("canvas") }; c.a.width = c.b.width = w; c.a.height = c.b.height = h; }
+        const a = c.a.getContext("2d"), b = c.b.getContext("2d");
+        a.clearRect(0, 0, w, h); a.save(); a.translate(ox, oy); a.lineJoin = a.lineCap = "round"; dibujar(a); a.restore();
+        b.globalCompositeOperation = "source-over"; b.clearRect(0, 0, w, h); b.drawImage(c.a, 0, 0);
+        b.globalCompositeOperation = "source-in"; b.fillStyle = PAPEL; b.fillRect(0, 0, w, h);
+        ctx.save(); ctx.translate(x, y); ctx.rotate(rot); ctx.scale(esc * fx, esc); ctx.translate(-ox, -oy);
+        ctx.shadowColor = "rgba(40,20,10,.35)"; ctx.shadowBlur = 20; ctx.shadowOffsetX = 8; ctx.shadowOffsetY = 14;
+        ctx.drawImage(c.b, 0, 0); ctx.shadowColor = "transparent";
+        for (let k = 0; k < 12; k++) { const an = (k / 12) * Math.PI * 2; ctx.drawImage(c.b, Math.cos(an) * 8, Math.sin(an) * 8); }
+        ctx.drawImage(c.a, 0, 0); ctx.restore();
+      }
+      function forma(g, fill, path, lw = 5) { g.beginPath(); path(g); g.fillStyle = fill; g.fill(); g.lineWidth = lw; g.strokeStyle = INK; g.stroke(); }
+      function palito(g, x, y, rot = 0, largo = 520) { g.save(); g.translate(x, y); g.rotate(rot); forma(g, "#8a5a32", (p) => p.roundRect(-10, 0, 20, largo, 8), 4); g.restore(); }
+
+      // ================= el mundo: un solo campo de trigo, la cámara viaja =================
+      const GY = 1250;                       // la tierra
+      const GRANJA = 520, CAMPO = 1950, FOTO_X = 2330, CAM_X = 2680, BATALLA = 3600, VIGIA = 4170;
+      const CLIP_DISPARO = [], CLIP_MANADA = [];
+      for (let i = 1; i <= 106; i++) { const im = new Image(); im.src = `clips/disparo/${String(i).padStart(3, "0")}.jpg`; CLIP_DISPARO.push(im); }
+      for (let i = 1; i <= 120; i++) { const im = new Image(); im.src = `clips/manada/${String(i).padStart(3, "0")}.jpg`; CLIP_MANADA.push(im); }
+      const FOTO = new Image(); FOTO.src = "fotos/ametralladora.jpg";
+
+      // momentos (salen de las palabras)
+      const M = {};
+      function momentos() {
+        M.emus = W("emus", 1); M.comiendo = W("comiendo"); M.granjeros = W("granjeros");
+        M.ejercito = W("ejercito", 1); M.mayor = W("mayor", 1); M.soldados = W("soldados"); M.armas = W("ametralladoras", 1);
+        M.real = W("real"); M.camara = W("camara"); M.filmar = W("filmar");
+        M.grupitos = W("grupitos"); M.corriendo = W("corriendo"); M.dias = W("dias");
+        M.mil = W("mil", 2); M.apuntaron = W("apuntaron"); M.trabo = W("trabo");
+        M.vigia = W("vigia"); M.enorme = W("enorme"); M.emuHabla = LINEA("EMU").ini;
+        M.rindio = W("rindio"); M.dijo = W("dijo"); M.cita = LINEA("MAYOR").ini; M.citaFin = LINEA("MAYOR").fin;
+        M.hoy = W("hoy"); M.seiscientos = W("seiscientos"); M.nunca = W("nunca"); M.fin = T.dura;
+        // el visor de la cámara de 1932: primero lo que filmaron (disparo), después la manada que se va
+        M.visorIn = M.filmar + 0.15; M.corte = Math.max(M.visorIn + 2.6, M.grupitos - 0.9); M.visorOut = Math.max(M.corte + 2.6, M.dias - 0.1);
+      }
+
+      // ---------- la cámara ----------
+      function camara(t) {
+        const K = [
+          [0, GRANJA + 60, 860, 1.0],
+          [M.emus - 0.6, GRANJA + 60, 760, 0.86],
+          [M.comiendo - 0.3, GRANJA, 930, 1.12],
+          [M.ejercito - 0.1, GRANJA, 930, 1.12],
+          [M.mayor, CAMPO, 900, 1.0],
+          [M.armas + 0.4, CAMPO, 930, 1.06],
+          [M.real - 0.2, CAMPO + 120, 920, 1.0],
+          [M.real + 0.5, FOTO_X + 80, 900, 1.08],
+          [M.camara + 0.2, FOTO_X + 230, 900, 0.98],
+          [M.filmar - 0.1, CAM_X + 40, 930, 1.05],
+          [M.visorIn + 0.45, CAM_X + 182, 1040, 5.0],          // se mete en el visor
+          [M.visorIn + 0.46, BATALLA, 900, 1.0],              // (detrás del visor ya estamos en la batalla)
+          [M.apuntaron - 0.2, BATALLA - 120, 930, 1.12],
+          [M.trabo + 0.6, BATALLA - 160, 940, 1.22],
+          [M.vigia - 0.2, BATALLA + 200, 880, 0.96],
+          [M.enorme + 0.2, VIGIA - 60, 760, 0.92],
+          [M.emuHabla + 0.3, VIGIA - 40, 700, 1.08],
+          [M.rindio - 0.3, BATALLA - 120, 920, 1.05],
+          [M.dijo, BATALLA - 220, 880, 1.25],
+          [M.cita + 0.4, BATALLA - 300, 780, 1.55],
+          [M.hoy + 0.2, BATALLA - 300, 780, 1.55],
+          [M.seiscientos - 0.2, 2150, 1000, 0.42],
+          [M.nunca - 0.3, 2150, 1000, 0.42],
+          [M.nunca + 0.6, CAMPO + 40, 900, 1.12],
+          [M.fin, CAMPO + 40, 880, 1.18],
+        ];
+        let i = 0; while (i < K.length - 1 && t > K[i + 1][0]) i++;
+        const a = K[i], b = K[Math.min(i + 1, K.length - 1)];
+        // cada tramo tarda a lo más 1,1 s en moverse y luego se queda
+        const dur = Math.min(1.1, Math.max(0.01, b[0] - a[0]));
+        const k = b === a ? 0 : eIO(prog(t, b[0] - dur, b[0]));
+        let x = lerp(a[1], b[1], k), y = lerp(a[2], b[2], k), z = Math.exp(lerp(Math.log(a[3]), Math.log(b[3]), k));
+        z *= 1.25;
+        // respiración lenta + sacudida cuando se traba
+        x += Math.sin(t * 0.5) * 6; y += Math.cos(t * 0.4) * 4;
+        const sac = prog(t, M.trabo, M.trabo + 0.05) * (1 - prog(t, M.trabo + 0.05, M.trabo + 0.5));
+        x += Math.sin(t * 90) * 14 * sac; y += Math.cos(t * 77) * 10 * sac;
+        return { x, y, z };
+      }
+
+      // ---------- el fondo ----------
+      function cielo(g, cam) {
+        const gr = g.createLinearGradient(0, 0, 0, 1920); gr.addColorStop(0, "#7fbbe3"); gr.addColorStop(0.55, "#cfe6ee"); gr.addColorStop(1, "#f6e2ab");
+        g.fillStyle = gr; g.fillRect(0, 0, 1080, 1920);
+        // sol y nubes de papel, casi quietos (parallax 0.1)
+        g.save(); g.translate(-cam.x * 0.08, 0);
+        recorte(g, "sol", 240, 240, 120, 120, (c) => forma(c, "#ffcf4a", (p) => p.arc(0, 0, 80, 0, 7)), 860, 300);
+        for (const [x, y, s] of [[200, 420, 1], [1100, 260, 0.8], [1700, 380, 1.1], [2500, 300, 0.9]])
+          recorte(g, "nube" + x, 420, 200, 210, 100, (c) => forma(c, "#fffdf6", (p) => { p.ellipse(-70, 10, 90, 50, 0, 0, 7); p.ellipse(30, -10, 110, 62, 0, 0, 7); p.ellipse(120, 18, 70, 42, 0, 0, 7); }, 3), x, y, 0, s);
+        g.restore();
+      }
+      function colinas(g, t, cam) {
+        // capa lejana, a media velocidad: aquí viven los «veinte mil» en el horizonte
+        g.save(); g.setTransform(cam.z, 0, 0, cam.z, 540 - cam.x * 0.55 * cam.z, 960 - cam.y * cam.z);
+        g.fillStyle = "#c9b06a"; g.strokeStyle = INK; g.lineWidth = 4;
+        g.beginPath(); g.moveTo(-1500, GY - 120); for (let x = -1500; x <= 4500; x += 60) g.lineTo(x, GY - 150 - Math.sin(x * 0.004) * 50 - Math.sin(x * 0.011) * 18); g.lineTo(4500, GY + 2000); g.lineTo(-1500, GY + 2000); g.closePath(); g.fill(); g.stroke();
+        // horizonte lleno de emús: aparecen en ola con «emús», y al final muchos más
+        const n1 = 46;
+        for (let i = 0; i < n1; i++) {
+          const x = -380 + i * 34 + rnd(i) * 20, a = M.emus + i * 0.018;
+          const k = eBack(prog(t, a, a + 0.25)); if (k <= 0) continue;
+          const y = GY - 150 - Math.sin(x * 0.004) * 50 - Math.sin(x * 0.011) * 18;
+          emuSilueta(g, x, y + 4, 0.38 * k, rnd(i + 3) > 0.5 ? 1 : -1);
+        }
+        g.restore();
+      }
+      function emuSilueta(g, x, y, s, f = 1) {
+        g.save(); g.translate(x, y); g.scale(s * f, s);
+        g.lineWidth = 9; g.strokeStyle = PAPEL; g.fillStyle = "#4a3e3a";
+        const p = () => { g.beginPath(); g.ellipse(0, -70, 50, 36, 0, 0, 7); g.moveTo(-28, -88); g.quadraticCurveTo(-44, -150, -28, -190); g.lineTo(-12, -186); g.quadraticCurveTo(-26, -150, -10, -96); g.moveTo(-34, -196); g.ellipse(-26, -196, 16, 13, 0, 0, 7); g.moveTo(-12, -40); g.lineTo(-18, 0); g.moveTo(14, -40); g.lineTo(20, 0); };
+        p(); g.stroke(); g.lineWidth = 4; g.strokeStyle = INK; p(); g.fill(); g.stroke();
+        g.restore();
+      }
+      function campo(g, t) {
+        // la tierra de trigo, a lo largo de todo el mundo
+        g.fillStyle = "#dcae4a"; g.fillRect(-1500, GY - 40, 7000, 4000);
+        g.strokeStyle = INK; g.lineWidth = 5; g.beginPath(); g.moveTo(-1500, GY - 40); for (let x = -1500; x <= 5500; x += 80) g.lineTo(x, GY - 40 + Math.sin(x * 0.01) * 8); g.stroke();
+        g.strokeStyle = "#b3832a"; g.lineWidth = 4;
+        for (let i = 0; i < 160; i++) { const x = -1400 + i * 42 + rnd(i) * 20, y = GY + rnd(i + 7) * 90; g.beginPath(); g.moveTo(x, y + 50); g.lineTo(x + 5, y); g.stroke(); }
+      }
+      function trigoDelante(g, t) {
+        // franja de espigas delante de todo: esconde los palitos de los títeres
+        for (let i = 0; i < 150; i++) {
+          const x = -1400 + i * 46 + rnd(i * 3) * 30, base = GY + 175 + rnd(i + 1) * 40;
+          // en la granja los emús se comen el trigo: las espigas cerca bajan
+          let alto = 150 + rnd(i + 5) * 60;
+          if (x > GRANJA - 380 && x < GRANJA + 260) alto *= 1 - 0.75 * eOut(prog(t, M.comiendo + (x - GRANJA + 380) / 900, M.comiendo + 0.6 + (x - GRANJA + 380) / 900));
+          g.save(); g.translate(x, base); g.rotate(Math.sin(t * 1.2 + i) * 0.03);
+          forma(g, "#e8bd58", (p) => { p.moveTo(-10, 0); p.lineTo(-6, -alto); p.quadraticCurveTo(0, -alto - 46, 6, -alto); p.lineTo(10, 0); p.closePath(); }, 3);
+          g.restore();
+        }
+        g.fillStyle = "#c99a3c"; g.fillRect(-1500, GY + 170, 7000, 4000);
+        g.strokeStyle = INK; g.lineWidth = 5; g.beginPath(); g.moveTo(-1500, GY + 170); g.lineTo(5500, GY + 170); g.stroke();
+      }
+
+      // ---------- la granja ----------
+      function granja(g, t) {
+        recorte(g, "casa", 520, 460, 260, 420, (c) => {
+          forma(c, "#c9573f", (p) => { p.moveTo(-230, -260); p.lineTo(0, -400); p.lineTo(230, -260); p.closePath(); });
+          forma(c, "#f0d9a6", (p) => p.rect(-200, -262, 400, 262));
+          forma(c, "#7a4a2b", (p) => p.rect(40, -160, 90, 160));
+          forma(c, "#ffd45c", (p) => p.rect(-150, -200, 100, 80));
+          forma(c, "#9aa3a8", (p) => { p.moveTo(-200, -262); p.lineTo(-230, -262); p.lineTo(-230, -330); p.lineTo(-200, -330); p.closePath(); });
+        }, GRANJA - 330, GY - 20, 0, 0.9);
+        // el cartel del año se levanta del suelo
+        const k = eBack(prog(t, 0.0, 0.45));
+        recorte(g, "ano", 620, 420, 310, 400, (c) => {
+          forma(c, "#8a5a32", (p) => p.rect(-14, -170, 28, 170));
+          forma(c, "#fff3d6", (p) => p.roundRect(-270, -380, 540, 230, 22));
+          c.textAlign = "center"; c.textBaseline = "middle"; c.font = "48px Lilita"; c.fillStyle = INK; c.fillText("AUSTRALIA", 0, -330);
+          c.font = "124px Bagel"; c.fillStyle = "#b3262f"; c.fillText("1932", 0, -232);
+        }, GRANJA + 250, GY + 30, 0, 1, 1);
+        if (k < 1) { /* el levantarse se hace aplastando en vertical */ }
+        // el granjero (sin nombre) aparece con «comiendo» y se enoja con «granjeros»
+        const sube = eBack(prog(t, M.comiendo - 0.2, M.comiendo + 0.3));
+        if (sube > 0) {
+          const enojo = prog(t, M.granjeros - 0.3, M.granjeros);
+          const x = GRANJA + 230, y = GY + 150 + (1 - Math.min(1, sube)) * 700 - Math.abs(Math.sin(t * 15)) * 18 * enojo;
+          palito(g, x, y - 40);
+          recorte(g, "granjero", 560, 820, 280, 760, (c) => persona(c, { cara: enojo > 0.5 ? "#ef9a7a" : "#f1c49b", ropa: "#5e7fb0", sombrero: "paja", ceño: enojo, boca: 0.3 * enojo + 0.25 * Math.abs(Math.sin(t * 10)) * enojo, bigote: false, puño: enojo }), x, y, Math.sin(t * 20) * 0.03 * enojo, 1.05);
+        }
+        // tres emús comiendo delante de la casa
+        for (const [i, dx] of [[0, -250], [1, -80], [2, 90]]) {
+          const a = M.comiendo - 0.4 + i * 0.15, s = eBack(prog(t, a, a + 0.4)); if (s <= 0) continue;
+          const pica = Math.max(0, Math.sin(t * 7 + i * 2));
+          const x = GRANJA + dx - 120, y = GY + 170 + (1 - Math.min(1, s)) * 700;
+          palito(g, x, y - 40);
+          recorte(g, "emuG" + i, 420, 900, 210, 820, (c) => emu(c, { picar: pica }), x, y, 0, 0.62, i === 1 ? -1 : 1);
+        }
+      }
+      // persona de papel genérica (granjero, soldados, el mayor)
+      function persona(c, o) {
+        forma(c, o.ropa, (p) => { p.moveTo(-120, 0); p.lineTo(-96, -265); p.quadraticCurveTo(0, -300, 96, -265); p.lineTo(120, 0); p.closePath(); });
+        if (o.botones) for (const s of [-1, 1]) forma(c, "#c9a24a", (p) => p.arc(s * 38, -200, 10, 0, 7), 3);
+        if (o.puño) { c.save(); c.translate(120, -230); c.rotate(-1.2 + Math.sin(Date.now() * 0) * 0); forma(c, o.ropa, (p) => p.roundRect(-20, -120 * o.puño, 40, 130 * o.puño, 16)); forma(c, o.cara, (p) => p.arc(0, -125 * o.puño, 30, 0, 7)); c.restore(); }
+        forma(c, o.cara, (p) => p.ellipse(0, -400, 120, 130, 0, 0, 7));
+        if (o.sombrero === "paja") {
+          forma(c, "#e9c46a", (p) => p.ellipse(0, -478, 185, 36, 0, 0, 7));
+          forma(c, "#e9c46a", (p) => { p.moveTo(-100, -478); p.quadraticCurveTo(-90, -590, 0, -590); p.quadraticCurveTo(90, -590, 100, -478); p.closePath(); });
+          forma(c, "#b3262f", (p) => p.rect(-102, -510, 204, 22), 3);
+        } else if (o.sombrero === "militar") {
+          forma(c, "#6e5a35", (p) => p.ellipse(0, -480, 190, 40, 0, 0, 7));
+          forma(c, "#7d6840", (p) => { p.moveTo(-108, -480); p.quadraticCurveTo(-100, -600, 0, -600); p.quadraticCurveTo(100, -600, 108, -480); p.closePath(); });
+          forma(c, "#3b2d1c", (p) => p.rect(-110, -510, 220, 26), 3);
+          forma(c, "#7d6840", (p) => { p.moveTo(108, -490); p.quadraticCurveTo(170, -560, 160, -600); p.quadraticCurveTo(120, -540, 70, -500); p.closePath(); });
+        }
+        const sorpresa = o.sorpresa || 0, triste = o.triste || 0;
+        for (const s of [-1, 1]) {
+          forma(c, "#fff", (p) => p.ellipse(s * 44, -420, 27 + sorpresa * 9, (triste ? 18 : 29) + sorpresa * 12, 0, 0, 7), 4);
+          c.fillStyle = INK; c.beginPath(); c.arc(s * 44 + (o.mira || 0) * 8, triste ? -414 : -418, 12 - sorpresa * 3, 0, 7); c.fill();
+        }
+        if (o.ceño) { c.lineWidth = 10; for (const s of [-1, 1]) { c.beginPath(); c.moveTo(s * 82, -470 + 6 * (1 - o.ceño)); c.lineTo(s * 16, -450 + 10 * (1 - o.ceño) - 14 * o.ceño * 0); c.stroke(); } }
+        if (triste) { c.lineWidth = 9; for (const s of [-1, 1]) { c.beginPath(); c.moveTo(s * 80, -448); c.lineTo(s * 16, -468); c.stroke(); } forma(c, "#9fd3f0", (p) => { p.moveTo(104, -470); p.quadraticCurveTo(124, -432, 104, -420); p.quadraticCurveTo(84, -432, 104, -470); }, 3); }
+        forma(c, "#e49a72", (p) => p.ellipse(0, -362, 32, 27, 0, 0, 7));
+        const ab = 8 + (o.boca || 0) * 60 + sorpresa * 30;
+        forma(c, "#5a1a22", (p) => p.ellipse(0, -300 + ab * 0.25, 42, ab * 0.5, 0, 0, 7));
+        if (o.bigote) forma(c, o.bigote, (p) => { p.moveTo(0, -336); p.bezierCurveTo(-70, -368, -130, -318, -120, -288); p.bezierCurveTo(-80, -316, -40, -312, 0, -320); p.bezierCurveTo(40, -312, 80, -316, 120, -288); p.bezierCurveTo(130, -318, 70, -368, 0, -336); });
+      }
+      function emu(c, o = {}) {
+        const pica = o.picar || 0, habla = o.habla || 0;
+        forma(c, "#5b4c45", (p) => p.ellipse(0, -170, 140, 118, 0, 0, 7));
+        c.strokeStyle = "#3a2f2b"; c.lineWidth = 5; for (let k = 0; k < 9; k++) { const a = -2.6 + k * 0.5; c.beginPath(); c.moveTo(Math.cos(a) * 60, -170 + Math.sin(a) * 50); c.quadraticCurveTo(Math.cos(a) * 110, -150 + Math.sin(a) * 80, Math.cos(a) * 125, -120 + Math.sin(a) * 95); c.stroke(); }
+        c.save(); c.translate(-60, -250); c.rotate(-pica * 0.9);
+        forma(c, "#7d8fa6", (p) => { p.moveTo(-10, 0); p.quadraticCurveTo(-50, -200, 0, -330); p.lineTo(50, -325); p.quadraticCurveTo(10, -190, 50, 10); p.closePath(); });
+        c.translate(25, -350);
+        forma(c, "#5b4c45", (p) => p.ellipse(0, 0, 54, 46, 0, 0, 7));
+        forma(c, "#fff", (p) => p.arc(-20, -12, 18, 0, 7), 3); c.fillStyle = "#c4541f"; c.beginPath(); c.arc(-23, -12, 10, 0, 7); c.fill(); c.fillStyle = INK; c.beginPath(); c.arc(-24, -12, 4, 0, 7); c.fill();
+        if (o.ceja) { c.lineWidth = 7; c.beginPath(); c.moveTo(-46, -40); c.lineTo(-2, -30); c.stroke(); }
+        forma(c, "#3a3330", (p) => { p.moveTo(-46, -4); p.lineTo(-104, 10); p.lineTo(-46, 18); p.closePath(); }, 4);
+        c.save(); c.translate(-46, 16); c.rotate(-habla * 0.7); forma(c, "#3a3330", (p) => { p.moveTo(0, 0); p.lineTo(-52, 4); p.lineTo(0, 14); p.closePath(); }, 4); c.restore();
+        if (o.sombrero) { forma(c, "#6e5a35", (p) => p.ellipse(10, -44, 90, 20, 0, 0, 7)); forma(c, "#7d6840", (p) => { p.moveTo(-40, -44); p.quadraticCurveTo(-36, -100, 10, -100); p.quadraticCurveTo(56, -100, 60, -44); p.closePath(); }); forma(c, "#3b2d1c", (p) => p.rect(-42, -58, 104, 14), 3); }
+        c.restore();
+      }
+      function ametralladora(c) {
+        forma(c, "#2f3236", (p) => p.roundRect(-150, -26, 300, 52, 14));
+        forma(c, "#4a4f55", (p) => p.roundRect(-90, -64, 110, 40, 10));
+        forma(c, "#2f3236", (p) => p.rect(140, -12, 70, 24));
+        forma(c, "#5b4532", (p) => { p.moveTo(-150, -10); p.lineTo(-230, 20); p.lineTo(-220, 50); p.lineTo(-150, 24); p.closePath(); });
+      }
+
+      // ---------- el campamento ----------
+      function campamento(g, t) {
+        recorte(g, "carpa", 640, 520, 320, 480, (c) => {
+          forma(c, "#9b8a5a", (p) => { p.moveTo(-280, 0); p.lineTo(0, -330); p.lineTo(280, 0); p.closePath(); });
+          forma(c, "#3b2d1c", (p) => { p.moveTo(-60, 0); p.lineTo(0, -200); p.lineTo(60, 0); p.closePath(); });
+          forma(c, "#8a5a32", (p) => p.rect(-6, -440, 12, 120), 3);
+          forma(c, "#1f3f8a", (p) => p.rect(6, -440, 110, 66), 4);
+          c.fillStyle = "#c62b35"; c.fillRect(14, -432, 40, 26); c.strokeStyle = PAPEL; c.lineWidth = 5; c.beginPath(); c.moveTo(14, -432); c.lineTo(54, -406); c.moveTo(54, -432); c.lineTo(14, -406); c.stroke();
+        }, CAMPO + 60, GY - 10, 0, 1);
+        const fin = t > M.nunca - 0.3; // al final el campamento está vacío
+        // el mayor
+        const subeM = eBack(prog(t, M.mayor - 0.25, M.mayor + 0.25));
+        if (subeM > 0 && !fin && t < M.visorIn + 0.5) {
+          const x = CAMPO - 260, y = GY + 160 + (1 - Math.min(1, subeM)) * 760;
+          palito(g, x, y - 40);
+          recorte(g, "mayorC", 600, 820, 300, 760, (c) => persona(c, { cara: "#f1c49b", ropa: "#7d7046", sombrero: "militar", bigote: "#d8d2c4", botones: true, boca: 0 }), x, y, Math.sin(t * 1.3) * 0.03, 1.05);
+        }
+        // dos soldados, uno y otro
+        for (const i of [0, 1]) {
+          const a = M.soldados - 0.25 + i * 0.3, s = eBack(prog(t, a, a + 0.4)); if (s <= 0 || fin || t > M.visorIn + 0.5) continue;
+          const x = CAMPO - 40 + i * 190, y = GY + 170 + (1 - Math.min(1, s)) * 760;
+          palito(g, x, y - 40);
+          recorte(g, "soldC" + i, 600, 820, 300, 760, (c) => persona(c, { cara: i ? "#e2b088" : "#f1c49b", ropa: "#8b7a4a", sombrero: "militar", boca: 0 }), x, y, Math.sin(t * 1.4 + i) * 0.03, 0.86);
+        }
+        // dos ametralladoras que caen al suelo
+        for (const i of [0, 1]) {
+          const a = M.armas - 0.15 + i * 0.25, k = eBack(prog(t, a, a + 0.35)); if (k <= 0) continue;
+          const x = CAMPO - 200 + i * 300, y = GY + 230 - (1 - Math.min(1, k)) * 900;
+          recorte(g, "armaC" + i, 520, 200, 260, 100, (c) => ametralladora(c), x, y, -0.05 + i * 0.08, 0.9);
+        }
+        // final: un emú con el sombrero del mayor, al lado de las armas
+        const kf = eBack(prog(t, M.nunca - 0.2, M.nunca + 0.3));
+        if (kf > 0) { const x = CAMPO + 10, y = GY + 175 + (1 - Math.min(1, kf)) * 800; palito(g, x, y - 40); recorte(g, "emuJefe", 420, 900, 210, 820, (c) => emu(c, { sombrero: true }), x, y, Math.sin(t * 2) * 0.04, 0.95); }
+      }
+
+      // ---------- la foto real y la cámara de 1932 ----------
+      function fotoReal(g, t) {
+        const k = eBack(prog(t, M.real - 0.15, M.real + 0.35)); if (k <= 0 || t > M.visorIn + 0.5) return;
+        const W0 = 560, H0 = Math.round(W0 * FOTO.height / FOTO.width);
+        recorte(g, "foto", W0 + 120, H0 + 420, (W0 + 120) / 2, H0 + 330, (c) => {
+          forma(c, "#8a5a32", (p) => p.rect(-14, -40, 28, 300));
+          c.save(); c.translate(0, -40); c.rotate(-0.03);
+          forma(c, "#f6efe0", (p) => p.rect(-W0 / 2 - 22, -H0 - 96, W0 + 44, H0 + 96 + 10), 3);
+          c.drawImage(FOTO, -W0 / 2, -H0 - 74, W0, H0); c.lineWidth = 3; c.strokeStyle = INK; c.strokeRect(-W0 / 2, -H0 - 74, W0, H0);
+          c.font = "30px Lilita"; c.textAlign = "center"; c.fillStyle = "#6b5a52"; c.fillText("Foto: Wikimedia Commons · 1932", 0, -26);
+          c.fillStyle = "rgba(240,226,180,.9)"; for (const s of [-1, 1]) { c.save(); c.translate(s * (W0 / 2 - 24), -H0 - 92); c.rotate(s * 0.5); c.fillRect(-56, -16, 112, 32); c.restore(); }
+          c.restore();
+        }, FOTO_X, GY + 120, 0, 1, 1);
+        // (la foto se levanta: la escala vertical crece con k)
+      }
+      function camaraVieja(g, t) {
+        const k = eBack(prog(t, M.camara - 0.2, M.camara + 0.3)); if (k <= 0 || t > M.visorIn + 0.5) return;
+        const y = GY + 140 + (1 - Math.min(1, k)) * 800;
+        recorte(g, "cam32", 520, 900, 260, 820, (c) => {
+          c.lineWidth = 12; c.strokeStyle = "#6b4a2b"; for (const a of [-0.25, 0, 0.25]) { c.beginPath(); c.moveTo(0, -360); c.lineTo(Math.sin(a) * 600, 0); c.stroke(); }
+          forma(c, "#3a3230", (p) => p.roundRect(-150, -560, 260, 200, 14));
+          for (const [x, y] of [[-80, -640], [50, -640]]) { forma(c, "#3a3230", (p) => p.arc(x, y, 66, 0, 7)); c.strokeStyle = "#8d8580"; c.lineWidth = 4; for (let r = 0; r < 3; r++) { c.beginPath(); c.arc(x, y, 18 + r * 15, 0, 7); c.stroke(); } }
+          forma(c, "#2a2422", (p) => p.rect(110, -500, 70, 80));
+          forma(c, "#9fd3f0", (p) => p.arc(182, -460, 30, 0, 7));
+          c.font = "28px Lilita"; c.fillStyle = PAPEL; c.textAlign = "center"; c.fillText("MOVIETONE", -20, -455);
+          forma(c, "#3a3230", (p) => { p.moveTo(-150, -520); p.lineTo(-200, -530); p.lineTo(-200, -490); p.lineTo(-150, -500); p.closePath(); });
+        }, CAM_X, y, 0, 1);
+      }
+      // el visor: lo que filmó la cámara de verdad (dos clips del noticiero)
+      function visor(g, t) {
+        const entra = eOut(prog(t, M.visorIn, M.visorIn + 0.45)), sale = eOut(prog(t, M.visorOut, M.visorOut + 0.5));
+        if (entra <= 0 || sale >= 1) return;
+        const manada = t >= M.corte;
+        const clip = manada ? CLIP_MANADA : CLIP_DISPARO, t0 = manada ? M.corte : M.visorIn;
+        const im = clip[Math.min(clip.length - 1, Math.floor((t - t0) * 30))];
+        g.save();
+        // iris: un círculo que se abre desde el lente; al salir, el visor se agranda y se desvanece
+        g.beginPath(); g.arc(540, 960, 30 + entra * 1150, 0, 7); g.clip();
+        g.globalAlpha = 1 - sale;
+        const s = 1 + 0.5 * sale;
+        g.translate(540, 860); g.scale(s, s);
+        g.fillStyle = "#15100f"; g.fillRect(-900, -1400, 1800, 2800);
+        const w = 1000, h = 750;
+        g.save(); g.beginPath(); g.roundRect(-w / 2, -h / 2, w, h, 40); g.clip();
+        if (im && im.complete) g.drawImage(im, -w / 2, -h / 2, w, h);
+        // grano de película y parpadeo
+        g.fillStyle = `rgba(255,240,210,${0.05 + 0.04 * rnd(Math.floor(t * 24))})`; g.fillRect(-w / 2, -h / 2, w, h);
+        g.restore();
+        g.lineWidth = 14; g.strokeStyle = PAPEL; g.beginPath(); g.roundRect(-w / 2, -h / 2, w, h, 40); g.stroke();
+        // marcas del visor
+        g.strokeStyle = "rgba(255,248,234,.8)"; g.lineWidth = 6;
+        for (const [sx, sy] of [[-1, -1], [1, -1], [-1, 1], [1, 1]]) { g.beginPath(); g.moveTo(sx * (w / 2 - 40), sy * (h / 2 - 90)); g.lineTo(sx * (w / 2 - 40), sy * (h / 2 - 40)); g.lineTo(sx * (w / 2 - 90), sy * (h / 2 - 40)); g.stroke(); }
+        g.font = "44px Lilita"; g.fillStyle = "#ffd23f"; g.textAlign = "center"; g.fillText(manada ? "LO QUE FILMARON" : "ESTO PASÓ DE VERDAD", 0, -h / 2 - 50);
+        g.font = "30px Lilita"; g.fillStyle = "rgba(255,248,234,.75)"; g.fillText("Video: British Movietone · AP Archive (1932)", 0, h / 2 + 56);
+        g.restore();
+      }
+
+      // ---------- la batalla ----------
+      function batalla(g, t) {
+        if (t < M.visorIn) return;
+        const rinde = prog(t, M.rindio - 0.2, M.rindio + 0.3);
+        const trabado = t > M.trabo;
+        const apunta = prog(t, M.apuntaron - 0.2, M.apuntaron + 0.2);
+        // la represa (un charco de papel)
+        recorte(g, "represa", 700, 200, 350, 100, (c) => forma(c, "#7fb9d6", (p) => p.ellipse(0, 0, 300, 50, 0, 0, 7)), BATALLA + 420, GY + 60, 0, 1);
+        // emús que vienen en ola con «mil» y huyen en grupitos tras «trabó»
+        const ola = prog(t, M.mil - 0.3, M.apuntaron + 0.3);
+        const huye = eOut(prog(t, M.trabo + 0.3, M.trabo + 1.4));
+        for (let i = 0; i < 9; i++) {
+          if (ola <= 0) break;
+          const fila = i % 3, grupo = Math.floor(i / 3);
+          let x = BATALLA + 900 - ola * 560 + grupo * 110 + fila * 40 + huye * (420 + grupo * 260) * (grupo === 1 ? 1 : 1);
+          let y = GY + 150 + fila * 12 - huye * grupo * 30;
+          const s = 0.42 + fila * 0.05;
+          const corre = Math.abs(Math.sin(t * 14 + i));
+          y -= corre * 18;
+          palito(g, x, y - 30, 0, 400);
+          recorte(g, "emuB" + i, 420, 900, 210, 820, (c) => emu(c, {}), x, y, Math.sin(t * 14 + i) * 0.08, s);
+        }
+        // el vigía: un emú enorme en la loma
+        const kv = eBack(prog(t, M.enorme - 0.3, M.enorme + 0.3));
+        if (kv > 0) {
+          const hb = boca(t, "EMU");
+          const x = VIGIA, y = GY + 190 + (1 - Math.min(1, kv)) * 1200 - Math.abs(Math.sin(t * 12)) * 30 * hb;
+          palito(g, x, y - 40, 0, 700);
+          recorte(g, "vigia", 420, 900, 210, 820, (c) => emu(c, { habla: hb, ceja: true }), x, y, Math.sin(t * 1.3) * 0.03 - hb * 0.08, 1.45);
+        }
+        // los soldados con la ametralladora
+        const baja = eOut(prog(t, M.rindio + 0.2, M.rindio + 0.9)); // los soldados se van
+        for (const i of [0, 1]) {
+          if (baja >= 1) continue;
+          const x = BATALLA - 160 + i * 170, y = GY + 170 + baja * 800;
+          palito(g, x, y - 40);
+          recorte(g, "soldB" + i, 600, 820, 300, 760, (c) => persona(c, { cara: i ? "#e2b088" : "#f1c49b", ropa: "#8b7a4a", sombrero: "militar", sorpresa: trabado ? cl((t - M.trabo) * 3) * (1 - rinde) : 0, mira: 1 }), x, y, Math.sin(t * 1.4 + i) * 0.03, 0.86);
+        }
+        if (baja < 1) {
+          // el arma: apunta y se traba (humo + «¡CLAC!» + el cañón que se cae)
+          const caida = trabado ? eOut(prog(t, M.trabo, M.trabo + 0.4)) : 0;
+          recorte(g, "armaB", 520, 220, 260, 110, (c) => ametralladora(c), BATALLA + 40, GY + 20 + baja * 800, -0.25 * apunta + caida * 0.45, 0.9);
+          if (trabado && t < M.trabo + 1.6) {
+            const k = eBack(prog(t, M.trabo, M.trabo + 0.25)), f = 1 - prog(t, M.trabo + 1.2, M.trabo + 1.6);
+            g.save(); g.globalAlpha = f;
+            for (let i = 0; i < 4; i++) recorte(g, "humo" + i, 200, 200, 100, 100, (c) => forma(c, "#e9e5df", (p) => p.arc(0, 0, 60 + i * 6, 0, 7), 4), BATALLA + 230 + i * 30, GY - 30 - i * 40 - (t - M.trabo) * 60, 0, 0.6 * k);
+            recorte(g, "clac", 460, 220, 230, 110, (c) => { forma(c, "#ffd23f", (p) => { for (let a = 0; a < 16; a++) { const r = a % 2 ? 150 : 100, an = (a / 16) * Math.PI * 2; a ? p.lineTo(Math.cos(an) * r * 1.4, Math.sin(an) * r * 0.7) : p.moveTo(Math.cos(an) * r * 1.4, Math.sin(an) * r * 0.7); } p.closePath(); }); c.font = "84px Bagel"; c.textAlign = "center"; c.textBaseline = "middle"; c.fillStyle = "#b3262f"; c.fillText("¡CLAC!", 0, 6); }, BATALLA + 200, GY - 330, -0.08, k);
+            g.restore();
+          }
+        }
+        // el mayor: se rinde con bandera blanca y dice su frase
+        const mx = BATALLA - 330;
+        const hm = boca(t, "MAYOR");
+        const y = GY + 170 - Math.abs(Math.sin(t * 12)) * 18 * hm;
+        if (rinde > 0) { const kb = eBack(rinde); g.save(); g.translate(mx + 140, y - 520); g.rotate(Math.sin(t * 2) * 0.05); forma(g, "#8a5a32", (p) => p.rect(-6, -260 * kb, 12, 300 * kb), 3); recorte(g, "bandera", 300, 200, 20, 100, (c) => forma(c, "#fffdf6", (p) => { p.moveTo(0, -60); p.quadraticCurveTo(80, -80 + Math.sin(t * 5) * 14, 170, -60); p.lineTo(170, 40); p.quadraticCurveTo(80, 20 + Math.sin(t * 5) * 14, 0, 40); p.closePath(); }, 4), 6, -230 * kb, 0, kb); g.restore(); }
+        palito(g, mx, y - 40);
+        recorte(g, "mayorB", 600, 820, 300, 760, (c) => persona(c, { cara: "#f1c49b", ropa: "#7d7046", sombrero: "militar", bigote: "#d8d2c4", botones: true, boca: hm, sorpresa: trabado && !rinde ? cl((t - M.trabo) * 3) : 0, triste: rinde > 0.5 && t < M.cita - 0.2 ? 1 : 0, mira: 1 }), mx, y, Math.sin(t * 1.2) * 0.03, 1.05);
+      }
+
+      // ---------- el cierre: emús por todas partes ----------
+      function invasion(g, t) {
+        const a = M.seiscientos - 0.3; if (t < a) return;
+        for (let i = 0; i < 70; i++) {
+          const k = eBack(prog(t, a + i * 0.012, a + i * 0.012 + 0.3)); if (k <= 0) continue;
+          const x = -500 + rnd(i * 9) * 4800, y = GY + 90 + rnd(i * 5) * 60;
+          emuSilueta(g, x, y, 1.1 * k, rnd(i) > 0.5 ? 1 : -1);
+        }
+      }
+
+      // ---------- subtítulos: tres palabras, la que suena en amarillo ----------
+      const GRUPOS = [];
+      for (const l of T.lineas) { const ws = l.palabras; for (let i = 0; i < ws.length; i += 3) { const gr = ws.slice(i, i + 3); GRUPOS.push({ ws: gr, a: Math.max(0, gr[0].a), b: i + 3 < ws.length ? ws[i + 3].a : l.fin + 0.2 }); } }
+      function subs(g, t) {
+        const gr = GRUPOS.find((x) => t >= x.a && t < x.b); if (!gr) return;
+        g.font = "84px Lilita"; g.textBaseline = "middle"; g.lineJoin = "round";
+        const txt = gr.ws.map((w) => w.p.replace(/\.\.\.|…|:/g, '').replace(/,$/, ''));  // sin «...» ni «:» (25/11) const an = txt.map((s) => g.measureText(s + " ").width); const total = an.reduce((a, b) => a + b, 0);
+        const fit = Math.min(1, 940 / total); let x = 540 - total / 2; const y = 1580;
+        const pop = eBack(prog(t, gr.a, gr.a + 0.16));
+        g.save(); g.translate(540, y); g.scale(fit * (0.86 + 0.14 * pop), fit * (0.86 + 0.14 * pop)); g.translate(-540, -y);
+        gr.ws.forEach((w, i) => { if (t >= w.a - 0.03) { const on = t >= w.a && t < w.f + 0.06; g.lineWidth = 16; g.strokeStyle = INK; g.strokeText(txt[i], x, y); g.fillStyle = on ? "#ffd23f" : PAPEL; g.fillText(txt[i], x, y); } x += an[i]; });
+        g.restore();
+      }
+
+      // ================= pintar un fotograma =================
+      function pintar(t) {
+        const g = document.getElementById("lienzo").getContext("2d");
+        g.setTransform(1, 0, 0, 1, 0, 0); g.clearRect(0, 0, 1080, 1920);
+        const cam = camara(t);
+        cielo(g, cam);
+        colinas(g, t, cam);
+        g.setTransform(cam.z, 0, 0, cam.z, 540 - cam.x * cam.z, 960 - cam.y * cam.z);
+        campo(g, t);
+        granja(g, t); campamento(g, t); fotoReal(g, t); camaraVieja(g, t); batalla(g, t); invasion(g, t);
+        trigoDelante(g, t);
+        g.setTransform(1, 0, 0, 1, 0, 0);
+        visor(g, t);
+        // viñeta suave y grano de papel
+        const v = g.createRadialGradient(540, 900, 520, 540, 960, 1250); v.addColorStop(0, "rgba(0,0,0,0)"); v.addColorStop(1, "rgba(60,30,10,.28)"); g.fillStyle = v; g.fillRect(0, 0, 1080, 1920);
+        subs(g, t);
+      }
+
+      // ================= reloj de Hyperframes =================
+      momentos();
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true }); const rel = { t: 0 }; window.__ultimoT = 0;
+      tl.to(rel, { t: T.dura, duration: T.dura, ease: "none", onUpdate: () => { window.__ultimoT = rel.t; if (window.__listo) pintar(rel.t); } }, 0);
+      window.__timelines["main"] = tl; window.__hfTimelinesBuilding = true; window.pintar = pintar; window.M = M;
+      const cargar = (im) => new Promise((r) => (im.complete ? r() : ((im.onload = r), (im.onerror = r))));
+      Promise.all([FOTO, ...CLIP_DISPARO, ...CLIP_MANADA].map(cargar))
+        .then(() => Promise.all(["84px Lilita", "64px Rye", "84px Bagel"].map((f) => document.fonts.load(f))))
+        .then(() => { window.__listo = true; pintar(window.__ultimoT || 0); window.__hfTimelinesBuilding = false; window.dispatchEvent(new Event("hf-timelines-built")); });
+    </script>
+  </body>
+</html>
