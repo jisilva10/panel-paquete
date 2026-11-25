@@ -13,6 +13,7 @@ Si esta carpeta acaba de llegar a una compu nueva, lee primero **MUDANZA.md**.
 - **Dos fuentes** por historia, anotadas arriba del guion. **La gente real solo dice lo que dijo de verdad**; los diálogos inventados, solo para animales, objetos o personajes sin nombre. Sin difamar: lo que dicen las noticias. (Ej.: Jensen Huang salió de Nvidia — se cuenta por qué salió, con lo que dicen las noticias, sin entrar a lo sexual.)
 - Nunca se dice «moraleja». Cierra una **frase con fuerza**: dato que remata, ironía, vuelta al gancho (bucle), la frase del protagonista o una pregunta. El estilo se rota y se mide.
 - **Sin elenco fijo**: siempre personajes nuevos.
+- **Los temas rotan siempre**: noticia/tendencia (todos los días) · historia absurda · persona increíble · error de millones · golpe/estafa · política · crimen · inventos y ciencia · latinoamérica. Aunque al público le guste más uno, se sigue rotando: lo que se aprende es a escribir mejor **cada** tema, no a quedarse en uno.
 - **Noticias y tendencias, todos los días**: al menos 1 de los 3 videos diarios es lo que la gente está hablando HOY (lo que le duele al mundo, lo que es tendencia, como lo de los bancos de Paraguay). No es dar la noticia: es contar la historia detrás de lo que todos comentan, lo que da morbo o lo que la gente quiere entender. Llegar a tiempo es lo que lo hace viral.
 
 ## Cómo se ve
@@ -36,6 +37,13 @@ Si esta carpeta acaba de llegar a una compu nueva, lee primero **MUDANZA.md**.
 - `3 Publicado/` — `ganadores.md` (lo genera ganadores.py), `aprendizajes.md` (la memoria larga: qué funciona y qué no, con fecha), `registro.csv` y `notas.md`.
 - `marca/` — fotos de perfil (la elegida es **perfil-a**), banner, textos de perfil.
 - `panel/` — el panel (Next.js) en **https://funciones-panel.vercel.app** (Vercel, cuenta jisilva10s-projects, proyecto funciones-panel). Tiene un interruptor **¿En serio? | Noerion** dentro de la misma dirección (JIS lo usa como app en la pantalla de inicio: nunca debe saltar a otra URL). Tema claro siempre.
+
+## Dos compus, una sola carpeta (GitHub)
+- La carpeta vive en GitHub: **github.com/jisilva10/panel-paquete** (rama `main`). La **Mac** es donde JIS pide cambios; la **PC con Windows** es la que produce.
+- **Siempre** al empezar a trabajar, en cualquiera de las dos: `git pull --rebase`. **Siempre** al terminar un cambio: `git add -A`, `git commit` y `git push`. Un cambio que no se empuja no llega a la otra compu.
+- Firma de los commits: `jisilva10 <jisilva10@users.noreply.github.com>` (nunca el correo de JIS).
+- Nunca van a GitHub: llaves, `.secretos/`, `.env*`, `venv/`, `node_modules/`, videos, audio ni fotogramas.
+- La rutina de las 3 a. m. corre **solo si el sistema es Windows** (`platform.system()`); en la Mac no produce nada.
 
 ## Cuentas y conexiones (ya hechas el 25/11/2026)
 - Instagram **@es_enserio.tv** (creador): conectado al panel con la app de Meta «Noerion Radar» (IG app id 2186900705205162; las apps nuevas de Meta ya no permiten inicio de sesión con Instagram).

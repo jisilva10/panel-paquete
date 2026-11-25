@@ -8,6 +8,9 @@ Uso: python .motor/ganadores.py"""
 import datetime, json, os, re, sys, urllib.request
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# Los temas que rotan. El primero sale TODOS los días; los demás se turnan (los que hace más tiempo no salen, primero).
+TEMAS = ['noticia/tendencia', 'historia absurda', 'persona increíble', 'error de millones', 'golpe/estafa',
+         'política', 'crimen', 'inventos y ciencia', 'latinoamérica']
 FUN = os.path.join(RAIZ, '2 Funciones')
 SEC = os.path.join(RAIZ, 'panel', '.secretos')
 
@@ -72,6 +75,32 @@ def main():
     bloque('Los que más ganan (copiar)', maduras[:3])
     out.append('')
     bloque('Los que menos (evitar)', maduras[-3:] if len(maduras) > 3 else [])
+    # ── Por tema: el mejor y el peor de cada uno (para escribir mejor CADA tema, no para quedarse con uno) ──
+    def tema(p):
+        _, c = ficha(p['pieza'])
+        t = (c.get('Tipo') or '').lower()
+        return next((k for k in TEMAS if k.split(' ')[0] in t), 'otro')
+    por_tema = {}
+    for p in maduras: por_tema.setdefault(tema(p), []).append(p)
+    out += ['', '## Por tema (mejor → peor dentro de cada uno)']
+    for k in TEMAS + ['otro']:
+        lst = por_tema.get(k, [])
+        if not lst: out.append(f'- {k}: sin piezas todavía'); continue
+        out.append(f"- {k}: {len(lst)} piezas · mejor «{lst[0]['pieza']}» ({lst[0]['puntaje']}) · peor «{lst[-1]['pieza']}» ({lst[-1]['puntaje']})")
+    # ── Rotación: qué temas tocan hoy (1 noticia siempre + los 2 que hace más tiempo no salen) ──
+    ultimo = {k: '' for k in TEMAS}
+    reg = os.path.join(RAIZ, '3 Publicado', 'registro.csv')
+    if os.path.exists(reg):
+        for l in open(reg, encoding='utf8').read().splitlines()[1:]:
+            cols = l.split(',')
+            if len(cols) >= 4:
+                t = cols[3].lower()
+                for k in TEMAS:
+                    if k.split(' ')[0] in t and cols[0] > ultimo[k]: ultimo[k] = cols[0]
+    resto = sorted([k for k in TEMAS if k != TEMAS[0]], key=lambda k: ultimo[k])
+    out += ['', '## Temas de hoy', f'1. {TEMAS[0]} (siempre: lo que la gente está hablando hoy)',
+            f'2. {resto[0]} (última vez: {ultimo[resto[0]] or "nunca"})', f'3. {resto[1]} (última vez: {ultimo[resto[1]] or "nunca"})',
+            'Si el tema que toca no tiene una historia buena hoy, usa el siguiente de la lista: ' + ', '.join(resto[2:5])]
     jovenes = [p['pieza'] for p in piezas if p not in maduras]
     out += ['', '## Aún sin 48 h (no decidir con estas)', *[f'- {n}' for n in jovenes]]
     dest = os.path.join(RAIZ, '3 Publicado', 'ganadores.md')

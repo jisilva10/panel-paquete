@@ -31,18 +31,23 @@ FX = [('papel-despliega', 0.0, .7), ('pop.wav', W('emus') , .5), ('pop.wav', W('
 dura = T['dura']
 h = open('plantilla.html', encoding='utf8').read().replace('__TIEMPOS__', json.dumps(T, ensure_ascii=False)).replace('__DURA__', str(dura))
 open('index.html', 'w', encoding='utf8').write(h)
-ins = ['-i', f'voz-{MOTOR}.wav', '-stream_loop', '-1', '-i', MUS,
-       '-ss', '46', '-t', str(round(corte - visorIn, 2)), '-i', 'material/movietone.mp4',
-       '-ss', '31', '-t', str(round(visorOut - corte + .4, 2)), '-i', 'material/movietone.mp4']
+ins = ['-i', f'voz-{MOTOR}.wav', '-stream_loop', '-1', '-i', MUS]
 f = ['[0:a]aresample=48000,pan=stereo|c0=c0|c1=c0,asplit=2[voz][llave]',
      f'[1:a]aresample=48000,atrim=12:{12+dura},asetpts=N/SR/TB,volume=0.32,afade=t=out:st={dura-2}:d=2[m0]',
-     '[m0][llave]sidechaincompress=threshold=0.03:ratio=6:attack=20:release=400[mus]',
-     f'[2:a]aresample=48000,volume=0.55,adelay={int(visorIn*1000)}|{int(visorIn*1000)},afade=t=in:st={visorIn}:d=0.3[c1]',
-     f'[3:a]aresample=48000,volume=0.55,adelay={int(corte*1000)}|{int(corte*1000)},afade=t=out:st={visorOut}:d=0.4[c2]']
-mix = ['[voz]', '[mus]', '[c1]', '[c2]']
+     '[m0][llave]sidechaincompress=threshold=0.03:ratio=6:attack=20:release=400[mus]']
+mix = ['[voz]', '[mus]']
+# Audio original de los clips reales: (archivo, desde qué segundo del original, en qué segundo entra, cuánto dura).
+# Ejemplo de los emús: el noticiero de 1932 en material/movietone.mp4. Si el archivo no está, se salta.
+CLIPS_AUDIO = [('material/movietone.mp4', 46, visorIn, corte - visorIn), ('material/movietone.mp4', 31, corte, visorOut - corte + .4)]
+for (arch, desde, entra, largo) in CLIPS_AUDIO:
+    if not os.path.exists(arch) or largo <= 0: continue
+    k = sum(1 for x in ins if x == "-i")
+    ins += ['-ss', str(desde), '-t', str(round(largo, 2)), '-i', arch]
+    f.append(f'[{k}:a]aresample=48000,volume=0.55,adelay={int(entra*1000)}|{int(entra*1000)},afade=t=in:st={entra}:d=0.3,afade=t=out:st={entra+largo-0.4}:d=0.4[c{k}]'); mix.append(f'[c{k}]')
 for i, (n, a, v) in enumerate(FX):
+    k = sum(1 for x in ins if x == '-i')
     ins += ['-i', S + (n if '.' in n else n + '.mp3')]
-    f.append(f'[{4+i}:a]aresample=48000,volume={v},adelay={int(max(0,a)*1000)}|{int(max(0,a)*1000)}[f{i}]'); mix.append(f'[f{i}]')
+    f.append(f'[{k}:a]aresample=48000,volume={v},adelay={int(max(0,a)*1000)}|{int(max(0,a)*1000)}[f{i}]'); mix.append(f'[f{i}]')
 f.append(''.join(mix) + f'amix=inputs={len(mix)}:normalize=0,atrim=0:{dura},loudnorm=I=-14:TP=-1.5[out]')
 subprocess.run(['ffmpeg', '-loglevel', 'error', '-y', *ins, '-filter_complex', ';'.join(f), '-map', '[out]', '-ar', '48000', 'mezcla.wav'], check=True)
 print('listo', MOTOR, dura, 's · visor', round(visorIn, 2), round(corte, 2), round(visorOut, 2))

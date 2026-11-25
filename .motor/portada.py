@@ -3,7 +3,8 @@ import sys
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 esc, arriba, abajo, salida = sys.argv[1:5]
 limpio = sys.argv[5] if len(sys.argv) > 5 else None
-F = __file__.rsplit('/',1)[0] + '/fuentes/BagelFatOne-Regular.ttf'
+import os
+F = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'fuentes', 'BagelFatOne-Regular.ttf')
 im = Image.open(esc).convert('RGB').resize((1080,1920))
 if limpio:  # el mostrador sin subtítulos, de un fotograma donde no hay
     im.paste(Image.open(limpio).convert('RGB').resize((1080,1920)).crop((0,1250,1080,1920)), (0,1250))

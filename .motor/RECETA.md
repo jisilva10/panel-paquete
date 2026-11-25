@@ -5,7 +5,8 @@ La corre la tarea programada **«es_enserio: rutina de las 3»**, una vez al dí
 `<proyecto>` = la carpeta Titeres. Python: `<proyecto>\.motor\venv\Scripts\python`.
 
 ## 0. Antes de empezar
-- **Solo en la PC con Windows.** Si esta compu es una Mac (macOS), PARA y termina diciendo que la rutina solo corre en la PC.
+- **¿Es la PC?** Corre `python -c "import platform; print(platform.system())"`. Si NO dice `Windows`, PARA ya: no toques nada y termina diciendo «la rutina solo corre en la PC con Windows».
+- **Traer los cambios de la Mac**: en `<proyecto>`, `git pull --rebase`. JIS hace cambios desde la Mac (reglas, receta, motor, plantillas) y llegan por GitHub. Si el pull choca, quédate con la versión de GitHub para todo lo que no sea `2 Funciones` y `3 Publicado`, y anótalo en `notas.md`.
 - `cd <proyecto>\panel && npm run estado` → si Instagram o TikTok no están conectados, PARA y anótalo en `3 Publicado\notas.md`.
 - Lee `CLAUDE.md` entero.
 
@@ -13,13 +14,16 @@ La corre la tarea programada **«es_enserio: rutina de las 3»**, una vez al dí
 - `python .motor\ganadores.py` → actualiza el RESULTADO dentro de cada `que-se-hizo.txt` y deja `3 Publicado\ganadores.md`.
 - Lee `ganadores.md` y abre los `que-se-hizo.txt` de los 3 mejores y los 3 peores. Busca qué se repite en los que ganan **en el texto** (tema, primera palabra, gancho, estructura, largo, narrador, cierre) **y en la edición** (mundo, fotos, clips, subtítulos, portada).
 - Anota en `3 Publicado\aprendizajes.md` (arriba, con fecha) en 3-5 líneas qué crees que está funcionando y qué no. Ese archivo es la memoria larga: léelo siempre.
-- Las dos primeras semanas son ruido: explora. Desde la semana 4: de cada 10 videos, 7 con la fórmula que gana, 2 con la rival y 1 algo nuevo.
+- Mira también «Por tema» en `ganadores.md`: el mejor y el peor **de cada tema**. Lo que gana se aprende **para cada tema por separado** (cómo se escribe bien una noticia, cómo se escribe bien una estafa…), no para quedarse en un solo tema.
+- Las dos primeras semanas son ruido: explora. Desde la semana 4: de cada 10 videos, 7 con la forma que gana **en ese tema** (gancho, estructura, cierre, edición), 2 con la rival y 1 algo nuevo.
 
-## 2. Los temas del día (3 videos)
+## 2. Los temas del día (3 videos) — siempre rotan
+- **Los temas rotan siempre**, aunque uno guste más. Usa la lista «Temas de hoy» de `ganadores.md`: 1 noticia/tendencia (todos los días) + los 2 temas que hace más tiempo no salen. Aunque al público le guste más uno, no se repite tema en el mismo día: se mejora la forma de escribir cada tema.
+- Temas: noticia/tendencia · historia absurda · persona increíble · error de millones · golpe/estafa · política · crimen · inventos y ciencia · latinoamérica. El `Tipo` del `que-se-hizo.txt` y de `etiquetas.json` usa exactamente esos nombres.
 - **Al menos 1 de los 3 es lo que la gente está hablando HOY**: la noticia que le está doliendo al mundo o la tendencia del momento (como lo de los bancos de Paraguay). No es dar la noticia: es contar la historia detrás de lo que todos comentan, lo que da morbo o lo que la gente quiere entender. Búscalo en la web antes que nada:
   - Lo más buscado y comentado en Latinoamérica (Google Trends por país: México, Colombia, Argentina, Perú, Ecuador, Chile, Paraguay), tendencias de X y de TikTok (Creative Center), lo más leído de medios grandes (Infobae, El País, BBC Mundo, CNN en Español, El Comercio, El Tiempo).
   - Elige lo que tenga una historia con giro y que se pueda contar en menos de un minuto. Si es muy fresco, cuenta solo lo confirmado por dos medios.
-- Los otros 2: de los tipos de siempre (historia absurda, persona increíble, error de millones, golpe/estafa, política de cualquier época, crimen, inventos) o de `1 Historias\banco.md`, según lo que diga el paso 1.
+- Los otros 2: los temas que tocan hoy según la rotación. Busca la historia en la web o en `1 Historias\banco.md`, y escríbela con lo que mejor funcionó **en ese tema** (paso 1).
 - Reglas: dos fuentes, la gente real solo dice lo que dijo, nada sexual ni religioso, sin difamar. Nunca «moraleja»: cierre con fuerza.
 - Si una noticia es buena pero se queda corta, anótala en `banco.md` para otro día.
 
@@ -47,3 +51,6 @@ La corre la tarea programada **«es_enserio: rutina de las 3»**, una vez al dí
 ## 6. Si algo falla
 - Si una misma cosa falla dos veces (voz, render, subida), salta ese video, sigue con los otros y deja la nota en `3 Publicado\notas.md`. Mejor 2 buenos que 3 rotos.
 - Si a las 7:30 no terminaste, programa lo que esté listo y deja nota.
+
+## 7. Guardar en GitHub (siempre, al final)
+- En `<proyecto>`: `git add -A`, `git commit -m "Rutina AAAA-MM-DD: <los 3 nombres>"` y `git push`. Así la Mac también tiene los textos, los aprendizajes y el registro. Si el push choca, `git pull --rebase` y vuelve a empujar.

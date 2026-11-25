@@ -8,7 +8,7 @@ Nombre en el panel: {{NOMBRE}}
 Creado: {{FECHA}}
 Hora programada:
 Duración (s):
-Tipo: (historia absurda | tendencia/noticia | persona increíble | error de millones | golpe/estafa | política | crimen | otro: …)
+Tipo: (noticia/tendencia | historia absurda | persona increíble | error de millones | golpe/estafa | política | crimen | inventos y ciencia | latinoamérica)
 Tema en una frase:
 Por qué debería enganchar:
 Fuentes: 1) …  2) …
