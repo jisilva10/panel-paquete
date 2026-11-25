@@ -6,6 +6,7 @@ La corre la tarea programada **«es_enserio: rutina de las 3»**, una vez al dí
 
 ## 0. Antes de empezar
 - **¿Es la PC?** Corre `python -c "import platform; print(platform.system())"`. Si NO dice `Windows`, PARA ya: no toques nada y termina diciendo «la rutina solo corre en la PC con Windows».
+- **¿Está todo?** `python .motor\revisar.py`. Si dice FALTA, arréglalo antes de seguir (o anótalo en `notas.md` si no se puede).
 - **Traer los cambios de la Mac**: en `<proyecto>`, `git pull --rebase`. JIS hace cambios desde la Mac (reglas, receta, motor, plantillas) y llegan por GitHub. Si el pull choca, quédate con la versión de GitHub para todo lo que no sea `2 Funciones` y `3 Publicado`, y anótalo en `notas.md`.
 - `cd <proyecto>\panel && npm run estado` → si Instagram o TikTok no están conectados, PARA y anótalo en `3 Publicado\notas.md`.
 - Lee `CLAUDE.md` entero.

@@ -1,0 +1,10 @@
+# pip install -r requisitos-mac.txt   (y: brew install espeak-ng ffmpeg node)
+edge-tts
+num2words
+pillow
+numpy
+mlx-audio
+mlx-whisper
+misaki
+espeakng-loader
+phonemizer-fork

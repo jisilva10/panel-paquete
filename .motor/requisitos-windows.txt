@@ -1,0 +1,7 @@
+# pip install -r requisitos-windows.txt   (y aparte PyTorch con CUDA: pip install torch --index-url https://download.pytorch.org/whl/cu124)
+edge-tts
+num2words
+pillow
+numpy
+faster-whisper
+qwen-tts

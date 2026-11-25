@@ -163,16 +163,7 @@
         for (let i = 0; i < 160; i++) { const x = -1400 + i * 42 + rnd(i) * 20, y = GY + rnd(i + 7) * 90; g.beginPath(); g.moveTo(x, y + 50); g.lineTo(x + 5, y); g.stroke(); }
       }
       function trigoDelante(g, t) {
-        // franja de espigas delante de todo: esconde los palitos de los títeres
-        for (let i = 0; i < 150; i++) {
-          const x = -1400 + i * 46 + rnd(i * 3) * 30, base = GY + 175 + rnd(i + 1) * 40;
-          // en la granja los emús se comen el trigo: las espigas cerca bajan
-          let alto = 150 + rnd(i + 5) * 60;
-          if (x > GRANJA - 380 && x < GRANJA + 260) alto *= 1 - 0.75 * eOut(prog(t, M.comiendo + (x - GRANJA + 380) / 900, M.comiendo + 0.6 + (x - GRANJA + 380) / 900));
-          g.save(); g.translate(x, base); g.rotate(Math.sin(t * 1.2 + i) * 0.03);
-          forma(g, "#e8bd58", (p) => { p.moveTo(-10, 0); p.lineTo(-6, -alto); p.quadraticCurveTo(0, -alto - 46, 6, -alto); p.lineTo(10, 0); p.closePath(); }, 3);
-          g.restore();
-        }
+        // suelo liso delante (sin espigas ni paja: JIS no quiere nada que estorbe delante); solo tapa los palitos de los títeres
         g.fillStyle = "#c99a3c"; g.fillRect(-1500, GY + 170, 7000, 4000);
         g.strokeStyle = INK; g.lineWidth = 5; g.beginPath(); g.moveTo(-1500, GY + 170); g.lineTo(5500, GY + 170); g.stroke();
       }
