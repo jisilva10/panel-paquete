@@ -13,6 +13,7 @@ Si esta carpeta acaba de llegar a una compu nueva, lee primero **MUDANZA.md**.
 - **Dos fuentes** por historia, anotadas arriba del guion. **La gente real solo dice lo que dijo de verdad**; los diálogos inventados, solo para animales, objetos o personajes sin nombre. Sin difamar: lo que dicen las noticias. (Ej.: Jensen Huang salió de Nvidia — se cuenta por qué salió, con lo que dicen las noticias, sin entrar a lo sexual.)
 - Nunca se dice «moraleja». Cierra una **frase con fuerza**: dato que remata, ironía, vuelta al gancho (bucle), la frase del protagonista o una pregunta. El estilo se rota y se mide.
 - **Sin elenco fijo**: siempre personajes nuevos.
+- **Noticias y tendencias, todos los días**: al menos 1 de los 3 videos diarios es lo que la gente está hablando HOY (lo que le duele al mundo, lo que es tendencia, como lo de los bancos de Paraguay). No es dar la noticia: es contar la historia detrás de lo que todos comentan, lo que da morbo o lo que la gente quiere entender. Llegar a tiempo es lo que lo hace viral.
 
 ## Cómo se ve
 - **Mundo de papel** que ayuda a entender (no retablo ni marco de teatro): un solo lugar continuo por historia y la cámara **entra** a cada lugar, con transiciones; nada pegado encima de otra cosa, nada amontonado, nada delante que estorbe (nada de trigo o paja delante).
@@ -28,11 +29,11 @@ Si esta carpeta acaba de llegar a una compu nueva, lee primero **MUDANZA.md**.
 - No se paga voz hasta que la cuenta gane plata.
 
 ## Dónde está cada cosa
-- `.motor/RECETA.md` — **la receta paso a paso de una función** (la sigue el disparador).
-- `.motor/voces.py` (voz), `.motor/portada.py` (portada), `.motor/base/` (plantilla de la película: la guerra de los emús), `fuentes/`, `sonidos/`, `musica/`.
+- `.motor/RECETA.md` — **la rutina de las 3 a. m. paso a paso** (la sigue la tarea programada).
+- `.motor/nueva_funcion.py` (crea la carpeta de un video), `.motor/ganadores.py` (quién gana, cruzando el panel con los textos), `.motor/limpiar.py` (deja solo el texto), `.motor/voces.py` (voz), `.motor/portada.py` (portada), `.motor/plantillas/` (guion y qué se hizo), `.motor/base/` (plantilla de la película: la guerra de los emús), `fuentes/`, `sonidos/`, `musica/`.
 - `1 Historias/banco.md` — banco de historias con fuentes.
-- `2 Funciones/AAAA-MM-DD/NN-slug/` — cada video (guion, etiquetas, texto, portada, MP4).
-- `3 Publicado/registro.csv` y `notas.md`.
+- `2 Funciones/NNN. Título/` — cada video, con **el mismo nombre que tiene en el panel** (el panel toma el nombre de la carpeta). Después de programar queda **solo texto**: `guion.txt`, `que-se-hizo.txt`, `etiquetas.json`, `texto.txt`. El video se borra.
+- `3 Publicado/` — `ganadores.md` (lo genera ganadores.py), `aprendizajes.md` (la memoria larga: qué funciona y qué no, con fecha), `registro.csv` y `notas.md`.
 - `marca/` — fotos de perfil (la elegida es **perfil-a**), banner, textos de perfil.
 - `panel/` — el panel (Next.js) en **https://funciones-panel.vercel.app** (Vercel, cuenta jisilva10s-projects, proyecto funciones-panel). Tiene un interruptor **¿En serio? | Noerion** dentro de la misma dirección (JIS lo usa como app en la pantalla de inicio: nunca debe saltar a otra URL). Tema claro siempre.
 
@@ -42,11 +43,12 @@ Si esta carpeta acaba de llegar a una compu nueva, lee primero **MUDANZA.md**.
 - YouTube **@es_enseriotv** (canal UC4s1duOWIwU7mWkaZfNpvsQ): el panel lee los números con una llave de Google (proyecto «enseriotv»); JIS sube desde la tarjeta «Subir».
 - Las llaves viven **solo en Vercel** (nunca en esta carpeta ni en GitHub). La compu habla con el panel con su propia llave en `panel/.secretos/mac.txt` (no va a GitHub).
 
-## El disparador
-**La producción corre SOLO en la PC con Windows** (decisión de JIS, 26/11/2026). La Mac de JIS no produce ni programa nada: su disparador está apagado y su llave del panel queda anulada cuando la PC crea la suya.
-Tarea programada de Claude **«es_enserio: una función»**, cada 3 horas mientras la app de Claude esté abierta. Una función por corrida, solo si hay menos de 6 en la cola. Sigue `.motor/RECETA.md`. Si algo falla dos veces, deja nota en `3 Publicado/notas.md`.
+## La rutina de las 3 a. m.
+**La producción corre SOLO en la PC con Windows** (decisión de JIS, 26/11/2026), que queda prendida de noche. La Mac de JIS no produce ni programa nada: su tarea está apagada y su llave del panel queda anulada cuando la PC crea la suya.
+Una sola tarea programada de Claude, **«es_enserio: rutina de las 3»**, todos los días a las 3:00 (nadie usa la PC y el límite de Claude está entero). En esa corrida: ver quién gana → leer los `que-se-hizo.txt` de los ganadores → escribir 3 guiones (al menos uno de la noticia/tendencia del día) → montar los 3 → llenar su `que-se-hizo.txt` → programarlos para ese día → limpiar. Texto exacto de la tarea: `.motor/tarea-programada.md`. Pasos: `.motor/RECETA.md`.
 
 ## Cómo medir
+- **Se aprende por el texto, no por los videos.** Cada video deja su `que-se-hizo.txt` (tema, primera palabra, gancho literal, estructura, largo, narrador, cierre literal, edición, qué se probó, hipótesis y guion completo). `ganadores.py` escribe dentro de cada uno su resultado a las 48 h y arma `3 Publicado/ganadores.md`; de ahí salen los guiones nuevos.
 - El panel muestra «Qué está ganando»: vistas promedio por tipo, duración, gancho, cierre, voz y edición (de `etiquetas.json` de cada función).
 - Las dos primeras semanas son ruido. Desde la semana 4: 7 de cada 10 con la fórmula que gana, 2 con la rival, 1 algo nuevo.
 - Monetizar: YouTube (1.000 suscriptores + 10 M vistas de Shorts en 90 días). TikTok no paga en Ecuador. Cuidado con «contenido no auténtico» de YouTube: cada función tiene que ser distinta de verdad. Recopilaciones largas: más adelante, JIS avisa.

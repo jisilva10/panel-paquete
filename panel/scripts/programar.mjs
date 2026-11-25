@@ -1,5 +1,6 @@
 // Lo corre el disparador cuando una función está lista: revisa el MP4, lo sube al almacén y lo deja en la cola.
-//   npm run programar -- --video "<ruta.mp4>" --pieza "1. La guerra de los emús" --hora "2026-11-28 11:00" --texto-archivo texto.txt
+//   npm run programar -- --carpeta "../2 Funciones/001. La guerra de los emus" --hora "2026-11-28 11:30"
+//   (o a mano: --video <mp4> --pieza "001. Título" --texto-archivo texto.txt --portada <jpg> --etiquetas <json>)
 //   opciones: --portada portada.jpg  --etiquetas etiquetas.json  --texto "…"  --solo instagram|tiktok|youtube
 //             --probar (revisa sin subir)  --cola (muestra la cola)
 import fs from 'node:fs';
@@ -15,6 +16,17 @@ const args = Object.fromEntries(process.argv.slice(2).reduce((a, x, i, all) => {
   if (x.startsWith('--')) a.push([x.slice(2), all[i + 1] && !all[i + 1].startsWith('--') ? all[i + 1] : true]);
   return a;
 }, []));
+// --carpeta "2 Funciones/NNN. Título": el nombre en el panel ES el nombre de la carpeta (nunca se escribe a mano),
+// y de ahí salen el video (salida/video.mp4), la portada, las etiquetas y el texto.
+if (args.carpeta) {
+  const c = path.resolve(args.carpeta);
+  args.pieza = path.basename(c);
+  const si = (f) => (fs.existsSync(path.join(c, f)) ? path.join(c, f) : undefined);
+  args.video ??= si('salida/video.mp4');
+  args.portada ??= si('portada.jpg');
+  args.etiquetas ??= si('etiquetas.json');
+  args['texto-archivo'] ??= si('texto.txt');
+}
 const enEcuador = (iso) => new Intl.DateTimeFormat('es-EC', { timeZone: 'America/Guayaquil', weekday: 'long', day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit', hour12: false }).format(new Date(iso));
 
 if (args.cola) {

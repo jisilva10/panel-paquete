@@ -1,40 +1,49 @@
-# Receta: una función de es_enserio.tv, de punta a punta
+# La rutina de las 3 a. m. · es_enserio.tv
 
-La sigue el disparador (tarea programada «es_enserio: una función»). Una función por corrida.
+La corre la tarea programada **«es_enserio: rutina de las 3»**, una vez al día a las 3:00 en la PC con Windows (nadie la usa y el límite de Claude está entero). En una corrida: **3 videos nuevos, montados, con su texto y programados**. JIS solo aprieta «Publicar» en TikTok y «Subir» en YouTube desde el panel.
 
-## 0. ¿Hace falta?
-**Solo se produce en la PC con Windows.** Si esta compu es una Mac (macOS), PARA: no armes nada, no programes nada y termina con una línea que lo diga.
-`cd panel && npm run estado` (desde la carpeta del proyecto) → si Instagram o TikTok no están conectados, PARA y anótalo.
-`npm run cola` → si ya hay **6 o más** funciones programadas a futuro, PARA (el colchón alcanza). Si no, sigue.
+`<proyecto>` = la carpeta Titeres. Python: `<proyecto>\.motor\venv\Scripts\python`.
 
-## 1. La historia
-- Lee `CLAUDE.md` y `1 Historias/banco.md`.
-- Primero lo que es tendencia hoy (busca en la web: lo más comentado, noticias raras, Latinoamérica). Si no, del banco.
-- Dos fuentes. La gente real solo dice lo que dijo. Nada sexual ni religioso. Política y crimen sí, sin difamar. Nada de «moraleja»: cierre con frase wow (dato que remata, ironía, vuelta al gancho, frase del protagonista, pregunta) — rota el estilo.
-- Mira en el panel («Qué está ganando») qué tipo, duración, gancho y cierre van mejor: 7 de cada 10 con lo que gana, 2 con el rival, 1 algo nuevo.
+## 0. Antes de empezar
+- **Solo en la PC con Windows.** Si esta compu es una Mac (macOS), PARA y termina diciendo que la rutina solo corre en la PC.
+- `cd <proyecto>\panel && npm run estado` → si Instagram o TikTok no están conectados, PARA y anótalo en `3 Publicado\notas.md`.
+- Lee `CLAUDE.md` entero.
 
-## 2. La carpeta
-`2 Funciones/AAAA-MM-DD/NN-slug/` copiando de `.motor/base/`: `plantilla.html construir.py hyperframes.json vendor/ fuentes/` (los `fotos/`, `clips/` y `guion.txt` de ahí son el ejemplo de los emús).
-- `guion.txt`: `QUIEN [emoción]: texto` · «...» pausa · `*palabra*` fuerza. Fuentes arriba con `#`.
-- `etiquetas.json`: `{"tipo":…, "duracion":"20-30 s|35-45 s|55-70 s", "gancho":…, "cierre":…, "voz":"qwen", "edicion":…}`.
+## 1. Quién gana (sin ver videos)
+- `python .motor\ganadores.py` → actualiza el RESULTADO dentro de cada `que-se-hizo.txt` y deja `3 Publicado\ganadores.md`.
+- Lee `ganadores.md` y abre los `que-se-hizo.txt` de los 3 mejores y los 3 peores. Busca qué se repite en los que ganan **en el texto** (tema, primera palabra, gancho, estructura, largo, narrador, cierre) **y en la edición** (mundo, fotos, clips, subtítulos, portada).
+- Anota en `3 Publicado\aprendizajes.md` (arriba, con fecha) en 3-5 líneas qué crees que está funcionando y qué no. Ese archivo es la memoria larga: léelo siempre.
+- Las dos primeras semanas son ruido: explora. Desde la semana 4: de cada 10 videos, 7 con la fórmula que gana, 2 con la rival y 1 algo nuevo.
 
-## 3. Lo real
-Fotos y clips de donde estén (YouTube con `yt-dlp`, la noticia, Wikimedia), **2-4 s**, siempre con la fuente chiquita abajo y nada más de texto. Clips a fotogramas (`ffmpeg … fps=30`).
+## 2. Los temas del día (3 videos)
+- **Al menos 1 de los 3 es lo que la gente está hablando HOY**: la noticia que le está doliendo al mundo o la tendencia del momento (como lo de los bancos de Paraguay). No es dar la noticia: es contar la historia detrás de lo que todos comentan, lo que da morbo o lo que la gente quiere entender. Búscalo en la web antes que nada:
+  - Lo más buscado y comentado en Latinoamérica (Google Trends por país: México, Colombia, Argentina, Perú, Ecuador, Chile, Paraguay), tendencias de X y de TikTok (Creative Center), lo más leído de medios grandes (Infobae, El País, BBC Mundo, CNN en Español, El Comercio, El Tiempo).
+  - Elige lo que tenga una historia con giro y que se pueda contar en menos de un minuto. Si es muy fresco, cuenta solo lo confirmado por dos medios.
+- Los otros 2: de los tipos de siempre (historia absurda, persona increíble, error de millones, golpe/estafa, política de cualquier época, crimen, inventos) o de `1 Historias\banco.md`, según lo que diga el paso 1.
+- Reglas: dos fuentes, la gente real solo dice lo que dijo, nada sexual ni religioso, sin difamar. Nunca «moraleja»: cierre con fuerza.
+- Si una noticia es buena pero se queda corta, anótala en `banco.md` para otro día.
 
-## 4. Voz
-`<proyecto>\.motor\venv\Scripts\python <proyecto>\.motor\voces.py . qwen` (≈6 min por minuto de voz; los números se leen en palabras).
+## 3. Cada video (repite 3 veces)
+1. **Carpeta**: `python .motor\nueva_funcion.py "Título corto"` → crea `2 Funciones\NNN. Título\` con el **mismo nombre que tendrá en el panel**. Todo lo de ese video vive ahí.
+2. **Guion** (`guion.txt`): `QUIEN [emoción]: texto` · `...` pausa · `*palabra*` fuerza · fuentes arriba con `#`. Escríbelo copiando lo que gana y cambiando **una o dos cosas** a propósito (anótalas en «Lo nuevo que se probó»).
+3. **Etiquetas** (`etiquetas.json`): tipo, duracion (20-30 s | 35-45 s | 55-70 s), gancho, cierre, narrador, voz, edicion, novedad. Son las columnas de «Qué está ganando» en el panel.
+4. **Lo real**: fotos y clips de donde estén (la noticia, YouTube con `yt-dlp`, Wikimedia), 2-4 s, con la fuente chiquita abajo y sin más texto. Clips a fotogramas (`ffmpeg … fps=30`) en `clips\`.
+5. **Voz**: dentro de la carpeta, `python ..\..\.motor\voces.py . qwen`.
+6. **Película**: reescribe las funciones de la escena en `plantilla.html` (el ejemplo es la guerra de los emús): mundo de papel continuo, la cámara entra a cada lugar, personas reales dibujadas parecidas (y su foto si es histórico), la boca con la voz, nada delante que estorbe, nada amontonado, subtítulos sin «...» ni «:». Cada cosa se ata a una palabra con `W("palabra", n)`. Ajusta efectos y clips de audio en `construir.py`.
+   `python construir.py qwen` y `npx --yes hyperframes@0.8.33 render -o salida\video.mp4`.
+   Saca fotogramas de los momentos clave y míralos ANTES de seguir; arregla lo que se vea mal.
+7. **Portada**: `python ..\..\.motor\portada.py escena.png "ARRIBA" "ABAJO" portada.jpg limpio.png` (escena sin subtítulo, titular bajo las caras, sin número).
+8. **Texto de la publicación** (`texto.txt`): 1-2 frases que den ganas (≤125 caracteres), una línea «Fuentes: …» y 5 hashtags.
+9. **`que-se-hizo.txt`: llénalo ENTERO.** Es lo único que queda del video. Tiene que bastar para entenderlo y replicarlo sin verlo: duración, tema, primera palabra, gancho literal, estructura con segundos, narrador, cierre literal, mundo y lugares, fotos y clips (cuántos, de dónde, cuándo), subtítulos, música, portada, texto, qué se repitió de qué ganador, qué se probó nuevo, la hipótesis, el guion completo y cómo se armó (incluido lo que falló y cómo se arregló).
 
-## 5. La película
-Reescribe en `plantilla.html` las funciones de la escena (las de los emús son el ejemplo): un mundo de papel continuo, la cámara entra a cada lugar, personajes reales dibujados parecidos (y su foto si es histórico), boca con la voz, nada delante que estorbe (sin trigo/paja delante), nada amontonado. Cada cosa se ata a una PALABRA con `W("palabra", n)`. Ajusta los efectos de `construir.py`.
-`python3 construir.py qwen && npx --yes hyperframes@0.8.33 render -o salida/video.mp4`. Saca fotogramas de los momentos clave y míralos ANTES de seguir; arregla lo que se vea mal.
+## 4. Programar
+- Horas de ese mismo día (Ecuador), una por video, variando ±20 min cada día y sin repetir la del día anterior: cerca de **11:30**, **16:00** y **20:30**. La noticia del día va en la primera.
+- `cd <proyecto>\panel && npm run programar -- --carpeta "..\2 Funciones\NNN. Título" --hora "AAAA-MM-DD HH:MM" --probar`, y si todo está bien, lo mismo sin `--probar`.
+- Anota la hora en `que-se-hizo.txt` y una línea en `3 Publicado\registro.csv`: fecha, nombre, hora, tipo, gancho, cierre.
 
-## 6. Portada y texto
-`<proyecto>\.motor\venv\Scripts\python <proyecto>\.motor\portada.py escena.png "ARRIBA" "ABAJO" portada.jpg limpio.png` (escena sin subtítulo, titular bajo las caras, sin número).
-`texto.txt`: 1-2 frases que den ganas (≤125 caracteres), una línea «Fuentes: …», y 5 hashtags.
+## 5. Limpiar (siempre)
+- `python .motor\limpiar.py "2 Funciones\NNN. Título"` → quedan solo `guion.txt`, `que-se-hizo.txt`, `etiquetas.json`, `texto.txt`. El video ya está en el panel (el panel lo borra cuando sale en todas las redes).
 
-## 7. Programar
-Hora: la siguiente franja libre de 11:30, 15:00, 19:30 o 21:30 (hora de Ecuador), variando ±20 min; nunca de madrugada.
-`cd <proyecto>\panel && npm run programar -- --video <mp4> --portada <jpg> --etiquetas <json> --pieza "NN. Título" --hora "AAAA-MM-DD HH:MM" --texto-archivo <txt>` (primero con `--probar`).
-
-## 8. Limpiar
-Borra de la carpeta la voz suelta, los fotogramas y `material/`. Deja guion, etiquetas, texto, portada y el MP4 hasta 7 días después de publicado.
+## 6. Si algo falla
+- Si una misma cosa falla dos veces (voz, render, subida), salta ese video, sigue con los otros y deja la nota en `3 Publicado\notas.md`. Mejor 2 buenos que 3 rotos.
+- Si a las 7:30 no terminaste, programa lo que esté listo y deja nota.
