@@ -81,26 +81,44 @@ ACENTO = ' Habla en español latinoamericano neutro, con pronunciación nativa (
 
 MODELO = None
 def qwen_linea(L, i):
+    """Qwen3-TTS con voz diseñada. Mac con chip Apple: mlx-audio. Windows/Linux con NVIDIA: el paquete oficial qwen-tts (PyTorch/CUDA)."""
     global MODELO
-    import mlx.core as mx
-    if MODELO is None:
-        from mlx_audio.tts.utils import load_model
-        MODELO = load_model('mlx-community/Qwen3-TTS-12Hz-1.7B-VoiceDesign-5bit')
     texto = en_palabras(L['texto'].replace('*', ''))
     fuertes = re.findall(r'\*([^*]+)\*', L['texto'])
     instr = VOZ_QWEN[L['quien']] + '.' + ACENTO + ' Habla ' + EMO[L['emo']][3] + '.' + (f' Pone mucha fuerza en «{", ".join(fuertes)}».' if fuertes else '') + ' Respeta las pausas de los puntos suspensivos.'
-    mx.random.seed(7 + i)
-    trozos = [np.array(r.audio, dtype=np.float32) for r in MODELO.generate(text=texto, instruct=instr, lang_code='spanish', temperature=0.8)]
-    return recorta(np.concatenate(trozos))
+    try:
+        import mlx.core as mx  # Mac con chip Apple
+        if MODELO is None:
+            from mlx_audio.tts.utils import load_model
+            MODELO = ('mlx', load_model('mlx-community/Qwen3-TTS-12Hz-1.7B-VoiceDesign-5bit'))
+        mx.random.seed(7 + i)
+        trozos = [np.array(r.audio, dtype=np.float32) for r in MODELO[1].generate(text=texto, instruct=instr, lang_code='spanish', temperature=0.8)]
+        return recorta(np.concatenate(trozos))
+    except ImportError:
+        pass
+    # Windows / Linux con GPU NVIDIA: pip install qwen-tts torch (con CUDA). Si la API cambió, adaptar solo esta parte.
+    import torch
+    from qwen_tts import Qwen3TTSModel
+    if MODELO is None:
+        MODELO = ('torch', Qwen3TTSModel.from_pretrained('Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign', device_map='cuda:0', dtype=torch.bfloat16))
+    torch.manual_seed(7 + i)
+    wavs, sr = MODELO[1].generate_voice_design(text=texto, language='Spanish', instruct=instr)
+    x = np.asarray(wavs[0], dtype=np.float32)
+    if sr != SR:  # todo el motor trabaja a 24 kHz
+        x = np.interp(np.linspace(0, len(x) - 1, int(len(x) * SR / sr)), np.arange(len(x)), x).astype(np.float32)
+    return recorta(x)
 
 def tiempos_palabras(y, lineas):
     """Whisper da los tiempos; las palabras del guion se reparten contando, línea por línea."""
     tmp = os.path.join(CARPETA, '.voz', 'todo.wav'); escribir(tmp, y)
-    r = subprocess.run(['/opt/homebrew/bin/python3', '-c', f'''
-import json, mlx_whisper
-r = mlx_whisper.transcribe({tmp!r}, path_or_hf_repo="mlx-community/whisper-small-mlx", language="es", word_timestamps=True)
-print(json.dumps([[w["start"], w["end"]] for s in r["segments"] for w in s["words"]]))'''], capture_output=True, text=True)
-    W = json.loads(r.stdout.strip().splitlines()[-1])
+    try:  # Mac con chip Apple
+        import mlx_whisper
+        r = mlx_whisper.transcribe(tmp, path_or_hf_repo="mlx-community/whisper-small-mlx", language="es", word_timestamps=True)
+        W = [[w["start"], w["end"]] for seg in r["segments"] for w in seg["words"]]
+    except ImportError:  # Windows / Linux: pip install faster-whisper
+        from faster_whisper import WhisperModel
+        segs, _ = WhisperModel("small", device="auto").transcribe(tmp, language="es", word_timestamps=True)
+        W = [[w.start, w.end] for seg in segs for w in seg.words]
     for L in lineas:
         tok = L['texto'].replace('*', '').split()
         dentro = [w for w in W if w[0] >= L['ini'] - 0.15 and w[1] <= L['fin'] + 0.15]

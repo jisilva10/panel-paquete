@@ -43,6 +43,7 @@ Si esta carpeta acaba de llegar a una compu nueva, lee primero **MUDANZA.md**.
 - Las llaves viven **solo en Vercel** (nunca en esta carpeta ni en GitHub). La compu habla con el panel con su propia llave en `panel/.secretos/mac.txt` (no va a GitHub).
 
 ## El disparador
+**La producción corre SOLO en la PC con Windows** (decisión de JIS, 26/11/2026). La Mac de JIS no produce ni programa nada: su disparador está apagado y su llave del panel queda anulada cuando la PC crea la suya.
 Tarea programada de Claude **«es_enserio: una función»**, cada 3 horas mientras la app de Claude esté abierta. Una función por corrida, solo si hay menos de 6 en la cola. Sigue `.motor/RECETA.md`. Si algo falla dos veces, deja nota en `3 Publicado/notas.md`.
 
 ## Cómo medir
