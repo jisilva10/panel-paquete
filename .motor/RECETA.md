@@ -49,7 +49,7 @@ La corren 3 tareas programadas en la PC con Windows, **una por video y cada una 
 - Anota la hora en `que-se-hizo.txt` y una línea en `3 Publicado\registro.csv`: fecha, nombre, hora, tipo, gancho, cierre.
 
 ## 5. Limpiar (siempre)
-- `python .motor\limpiar.py "2 Funciones\NNN. Título"` → quedan solo `guion.txt`, `que-se-hizo.txt`, `etiquetas.json`, `texto.txt`. El video ya está en el panel (el panel lo borra cuando sale en todas las redes).
+- `python .motor\limpiar.py "2 Funciones\NNN. Título"` → quedan `guion.txt`, `que-se-hizo.txt`, `etiquetas.json`, `texto.txt`, **`video.mp4`** (sube de `salida\`) y `portada.jpg`. **El video se queda siempre en la carpeta** para que JIS lo vea antes (decisión de JIS, 25/11/2026); se borra solo lo de trabajo (clips, fotos, voz, plantilla). El video y la portada no van a GitHub.
 
 ## 6. Si algo falla
 - Si una misma cosa falla dos veces (voz, render, subida), salta ese video, sigue con los otros y deja la nota en `3 Publicado\notas.md`. Mejor 2 buenos que 3 rotos.

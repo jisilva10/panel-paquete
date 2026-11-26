@@ -1,5 +1,5 @@
 QUÉ SE HIZO · 001. El robo que terminó en un supermercado
-(Todo lo necesario para entender y replicar este video SIN verlo. El video se borra; esto queda.)
+(Todo lo necesario para entender y replicar este video SIN verlo. El video.mp4 queda en esta carpeta solo en la PC; a GitHub va solo el texto.)
 
 == FICHA ==
 Número: 001

@@ -32,9 +32,9 @@ Si esta carpeta acaba de llegar a una compu nueva, lee primero **MUDANZA.md**.
 
 ## Dónde está cada cosa
 - `.motor/RECETA.md` — **la rutina de las 3 a. m. paso a paso** (la sigue la tarea programada).
-- `.motor/nueva_funcion.py` (crea la carpeta de un video), `.motor/ganadores.py` (quién gana, cruzando el panel con los textos), `.motor/limpiar.py` (deja solo el texto), `.motor/voces.py` (voz), `.motor/portada.py` (portada), `.motor/plantillas/` (guion y qué se hizo), `.motor/base/` (plantilla de la película: la guerra de los emús), `fuentes/`, `sonidos/`, `musica/`.
+- `.motor/nueva_funcion.py` (crea la carpeta de un video), `.motor/ganadores.py` (quién gana, cruzando el panel con los textos), `.motor/limpiar.py` (deja el texto, el video y la portada), `.motor/voces.py` (voz), `.motor/portada.py` (portada), `.motor/plantillas/` (guion y qué se hizo), `.motor/base/` (plantilla de la película: la guerra de los emús), `fuentes/`, `sonidos/`, `musica/`.
 - `1 Historias/banco.md` — banco de historias con fuentes.
-- `2 Funciones/NNN. Título/` — cada video, con **el mismo nombre que tiene en el panel** (el panel toma el nombre de la carpeta). Después de programar queda **solo texto**: `guion.txt`, `que-se-hizo.txt`, `etiquetas.json`, `texto.txt`. El video se borra.
+- `2 Funciones/NNN. Título/` — cada video, con **el mismo nombre que tiene en el panel** (el panel toma el nombre de la carpeta). Después de programar quedan **los textos y el video**: `guion.txt`, `que-se-hizo.txt`, `etiquetas.json`, `texto.txt`, **`video.mp4`** y `portada.jpg` (decisión de JIS, 25/11/2026: cada video se queda en su carpeta para que JIS lo vea antes). Lo de trabajo (clips, fotos, voz) se borra. El video y la portada no van a GitHub: quedan en la PC.
 - `3 Publicado/` — `ganadores.md` (lo genera ganadores.py), `aprendizajes.md` (la memoria larga: qué funciona y qué no, con fecha), `registro.csv` y `notas.md`.
 - `marca/` — fotos de perfil (la elegida es **perfil-a**), banner, textos de perfil.
 - `panel/` — el panel (Next.js) en **https://funciones-panel.vercel.app** (Vercel, cuenta jisilva10s-projects, proyecto funciones-panel). Tiene un interruptor **¿En serio? | Noerion** dentro de la misma dirección (JIS lo usa como app en la pantalla de inicio: nunca debe saltar a otra URL). Tema claro siempre.
