@@ -449,15 +449,17 @@
       }
 
       // ================= reloj de Hyperframes =================
+      // El timeline se registra SOLO cuando ya cargaron fotos, clips y letras. Si se registra antes, cada
+      // trabajador del render graba 3-4 cuadros vacíos (el fondo celeste) al empezar su tramo: el «destello
+      // celeste» cada ~9 s del video 1 (25/11/2026). Así lo pide el contrato de Hyperframes (registrar al final).
       momentos();
-      window.__timelines = window.__timelines || {};
-      const tl = gsap.timeline({ paused: true }); const rel = { t: 0 }; window.__ultimoT = 0;
-      tl.to(rel, { t: T.dura, duration: T.dura, ease: "none", onUpdate: () => { window.__ultimoT = rel.t; if (window.__listo) pintar(rel.t); } }, 0);
-      window.__timelines["main"] = tl; window.__hfTimelinesBuilding = true; window.pintar = pintar; window.M = M;
+      const tl = gsap.timeline({ paused: true }); const rel = { t: 0 };
+      tl.to(rel, { t: T.dura, duration: T.dura, ease: "none", onUpdate: () => pintar(rel.t) }, 0);
+      window.pintar = pintar; window.M = M;
       const cargar = (im) => new Promise((r) => (im.complete ? r() : ((im.onload = r), (im.onerror = r))));
       Promise.all([FOTO, ...CLIP_DISPARO, ...CLIP_MANADA].map(cargar))
         .then(() => Promise.all(["84px Lilita", "64px Rye", "84px Bagel"].map((f) => document.fonts.load(f))))
-        .then(() => { window.__listo = true; pintar(window.__ultimoT || 0); window.__hfTimelinesBuilding = false; window.dispatchEvent(new Event("hf-timelines-built")); });
+        .then(() => { pintar(0); window.__timelines["main"] = tl; if (window.__hfForceTimelineRebind) window.__hfForceTimelineRebind(); });
     </script>
   </body>
 </html>
