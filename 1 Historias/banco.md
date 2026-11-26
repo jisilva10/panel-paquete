@@ -13,7 +13,7 @@ Columnas: tipo · por qué engancha · fuentes por confirmar. Se tacha cuando sa
 ## Historia loca del mundo
 - ~~La guerra de los emús (Australia, 1932)~~ · hecha en el laboratorio
 - **El panadero del Titanic** · sobrevivió horas en el agua helada; dijo que había tomado whisky. · Wikipedia «Charles Joughin», Encyclopedia Titanica
-- **Vendió la Torre Eiffel dos veces** · estafa · Victor Lustig, 1925. · Wikipedia, Smithsonian
+- ~~**Vendió la Torre Eiffel dos veces** · estafa · Victor Lustig, 1925. · Wikipedia, Smithsonian~~ · video 3 del 26/11/2026
 - **La guerra del cerdo (1859)** · política · EE. UU. e Inglaterra casi en guerra por un cerdo. · Wikipedia «Pig War», National Park Service
 - ~~**El funeral de una pierna** · política · Santa Anna (México) enterró su pierna con honores militares. · Wikipedia, INAH~~ · video 2 del 25/11/2026
 - **El soldado que siguió peleando 29 años** · historia · Hiroo Onoda en la selva de Filipinas hasta 1974. · Wikipedia, NYT (obituario)
