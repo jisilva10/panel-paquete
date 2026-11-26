@@ -33,6 +33,9 @@ EMO = {
   'cierre':       ('-8%',  '-8Hz', '+0%',  'lento y contundente, dejando la última frase en el aire, con una sonrisa'),
   'alarma':       ('+16%', '+30Hz','+10%', 'alarmado, gritando un aviso'),
   'admiracion':   ('-4%',  '-10Hz','+4%',  'militar viejo, admirado a su pesar, con voz ronca'),
+  'tierno':       ('-2%',  '+2Hz', '+0%',  'con ternura y cariño, como contando algo lindo, sin perder el ritmo'),
+  'triste':       ('-6%',  '-6Hz', '-4%',  'triste y serio, con respeto, sin exagerar ni dramatizar'),
+  'conmovido':    ('-8%',  '-8Hz', '-2%',  'conmovido, con la voz un poco quebrada pero firme, despacio'),
 }
 VOZ_EDGE = {'NARRADOR': ('es-EC-LuisNeural', '+4%', '-4Hz'), 'MAYOR': ('es-AR-TomasNeural', '+0%', '-14Hz'), 'EMU': ('es-MX-DaliaNeural', '+8%', '+22Hz')}
 VOZ_QWEN = {
@@ -41,6 +44,7 @@ VOZ_QWEN = {
   'EMU': 'Voz aguda y nasal de un ave caricaturesca, rápida',
   'REHEN': 'Hombre joven colombiano de Medellín, de unos veinticinco años, voz nerviosa y agotada después de muchas horas de miedo',
   'PIERNA': 'Voz caricaturesca de un objeto que habla: un viejo soldado de papel, voz grave y teatral, muy digna y orgullosa',
+  'DIRECTOR': 'Hombre de unos sesenta años, director de un zoológico, voz grave, cálida y cansada, de alguien que acaba de perder a un animal muy querido',
 }
 PAUSA = {'...': R['silencio'], ',': 0.10, '.': 0.24, ':': 0.24, '?': 0.24, '!': 0.22}
 

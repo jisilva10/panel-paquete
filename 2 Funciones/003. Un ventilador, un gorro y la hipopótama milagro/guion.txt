@@ -1,0 +1,14 @@
+# 003. Un ventilador, un gorro y la hipopótama milagro · Cincinnati, 2017-2026
+# Fuentes: 1) OPB / AP, «Cincinnati Zoo says Fiona the hippo has died, days after ingesting a visitor's hat» (19/11/2026)  2) Fox19, «Fiona, Cincinnati's miracle hippo, dies at 9» (19/11/2026). Apoyo: Axios Cincinnati (19/11/2026), Daily Beast.
+# Frase del director Dave Jenike (Fox19): «She fought until she couldn't anymore.» → «Luchó hasta que ya no pudo.»
+# El gorro: un visitante lo tiró al aire, un ventilador del techo lo lanzó por una abertura sobre los vidrios (OPB). El zoológico: «It was an accident». No se sabe quién fue: no se nombra ni se culpa a nadie.
+# Formato: QUIEN [emoción]: texto  ·  ... = pausa larga  ·  *palabra* = con fuerza
+NARRADOR [misterio]: ¿Puede un gorro de lana acabar con una hipopótama de casi una tonelada?
+NARRADOR [tension]: Pasó en el zoológico de Cincinnati... y lo increíble es *cómo* llegó ese gorro.
+NARRADOR [tierno]: Fiona nació en 2017, seis semanas antes de tiempo. Pesaba trece kilos, la más chiquita jamás registrada.
+NARRADOR [asombro]: Sus cuidadores la salvaron, y Fiona se volvió *famosa*. Libros, un helado, hasta una cerveza con su nombre. La hipopótama milagro.
+NARRADOR [tension]: El 8 de noviembre, un visitante lanzó su gorro al aire... un ventilador del techo lo atrapó y lo disparó por una rendija, *directo* a su recinto.
+NARRADOR [triste]: Fiona se lo tragó.
+NARRADOR [tension]: No se la podía operar. Así que la subieron a una plataforma que vibra, prestada por una granja de caballos... y hasta le dieron a oler café, su olor favorito.
+NARRADOR [triste]: Once días después, Fiona murió. Tenía nueve años. El zoológico dijo que fue un accidente.
+DIRECTOR [conmovido]: Luchó hasta que ya no pudo.

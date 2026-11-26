@@ -91,8 +91,8 @@ def main():
     ultimo = {k: '' for k in TEMAS}
     reg = os.path.join(RAIZ, '3 Publicado', 'registro.csv')
     if os.path.exists(reg):
-        for l in open(reg, encoding='utf8').read().splitlines()[1:]:
-            cols = l.split(',')
+        import csv  # con csv: un nombre con coma va entre comillas (ej. «003. Un ventilador, un gorro…»)
+        for cols in list(csv.reader(open(reg, encoding='utf8')))[1:]:
             if len(cols) >= 4:
                 t = cols[3].lower()
                 for k in TEMAS:

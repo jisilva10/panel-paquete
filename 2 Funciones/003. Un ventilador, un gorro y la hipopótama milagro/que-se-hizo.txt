@@ -1,0 +1,73 @@
+QUÉ SE HIZO · 003. Un ventilador, un gorro y la hipopótama milagro
+(Todo lo necesario para entender y replicar este video SIN verlo. El video.mp4 queda en esta carpeta solo en la PC; a GitHub va solo el texto.)
+
+== FICHA ==
+Número: 003
+Título: Un ventilador, un gorro y la hipopótama milagro
+Nombre en el panel: 003. Un ventilador, un gorro y la hipopótama milagro
+Creado: 2026-11-25
+Hora programada: 2026-11-26 09:00 (Ecuador)
+Duración (s): 54.7
+Tipo: noticia/tendencia
+Tema en una frase: Fiona, la hipopótama del zoológico de Cincinnati que nació seis semanas antes de tiempo en 2017 con 13 kilos (29 libras, el peso de nacimiento más bajo registrado en su especie) y se volvió la más famosa del mundo, murió el 19/11/2026 a los 9 años después de tragarse un gorro de lana: el 8/11 un visitante tiró su gorro al aire, un ventilador del techo lo atrapó y lo lanzó por una abertura sobre los vidrios, directo a su recinto. No se la podía operar por su tamaño; probaron de todo (una plataforma que vibra prestada por una granja de caballos, darle a oler café, su olor favorito). El zoológico dijo que fue un accidente.
+Por qué debería enganchar: tendencia de esta semana (todavía entre lo más buscado) contada por el lado que nadie explica: CÓMO un gorro termina dentro del recinto de un hipopótamo (el ventilador). Contraste fuerte: sobrevivió a lo imposible al nacer y la venció un gorro de lana. Video real de bebé con biberón y bostezando.
+Fuentes: 1) OPB / AP, «Cincinnati Zoo says Fiona the hippo has died, days after ingesting a visitor's hat» (19/11/2026)  2) Fox19, «Fiona, Cincinnati's miracle hippo, dies at 9» (19/11/2026). Apoyo: Axios Cincinnati «Fiona the hippo dies after medical emergency at Cincinnati Zoo» (19/11/2026; no se pudo abrir, 403), Daily Beast «Zoo Reveals Frantic Failed Attempt to Save Tragic Hippo».
+Datos con cuidado: el gorro lo «tiró al aire» un visitante y un ventilador lo lanzó por una abertura (OPB, citando a la vocera Michelle Curley: «It was an accident»). No se sabe quién era el visitante (Daily Beast): no se nombra ni se culpa a nadie; el visitante es un títere genérico. La frase del director Dave Jenike es literal de Fox19 («She fought until she couldn't anymore»), traducida. Se sacaron del guion (por largo, no por dudas) las dos sedaciones y la cámara de 9 pies (OPB). «Casi una tonelada»: Fox19 dice «more than 2,000 pounds» de adulta (≈ 907 kg). Tono: crudo pero con respeto; nada de burla.
+
+== TEXTO ==
+Primera palabra: Puede (¿Puede…?)
+Gancho (primera frase, literal): «¿Puede un gorro de lana acabar con una hipopótama de casi una tonelada?»
+Tipo de gancho: pregunta
+Estructura: gancho con la balanza imposible (0-3.9 s) · el zoológico de Cincinnati y «cómo llegó ese gorro», el gorro cruza volando (3.9-8.9 s) · nacimiento: báscula 13 KG, calendario 2017, nota «6 SEMANAS ANTES», foto real y RÉCORD (8.9-17.5 s) · visor con los clips reales: biberón y bostezo (17.8-21.9 s) · la fama: estante con libros, helado y cerveza, cartel «LA HIPOPÓTAMA MILAGRO» (21.9-26 s) · el giro: visitante, gorro al aire, ventilador, rendija, agua (26-34.2 s) · «Fiona se lo tragó», ¡GLUP! (34.2-35.5 s) · veterinaria: no se puede operar, plataforma que vibra de una granja de caballos, café (35.5-45.5 s) · de noche: once días después, murió, foto real con flores y placa, «fue un accidente» (45.7-51.9 s) · cierre: el director (51.9-53.3 s) · final quieto (hasta 54.7 s)
+Narrador en: tercera persona
+Personajes que hablan: NARRADOR; DIRECTOR (Dave Jenike, director del zoológico de Cincinnati, solo su frase literal traducida; voz nueva en voces.py)
+Cierre (estilo): frase del protagonista
+Frase de cierre (literal): «Luchó hasta que ya no pudo.» (la dice el director)
+Palabras totales: 147 (sin las líneas de fuentes)
+Emociones usadas en la voz: misterio, tension, tierno (nueva), asombro, tension, triste (nueva), tension, triste, conmovido (nueva, director)
+Ritmo de la voz: rapido
+
+== EDICIÓN ==
+Mundo (lugar de papel): un solo zoológico de papel con lomas verdes y árboles, que se vuelve de noche al final: balanza en el pasto → arco de entrada «ZOOLÓGICO DE CINCINNATI» (Rye) → la cuna (panel verde claro con báscula, calendario y foto) → cámara de video del zoo en trípode → estante de la tienda → casa de los hipopótamos (techo verde, ventilador de techo, rendija sobre el vidrio, vidrio grande con agua y Fiona adentro, como en las fotos reales) → la veterinaria (panel con cruz roja) → de noche, el estanque con la foto de Fiona, flores y placa.
+Lugares y cómo se entra a cada uno: la balanza (0 s): gorro a la izquierda, Fiona a la derecha; en «acabar» la balanza se va del lado del GORRO (imposible), sacudida y Fiona se asusta → la cámara viaja al arco (aparece en «zoológico») y en «cómo» el gorro cruza volando con un «?» → la cuna en «Fiona»: báscula «-- KG» que marca «13 KG» en «trece», calendario «ENERO 2017» en «2017», nota amarilla «6 SEMANAS ANTES» en «semanas» → la cámara se corre a la foto real que se levanta del suelo en «chiquita» y sale la estrella «RÉCORD» → la cámara del zoo en «cuidadores», la cámara se mete por el lente y se abre el visor (iris) con los dos clips → sale al estante: libros «FIONA», helado y cerveza aparecen cada uno en su palabra; cartel rojo «LA HIPOPÓTAMA MILAGRO» en «milagro» → la casa en «noviembre»: el visitante sube en «visitante», tira el gorro en «lanzó», el gorro gira en el ventilador en «atrapó», sale disparado en «disparó», pasa por la rendija en «rendija», salpica en «directo» y se hunde hacia Fiona en «recinto» → zoom a Fiona: abre la boca, se traga el gorro, «¡GLUP!» → la veterinaria en «operar»: círculo de «no» con bisturí; Fiona con ojos cerrados; en «plataforma» sube a la plataforma gris que vibra; herradura en «caballos»; en «café» zoom: taza con el olor que llega hasta su nariz y Fiona abre los ojos → noche en «once»: el cielo se pone azul oscuro con luna y estrellas, estanque quieto; en «murió» se levanta la foto real; flores y placa «FIONA · 2017-2026» en «nueve» → el director sube en su línea y la dice mirando la foto.
+Personajes dibujados (y a quién se parecen): Fiona (hipopótama de perfil, gris rosado, panza y mejillas rosadas, orejitas; bebé más rosada y chica en la báscula); el director Dave Jenike parecido a sus fotos (pelo y barba canosos bien cortos, bigote blanco, lentes de marco claro, camisa gris azulada con cuello y botones y el parche «ZOO»), cejas tristes; el visitante: títere genérico sin rasgos de nadie (pelo castaño, chaqueta azul).
+Fotos reales (cuántas, de dónde, en qué segundo): 2 · Fiona bebé bajo el agua, junio 2017 (Wikimedia Commons, «Fiona (Hippo) June 2017 2.jpg», Yojo98, CC BY-SA 4.0; recortada para sacar la cabeza de un niño) se levanta del suelo en «chiquita», 15.4-17.5 s · Fiona adulta con Fritz bajo el agua, 2023 (Wikimedia Commons, «Fiona & Fritz Hippopotamus.jpg», Jean Ogden, CC BY 2.0) se levanta en «murió», 47.2 s hasta el final. Las dos en poste con cinta y la fuente chiquita abajo.
+Clips reales (cuántos, de dónde, cuánto duran, cómo entran): 2 · Cincinnati Zoo en YouTube: «Baby Hippo Fiona is 6 Months Old» (1VzZPc-Jw7g), segundo 6.0, biberón, 2.5 s, título «ASÍ LA SALVARON» · «Baby Hippo Fiona in her Exercise Pool» (yOQfByCSpGk), segundo 1.8, bostezo con la boca abierta, 1.6 s, título «ESTA ERA FIONA». Entran por el lente de la cámara del zoo (iris) con marco de visor y «REC»; abajo «Video: Cincinnati Zoo · YouTube (2017)». Audio original al 50 %.
+Subtítulos (estilo, tamaño, posición): Lilita One 84 px, hasta 3 palabras, la que suena en amarillo #ffd23f, borde tinta, y=1580, sin «...» ni «:».
+Música / efectos: historia.mp3 al 32 % con sidechain a la voz; desde «once» baja sola hasta 16 % (parte triste). Efectos: papel-despliega al inicio, golpe-seco + carton-cae en la balanza, whoosh y cartón en cada lugar, papel-swish en el vuelo del gorro, pops en báscula/calendario/nota/récord/estante, whoosh-cine en el visor, riser antes de «disparó», golpe-grave al caer al agua, subdrop en el trago, whoosh-grave al hacerse de noche. Final −14.1 LUFS.
+Portada (escena y titular): la casa de los hipopótamos en el segundo 30.9 sin subtítulos: el gorro atrapado en el ventilador, el visitante con la mano arriba y Fiona en el vidrio; placas «LA HIPOPÓTAMA MÁS FAMOSA» (amarilla) y «¿Y UN GORRO DE LANA?» (tinta).
+Texto de la publicación: «Sobrevivió a nacer prematura y se volvió la hipopótama más famosa del mundo. Lo que la venció fue un gorro y un ventilador.» + «Fuentes: OPB / AP · Fox19 (19/11/2026)» + #Fiona #hipopotamo #Cincinnati #historiasreales #enserio
+
+== QUÉ SE PROBÓ ==
+Lo que se repitió de los ganadores (y de cuál): todavía no hay números (día 1). De 001 y 002 se repitió la forma: mundo continuo, foto que se levanta del suelo, visor con clip real, ritmo rápido, 45-55 s.
+Lo nuevo que se probó en este video: (1) gancho en PREGUNTA (001 y 002 usaron dato imposible); (2) cierre con la FRASE REAL del protagonista (001 y 002 cerraron en bucle al gancho); (3) noticia triste contada con respeto, con la música que baja y el cielo que se hace de noche; (4) emociones nuevas en la voz: tierno, triste, conmovido.
+Hipótesis (qué espero que pase): una noticia que todos comentan, contada por el «cómo» (el ventilador), retiene más que la noticia sola, y la pregunta del gancho retiene los primeros 3 s igual o mejor que el dato imposible. El cierre con la frase del director debería dar más compartidos y comentarios que el bucle irónico. Riesgo: tema triste y de hace una semana; si rinde menos que 001/002, no es por la forma sino por el tono o lo fresco.
+
+== RESULTADO (se llena después; lo actualiza la rutina) ==
+48 h · TikTok: ___  Instagram: ___  YouTube: ___  Retención IG: ___
+Lectura: (¿ganó, perdió? ¿por qué creo?)
+
+== GUION COMPLETO ==
+# 003. Un ventilador, un gorro y la hipopótama milagro · Cincinnati, 2017-2026
+# Fuentes: 1) OPB / AP, «Cincinnati Zoo says Fiona the hippo has died, days after ingesting a visitor's hat» (19/11/2026)  2) Fox19, «Fiona, Cincinnati's miracle hippo, dies at 9» (19/11/2026). Apoyo: Axios Cincinnati (19/11/2026), Daily Beast.
+# Frase del director Dave Jenike (Fox19): «She fought until she couldn't anymore.» → «Luchó hasta que ya no pudo.»
+# El gorro: un visitante lo tiró al aire, un ventilador del techo lo lanzó por una abertura sobre los vidrios (OPB). El zoológico: «It was an accident». No se sabe quién fue: no se nombra ni se culpa a nadie.
+# Formato: QUIEN [emoción]: texto  ·  ... = pausa larga  ·  *palabra* = con fuerza
+NARRADOR [misterio]: ¿Puede un gorro de lana acabar con una hipopótama de casi una tonelada?
+NARRADOR [tension]: Pasó en el zoológico de Cincinnati... y lo increíble es *cómo* llegó ese gorro.
+NARRADOR [tierno]: Fiona nació en 2017, seis semanas antes de tiempo. Pesaba trece kilos, la más chiquita jamás registrada.
+NARRADOR [asombro]: Sus cuidadores la salvaron, y Fiona se volvió *famosa*. Libros, un helado, hasta una cerveza con su nombre. La hipopótama milagro.
+NARRADOR [tension]: El 8 de noviembre, un visitante lanzó su gorro al aire... un ventilador del techo lo atrapó y lo disparó por una rendija, *directo* a su recinto.
+NARRADOR [triste]: Fiona se lo tragó.
+NARRADOR [tension]: No se la podía operar. Así que la subieron a una plataforma que vibra, prestada por una granja de caballos... y hasta le dieron a oler café, su olor favorito.
+NARRADOR [triste]: Once días después, Fiona murió. Tenía nueve años. El zoológico dijo que fue un accidente.
+DIRECTOR [conmovido]: Luchó hasta que ya no pudo.
+
+== CÓMO SE ARMÓ ==
+1. Historia: la #3 de hoy.md. Se revisó con 4 notas (OPB, Fox19, Daily Beast; Axios dio 403). Lo más fuerte salió de OPB: el ventilador que lanzó el gorro. ya_hecho.py: «Fiona/hipopótamo/Cincinnati» solo aparecía como candidata en las notas del 002 (no hecho); título nuevo.
+2. Material: fotos de Wikimedia Commons por su API (licencias anotadas arriba); clips con yt-dlp --js-runtimes node a 720p, recortados a 4:3 y pasados a fotogramas (fps=30) en clips/biberon y clips/bostezo. Para dibujar al director se miraron 2 fotos suyas (Movers & Makers y Miami University), que no salen en el video.
+3. Voz: voces.py qwen rapido. Se agregó la voz DIRECTOR y las emociones tierno, triste y conmovido. La primera versión duró 65 s (con «No podía ni caminar», «con biberón», las dos sedaciones, la cámara de casi tres metros y «su director lo resumió así»); se recortó a 53.5 s para quedar en 45-55 s.
+4. Película: plantilla.html reescrita entera (sobre la base 7c04913, que pinta siempre: 0 cuadros vacíos). Funciones: balanza, entrada, cuna, camaraZoo + visor, fama, casa, vet, nocheEscena; un dibujo de hipopótamo reutilizable (boca que se abre levantando la cabeza, ojos cerrados o sorprendidos) y el gorro de lana. El vuelo del gorro va por puntos atados a lanzó/ventilador/disparó/rendija/directo/recinto, cada tramo con un tiempo mínimo.
+5. Lo que se vio mal en los fotogramas y se arregló: todo quedaba muy abajo con mucho cielo (cámara y≈900 → 1000-1080); la balanza y Fiona se salían por los costados (brazo de 300 → 250 y zoom 0.96); la foto tapaba el calendario (foto más a la derecha); la nota «6 SEMANAS» se salía del cuadro; la fama estaba amontonada abajo (se pasó a un estante); el vapor del café con línea punteada parecía una cadena (ahora línea lisa que llega a la nariz); se veían dos «lunas» (el sol se desvanece antes); las flores tapaban la fuente de la foto (flores bajitas y placa arriba de la foto); el RÉCORD salía cuando la cámara ya se iba (pasó a «chiquita»); un cuadro vacío entre la balanza y el arco (el arco sale antes); la cámara se iba antes del ¡GLUP! (el trago se adelantó y la cámara espera) y antes de «su olor favorito».
+6. Render: hyperframes 0.8.33, 1 min 36 s. revisar_celeste.py: 1642 cuadros, 0 vacíos. Loudness −14.1 LUFS (no hizo falta subir).
+7. Portada: snapshot del segundo 30.9 con subs() apagado en una copia de index.html; portada.py con las dos placas.

@@ -1,0 +1,11 @@
+{
+ "tipo": "noticia/tendencia",
+ "duracion": "45-55 s",
+ "gancho": "pregunta",
+ "cierre": "frase del protagonista",
+ "narrador": "tercera persona",
+ "voz": "qwen",
+ "ritmo": "rapido",
+ "edicion": "mundo de papel continuo (zoológico) + 2 fotos que se levantan + 2 clips en visor",
+ "novedad": "gancho en pregunta y cierre con la frase real del director; tono triste/respetuoso"
+}
