@@ -3,12 +3,14 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { LogoIG, LogoTT, LogoYT, MarcaIG, MarcaTT, MarcaYT } from './Logos';
 import PublicarTikTok from './PublicarTikTok';
 import PublicarYouTube from './PublicarYouTube';
+import Vistazo, { porSalir } from './Vistazo';
 
 const ZONA = 'America/Guayaquil';
 const n = (v) => (v == null ? '—' : Number(v).toLocaleString('es-EC'));
 const pct = (v) => (v == null ? '—' : `${Math.round(v * 100)} %`);
 const seg = (v) => (v == null ? '—' : `${Number(v).toLocaleString('es-EC', { maximumFractionDigits: 1 })} s`);
 const dia = (iso) => (iso ? new Intl.DateTimeFormat('es-EC', { timeZone: ZONA, day: 'numeric', month: 'short' }).format(new Date(iso)).replace('.', '') : '—');
+const horaCorta = (iso) => new Intl.DateTimeFormat('es-EC', { timeZone: ZONA, weekday: 'short', hour: '2-digit', minute: '2-digit', hour12: false }).format(new Date(iso)).replace('.', '');
 const diaLargo = (iso) => (iso ? new Intl.DateTimeFormat('es-EC', { timeZone: ZONA, weekday: 'long', day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit', hour12: false }).format(new Date(iso)) : '—');
 
 // ── Una tarjeta por red: seguidores y vistas de la semana juntos ──
@@ -225,13 +227,27 @@ function QueGana({ piezas }) {
   );
 }
 
-export default function Tablero({ r, api = '/api', gana = true }) {
+export default function Tablero({ r, api = '/api', gana = true, vistazo = false }) {
   const [abierta, setAbierta] = useState(null);
   const [tarjeta, setTarjeta] = useState(null); // { red, p }
   const borradores = r.cola.filter((p) => p.tt_estado === 'en_borradores');
   const youtube = r.cola.filter((p) => p.yt_estado === 'para_ti');
+  const enCola = vistazo ? porSalir(r.cola) : [];
   return (
     <>
+      {enCola.length > 0 && (
+        <div className="por-salir">
+          <div className="g-titulo">Por salir · tócalo si quieres verlo antes</div>
+          <div className="por-salir-lista">
+            {enCola.map((p) => (
+              <button key={p.id} className="por-salir-item" onClick={() => setTarjeta({ red: 'vistazo', p })}>
+                {p.portada_url ? <img src={p.portada_url} alt="" loading="lazy" /> : <span className="sin-portada" />}
+                <span className="por-salir-txt"><b>{p.pieza}</b><small>{horaCorta(p.programada_para)}</small></span>
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
       {(borradores.length > 0 || youtube.length > 0) && (
         <div className="te-toca">
           {borradores.length > 0 && (
@@ -271,7 +287,7 @@ export default function Tablero({ r, api = '/api', gana = true }) {
         <div className="velo" onClick={() => setTarjeta(null)}>
           <div className="ventana" onClick={(e) => e.stopPropagation()}>
             <button className="cerrar" onClick={() => setTarjeta(null)} aria-label="Cerrar">×</button>
-            {tarjeta.red === 'tiktok' ? <PublicarTikTok p={tarjeta.p} api={api} /> : <PublicarYouTube p={tarjeta.p} api={api} />}
+            {tarjeta.red === 'vistazo' ? <Vistazo p={tarjeta.p} /> : tarjeta.red === 'tiktok' ? <PublicarTikTok p={tarjeta.p} api={api} /> : <PublicarYouTube p={tarjeta.p} api={api} />}
           </div>
         </div>
       )}

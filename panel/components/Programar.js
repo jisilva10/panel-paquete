@@ -3,6 +3,7 @@ import { useMemo, useRef, useState } from 'react';
 import { upload } from '@vercel/blob/client';
 import { Estados } from './Estado';
 import PublicarTikTok from './PublicarTikTok';
+import Vistazo from './Vistazo';
 
 const ZONA = 'America/Guayaquil';
 const franja = (h) => (h < 6 ? 'de la madrugada' : h < 12 ? 'de la mañana' : h < 19 ? 'de la tarde' : 'de la noche');
@@ -31,6 +32,7 @@ export default function Programar({ cola, cuentas }) {
   const [progreso, setProgreso] = useState(null);
   const [mensaje, setMensaje] = useState(null);
   const [lista, setLista] = useState(cola);
+  const [viendo, setViendo] = useState(null);
   const entrada = useRef();
 
   const hNum = hora ? Number(hora.slice(11, 13)) : null;
@@ -126,10 +128,12 @@ export default function Programar({ cola, cuentas }) {
               <Estados p={p} />
               {(p.ig_error || p.tt_error) && <div className="nota" style={{ color: 'var(--mal)', marginTop: 6 }}>{p.ig_error || p.tt_error}</div>}
               <div className="fila" style={{ marginTop: 8, gap: 6 }}>
+                {p.estado === 'programada' && p.video_url && <button className="boton claro chico" onClick={() => setViendo(viendo === p.id ? null : p.id)}>{viendo === p.id ? 'Cerrar' : 'Ver'}</button>}
                 {p.estado === 'programada' && <button className="boton claro chico" onClick={() => accion(p.id, 'ya')}>Sacar ya</button>}
                 {p.estado === 'programada' && <button className="boton claro chico" onClick={() => confirm('¿Cancelar y borrar el video de la cola?') && accion(p.id, 'cancelar')}>Cancelar</button>}
                 {p.estado === 'con_error' && <button className="boton claro chico" onClick={() => accion(p.id, 'reintentar')}>Reintentar</button>}
               </div>
+              {viendo === p.id && p.estado === 'programada' && <div style={{ marginTop: 10 }}><Vistazo p={p} /></div>}
               {p.tt_estado === 'en_borradores' && <div style={{ marginTop: 10 }}><PublicarTikTok p={p} compacta /></div>}
             </div>
           ))}
