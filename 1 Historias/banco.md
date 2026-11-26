@@ -15,7 +15,7 @@ Columnas: tipo · por qué engancha · fuentes por confirmar. Se tacha cuando sa
 - **El panadero del Titanic** · sobrevivió horas en el agua helada; dijo que había tomado whisky. · Wikipedia «Charles Joughin», Encyclopedia Titanica
 - **Vendió la Torre Eiffel dos veces** · estafa · Victor Lustig, 1925. · Wikipedia, Smithsonian
 - **La guerra del cerdo (1859)** · política · EE. UU. e Inglaterra casi en guerra por un cerdo. · Wikipedia «Pig War», National Park Service
-- **El funeral de una pierna** · política · Santa Anna (México) enterró su pierna con honores militares. · Wikipedia, INAH
+- ~~**El funeral de una pierna** · política · Santa Anna (México) enterró su pierna con honores militares. · Wikipedia, INAH~~ · video 2 del 25/11/2026
 - **El soldado que siguió peleando 29 años** · historia · Hiroo Onoda en la selva de Filipinas hasta 1974. · Wikipedia, NYT (obituario)
 - **Sobrevivió a las dos bombas atómicas** · historia · Tsutomu Yamaguchi. · Wikipedia, The Guardian
 - **La plaga del baile (1518)** · misterio · cientos bailaron sin parar en Estrasburgo. · Wikipedia, History.com
