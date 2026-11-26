@@ -1,4 +1,4 @@
-# Ganadores · 2026-11-25 17:00
+# Ganadores · 2026-11-26 06:40
 
 0 piezas con más de 48 h. Puntaje = vistas relativas en cada red (0-1) + compartidos y guardados.
 
@@ -22,6 +22,8 @@
 1. noticia/tendencia (siempre: lo que la gente está hablando hoy)
 2. historia absurda (última vez: nunca)
 3. persona increíble (última vez: nunca)
-Si el tema que toca no tiene una historia buena hoy, usa el siguiente de la lista: error de millones, golpe/estafa, política
+Si el tema que toca no tiene una historia buena hoy, usa el siguiente de la lista: error de millones, política, crimen
 
 ## Aún sin 48 h (no decidir con estas)
+- 002. El presidente que enterró su pierna
+- 001. El robo que terminó en un supermercado

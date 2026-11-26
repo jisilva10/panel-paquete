@@ -1,34 +1,32 @@
-# Hoy · 25/11/2026
+# Hoy · 26/11/2026
 
-Las 3 mejores historias del día (sin rotación ni cuota). La #1 la hizo el video 1; esta lista la armó la sesión del video 2 (el video 1 no dejó `hoy.md`). Candidatas revisadas: 10 (abajo).
+Las 3 mejores historias del día (sin rotación ni cuota). La armó la sesión del video 1 (lanzada a mano a las 6:40, porque la de las 3:00 se cortó). El 004 (Lustig) ya salió de esta fecha: no repetir estafa en el #2/#3 salvo que sea la mejor.
+Candidatas revisadas: 10 (abajo). Las noticias de hoy (Anmer Hall, narcolab en Nigeria, Shenzhou-24, la herencia de Mallorca) no tenían el giro de las historias del banco.
 
-## #1 · HECHA · «001. El robo que terminó en un supermercado»
-- Tema: noticia/tendencia · rehenes en el Éxito de Cartagena (24-25/11/2026). Programado 25/11 21:30.
+## #1 · VIDEO 1 · El hombre al que le cayeron dos bombas atómicas
+- Tema: persona increíble. Tsutomu Yamaguchi, ingeniero de Mitsubishi: el 6/8/1945 estaba de viaje de trabajo en Hiroshima (a 3 km, quemado y sordo de un oído); volvió a casa, a Nagasaki, y el 9/8, vendado, le estaba contando a su jefe lo de la bomba cuando cayó la segunda. Sobrevivió otra vez. Único reconocido oficialmente por Japón como doble sobreviviente (2009). Murió en 2010, a los 93.
+- Por qué: el giro más imposible que hay; se entiende en 1 segundo; fotos reales libres (las dos nubes, de EE. UU.). Tono: crudo con respeto, sin burla («el más desafortunado» no).
+- Fuentes: 1) NPR, «Survivor Of Two Atom Bombings Dies» (09/01/2010)  2) Wikipedia «Tsutomu Yamaguchi» (citas de NBC News 25/03/2009 y The Times). Apoyo: NBC News, «Double atomic bomb survivor dies in Japan».
 
-## #2 · VIDEO 2 · La pierna de Santa Anna
-- Tema: latinoamérica (política/historia de México).
-- Por qué: giro tras giro imposible. Santa Anna pierde la pierna en la «Guerra de los Pasteles» (1838: Francia invade México por, entre otras cosas, el reclamo de un pastelero francés); en 1842 le hace a la pierna un funeral de Estado con desfile, cañonazos y monumento; en 1844 una turba la desentierra y la arrastra por las calles; en 1847 soldados de Illinois le roban la pierna de palo y corcho en Cerro Gordo (mientras comía pollo), y hoy esa pierna está en un museo de Springfield, que no la devuelve. Fresco: el museo la volvió a exhibir de octubre a diciembre de 2026.
-- Fuentes: 1) History.com, Christopher Klein, «6 things you may not know about Santa Anna»  2) NPR Illinois, «Santa Anna's prosthetic leg going back on display at Springfield museum» (31/08/2026). Apoyo: Wikipedia «Guerra de los Pasteles» / «Antonio López de Santa Anna».
+## #2 · VIDEO 2 · El soldado que siguió peleando 29 años
+- Tema: persona increíble / historia. Hiroo Onoda siguió en la selva de Lubang (Filipinas) hasta 1974 porque nadie le dio la orden de rendirse; no creyó los volantes que decían que la guerra había terminado; un joven aventurero japonés (Norio Suzuki) lo encontró y tuvo que traer a su antiguo comandante para que le diera la orden. Fotos reales de la rendición.
+- Fuentes: 1) The New York Times, obituario de Hiroo Onoda (17/01/2014)  2) Wikipedia «Hiroo Onoda». Ojo: en Lubang murieron civiles por sus ataques: decirlo, sin heroizar.
 
-## #3 · HECHA · «003. Un ventilador, un gorro y la hipopótama milagro» · programado 26/11 09:00
-- Detalle nuevo de OPB: el visitante tiró el gorro al aire y un ventilador del techo lo lanzó por una abertura sobre los vidrios («It was an accident»). Fuentes usadas: OPB/AP + Fox19 (Axios dio 403).
+## #3 · VIDEO 3 · El espía que se inventó 27 espías
+- Tema: historia absurda (espionaje, España/II Guerra Mundial). Juan Pujol García «Garbo»: los ingleses no lo quisieron; se ofreció a los alemanes, les inventó una red de 27 agentes que no existían (desde Lisboa, con guías y revistas) y terminó engañando a Hitler sobre el desembarco de Normandía. Recibió una condecoración de cada bando.
+- Fuentes: 1) MI5, «Garbo: the spy who saved D-Day» (mi5.gov.uk)  2) Wikipedia «Juan Pujol García». Apoyo: BBC.
 
-## (original) #3 · Fiona, la hipopótama milagro que murió por un gorro
-- Tema: noticia/tendencia (todavía en lo más buscado de Telemundo esta semana).
-- Por qué: la hipopótama más famosa del mundo nació seis semanas prematura en 2017 y la salvaron contra todo pronóstico («la hipopótama milagro»); el 8/11/2026 un visitante tiró un gorro tejido a su recinto, ella se lo tragó y murió el 19/11. No se la podía operar por su tamaño. El director del zoo: «We are in shock at the moment» (citarlo solo así, traducido). Ojo con el tono: crudo pero con respeto; no inventar quién tiró el gorro.
-- Fuentes: 1) Axios Cincinnati, «Fiona the hippo dies after medical emergency at Cincinnati Zoo» (19/11/2026)  2) OPB / AP, «Cincinnati Zoo says Fiona the hippo has died, days after ingesting a visitor's hat» (19/11/2026). Apoyo: Fox19.
+## Reserva 1 · El panadero del Titanic que se salvó con whisky
+- Tema: persona increíble. Charles Joughin, jefe de panaderos: estuvo horas en el agua helada y dijo que había tomado alcohol. Usar solo lo que dijo en la investigación.
+- Fuentes: 1) Encyclopedia Titanica «Charles Joughin»  2) Wikipedia «Charles Joughin».
 
-## Reserva 1 · 3.000 tarántulas escondidas en medias (Lima, Perú)
-- Tema: latinoamérica (crimen/tráfico de animales). Dos alemanes y un polaco, aeropuerto Jorge Chávez, recipientes dentro de medias usadas en 3 maletas; uno sería un investigador de tarántulas (no confirmado: no decirlo como hecho). No nombrar a nadie.
-- Fuentes: 1) Euronews, «Perú: 3 detenidos que intentaban viajar a Alemania con miles de tarántulas vivas escondidas» (06/11/2026)  2) Primicias (Ecuador), «Tres extranjeros… pretendían sacar 3.000 tarántulas de Perú» (11/2026).
-
-## Reserva 2 · El hombre que vendió la Torre Eiffel (dos veces)
-- Tema: golpe/estafa. Victor Lustig, 1925: se hizo pasar por funcionario y «vendió» la torre como chatarra; la víctima no denunció por vergüenza y él volvió a intentarlo.
-- Fuentes: 1) Smithsonian Magazine  2) Wikipedia «Victor Lustig» (del banco).
+## Reserva 2 · La guerra del cerdo (1859)
+- Tema: política. EE. UU. e Inglaterra casi van a la guerra en la isla San Juan porque un granjero mató un cerdo; la única baja fue el cerdo.
+- Fuentes: 1) National Park Service, San Juan Island NHP  2) Wikipedia «Pig War».
 
 ## Las otras candidatas (descartadas hoy)
-- Geiser de basura en el relleno de Castaic, California (16/11): absurdo pero poco que contar.
-- Récord Guinness de cientos de «Rocky Balboa» en Filadelfia: poco giro.
-- Robo en la residencia del príncipe William (dos detenidos): pocos datos confirmados.
-- Ajedrez en la cima del Chimborazo (banco): bonito, sin giro fuerte; queda en el banco.
-- Coche bomba en Villavicencio: grave, no es para este formato.
+- Intento de robo en Anmer Hall (residencia del príncipe William): pocos datos confirmados.
+- Mexicanos detenidos en narcolaboratorios de Nigeria: no es fresco (mayo-septiembre) y cifras que no cuadran entre medios.
+- Herencia de Mallorca que fue a una empresa fantasma: enredo legal, difícil en menos de un minuto.
+- Inundación de melaza de Boston (1919): buena, queda en el banco.
+- Mike, el pollo sin cabeza: buena para otro día (historia absurda).

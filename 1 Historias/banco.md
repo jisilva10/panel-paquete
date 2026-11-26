@@ -17,7 +17,7 @@ Columnas: tipo · por qué engancha · fuentes por confirmar. Se tacha cuando sa
 - **La guerra del cerdo (1859)** · política · EE. UU. e Inglaterra casi en guerra por un cerdo. · Wikipedia «Pig War», National Park Service
 - ~~**El funeral de una pierna** · política · Santa Anna (México) enterró su pierna con honores militares. · Wikipedia, INAH~~ · video 2 del 25/11/2026
 - **El soldado que siguió peleando 29 años** · historia · Hiroo Onoda en la selva de Filipinas hasta 1974. · Wikipedia, NYT (obituario)
-- **Sobrevivió a las dos bombas atómicas** · historia · Tsutomu Yamaguchi. · Wikipedia, The Guardian
+- ~~**Sobrevivió a las dos bombas atómicas** · historia · Tsutomu Yamaguchi. · Wikipedia, The Guardian~~ · video 1 del 26/11/2026
 - **La plaga del baile (1518)** · misterio · cientos bailaron sin parar en Estrasburgo. · Wikipedia, History.com
 - **La inundación de melaza (Boston, 1919)** · absurdo trágico · una ola de melaza a 55 km/h. · Wikipedia, Smithsonian
 - **El espía que inventó 27 espías** · historia · Juan Pujol «Garbo», español, engañó a Hitler. · Wikipedia, MI5
