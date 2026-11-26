@@ -2,7 +2,7 @@
 
 Cuenta de historias **reales** que no te vas a creer, contadas con **títeres de papel** y **voz IA**, en **TikTok, Instagram y YouTube Shorts**. Español para toda Latinoamérica. Dueño: JIS (también lleva Noerion, que es otro proyecto).
 
-**JIS no hace nada aquí.** Claude escribe, monta, programa y mide. JIS solo toca «Publicar» en TikTok y «Subir» en YouTube desde el panel (por ahora). JIS no usa la terminal: los comandos los corre Claude.
+**JIS no hace nada aquí.** Claude escribe, monta, programa y mide. JIS solo toca «Publicar» en TikTok desde el panel (por ahora). YouTube e Instagram salen solos. JIS no usa la terminal: los comandos los corre Claude.
 **Vía libre**: «te dejo la pauta en absolutamente todo». Se prueba de todo (historia, duración, gancho, cierre, edición, subtítulos) hasta dar con la ganadora; a esa se le meten todas las fichas, con espacio para mejorar.
 
 Si esta carpeta acaba de llegar a una compu nueva, lee primero **MUDANZA.md**.
@@ -48,7 +48,7 @@ Si esta carpeta acaba de llegar a una compu nueva, lee primero **MUDANZA.md**.
 ## Cuentas y conexiones (ya hechas el 25/11/2026)
 - Instagram **@es_enserio.tv** (creador): conectado al panel con la app de Meta «Noerion Radar» (IG app id 2186900705205162; las apps nuevas de Meta ya no permiten inicio de sesión con Instagram).
 - TikTok **@es_enserio.tv**: app «Panel enserio», Sandbox «enserio»; llega a borradores y JIS publica.
-- YouTube **@es_enseriotv** (canal UC4s1duOWIwU7mWkaZfNpvsQ): el panel lee los números con una llave de Google (proyecto «enseriotv»); JIS sube desde la tarjeta «Subir».
+- YouTube **@es_enseriotv** (canal UC4s1duOWIwU7mWkaZfNpvsQ): el panel lee los números con una llave de Google (proyecto «enseriotv») y **sube solo** desde el 25/11/2026 (OAuth `youtube.upload` conectado, interruptor `YT_SUBIR_SOLO=1` en Vercel; primer video subido por API: el 001, público). El título de YouTube es la primera línea de `texto.txt` (máx. 100 caracteres): que esa primera línea quepa entera.
 - Las llaves viven **solo en Vercel** (nunca en esta carpeta ni en GitHub). La compu habla con el panel con su propia llave en `panel/.secretos/mac.txt` (no va a GitHub).
 
 ## La rutina de las 3 a. m.
