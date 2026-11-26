@@ -11,14 +11,16 @@ import numpy as np
 SR, FPS = 24000, 30
 CARPETA, MOTOR = sys.argv[1], sys.argv[2]
 # Ritmo (JIS, 25/11/2026: «pausas dramáticas sí, pero no tan largas: se siente lento»). Se juega y se mide:
-# va en etiquetas.json → "ritmo". Uso: voces.py CARPETA qwen [rapido|medio|dramatico]  (por defecto rapido)
+# va en etiquetas.json → "ritmo". Uso: voces.py CARPETA qwen [rapido|medio|dramatico] [velocidad]  (por defecto rapido)
+# La velocidad (1.00 | 1.07 | 1.12 | 1.17) también se prueba (etiquetas.json → "velocidad"); si no se da, la del ritmo.
 RITMOS = {
   'rapido':    dict(silencio=0.28, entre=(0.26, 0.12), tempo=1.07, instr='Ritmo ágil y con energía, como un buen narrador de videos cortos: en los puntos suspensivos haz solo una pausa corta, nunca larga.'),
   'medio':     dict(silencio=0.40, entre=(0.36, 0.18), tempo=1.0,  instr='Haz una pausa breve en los puntos suspensivos.'),
   'dramatico': dict(silencio=0.65, entre=(0.45, 0.22), tempo=1.0,  instr='Respeta las pausas de los puntos suspensivos.'),
 }
 RITMO = sys.argv[3] if len(sys.argv) > 3 else 'rapido'
-R = RITMOS[RITMO]
+R = dict(RITMOS[RITMO])
+if len(sys.argv) > 4: R['tempo'] = float(sys.argv[4])
 
 # emoción → (velocidad, tono, volumen) en Edge, y frase para Qwen
 EMO = {
@@ -229,7 +231,7 @@ def main():
     hop = SR // FPS; n = int(len(y)/SR*FPS)+1
     rms = np.array([np.sqrt(np.mean(y[i*hop:(i+1)*hop]**2)) if i*hop < len(y) else 0 for i in range(n)])
     boca = np.clip(rms / np.percentile(rms[rms > 0.01], 90), 0, 1)
-    json.dump(dict(fps=FPS, ritmo=RITMO, dura=round(len(y)/SR + 1.2, 3), lineas=lineas, boca=[round(float(v), 2) for v in boca]),
+    json.dump(dict(fps=FPS, ritmo=RITMO, velocidad=R['tempo'], dura=round(len(y)/SR + 1.2, 3), lineas=lineas, boca=[round(float(v), 2) for v in boca]),
               open(os.path.join(CARPETA, f'tiempos-{MOTOR}.json'), 'w'), ensure_ascii=False)
-    print('listo', MOTOR, RITMO, round(len(y)/SR, 1), 's')
+    print('listo', MOTOR, RITMO, R['tempo'], round(len(y)/SR, 1), 's')
 main()

@@ -38,6 +38,14 @@ Música / efectos: historia.mp3 al 32 % con sidechain a la voz; desde «once» b
 Portada (escena y titular): la casa de los hipopótamos en el segundo 30.9 sin subtítulos: el gorro atrapado en el ventilador, el visitante con la mano arriba y Fiona en el vidrio; placas «LA HIPOPÓTAMA MÁS FAMOSA» (amarilla) y «¿Y UN GORRO DE LANA?» (tinta).
 Texto de la publicación: «Sobrevivió a nacer prematura y se volvió la hipopótama más famosa del mundo. Lo que la venció fue un gorro y un ventilador.» + «Fuentes: OPB / AP · Fox19 (19/11/2026)» + #Fiona #hipopotamo #Cincinnati #historiasreales #enserio
 
+== PALANCAS == (copiado de etiquetas.json; ★ = se probó a propósito en este video)
+Modo: explorar · Pruebas: gancho, cierre, tono
+Historia: Tema: noticia/tendencia · Época: esta semana · Dónde pasó: EE. UU. · ★ Tono: tierno
+Texto: ★ Tipo de gancho: pregunta · Primera palabra: pregunta · Cómo se desarrolla: final primero y vuelta atrás · Giros: 2 · Narrador: tercera persona · Quién habla: narrador + frase real · ★ Frase final: frase del protagonista · Pide comentario: no
+Edición y sonido: Transición: viaje de lado · Cada cuánto cambia la imagen: medio (2-3 s) · Cámara: zooms y sacudidas · Fotos + clips reales: 4-5 · Cómo entra lo real: mezcla · Letreros en pantalla: pocos · El primer segundo: algo cae o aparece de golpe · Subtítulos: Lilita 84 px abajo · Música: historia (la de siempre) · Volumen de música: media (≈32 %) · Efectos de sonido: normales (7-14) · Audio original del clip: bajito (≈35 %) · Silencio antes del giro: no
+Voz, duración, portada: Duración: 50-60 s · Pausas de la voz: rapido · Velocidad de la voz: 1.07 · Escena de portada: el objeto clave · Titular de portada: afirmación + pregunta · Texto de la publicación: afirmación que intriga
+Publicación: Hora de subida: mañana (7-10)
+
 == QUÉ SE PROBÓ ==
 Lo que se repitió de los ganadores (y de cuál): todavía no hay números (día 1). De 001 y 002 se repitió la forma: mundo continuo, foto que se levanta del suelo, visor con clip real, ritmo rápido, 45-55 s.
 Lo nuevo que se probó en este video: (1) gancho en PREGUNTA (001 y 002 usaron dato imposible); (2) cierre con la FRASE REAL del protagonista (001 y 002 cerraron en bucle al gancho); (3) noticia triste contada con respeto, con la música que baja y el cielo que se hace de noche; (4) emociones nuevas en la voz: tierno, triste, conmovido.

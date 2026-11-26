@@ -8,6 +8,7 @@
     "db": "node scripts/base.mjs",
     "programar": "node scripts/programar.mjs",
     "cola": "node scripts/programar.mjs --cola",
+    "etiquetas": "node scripts/etiquetas.mjs",
     "estado": "node scripts/base.mjs estado",
     "numeros": "node -e \"import('./scripts/panel.mjs').then(async m=>console.log(JSON.stringify(await m.panel('/api/cron/estadisticas'),null,1)))\""
   },

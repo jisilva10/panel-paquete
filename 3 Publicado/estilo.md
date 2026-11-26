@@ -9,12 +9,14 @@ Estados: **explorando** (sin datos) · **va ganando** (gana con 3+ videos) · **
 ## Cómo se decide (la regla)
 1. Solo cuentan videos con **48 h** o más (`ganadores.md`). Las 2 primeras semanas son ruido: se explora todo.
 2. Se compara **dentro del mismo tema** (una noticia contra otras noticias), y después se mira si se repite en varios temas.
-3. Una variante «va ganando» cuando tiene **3+ videos** y su promedio de vistas es **20 % o más** que la rival. Con menos datos, sigue «explorando».
-4. Nunca se cambian más de **1-2 cosas por video**. Si no, no se sabe qué funcionó.
-5. Desde la semana 4: de cada 10 videos, **7** con la fórmula, **2** con la rival más cercana y **1** con algo nuevo.
+3. Una opción «va ganando» cuando tiene **3+ videos** y su promedio de vistas es **20 % o más** que la rival. Con menos datos, sigue «explorando».
+4. **Cada video prueba algo** (JIS, 26/11/2026). Las palancas son las ~30 de `.motor/variables.json` y cada video anota la suya en `etiquetas.json`: así se puede cambiar más de una cosa por video y igual saber cuál funcionó (el laboratorio promedia cada palanca por separado entre todos los videos). Como mucho **una prueba por grupo** (texto · edición y sonido · voz/duración/portada/publicación) y ninguna palanca en dos videos del mismo día.
+5. Fase explorar (hasta el 16/12/2026 o 30 videos con 48 h): **3 pruebas por video**. Después, de cada 10: **7** «ganador» (la fórmula + 1 prueba), **2** «rival» (la segunda opción de 2 palancas) y **1** «nuevo» (3 pruebas + una idea nunca hecha). Lo reparte `laboratorio.py` solo.
 6. Lo que JIS dice al ver un video **pesa como dato**: se anota aquí con fecha y se aplica de inmediato.
 
 ## La fórmula hoy (25/11/2026 · día 1 · explorando)
+
+El detalle palanca por palanca (cuántos videos tiene cada opción y su puntaje) está en `3 Publicado/laboratorio.md`, que se rehace cada día. Esta tabla es el resumen que se lee rápido: cuando una palanca pasa a «va ganando» en el laboratorio, se cambia aquí también.
 
 | Pieza | Hoy se usa | Estado | Se está probando contra | Por qué |
 |---|---|---|---|---|
@@ -40,7 +42,7 @@ Estados: **explorando** (sin datos) · **va ganando** (gana con 3+ videos) · **
 
 ## Qué se mira en el paso 1 cada día (lista)
 1. `ganadores.md`: los 3 mejores y los 3 peores, y «Por tema».
-2. En el panel, «Qué está ganando»: vistas promedio por tipo, duración, gancho, cierre, narrador, voz, **ritmo** y edición.
+2. `python .motor/laboratorio.py` (lee el panel, «Qué está ganando»): cada palanca, cuál va ganando, el plan del próximo video y las horas de hoy.
 3. Los `que-se-hizo.txt` de los mejores y los peores: primera palabra, gancho literal, estructura con segundos, cierre literal, portada.
 4. Retención (cuando IG la dé): ¿en qué segundo se van? Si se van antes de los 3 s, el problema es el gancho; si se van a la mitad, el ritmo o el largo.
 5. Compartidos y guardados: dicen qué historia da ganas de mandarla a alguien.

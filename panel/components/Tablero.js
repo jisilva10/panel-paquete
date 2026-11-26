@@ -219,10 +219,13 @@ function Detalle({ p, cerrar }) {
 }
 
 // ── Qué está ganando: promedio de vistas según lo que se probó (etiquetas de cada función) ──
+const SIN_COMPARAR = new Set(['novedad', 'edicion', 'portada_ms', 'pruebas', 'hora_sugerida']);
 function QueGana({ piezas }) {
   const grupos = useMemo(() => {
     const g = new Map();
     for (const p of piezas) for (const [k, v] of Object.entries(p.etiquetas || {})) {
+      // Lo que es texto libre o un número de trabajo no se compara (cada video tiene el suyo).
+      if (SIN_COMPARAR.has(k) || v === '' || v == null || Array.isArray(v)) continue;
       if (!g.has(k)) g.set(k, new Map());
       const m = g.get(k); const val = String(v);
       if (!m.has(val)) m.set(val, { val, n: 0, instagram: [], tiktok: [], youtube: [] });

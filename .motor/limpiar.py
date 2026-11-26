@@ -10,6 +10,10 @@ if not os.path.exists(os.path.join(d, 'que-se-hizo.txt')): sys.exit('No toco nad
 render = os.path.join(d, 'salida', 'video.mp4')
 if os.path.exists(render): shutil.move(render, os.path.join(d, 'video.mp4'))
 if not os.path.exists(os.path.join(d, 'video.mp4')): sys.exit('No toco nada: no encuentro el video (salida/video.mp4)')
+# las palancas de etiquetas.json quedan también escritas en el que-se-hizo.txt
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import palancas
+palancas.escribir(d)
 borrado = 0
 for n in os.listdir(d):
     p = os.path.join(d, n)

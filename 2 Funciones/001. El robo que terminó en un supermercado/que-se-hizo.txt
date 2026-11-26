@@ -38,6 +38,14 @@ Música / efectos: historia.mp3 al 32 % con sidechain a la voz; pops en «hombre
 Portada (escena y titular): adentro, los 3 encapuchados con botellas delante de los estantes de licor (segundo 34, sin subtítulos); placas «17 HORAS DE SECUESTRO» (amarilla) y «¿CON ARMAS DE JUGUETE?» (tinta).
 Texto de la publicación: «Querían robar un carro blindado y terminaron 17 horas encerrados en un supermercado. Lo de las armas es lo mejor.» + «Fuentes: Infobae · El Tiempo (24-25/11/2026)» + #Cartagena #Colombia #noticias #historiasreales #enserio
 
+== PALANCAS == (copiado de etiquetas.json; ★ = se probó a propósito en este video)
+Modo: explorar · Pruebas: —
+Historia: Tema: noticia/tendencia · Época: esta semana · Dónde pasó: latinoamérica · Tono: chistoso
+Texto: Tipo de gancho: dato imposible · Primera palabra: verbo · Cómo se desarrolla: cronológico · Giros: 2 · Narrador: tercera persona · Quién habla: narrador + frase real · Frase final: bucle al gancho · Pide comentario: no
+Edición y sonido: Transición: cámara entra por un objeto · Cada cuánto cambia la imagen: medio (2-3 s) · Cámara: paneo suave · Fotos + clips reales: 2-3 · Cómo entra lo real: mezcla · Letreros en pantalla: pocos · El primer segundo: ya en movimiento · Subtítulos: Lilita 84 px abajo · Música: historia (la de siempre) · Volumen de música: media (≈32 %) · Efectos de sonido: normales (7-14) · Audio original del clip: bajito (≈35 %) · Silencio antes del giro: no
+Voz, duración, portada: Duración: 50-60 s · Pausas de la voz: rapido · Velocidad de la voz: 1.07 · Escena de portada: el clímax · Titular de portada: afirmación + pregunta · Texto de la publicación: afirmación que intriga
+Publicación: Hora de subida: noche tarde (21-23)
+
 == QUÉ SE PROBÓ ==
 Lo que se repitió de los ganadores (y de cuál): ninguno todavía (día 1, sin números). Se repitió la forma de la plantilla de los emús: mundo continuo, la cámara entra por un objeto (la vitrina), visor con clip real, cierre en bucle.
 Lo nuevo que se probó en este video: noticia de hace horas (llegar a tiempo); una persona real habla con su frase literal y voz propia (REHEN, voz nueva en voces.py); un «giro de la investigación» (armas de juguete) justo antes del cierre.

@@ -42,8 +42,11 @@ def main():
         t = open(os.path.join(PL, f), encoding='utf8').read()
         t = t.replace('{{NOMBRE}}', nombre).replace('{{NUM}}', num).replace('{{TITULO}}', titulo).replace('{{FECHA}}', hoy)
         open(os.path.join(dest, f), 'w', encoding='utf8').write(t)
-    json.dump({'tipo': '', 'duracion': '', 'gancho': '', 'cierre': '', 'narrador': '', 'voz': 'qwen', 'ritmo': 'rapido', 'edicion': '', 'novedad': ''},
-              open(os.path.join(dest, 'etiquetas.json'), 'w', encoding='utf8'), ensure_ascii=False, indent=1)
+    # Una clave por cada palanca de variables.json (se llenan con laboratorio.py --carpeta y se ajustan a la historia)
+    vs = json.load(open(os.path.join(RAIZ, '.motor', 'variables.json'), encoding='utf8'))['variables']
+    etiq = {k: '' for k in vs}
+    etiq.update(voz='qwen', modo='', pruebas=[], novedad='', edicion='')
+    json.dump(etiq, open(os.path.join(dest, 'etiquetas.json'), 'w', encoding='utf8'), ensure_ascii=False, indent=1)
     print(dest)
 
 main()

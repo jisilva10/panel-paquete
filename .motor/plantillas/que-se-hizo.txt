@@ -6,7 +6,7 @@ Número: {{NUM}}
 Título: {{TITULO}}
 Nombre en el panel: {{NOMBRE}}
 Creado: {{FECHA}}
-Hora programada:
+Hora programada: (AAAA-MM-DD HH:MM, Ecuador · día de la semana)
 Duración (s):
 Tipo: (noticia/tendencia | historia absurda | persona increíble | error de millones | golpe/estafa | política | crimen | inventos y ciencia | latinoamérica)
 Tema en una frase:
@@ -18,6 +18,8 @@ Primera palabra:
 Gancho (primera frase, literal):
 Tipo de gancho: (en medio del lío | pregunta | dato imposible | frase del protagonista | otro)
 Estructura: intro (s a s) · desarrollo (s a s) · giro (s) · cierre (s a s)
+Desarrollo (cómo se cuenta): (cronológico | final primero | lista de 3 | misterio al final | cuenta regresiva | dos versiones)
+Giros (cuántos y cuáles):
 Narrador en: (tercera persona | segunda persona «tú» | primera persona)
 Personajes que hablan:
 Cierre (estilo): (dato que remata | ironía | bucle al gancho | frase del protagonista | pregunta | otro)
@@ -25,6 +27,7 @@ Frase de cierre (literal):
 Palabras totales:
 Emociones usadas en la voz:
 Ritmo de la voz: (rapido | medio | dramatico: el tercer dato de voces.py)
+Velocidad de la voz: (1.00 | 1.07 | 1.12 | 1.17: el cuarto dato de voces.py)
 
 == EDICIÓN ==
 Mundo (lugar de papel):
@@ -33,13 +36,21 @@ Personajes dibujados (y a quién se parecen):
 Fotos reales (cuántas, de dónde, en qué segundo):
 Clips reales (cuántos, de dónde, cuánto duran, cómo entran):
 Subtítulos (estilo, tamaño, posición):
-Música / efectos:
+Música (cuál y a qué volumen):
+Efectos de sonido (cuántos y en qué palabras):
+Audio original de los clips:
+Silencios:
+Transiciones y cámara (cómo cambia y cada cuánto):
+El primer segundo (qué se ve y qué se mueve):
 Portada (escena y titular):
 Texto de la publicación:
 
+== PALANCAS == (lo escribe solo limpiar.py desde etiquetas.json)
+
 == QUÉ SE PROBÓ ==
+Modo del laboratorio: (explorar | ganador | rival | nuevo)
 Lo que se repitió de los ganadores (y de cuál):
-Lo nuevo que se probó en este video:
+Lo nuevo que se probó en este video: (una línea por prueba: palanca · de qué a qué · por qué)
 Hipótesis (qué espero que pase):
 
 == RESULTADO (se llena después; lo actualiza la rutina) ==

@@ -1,27 +1,26 @@
 Tareas programadas de Claude en la PC con Windows
 Cada video va en su propia sesión (decisión de JIS, 25/11/2026), así que son 3 tareas, una por video:
 
-| Tarea | Hora (cron, hora local) | Video | Se programa cerca de |
-|---|---|---|---|
-| es_enserio: rutina de las 3 — video 1 | 3:00 (`0 3 * * *`) | quién gana + aprendizajes + elegir las 3 mejores (`hoy.md`) + hacer la #1 | 11:30 |
-| es_enserio: rutina de las 3 — video 2 | 4:15 (`15 4 * * *`) | la #2 de `hoy.md` | 16:00 |
-| es_enserio: rutina de las 3 — video 3 | 5:30 (`30 5 * * *`) | la #3 de `hoy.md` | 20:30 |
+| Tarea | Hora (cron, hora local) | Video |
+|---|---|---|
+| es_enserio: rutina de las 3 — video 1 | 3:00 (`0 3 * * *`) | quién gana + laboratorio + elegir las 3 del día (`hoy.md`) + hacer la #1 |
+| es_enserio: rutina de las 3 — video 2 | 4:15 (`15 4 * * *`) | laboratorio + la #2 de `hoy.md` |
+| es_enserio: rutina de las 3 — video 3 | 5:30 (`30 5 * * *`) | laboratorio + la #3 de `hoy.md` |
 
+La hora de subida de cada video ya no es fija: la reparte `laboratorio.py` (3 franjas distintas por día, rotando).
 Las 3 viven en la app de Claude de la PC (barra lateral → Programadas; archivos en `C:\Users\Joaquin\.claude\scheduled-tasks\es-enserio-video-N\SKILL.md`).
+**Se actualizan solas**: el paso 0 de la RECETA hace que cada corrida compare su texto con este archivo y, si no coincide, lo reescriba con `update_scheduled_task`. Cambia este archivo en GitHub y las tareas lo copian en su próxima corrida.
 
-Texto común (cada tarea lo lleva con su número, su hora y su tema):
+Texto de cada tarea (igual para las 3; solo cambia N = 1, 2 o 3):
 
-Eres el productor de la cuenta es_enserio.tv («¿En serio?»). Esta corrida hace SOLO EL VIDEO N DE 3 del día. Trabaja en <proyecto>. Lee primero <proyecto>\CLAUDE.md y luego sigue <proyecto>\.motor\RECETA.md para UN solo video:
-- Video 1: paso 1 completo (ganadores.py, aprendizajes de hoy); paso 2: busca candidatas en TODOS los temas (tendencias de hoy y cualquier historia buena), elige las 3 MEJORES (sin rotación ni cuota de noticias), déjalas en `3 Publicado\hoy.md` con 2 de reserva, haz push, y monta la #1.
-- Videos 2 y 3: no corren ganadores.py; `git pull --rebase` y toman la #2 / #3 de `hoy.md` (o la siguiente de reserva si ya no sirve; si `hoy.md` no es de hoy, eligen ellas la mejor que no esté hecha). Si otra sesión está usando la tarjeta (`nvidia-smi`), esperan (5 min, hasta 45).
-- Montar ese video entero, mirarlo en fotogramas, programarlo (primero --probar), limpiar y git push.
-
-Reglas clave:
-- SOLO para la PC con Windows: lo PRIMERO es `python -c "import platform; print(platform.system())"`; si no dice Windows, termina diciendo «esta rutina solo corre en la PC».
-- Al empezar `git pull --rebase`; al terminar `git add -A`, commit y `git push`.
-- Si Instagram o TikTok no están conectados en el panel, para y anótalo en <proyecto>\3 Publicado\notas.md.
-- NUNCA repetir: antes de elegir la historia, `python .motor\ya_hecho.py "protagonista" "lugar" "palabra clave"`; si dice «YA SE HIZO», otra. Gancho, cierre y título siempre nuevos (`ya_hecho.py --lista`). Si la historia sale del banco, tácharla y hacer push en ese momento.
-- Nunca programes un video que no hayas mirado en fotogramas. Nada sexual ni religioso. Las personas reales solo dicen lo que dijeron. Dos fuentes por historia.
-- Si algo falla dos veces, no programes ese video y deja nota.
-- No toques nada de Noerion ni de su panel.
-- Al terminar, una línea en <proyecto>\3 Publicado\notas.md con fecha, «video N/3», nombre, tema y hora.
+---
+Eres el productor de la cuenta es_enserio.tv («¿En serio?»). Esta corrida hace SOLO EL VIDEO N DE 3 del día. Trabaja en la carpeta Titeres (<proyecto>).
+1. Lo PRIMERO: `python -c "import platform; print(platform.system())"`. Si no dice Windows, termina diciendo «esta rutina solo corre en la PC».
+2. `git pull --rebase` en <proyecto>. Lee <proyecto>\CLAUDE.md entero y sigue <proyecto>\.motor\RECETA.md para UN solo video. Si este texto y la RECETA no coinciden, manda la RECETA (y en su paso 0 se actualiza este texto).
+3. Cada video es un experimento. ANTES de elegir la historia: `python .motor\laboratorio.py --video N` (lee el panel: qué palanca va ganando, el plan de este video con su BASE y sus PRUEBAS, la hora de hoy y los temas que faltan) y abre los `que-se-hizo.txt` de los ganadores que lista. Copia la forma que gana y haz las pruebas de verdad; nunca un video sin pruebas.
+   - Video 1: además `python .motor\ganadores.py` y `python .motor\laboratorio.py --guardar`, aprendizajes y estilo.md; busca candidatas en TODOS los temas, elige las 3 mejores de 3 temas distintos, déjalas en `3 Publicado\hoy.md` con su franja de hora y 2 de reserva, push, y monta la #1.
+   - Videos 2 y 3: toman la #2 / #3 de `hoy.md` (o la reserva que no repita tema del día). Si otra sesión usa la tarjeta (`nvidia-smi`), esperan (5 min, hasta 45).
+4. Tras `nueva_funcion.py`, `python .motor\laboratorio.py --video N --carpeta "2 Funciones\NNN. Título"` y haz el video siguiendo ese `etiquetas.json` (guion, voz con su ritmo y velocidad, edición, sonido, portada, texto y hora). Al final, `etiquetas.json` dice lo que SE HIZO y `que-se-hizo.txt` va ENTERO, con una línea por prueba.
+5. Mírala en fotogramas (todos), prográmala (primero --probar), limpia (`limpiar.py`), una línea en `3 Publicado\notas.md` («video N/3», nombre, tema, hora, pruebas) y `git add -A`, commit y `git push`.
+Reglas: NUNCA repetir (`ya_hecho.py` antes de elegir y `--lista` antes del gancho y el cierre). Dos fuentes. La gente real solo dice lo que dijo. Nada sexual ni religioso. Si Instagram o TikTok no están conectados, para y anótalo en notas.md. Si algo falla dos veces, no programes ese video y deja nota. No toques nada de Noerion.
+---

@@ -1,0 +1,45 @@
+{
+ "_leeme": "Todas las palancas que se prueban en cada video (JIS, 26/11/2026: «que cada video pruebe cosas nuevas»). Cada video anota en etiquetas.json UNA opción por clave, escrita EXACTAMENTE como aquí (si no, no se puede comparar). Se puede agregar una opción nueva al final de una lista cuando se inventa algo; nunca cambiar el nombre de una que ya se usó. 'grupo' decide qué se prueba junto: en cada video hay como mucho una prueba por grupo. 'raiz' = no se toca (la marca): mundo de papel, títeres con borde blanco en palito, boca con la voz, fotos y clips reales dentro del mundo, fuente chiquita, tipografías y colores.",
+ "grupos": {
+  "H": "la historia (no se «prueba»: sale de la historia elegida; el laboratorio dice qué falta para elegir mejor)",
+  "A": "texto (cómo se escribe)",
+  "B": "edición y sonido (cómo se ve y suena, sin tocar la raíz)",
+  "C": "voz, duración, portada y publicación"
+ },
+ "variables": {
+  "tipo":            {"grupo": "H", "nombre": "Tema", "auto": "lo decide la historia; los 3 del día, de 3 temas distintos", "opciones": ["noticia/tendencia", "historia absurda", "persona increíble", "error de millones", "golpe/estafa", "política", "crimen", "inventos y ciencia", "latinoamérica"]},
+  "epoca":           {"grupo": "H", "nombre": "Época", "opciones": ["esta semana", "últimos 10 años", "siglo XX", "antes de 1900"]},
+  "region":          {"grupo": "H", "nombre": "Dónde pasó", "opciones": ["latinoamérica", "EE. UU.", "Europa", "Asia", "África/Oceanía"]},
+  "tono":            {"grupo": "H", "nombre": "Tono", "opciones": ["chistoso", "serio con respeto", "indignante", "suspenso", "tierno"]},
+  "gancho":          {"grupo": "A", "nombre": "Tipo de gancho", "opciones": ["dato imposible", "pregunta", "en medio del lío", "frase del protagonista", "tú (segunda persona)", "cifra gigante", "final primero", "contradicción"]},
+  "primera_palabra": {"grupo": "A", "nombre": "Primera palabra", "opciones": ["año o número", "este/esta", "el/la + cosa", "nombre propio", "verbo", "pregunta", "tú"]},
+  "desarrollo":      {"grupo": "A", "nombre": "Cómo se desarrolla", "opciones": ["cronológico", "final primero y vuelta atrás", "lista de 3", "misterio que se revela al final", "cuenta regresiva", "dos versiones (lo que creían vs. lo que pasó)"]},
+  "giros":           {"grupo": "A", "nombre": "Giros", "opciones": ["1", "2", "3 o más"]},
+  "narrador":        {"grupo": "A", "nombre": "Narrador", "opciones": ["tercera persona", "segunda persona «tú»", "primera persona"]},
+  "voces":           {"grupo": "A", "nombre": "Quién habla", "opciones": ["solo narrador", "narrador + frase real", "narrador + objeto o animal que habla"]},
+  "cierre":          {"grupo": "A", "nombre": "Frase final", "opciones": ["dato que remata", "ironía", "bucle al gancho", "frase del protagonista", "pregunta", "cómo está hoy", "giro final"]},
+  "pregunta_publico":{"grupo": "A", "nombre": "Pide comentario", "opciones": ["no", "sí, al final", "sí, en el texto"]},
+
+  "transicion":      {"grupo": "B", "nombre": "Transición", "opciones": ["cámara entra por un objeto", "viaje de lado", "iris que se abre", "hoja de papel que pasa", "zoom rápido", "destello"]},
+  "cortes":          {"grupo": "B", "nombre": "Cada cuánto cambia la imagen", "opciones": ["tranquilo (4-5 s)", "medio (2-3 s)", "rápido (1-2 s)"]},
+  "camara":          {"grupo": "B", "nombre": "Cámara", "opciones": ["paneo suave", "zooms y sacudidas", "parallax profundo", "siempre en movimiento"]},
+  "reales":          {"grupo": "B", "nombre": "Fotos + clips reales", "opciones": ["0-1", "2-3", "4-5", "6 o más"]},
+  "clip_entra":      {"grupo": "B", "nombre": "Cómo entra lo real", "opciones": ["visor de cámara", "televisor", "ventana", "diario o pantalla", "foto que se levanta", "mezcla"]},
+  "texto_pantalla":  {"grupo": "B", "nombre": "Letreros en pantalla", "opciones": ["pocos", "sello o cifra en cada giro", "contador o calendario que corre"]},
+  "arranque":        {"grupo": "B", "nombre": "El primer segundo", "opciones": ["ya en movimiento", "algo cae o aparece de golpe", "cámara que cae al lugar", "primer plano de la cara"]},
+  "subtitulos":      {"grupo": "B", "nombre": "Subtítulos", "opciones": ["Lilita 84 px abajo", "más grandes al centro", "palabra por palabra", "en caja de papel", "color por personaje"]},
+  "musica":          {"grupo": "B", "nombre": "Música", "opciones": ["historia (la de siempre)", "suspenso", "épica", "chistosa", "triste", "sin música"]},
+  "musica_vol":      {"grupo": "B", "nombre": "Volumen de música", "opciones": ["baja (≈20 %)", "media (≈32 %)", "alta (≈45 %)"]},
+  "efectos":         {"grupo": "B", "nombre": "Efectos de sonido", "opciones": ["pocos (≤6)", "normales (7-14)", "muchos (15 o más)"]},
+  "audio_real":      {"grupo": "B", "nombre": "Audio original del clip", "opciones": ["no", "bajito (≈35 %)", "protagonista (se oye claro)"]},
+  "silencio":        {"grupo": "B", "nombre": "Silencio antes del giro", "opciones": ["no", "sí (todo calla 0,5 s)"]},
+
+  "duracion":        {"grupo": "C", "nombre": "Duración", "auto": "se planea un largo; al final se anota el real (sale de «Duración (s)»)", "opciones": ["20-30 s", "30-40 s", "40-50 s", "50-60 s", "60-75 s"]},
+  "ritmo":           {"grupo": "C", "nombre": "Pausas de la voz", "opciones": ["rapido", "medio", "dramatico"]},
+  "velocidad":       {"grupo": "C", "nombre": "Velocidad de la voz", "opciones": ["1.00", "1.07", "1.12", "1.17"]},
+  "portada_escena":  {"grupo": "C", "nombre": "Escena de portada", "opciones": ["el gancho", "el clímax", "la cara del protagonista", "el objeto clave"]},
+  "portada_titular": {"grupo": "C", "nombre": "Titular de portada", "opciones": ["afirmación + pregunta", "dos afirmaciones", "solo pregunta", "cifra gigante"]},
+  "texto_pub":       {"grupo": "C", "nombre": "Texto de la publicación", "opciones": ["afirmación que intriga", "pregunta", "cifra", "frase del video"]},
+  "franja":          {"grupo": "-", "nombre": "Hora de subida", "auto": "la reparte el plan del día (hoy.md): 3 franjas distintas por día", "opciones": ["mañana (7-10)", "mediodía (11-13)", "tarde (14-17)", "noche (18-20)", "noche tarde (21-23)"]}
+ }
+}

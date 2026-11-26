@@ -8,7 +8,7 @@ Uso: python .motor/ganadores.py"""
 import datetime, json, os, re, sys, urllib.request
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-# Los temas que rotan. El primero sale TODOS los días; los demás se turnan (los que hace más tiempo no salen, primero).
+# Los temas (para agrupar «Por tema»; no rotan: se eligen las mejores historias, de 3 temas distintos por día).
 TEMAS = ['noticia/tendencia', 'historia absurda', 'persona increíble', 'error de millones', 'golpe/estafa',
          'política', 'crimen', 'inventos y ciencia', 'latinoamérica']
 FUN = os.path.join(RAIZ, '2 Funciones')
@@ -67,6 +67,10 @@ def main():
             _, c = ficha(p['pieza'])
             out.append(f"\n### {p['pieza']} · puntaje {p['puntaje']}")
             if not c: out.append('(sin que-se-hizo.txt: pieza de antes del sistema)'); continue
+            ruta, _ = ficha(p['pieza'])
+            txt = open(ruta, encoding='utf8').read()
+            m = re.search(r'== PALANCAS ==.*?\n(.*?)\n\n== ', txt, re.S)
+            if m: out += ['- Palancas:'] + ['  ' + l for l in m.group(1).splitlines()]
             for k in ('Tipo', 'Tema en una frase', 'Duración (s)', 'Primera palabra', 'Gancho (primera frase, literal)', 'Tipo de gancho', 'Estructura',
                       'Narrador en', 'Ritmo de la voz', 'Cierre (estilo)', 'Frase de cierre (literal)', 'Mundo (lugar de papel)', 'Fotos reales (cuántas, de dónde, en qué segundo)',
                       'Clips reales (cuántos, de dónde, cuánto duran, cómo entran)', 'Subtítulos (estilo, tamaño, posición)', 'Portada (escena y titular)',
@@ -87,20 +91,8 @@ def main():
         lst = por_tema.get(k, [])
         if not lst: out.append(f'- {k}: sin piezas todavía'); continue
         out.append(f"- {k}: {len(lst)} piezas · mejor «{lst[0]['pieza']}» ({lst[0]['puntaje']}) · peor «{lst[-1]['pieza']}» ({lst[-1]['puntaje']})")
-    # ── Rotación: qué temas tocan hoy (1 noticia siempre + los 2 que hace más tiempo no salen) ──
-    ultimo = {k: '' for k in TEMAS}
-    reg = os.path.join(RAIZ, '3 Publicado', 'registro.csv')
-    if os.path.exists(reg):
-        import csv  # con csv: un nombre con coma va entre comillas (ej. «003. Un ventilador, un gorro…»)
-        for cols in list(csv.reader(open(reg, encoding='utf8')))[1:]:
-            if len(cols) >= 4:
-                t = cols[3].lower()
-                for k in TEMAS:
-                    if k.split(' ')[0] in t and cols[0] > ultimo[k]: ultimo[k] = cols[0]
-    resto = sorted([k for k in TEMAS if k != TEMAS[0]], key=lambda k: ultimo[k])
-    out += ['', '## Temas de hoy', f'1. {TEMAS[0]} (siempre: lo que la gente está hablando hoy)',
-            f'2. {resto[0]} (última vez: {ultimo[resto[0]] or "nunca"})', f'3. {resto[1]} (última vez: {ultimo[resto[1]] or "nunca"})',
-            'Si el tema que toca no tiene una historia buena hoy, usa el siguiente de la lista: ' + ', '.join(resto[2:5])]
+    # (Ya no hay rotación fija de temas: los temas, las horas y las pruebas de cada video los reparte laboratorio.py.)
+    out += ['', '## Qué probar ahora', 'Corre `python .motor/laboratorio.py`: dice qué palanca va ganando, el plan del próximo video (base + pruebas), las horas de hoy y los temas que faltan.']
     jovenes = [p['pieza'] for p in piezas if p not in maduras]
     out += ['', '## Aún sin 48 h (no decidir con estas)', *[f'- {n}' for n in jovenes]]
     dest = os.path.join(RAIZ, '3 Publicado', 'ganadores.md')

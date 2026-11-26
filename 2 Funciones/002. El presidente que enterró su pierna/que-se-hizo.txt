@@ -38,6 +38,14 @@ Música / efectos: historia.mp3 al 32 % con sidechain a la voz; pops (presidente
 Portada (escena y titular): el entierro en el segundo 29.3 sin subtítulos: Santa Anna a la izquierda, la pierna con cara saliendo del ataúd, lápida Q.E.P.D. y un soldado; placas «LE HIZO UN FUNERAL» (amarilla) y «¿A SU PIERNA?» (tinta).
 Texto de la publicación: «Perdió la pierna en una guerra que empezó por unos pasteles. Lo que hizo después con ella es todavía peor.» + «Fuentes: Wikipedia (Santa Anna · Guerra de los Pasteles) · NPR Illinois (31/08/2026)» + #SantaAnna #México #historia #historiasreales #enserio
 
+== PALANCAS == (copiado de etiquetas.json; ★ = se probó a propósito en este video)
+Modo: explorar · Pruebas: voces
+Historia: Tema: latinoamérica · Época: antes de 1900 · Dónde pasó: latinoamérica · Tono: chistoso
+Texto: Tipo de gancho: dato imposible · Primera palabra: este/esta · Cómo se desarrolla: cronológico · Giros: 3 o más · Narrador: tercera persona · ★ Quién habla: narrador + objeto o animal que habla · Frase final: bucle al gancho · Pide comentario: no
+Edición y sonido: Transición: viaje de lado · Cada cuánto cambia la imagen: medio (2-3 s) · Cámara: paneo suave · Fotos + clips reales: 4-5 · Cómo entra lo real: mezcla · Letreros en pantalla: pocos · El primer segundo: ya en movimiento · Subtítulos: Lilita 84 px abajo · Música: historia (la de siempre) · Volumen de música: media (≈32 %) · Efectos de sonido: muchos (15 o más) · Audio original del clip: bajito (≈35 %) · Silencio antes del giro: no
+Voz, duración, portada: Duración: 50-60 s · Pausas de la voz: rapido · Velocidad de la voz: 1.07 · Escena de portada: el clímax · Titular de portada: afirmación + pregunta · Texto de la publicación: afirmación que intriga
+Publicación: Hora de subida: noche tarde (21-23)
+
 == QUÉ SE PROBÓ ==
 Lo que se repitió de los ganadores (y de cuál): ninguno con números todavía (día 1). De 001 se repitió la forma: gancho de dato imposible, mundo continuo, visor con clip real, cierre en bucle con ironía, 55-70 s.
 Lo nuevo que se probó en este video: (1) tema latinoamérica de época (no noticia), con remate de hoy; (2) un objeto que habla (la pierna) en vez de una persona; (3) ritmo de voz «rapido» (el 001 salió «dramatico»); (4) 3 fotos reales + 1 clip (más material real que el 001); (5) subtítulos sin punto final.
