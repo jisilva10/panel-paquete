@@ -449,17 +449,18 @@
       }
 
       // ================= reloj de Hyperframes =================
-      // El timeline se registra SOLO cuando ya cargaron fotos, clips y letras. Si se registra antes, cada
-      // trabajador del render graba 3-4 cuadros vacíos (el fondo celeste) al empezar su tramo: el «destello
-      // celeste» cada ~9 s del video 1 (25/11/2026). Así lo pide el contrato de Hyperframes (registrar al final).
+      // Pinta SIEMPRE, aunque falte cargar una foto o un clip. Antes solo pintaba cuando ya había cargado todo
+      // y cada trabajador del render grababa 3-4 cuadros vacíos celestes al empezar su tramo (cada ~9 s):
+      // el «destello celeste» del video 1 (25/11/2026). Comprobado con .motor/revisar_celeste.py: 0 cuadros vacíos.
       momentos();
-      const tl = gsap.timeline({ paused: true }); const rel = { t: 0 };
-      tl.to(rel, { t: T.dura, duration: T.dura, ease: "none", onUpdate: () => pintar(rel.t) }, 0);
-      window.pintar = pintar; window.M = M;
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true }); const rel = { t: 0 }; window.__ultimoT = 0;
+      tl.to(rel, { t: T.dura, duration: T.dura, ease: "none", onUpdate: () => { window.__ultimoT = rel.t; pintar(rel.t); } }, 0);
+      window.__timelines["main"] = tl; window.__hfTimelinesBuilding = true; window.pintar = pintar; window.M = M;
       const cargar = (im) => new Promise((r) => (im.complete ? r() : ((im.onload = r), (im.onerror = r))));
       Promise.all([FOTO, ...CLIP_DISPARO, ...CLIP_MANADA].map(cargar))
         .then(() => Promise.all(["84px Lilita", "64px Rye", "84px Bagel"].map((f) => document.fonts.load(f))))
-        .then(() => { pintar(0); window.__timelines["main"] = tl; if (window.__hfForceTimelineRebind) window.__hfForceTimelineRebind(); });
+        .then(() => { window.__listo = true; pintar(window.__ultimoT || 0); window.__hfTimelinesBuilding = false; window.dispatchEvent(new Event("hf-timelines-built")); });
     </script>
   </body>
 </html>

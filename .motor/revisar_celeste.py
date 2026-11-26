@@ -1,6 +1,6 @@
 """¿Hay cuadros vacíos (el fondo celeste de la plantilla) en el video? Revisa CADA cuadro, no uno por segundo.
 Uso: python .motor/revisar_celeste.py "2 Funciones/NNN. Título/salida/video.mp4"
-Si sale alguno, el timeline se registró antes de que cargara todo (ver el final de .motor/base/plantilla.html)."""
+Si sale alguno, la escena no pintó en esos cuadros: el onUpdate del reloj tiene que llamar a pintar() SIEMPRE (ver el final de .motor/base/plantilla.html)."""
 import subprocess, sys
 sys.stdout.reconfigure(encoding='utf-8')
 import numpy as np
