@@ -14,31 +14,27 @@ Estados: **explorando** (sin datos) · **va ganando** (gana con 3+ videos) · **
 5. Fase explorar (hasta el 16/12/2026 o 30 videos con 48 h): **3 pruebas por video**. Después, de cada 10: **7** «ganador» (la fórmula + 1 prueba), **2** «rival» (la segunda opción de 2 palancas) y **1** «nuevo» (3 pruebas + una idea nunca hecha). Lo reparte `laboratorio.py` solo.
 6. Lo que JIS dice al ver un video **pesa como dato**: se anota aquí con fecha y se aplica de inmediato.
 
-## La fórmula hoy (25/11/2026 · día 1 · explorando)
+## La fórmula hoy (26/11/2026 · día 2 · explorando, 0 videos con 48 h)
 
-El detalle palanca por palanca (cuántos videos tiene cada opción y su puntaje) está en `3 Publicado/laboratorio.md`, que se rehace cada día. Esta tabla es el resumen que se lee rápido: cuando una palanca pasa a «va ganando» en el laboratorio, se cambia aquí también.
+Es la BASE que usa el laboratorio (`3 Publicado/laboratorio.md` tiene el detalle de cada palanca y se rehace cada día). Cuando una palanca pasa a «va ganando», se cambia aquí también.
 
-| Pieza | Hoy se usa | Estado | Se está probando contra | Por qué |
-|---|---|---|---|---|
-| Tema | Las 3 mejores historias que se encuentren | explorando | — | Regla de JIS (hoy.md) |
-| Gancho | «Dato imposible» en la primera frase | explorando | pregunta · en medio del lío · frase del protagonista | — |
-| Primera palabra | Un verbo o un dato («Querían…», «En 1932…») | explorando | — | — |
-| Duración | 45-55 s | explorando | 35-45 s · 55-70 s | El video 1 bajó de 68 a 53 s y JIS lo prefirió |
-| Ritmo de la voz | **rápido** (silencios ≤0,28 s, +7 %) | explorando, pedido por JIS | medio · dramático (1 de cada 5) | JIS: «se siente lento» (25/11) |
-| Narrador | Tercera persona | explorando | segunda persona «tú» | — |
-| Gente real que habla | Solo con su frase literal (ej. el rehén) | explorando | — | Regla de la cuenta |
-| Cierre | Vuelta al gancho + ironía | explorando | dato que remata · pregunta · frase del protagonista | — |
-| Mundo | Un solo lugar de papel continuo, la cámara entra a cada lugar | fijo (regla) | — | CLAUDE.md |
-| Transiciones | La cámara entra por un objeto (vitrina, visor) | explorando | hoja de papel que pasa · círculo que se abre | — |
-| Lo real | 2 fotos + 1 clip de 3-4 s en visor, con la fuente chiquita | explorando | más clips, menos fotos | — |
-| Subtítulos | Lilita 84 px, 3 palabras, amarillo la que suena, y=1580 | explorando | otro tamaño o posición | — |
-| Portada | Escena sin subtítulos + 2 placas («17 HORAS DE SECUESTRO» / «¿CON ARMAS DE JUGUETE?») | explorando | titular en pregunta vs. afirmación | — |
-| Texto | 1-2 frases ≤125 caracteres + fuentes + 5 hashtags | explorando | — | — |
+| Grupo | Hoy se usa (la base) | Lo que más falta probar |
+|---|---|---|
+| Historia | Las mejores, de 3 temas distintos por día | historia absurda, error de millones, política, crimen, inventos y ciencia · últimos 10 años · África/Oceanía · tono indignante o suspenso |
+| Texto | Gancho «dato imposible» en la primera frase · tercera persona · cronológico · 2-3 giros · cierre que remata · sin llamado | gancho en «tú», cifra gigante, final primero, contradicción · lista de 3, misterio al final · cierre en pregunta, «cómo está hoy», giro final · llamado (comentar el video, seguir, like) |
+| Edición y sonido | Mundo de papel continuo · la cámara entra por un objeto · 4-5 fotos y clips reales · subtítulos Lilita 84 px abajo · música «historia» al 32 % · 7-14 efectos · audio real bajito | hoja que pasa, iris, zoom rápido · cortes rápidos o tranquilos · parallax · subtítulos al centro o en caja · música de suspenso, chistosa o sin música · silencio antes del giro |
+| Voz, duración, portada | Ritmo rápido · velocidad 1.07 · 50-60 s · portada en el clímax con «afirmación + pregunta» | velocidad 1.00 / 1.12 / 1.17 · 30-40 y 40-50 s · portada con la cara o el objeto clave · titular en pregunta sola o cifra |
+| Hora | Rota por franjas (3 distintas por día) | mañana (7-10) y noche (18-20) |
+
+La raíz no se prueba: mundo de papel, títeres de papel con borde blanco en palito, boca con la voz, lo real dentro del mundo con la fuente chiquita, tipografías y colores.
 
 ## Lo que JIS dijo al ver los videos
 - 25/11 · video 1: «la voz se siente lenta: pausas dramáticas sí, pero no tan largas» → ritmo rápido por defecto.
 - 25/11 · video 1: «el letrero de Cartagena no se ve» → se revisan **todos** los fotogramas (uno por segundo) y además **cada cuadro** con `revisar_celeste.py`.
 - 25/11 · video 1: «hay un flick celeste» → eran cuadros vacíos del render; arreglado en la plantilla base.
+- 26/11 · video 006: el sonido del final (el «braam», que salía también en 001, 004 y 005) «suena durísimo» → se borró de `.motor/sonidos/` y no se usa más. El final cierra con la voz y la música.
+- 26/11: «que cada video pruebe cosas nuevas en la línea de los ganadores» → el laboratorio (3 pruebas por video en la fase explorar).
+- 26/11: el llamado al público nunca es para pedir el próximo tema: es para que comenten **sobre el video**, o para que sigan, den like o compartan.
 
 ## Qué se mira en el paso 1 cada día (lista)
 1. `ganadores.md`: los 3 mejores y los 3 peores, y «Por tema».

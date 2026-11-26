@@ -41,7 +41,7 @@ Texto de la publicación: «En 1925 un hombre vendió la Torre Eiffel como chata
 == PALANCAS == (copiado de etiquetas.json; ★ = se probó a propósito en este video)
 Modo: explorar · Pruebas: cierre
 Historia: Tema: golpe/estafa · Época: siglo XX · Dónde pasó: Europa · Tono: chistoso
-Texto: Tipo de gancho: dato imposible · Primera palabra: año o número · Cómo se desarrolla: cronológico · Giros: 3 o más · Narrador: tercera persona · Quién habla: solo narrador · ★ Frase final: dato que remata · Pide comentario: no
+Texto: Tipo de gancho: dato imposible · Primera palabra: año o número · Cómo se desarrolla: cronológico · Giros: 3 o más · Narrador: tercera persona · Quién habla: solo narrador · ★ Frase final: dato que remata · Llamado al público: no
 Edición y sonido: Transición: cámara entra por un objeto · Cada cuánto cambia la imagen: medio (2-3 s) · Cámara: paneo suave · Fotos + clips reales: 4-5 · Cómo entra lo real: mezcla · Letreros en pantalla: sello o cifra en cada giro · El primer segundo: ya en movimiento · Subtítulos: Lilita 84 px abajo · Música: historia (la de siempre) · Volumen de música: media (≈32 %) · Efectos de sonido: muchos (15 o más) · Audio original del clip: bajito (≈35 %) · Silencio antes del giro: no
 Voz, duración, portada: Duración: 50-60 s · Pausas de la voz: rapido · Velocidad de la voz: 1.07 · Escena de portada: el clímax · Titular de portada: dos afirmaciones · Texto de la publicación: afirmación que intriga
 Publicación: Hora de subida: noche (18-20)

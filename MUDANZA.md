@@ -27,4 +27,4 @@ Esto lo hace **Claude en la compu nueva**, solo. JIS solo abre Claude ahí y le 
 ## Lo que NO viaja por GitHub (a propósito)
 - Llaves y claves: están en Vercel. `panel/.secretos/` se crea de nuevo.
 - `venv/`, `node_modules/`, modelos de voz: se instalan de nuevo (~4 GB de descarga).
-- Videos ya hechos y el laboratorio de pruebas.
+- Videos ya hechos y las pruebas viejas del principio (`.motor/viejo/`).

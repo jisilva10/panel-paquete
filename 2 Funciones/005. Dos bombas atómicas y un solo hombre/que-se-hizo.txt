@@ -41,7 +41,7 @@ Texto de la publicación: «Le cayó la bomba de Hiroshima, volvió a casa en tr
 == PALANCAS == (copiado de etiquetas.json; ★ = se probó a propósito en este video)
 Modo: explorar · Pruebas: tono
 Historia: Tema: persona increíble · Época: siglo XX · Dónde pasó: Asia · ★ Tono: serio con respeto
-Texto: Tipo de gancho: dato imposible · Primera palabra: este/esta · Cómo se desarrolla: cronológico · Giros: 2 · Narrador: tercera persona · Quién habla: solo narrador · Frase final: dato que remata · Pide comentario: no
+Texto: Tipo de gancho: dato imposible · Primera palabra: este/esta · Cómo se desarrolla: cronológico · Giros: 2 · Narrador: tercera persona · Quién habla: solo narrador · Frase final: dato que remata · Llamado al público: no
 Edición y sonido: Transición: destello · Cada cuánto cambia la imagen: medio (2-3 s) · Cámara: paneo suave · Fotos + clips reales: 2-3 · Cómo entra lo real: mezcla · Letreros en pantalla: sello o cifra en cada giro · El primer segundo: algo cae o aparece de golpe · Subtítulos: Lilita 84 px abajo · Música: historia (la de siempre) · Volumen de música: media (≈32 %) · Efectos de sonido: normales (7-14) · Audio original del clip: bajito (≈35 %) · Silencio antes del giro: no
 Voz, duración, portada: Duración: 50-60 s · Pausas de la voz: rapido · Velocidad de la voz: 1.07 · Escena de portada: el gancho · Titular de portada: afirmación + pregunta · Texto de la publicación: afirmación que intriga
 Publicación: Hora de subida: mediodía (11-13)

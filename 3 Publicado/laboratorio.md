@@ -5,7 +5,7 @@
 ## Plan para el video 007 (video 4 de hoy) · modo «explorar»
 
 BASE (copiar, es lo que va ganando o lo de siempre mientras no haya datos):
-  primera_palabra=este/esta · desarrollo=cronológico · giros=2 · narrador=tercera persona · voces=solo narrador · cierre=dato que remata · pregunta_publico=no · transicion=cámara entra por un objeto · cortes=medio (2-3 s) · camara=paneo suave · reales=4-5 · clip_entra=mezcla · texto_pantalla=pocos · arranque=ya en movimiento · subtitulos=Lilita 84 px abajo · musica=historia (la de siempre) · efectos=normales (7-14) · audio_real=bajito (≈35 %) · silencio=no · duracion=50-60 s · ritmo=rapido · portada_escena=el clímax · portada_titular=afirmación + pregunta · texto_pub=afirmación que intriga
+  primera_palabra=este/esta · desarrollo=cronológico · giros=2 · narrador=tercera persona · voces=solo narrador · cierre=dato que remata · llamado=no · transicion=cámara entra por un objeto · cortes=medio (2-3 s) · camara=paneo suave · reales=4-5 · clip_entra=mezcla · texto_pantalla=pocos · arranque=ya en movimiento · subtitulos=Lilita 84 px abajo · musica=historia (la de siempre) · efectos=normales (7-14) · audio_real=bajito (≈35 %) · silencio=no · duracion=50-60 s · ritmo=rapido · portada_escena=el clímax · portada_titular=afirmación + pregunta · texto_pub=afirmación que intriga
 
 PRUEBAS (cambiar a propósito y anotarlas en «pruebas» de etiquetas.json):
   - Velocidad de la voz (velocidad): 1.07 → **1.17**  (nunca probado)
@@ -54,7 +54,7 @@ PRUEBAS (cambiar a propósito y anotarlas en «pruebas» de etiquetas.json):
 - Narrador [explorando]: tercera persona 6/0 · segunda persona «tú» 0/0 · primera persona 0/0
 - Quién habla [explorando]: solo narrador 3/0 · narrador + frase real 2/0 · narrador + objeto o animal que habla 1/0
 - Frase final [explorando]: dato que remata 2/0 · ironía 1/0 · bucle al gancho 2/0 · frase del protagonista 1/0 · pregunta 0/0 · cómo está hoy 0/0 · giro final 0/0
-- Pide comentario [explorando]: no 6/0 · sí, al final 0/0 · sí, en el texto 0/0
+- Llamado al público [explorando]: no 6/0 · pregunta para comentar el video 0/0 · pide seguir 0/0 · pide like 0/0 · pide compartir 0/0
 
 ### Edición y sonido
 - Transición [explorando]: cámara entra por un objeto 3/0 · viaje de lado 2/0 · iris que se abre 0/0 · hoja de papel que pasa 0/0 · zoom rápido 0/0 · destello 1/0

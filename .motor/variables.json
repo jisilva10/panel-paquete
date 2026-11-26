@@ -18,7 +18,7 @@
   "narrador":        {"grupo": "A", "nombre": "Narrador", "opciones": ["tercera persona", "segunda persona «tú»", "primera persona"]},
   "voces":           {"grupo": "A", "nombre": "Quién habla", "opciones": ["solo narrador", "narrador + frase real", "narrador + objeto o animal que habla"]},
   "cierre":          {"grupo": "A", "nombre": "Frase final", "opciones": ["dato que remata", "ironía", "bucle al gancho", "frase del protagonista", "pregunta", "cómo está hoy", "giro final"]},
-  "pregunta_publico":{"grupo": "A", "nombre": "Pide comentario", "opciones": ["no", "sí, al final", "sí, en el texto"]},
+  "llamado":         {"grupo": "A", "nombre": "Llamado al público", "nota": "nunca para pedir el próximo tema: es para que comenten SOBRE este video o para que sigan / den like", "opciones": ["no", "pregunta para comentar el video", "pide seguir", "pide like", "pide compartir"]},
 
   "transicion":      {"grupo": "B", "nombre": "Transición", "opciones": ["cámara entra por un objeto", "viaje de lado", "iris que se abre", "hoja de papel que pasa", "zoom rápido", "destello"]},
   "cortes":          {"grupo": "B", "nombre": "Cada cuánto cambia la imagen", "opciones": ["tranquilo (4-5 s)", "medio (2-3 s)", "rápido (1-2 s)"]},

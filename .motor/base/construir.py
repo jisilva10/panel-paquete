@@ -6,6 +6,7 @@ import os
 # Busca la carpeta .motor subiendo desde aquí (sirve en cualquier compu y a cualquier profundidad)
 _d = os.path.abspath('.')
 while not os.path.isdir(os.path.join(_d, '.motor')) and _d != os.path.dirname(_d): _d = os.path.dirname(_d)
+# braam.mp3 ya no existe (JIS, 26/11/2026: «suena durísimo»; salía al final de 001, 004, 005 y 006). Nada de golpes de cine fuertes al final.
 S = os.path.join(_d, '.motor', 'sonidos') + os.sep; MUS = os.path.join(_d, '.motor', 'musica', 'historia.mp3')
 T = json.load(open(f'tiempos-{MOTOR}.json'))
 norm = lambda s: re.sub(r'[^a-z0-9]', '', unicodedata.normalize('NFD', s.lower()).encode('ascii', 'ignore').decode())

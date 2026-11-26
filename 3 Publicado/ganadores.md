@@ -18,11 +18,8 @@
 - latinoamérica: sin piezas todavía
 - otro: sin piezas todavía
 
-## Temas de hoy
-1. noticia/tendencia (siempre: lo que la gente está hablando hoy)
-2. historia absurda (última vez: nunca)
-3. persona increíble (última vez: nunca)
-Si el tema que toca no tiene una historia buena hoy, usa el siguiente de la lista: error de millones, política, crimen
+## Qué probar ahora
+Corre `python .motor/laboratorio.py`: dice qué palanca va ganando, el plan del próximo video (base + pruebas), las horas de hoy y los temas que faltan.
 
 ## Aún sin 48 h (no decidir con estas)
 - 002. El presidente que enterró su pierna

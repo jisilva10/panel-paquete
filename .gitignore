@@ -11,7 +11,9 @@ node_modules/
 **/.next/
 .motor/viejo/
 # Lo pesado y lo que se borra
-laboratorio/
+__pycache__/
+**/__pycache__/
+*.pyc
 2 Funciones/**/salida/
 2 Funciones/**/.voz/
 2 Funciones/**/material/

@@ -41,7 +41,7 @@ Texto de la publicación: «La guerra terminó en 1945… y él siguió en la se
 == PALANCAS == (copiado de etiquetas.json; ★ = se probó a propósito en este video)
 Modo: explorar · Pruebas: cierre, texto_pantalla
 Historia: Tema: persona increíble · Época: siglo XX · Dónde pasó: Asia · Tono: serio con respeto
-Texto: Tipo de gancho: dato imposible · Primera palabra: el/la + cosa · Cómo se desarrolla: cronológico · Giros: 3 o más · Narrador: tercera persona · Quién habla: solo narrador · ★ Frase final: ironía · Pide comentario: no
+Texto: Tipo de gancho: dato imposible · Primera palabra: el/la + cosa · Cómo se desarrolla: cronológico · Giros: 3 o más · Narrador: tercera persona · Quién habla: solo narrador · ★ Frase final: ironía · Llamado al público: no
 Edición y sonido: Transición: cámara entra por un objeto · Cada cuánto cambia la imagen: medio (2-3 s) · Cámara: paneo suave · Fotos + clips reales: 4-5 · Cómo entra lo real: visor de cámara · ★ Letreros en pantalla: contador o calendario que corre · El primer segundo: ya en movimiento · Subtítulos: Lilita 84 px abajo · Música: historia (la de siempre) · Volumen de música: media (≈32 %) · Efectos de sonido: muchos (15 o más) · Audio original del clip: bajito (≈35 %) · Silencio antes del giro: no
 Voz, duración, portada: Duración: 60-75 s · Pausas de la voz: rapido · Velocidad de la voz: 1.07 · Escena de portada: el gancho · Titular de portada: afirmación + pregunta · Texto de la publicación: afirmación que intriga
 Publicación: Hora de subida: tarde (14-17)
