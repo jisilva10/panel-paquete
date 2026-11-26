@@ -10,10 +10,19 @@ import numpy as np
 
 SR, FPS = 24000, 30
 CARPETA, MOTOR = sys.argv[1], sys.argv[2]
+# Ritmo (JIS, 25/11/2026: «pausas dramáticas sí, pero no tan largas: se siente lento»). Se juega y se mide:
+# va en etiquetas.json → "ritmo". Uso: voces.py CARPETA qwen [rapido|medio|dramatico]  (por defecto rapido)
+RITMOS = {
+  'rapido':    dict(silencio=0.28, entre=(0.26, 0.12), tempo=1.07, instr='Ritmo ágil y con energía, como un buen narrador de videos cortos: en los puntos suspensivos haz solo una pausa corta, nunca larga.'),
+  'medio':     dict(silencio=0.40, entre=(0.36, 0.18), tempo=1.0,  instr='Haz una pausa breve en los puntos suspensivos.'),
+  'dramatico': dict(silencio=0.65, entre=(0.45, 0.22), tempo=1.0,  instr='Respeta las pausas de los puntos suspensivos.'),
+}
+RITMO = sys.argv[3] if len(sys.argv) > 3 else 'rapido'
+R = RITMOS[RITMO]
 
 # emoción → (velocidad, tono, volumen) en Edge, y frase para Qwen
 EMO = {
-  'misterio':     ('-6%',  '-6Hz', '+0%',  'en voz baja y misteriosa, como quien cuenta un secreto increíble, con pausas largas'),
+  'misterio':     ('-6%',  '-6Hz', '+0%',  'en voz baja y misteriosa, como quien cuenta un secreto increíble, con pausas cortas'),
   'indignado':    ('+6%',  '+4Hz', '+8%',  'indignado y rápido, con fuerza'),
   'solemne':      ('-4%',  '-8Hz', '+4%',  'solemne y exagerado, como anunciando algo épico, con ironía'),
   'confidencial': ('+2%',  '+0Hz', '-6%',  'en tono confidencial y cómplice, casi susurrando, sorprendido'),
@@ -32,7 +41,7 @@ VOZ_QWEN = {
   'EMU': 'Voz aguda y nasal de un ave caricaturesca, rápida',
   'REHEN': 'Hombre joven colombiano de Medellín, de unos veinticinco años, voz nerviosa y agotada después de muchas horas de miedo',
 }
-PAUSA = {'...': 0.42, ',': 0.12, '.': 0.30, ':': 0.30, '?': 0.30, '!': 0.28}
+PAUSA = {'...': R['silencio'], ',': 0.10, '.': 0.24, ':': 0.24, '?': 0.24, '!': 0.22}
 
 def leer():
     out = []
@@ -86,7 +95,7 @@ def qwen_linea(L, i):
     global MODELO
     texto = en_palabras(L['texto'].replace('*', ''))
     fuertes = re.findall(r'\*([^*]+)\*', L['texto'])
-    instr = VOZ_QWEN[L['quien']] + '.' + ACENTO + ' Habla ' + EMO[L['emo']][3] + '.' + (f' Pone mucha fuerza en «{", ".join(fuertes)}».' if fuertes else '') + ' Respeta las pausas de los puntos suspensivos.'
+    instr = VOZ_QWEN[L['quien']] + '.' + ACENTO + ' Habla ' + EMO[L['emo']][3] + '.' + (f' Pone mucha fuerza en «{", ".join(fuertes)}».' if fuertes else '') + ' ' + R['instr']
     try:
         import mlx.core as mx  # Mac con chip Apple
         if MODELO is None:
@@ -108,6 +117,32 @@ def qwen_linea(L, i):
     if sr != SR:  # todo el motor trabaja a 24 kHz
         x = np.interp(np.linspace(0, len(x) - 1, int(len(x) * SR / sr)), np.arange(len(x)), x).astype(np.float32)
     return recorta(x)
+
+def acorta_silencios(x, maximo):
+    """Ningún silencio dentro de una línea dura más de `maximo` segundos (Qwen a veces se queda callado mucho en los «...»)."""
+    hop = int(0.01 * SR); n = len(x) // hop
+    if n < 3: return x
+    rms = np.sqrt(np.mean(x[:n * hop].reshape(n, hop) ** 2, axis=1))
+    callado = rms < max(0.004, 0.08 * np.percentile(rms, 95))
+    partes, i = [], 0
+    while i < n:
+        j = i
+        while j < n and callado[j] == callado[i]: j += 1
+        seg = x[i * hop:j * hop]
+        if callado[i] and len(seg) > maximo * SR:
+            k = int(maximo * SR) // 2
+            seg = np.concatenate([seg[:k], seg[-k:]])
+        partes.append(seg); i = j
+    partes.append(x[n * hop:])
+    return np.concatenate(partes)
+
+def acelera(x, factor):
+    """Más rápido sin cambiar el tono (ffmpeg atempo)."""
+    if abs(factor - 1) < 0.005: return x
+    tmp = os.path.join(CARPETA, '.voz', 'tempo')
+    escribir(tmp + '-a.wav', x)
+    subprocess.run(['ffmpeg', '-loglevel', 'error', '-y', '-i', tmp + '-a.wav', '-filter:a', f'atempo={factor}', '-ar', str(SR), tmp + '-b.wav'], check=True)
+    return leer_wav(tmp + '-b.wav')
 
 def tiempos_palabras(y, lineas):
     """Whisper da los tiempos; las palabras del guion se reparten contando, línea por línea."""
@@ -141,8 +176,9 @@ def main():
     lineas, pista, t = leer(), [], 0.0
     for i, L in enumerate(lineas):
         x = edge_linea(L, i) if MOTOR == 'edge' else qwen_linea(L, i)
+        x = acelera(acorta_silencios(x, R['silencio']), R['tempo'])
         x = x / max(1e-6, np.sqrt(np.mean(x[np.abs(x) > 0.01]**2))) * 0.12  # cada línea al mismo nivel
-        gap = 0.45 if L['emo'] in ('misterio', 'cierre', 'resignado') else 0.22
+        gap = R['entre'][0] if L['emo'] in ('misterio', 'cierre', 'resignado') else R['entre'][1]
         L.update(ini=round(t, 3), fin=round(t + len(x)/SR, 3))
         pista += [x, np.zeros(int(gap*SR), np.float32)]; t += len(x)/SR + gap
         print(f'· {i+1}/{len(lineas)} {L["quien"]} [{L["emo"]}] {len(x)/SR:.1f}s', flush=True)
@@ -152,7 +188,7 @@ def main():
     hop = SR // FPS; n = int(len(y)/SR*FPS)+1
     rms = np.array([np.sqrt(np.mean(y[i*hop:(i+1)*hop]**2)) if i*hop < len(y) else 0 for i in range(n)])
     boca = np.clip(rms / np.percentile(rms[rms > 0.01], 90), 0, 1)
-    json.dump(dict(fps=FPS, dura=round(len(y)/SR + 1.2, 3), lineas=lineas, boca=[round(float(v), 2) for v in boca]),
+    json.dump(dict(fps=FPS, ritmo=RITMO, dura=round(len(y)/SR + 1.2, 3), lineas=lineas, boca=[round(float(v), 2) for v in boca]),
               open(os.path.join(CARPETA, f'tiempos-{MOTOR}.json'), 'w'), ensure_ascii=False)
-    print('listo', MOTOR, round(len(y)/SR, 1), 's')
+    print('listo', MOTOR, RITMO, round(len(y)/SR, 1), 's')
 main()

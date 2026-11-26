@@ -42,7 +42,7 @@ def main():
         t = open(os.path.join(PL, f), encoding='utf8').read()
         t = t.replace('{{NOMBRE}}', nombre).replace('{{NUM}}', num).replace('{{TITULO}}', titulo).replace('{{FECHA}}', hoy)
         open(os.path.join(dest, f), 'w', encoding='utf8').write(t)
-    json.dump({'tipo': '', 'duracion': '', 'gancho': '', 'cierre': '', 'narrador': '', 'voz': 'qwen', 'edicion': '', 'novedad': ''},
+    json.dump({'tipo': '', 'duracion': '', 'gancho': '', 'cierre': '', 'narrador': '', 'voz': 'qwen', 'ritmo': 'rapido', 'edicion': '', 'novedad': ''},
               open(os.path.join(dest, 'etiquetas.json'), 'w', encoding='utf8'), ensure_ascii=False, indent=1)
     print(dest)
 

@@ -35,7 +35,7 @@ La corren 3 tareas programadas en la PC con Windows, **una por video y cada una 
 2. **Guion** (`guion.txt`): `QUIEN [emoción]: texto` · `...` pausa · `*palabra*` fuerza · fuentes arriba con `#`. Escríbelo copiando lo que gana y cambiando **una o dos cosas** a propósito (anótalas en «Lo nuevo que se probó»).
 3. **Etiquetas** (`etiquetas.json`): tipo, duracion (20-30 s | 35-45 s | 55-70 s), gancho, cierre, narrador, voz, edicion, novedad. Son las columnas de «Qué está ganando» en el panel.
 4. **Lo real**: fotos y clips de donde estén (la noticia, YouTube con `yt-dlp`, Wikimedia), 2-4 s, con la fuente chiquita abajo y sin más texto. Clips a fotogramas (`ffmpeg … fps=30`) en `clips\`.
-5. **Voz**: dentro de la carpeta, `python ..\..\.motor\voces.py . qwen`.
+5. **Voz**: dentro de la carpeta, `python ..\..\.motor\voces.py . qwen rapido`. **Ritmo** (JIS, 25/11/2026: pausas dramáticas sí, pero cortas; lo lento aburre): `rapido` es el normal (silencios de 0,28 s como mucho y 7 % más ágil); `medio` y `dramatico` se prueban de vez en cuando (1 de cada 5) para medir. Anótalo en `etiquetas.json` → `"ritmo"` y en «Ritmo de la voz» del `que-se-hizo.txt`.
 6. **Película**: reescribe las funciones de la escena en `plantilla.html` (el ejemplo es la guerra de los emús): mundo de papel continuo, la cámara entra a cada lugar, personas reales dibujadas parecidas (y su foto si es histórico), la boca con la voz, nada delante que estorbe, nada amontonado, subtítulos sin «...» ni «:». Cada cosa se ata a una palabra con `W("palabra", n)`. Ajusta efectos y clips de audio en `construir.py`.
    `python construir.py qwen` y `npx --yes hyperframes@0.8.33 render -o salida\video.mp4`.
    Saca fotogramas de los momentos clave y míralos ANTES de seguir; arregla lo que se vea mal.

@@ -24,6 +24,7 @@ Cierre (estilo): (dato que remata | ironía | bucle al gancho | frase del protag
 Frase de cierre (literal):
 Palabras totales:
 Emociones usadas en la voz:
+Ritmo de la voz: (rapido | medio | dramatico: el tercer dato de voces.py)
 
 == EDICIÓN ==
 Mundo (lugar de papel):

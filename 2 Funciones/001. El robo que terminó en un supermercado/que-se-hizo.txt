@@ -24,6 +24,7 @@ Personajes que hablan: NARRADOR; REHEN (un rehén real, Daniel Díaz Acevedo, di
 Cierre (estilo): bucle al gancho + ironía
 Frase de cierre (literal): «Querían un carro lleno de plata... y lo único que se llevaron fue el licor.»
 Palabras totales: ~170 (sin las líneas de fuentes)
+Ritmo de la voz: dramatico (antes del cambio del 25/11: hasta 0,45 s entre líneas y silencios largos en los «...»; JIS lo sintió lento)
 Emociones usadas en la voz: misterio, tension, indignado, solemne, confidencial, alarma (rehén), tension, asombro, burla, cierre
 
 == EDICIÓN ==

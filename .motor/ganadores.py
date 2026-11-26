@@ -68,7 +68,7 @@ def main():
             out.append(f"\n### {p['pieza']} · puntaje {p['puntaje']}")
             if not c: out.append('(sin que-se-hizo.txt: pieza de antes del sistema)'); continue
             for k in ('Tipo', 'Tema en una frase', 'Duración (s)', 'Primera palabra', 'Gancho (primera frase, literal)', 'Tipo de gancho', 'Estructura',
-                      'Narrador en', 'Cierre (estilo)', 'Frase de cierre (literal)', 'Mundo (lugar de papel)', 'Fotos reales (cuántas, de dónde, en qué segundo)',
+                      'Narrador en', 'Ritmo de la voz', 'Cierre (estilo)', 'Frase de cierre (literal)', 'Mundo (lugar de papel)', 'Fotos reales (cuántas, de dónde, en qué segundo)',
                       'Clips reales (cuántos, de dónde, cuánto duran, cómo entran)', 'Subtítulos (estilo, tamaño, posición)', 'Portada (escena y titular)',
                       'Lo nuevo que se probó en este video', 'Lectura'):
                 if c.get(k): out.append(f'- {k}: {c[k]}')
