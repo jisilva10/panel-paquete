@@ -1,4 +1,4 @@
-import Barra from '../../components/Barra';
+import Cabecera from '../../components/enserio/Cabecera';
 import { cuentasConectadas } from '../../lib/cuentas';
 import { cuandoCorto } from '../../lib/tiempo';
 import * as yt from '../../lib/youtube';
@@ -27,10 +27,10 @@ export default async function Pagina({ searchParams }) {
   let fallo = q?.fallo;
   try { c = await cuentasConectadas(); } catch (e) { fallo = e.message; }
   return (
-    <main className="marco">
-      <Barra activo="/conectar" />
-      <h1>Cuentas</h1>
-      <p className="sub">Se conectan una sola vez. Las llaves quedan guardadas en el servidor; nunca en esta página.</p>
+    <main className="ps ps-angosto">
+      <Cabecera volver />
+      <h1 className="ps-titulo">Cuentas</h1>
+      <p className="sub">Se conectan una sola vez. Las llaves quedan en el servidor, nunca en esta página.</p>
       {q?.listo && <div className="alerta bien">{q.listo === 'youtube_fuera' ? 'YouTube quedó desconectado para subir (la llave se anuló en Google).' : `${({ instagram: 'Instagram', tiktok: 'TikTok', youtube: 'YouTube' })[q.listo] || q.listo} quedó conectado.`}</div>}
       {fallo && <div className="alerta mal">{fallo}</div>}
       <section className="rejilla" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))' }}>

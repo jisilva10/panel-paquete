@@ -1,4 +1,4 @@
-import Barra from '../../components/Barra';
+import Cabecera from '../../components/enserio/Cabecera';
 import Programar from '../../components/Programar';
 import { db } from '../../lib/db';
 import { cuentasConectadas } from '../../lib/cuentas';
@@ -14,10 +14,9 @@ export default async function Pagina() {
     cuentasConectadas(),
   ]);
   return (
-    <main className="marco">
-      <Barra activo="/programar" />
-      <h1>Programar</h1>
-      <p className="sub">Sueltas el MP4, pones el texto y la hora. A esa hora sale solo.</p>
+    <main className="ps ps-angosto">
+      <Cabecera volver />
+      <h1 className="ps-titulo">La cola</h1>
       <Programar cola={cola || []} cuentas={cuentas} ttDirecto={directo()} ytSolo={subirSolo() && !!cuentas.youtube?.para_subir} />
     </main>
   );

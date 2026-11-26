@@ -39,16 +39,11 @@ export async function resumen() {
     if (f.publicado_en && new Date(f.publicado_en) < new Date(p.fecha)) p.fecha = f.publicado_en;
   }
   const lista = [...piezas.values()].sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
-  // Lo que se probó en cada función (para saber qué gana).
-  const etiquetas = new Map((cola || []).map((c) => [c.id, c.etiquetas]));
-  const { data: todas } = await db().from('publicaciones').select('id,etiquetas').limit(1000);
-  for (const t of todas || []) etiquetas.set(t.id, t.etiquetas);
   for (const p of lista) {
     p.numero = Number((p.pieza.match(/^(?:Carrusel\s+)?(\d+)/i) || [])[1]) || null;
     const i = p.instagram;
     p.retencion = i?.tiempo && p.duracion ? i.tiempo / p.duracion : null;
     p.guardadosMil = i?.vistas ? (1000 * (i.guardados || 0)) / i.vistas : null;
-    p.etiquetas = (p.publicacion_id && etiquetas.get(p.publicacion_id)) || {};
   }
 
   // Semana contra semana: vistas de lo que salió en cada ventana, por red.

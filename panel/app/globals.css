@@ -254,3 +254,196 @@ div.campo > span { display: block; margin-bottom: 6px; }
 }
 .red.tres .red-pie b { display: block; white-space: nowrap; margin-top: 1px; }
 @media (max-width: 860px) { .tabla-posts .th-txt { display: none; } }
+
+/* ══ ¿En serio? · panel minimalista (26/11/2026) ══════════════════════════════
+   Mobile first. Arriba lo que te toca, después lo que sale, después los números. */
+.ps { max-width: 1120px; margin: 0 auto; padding: calc(14px + env(safe-area-inset-top)) 16px calc(28px + env(safe-area-inset-bottom)); }
+.ps > .alerta { margin-bottom: 14px; }
+.ps-cab { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 2px 0 22px; }
+.ps-marca { display: inline-flex; align-items: center; gap: 6px; text-decoration: none; }
+.ps-marca .logo-enserio .sticker { font-size: 19px; padding: 5px 10px 6px; }
+.ps-marca .logo-enserio .tv { font-size: 13px; }
+.ps-volver { font-size: 30px; line-height: 1; color: var(--suave); margin-right: 2px; }
+.ps-cuentas { display: inline-flex; background: var(--carta); border: 1px solid var(--linea); border-radius: 999px; padding: 3px; gap: 2px; }
+.ps-cuentas a { text-decoration: none; font-size: 12.5px; font-weight: 650; padding: 6px 11px; border-radius: 999px; color: var(--suave); white-space: nowrap; }
+.ps-cuentas a.activo { background: var(--acento); color: #1f1622; box-shadow: inset 0 0 0 1.5px #1f1622; }
+
+.ps-sec { margin-bottom: 26px; }
+.ps-h { font-size: 12px; font-weight: 750; letter-spacing: .09em; text-transform: uppercase; color: var(--suave); margin: 0 0 10px 2px; }
+.ps-h span { color: var(--tenue); font-weight: 600; margin-left: 4px; }
+.ps-h-fila { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 10px; }
+.ps-h-fila .ps-h { margin-bottom: 0; }
+.ps-carta { background: var(--carta); border: 1px solid var(--linea); border-radius: 20px; }
+.ps-vacio { color: var(--tenue); font-size: 14px; padding: 22px 16px; text-align: center; }
+:where(.ps) :where(button) { font: inherit; color: inherit; -webkit-appearance: none; appearance: none; }
+
+/* Te toca: la tarjeta que pide acción (con la sombra del sticker) */
+.ps-toca { background: var(--carta); border: 2px solid var(--tinta); border-radius: 20px; box-shadow: 4px 4px 0 var(--tinta); padding: 14px; margin: 0 4px 16px 0; }
+.ps-toca-cab { display: flex; align-items: center; gap: 11px; margin-bottom: 12px; min-width: 0; }
+.ps-toca-cab .logo-red { flex: none; border-radius: 8px; }
+.ps-toca-cab div { min-width: 0; display: grid; }
+.ps-toca-cab b { font-size: 15.5px; letter-spacing: -.01em; }
+.ps-toca-cab span { font-size: 13px; color: var(--suave); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ps-toca-cuerpo { display: flex; gap: 12px; align-items: stretch; }
+.ps-portada { flex: none; width: 84px; padding: 0; border: 0; background: none; cursor: pointer; display: grid; gap: 5px; align-content: start; }
+.ps-portada img, .ps-portada .ps-sin { width: 84px; aspect-ratio: 9 / 16; object-fit: cover; border-radius: 12px; display: block; background: var(--linea); border: 1px solid var(--linea); }
+.ps-portada-pie { font-size: 11.5px; font-weight: 650; color: var(--suave); text-align: center; }
+.ps-toca-pasos { font-size: 12.5px; color: var(--suave); margin: 12px 0 0; line-height: 1.5; }
+.ps-toca-pasos b { color: var(--tinta); font-weight: 650; }
+.ps-enlace { background: none; border: 0; padding: 0; color: var(--tinta) !important; font-weight: 650; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; font-size: 12.5px !important; }
+
+/* La caja que se copia con un toque */
+.ps-copiar { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 8px; text-align: left; cursor: copy; background: var(--fondo); border: 1.5px dashed color-mix(in srgb, var(--tinta) 22%, var(--linea)); border-radius: 14px; padding: 12px 13px 10px; transition: background .15s, border-color .15s; }
+.ps-copiar:active { transform: scale(.99); }
+.ps-copiar-txt { white-space: pre-wrap; font-size: 14.5px; line-height: 1.45; max-height: 210px; overflow: auto; color: var(--tinta); word-break: break-word; }
+.ps-copiar-pie { font-size: 12px; font-weight: 700; color: var(--suave); letter-spacing: .01em; }
+.ps-copiar.ok { border-style: solid; border-color: var(--bien); background: color-mix(in srgb, var(--bien) 8%, var(--carta)); }
+.ps-copiar.ok .ps-copiar-pie { color: var(--bien); }
+.ps-copiar.vacia { color: var(--tenue); font-size: 14px; cursor: default; }
+
+/* Por salir: las portadas en fila */
+.ps-carrusel { display: grid; grid-auto-flow: column; grid-auto-columns: 112px; gap: 12px; overflow-x: auto; margin: 0 -16px; padding: 0 16px 4px; scroll-snap-type: x mandatory; scroll-padding: 0 16px; scrollbar-width: none; }
+.ps-carrusel::-webkit-scrollbar, .ps-chips::-webkit-scrollbar { display: none; }
+.ps-sale { scroll-snap-align: start; display: grid; gap: 4px; align-content: start; text-align: left; background: none; border: 0; padding: 0; cursor: pointer; }
+.ps-sale-img { display: block; aspect-ratio: 9 / 16; border-radius: 14px; overflow: hidden; background: var(--linea); border: 1px solid var(--linea); box-shadow: 0 1px 2px rgb(0 0 0 / .06); }
+.ps-sale-img img, .ps-sale-img .ps-sin { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ps-sale-hora { font-size: 12px; font-weight: 750; margin-top: 3px; font-variant-numeric: tabular-nums; }
+.ps-sale-tit { font-size: 12.5px; color: var(--suave); line-height: 1.3; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+
+/* Últimos 7 días */
+.ps-semana { padding: 4px 0; }
+.ps-semana-fila { display: grid; grid-template-columns: 30px repeat(3, minmax(0, 1fr)); gap: 8px; align-items: center; padding: 11px 14px; border-top: 1px solid var(--linea); }
+.ps-semana-fila .logo-red { border-radius: 8px; }
+.ps-semana-fila > span { text-align: right; display: grid; justify-items: end; }
+.ps-semana-fila b { font-size: 20px; font-weight: 720; letter-spacing: -.02em; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.ps-semana-cab { border-top: 0; padding-top: 8px; padding-bottom: 2px; }
+.ps-semana-cab > span { font-size: 11px; font-weight: 650; color: var(--tenue); text-transform: uppercase; letter-spacing: .06em; }
+.ps-cambio { font-size: 11.5px; font-weight: 650; color: var(--tenue); margin-top: 2px; font-variant-numeric: tabular-nums; }
+.ps-cambio.sube { color: var(--bien); } .ps-cambio.baja { color: var(--mal); }
+
+/* La curva */
+.ps-curva { padding: 14px 14px 10px; overflow: hidden; }
+.ps-curva svg { display: block; overflow: visible; }
+.ps-curva .guia { stroke: var(--linea); }
+.ps-curva polyline { fill: none; stroke-width: 2.4; stroke-linejoin: round; stroke-linecap: round; }
+.ps-curva .l-tiktok { stroke: var(--tt); } .ps-curva .l-instagram { stroke: var(--ig); } .ps-curva .l-youtube { stroke: var(--yt); }
+.ps-curva .eje { font-size: 10.5px; fill: var(--tenue); }
+.ps-leyenda { display: flex; gap: 14px; justify-content: center; font-size: 12px; color: var(--suave); margin-top: 6px; }
+.ps-leyenda span { display: inline-flex; align-items: center; gap: 6px; }
+.ps-punto { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+.ps-punto.tiktok { background: var(--tt); } .ps-punto.instagram { background: var(--ig); } .ps-punto.youtube { background: var(--yt); }
+
+/* Videos: uno contra otro */
+.ps-seg { display: inline-flex; padding: 3px; border-radius: 999px; background: color-mix(in srgb, var(--linea) 70%, transparent); }
+.ps-seg button { border: 0; background: none; border-radius: 999px; padding: 6px 12px; font-size: 12.5px; font-weight: 650; color: var(--suave); cursor: pointer; }
+.ps-seg button.activo { background: var(--carta); color: var(--tinta); box-shadow: 0 1px 2px rgb(0 0 0 / .1); }
+.ps-chips { display: flex; gap: 6px; overflow-x: auto; margin: 0 -16px 12px; padding: 0 16px; scrollbar-width: none; }
+.ps-chips button { flex: none; border: 1px solid var(--linea); background: var(--carta); border-radius: 999px; padding: 7px 14px; font-size: 13px; font-weight: 650; color: var(--suave); cursor: pointer; }
+.ps-chips button.activo { background: var(--tinta); border-color: var(--tinta); color: var(--fondo); }
+.ps-lista { overflow: hidden; }
+.ps-fila { width: 100%; display: grid; grid-template-columns: minmax(0, 1fr) repeat(3, 62px); gap: 6px; align-items: center; text-align: left; background: none; border: 0; border-top: 1px solid var(--linea); padding: 12px 14px; cursor: pointer; transition: background .12s; }
+.ps-fila.r1 { grid-template-columns: minmax(0, 1fr) 76px; }
+.ps-fila:active, .ps-fila:hover { background: color-mix(in srgb, var(--fondo) 70%, var(--carta)); }
+.ps-fila-cab { border-top: 0; padding-top: 10px; padding-bottom: 4px; cursor: default; }
+.ps-fila-cab:hover { background: none; }
+.ps-fila-cab .logo-red { border-radius: 5px; }
+.ps-fila-tit { min-width: 0; display: grid; gap: 2px; }
+.ps-fila-tit b { font-size: 14.5px; font-weight: 620; line-height: 1.3; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+.ps-fila-tit small { font-size: 12px; color: var(--tenue); }
+.ps-col { justify-self: end; text-align: right; font-size: 14px; font-weight: 550; font-variant-numeric: tabular-nums; white-space: nowrap; padding: 2px 0; }
+.ps-col.top { background: var(--acento); color: #1f1622; font-weight: 800; border-radius: 8px; padding: 2px 7px; margin-right: -7px; }
+
+/* La hoja que sube desde abajo */
+.ps-velo { position: fixed; inset: 0; z-index: 60; background: rgb(20 14 22 / .42); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); display: flex; align-items: flex-end; justify-content: center; animation: aparece .16s ease-out; }
+.ps-hoja { position: relative; width: 100%; max-height: 92dvh; overflow: auto; overscroll-behavior: contain; background: var(--carta); border-radius: 24px 24px 0 0; padding: 10px 18px calc(22px + env(safe-area-inset-bottom)); box-shadow: 0 -10px 40px rgb(0 0 0 / .18); animation: sube .22s cubic-bezier(.2, .8, .2, 1); }
+@keyframes sube { from { transform: translateY(40px); opacity: .4; } to { transform: none; opacity: 1; } }
+.ps-asa { width: 40px; height: 5px; border-radius: 9px; background: var(--linea); margin: 0 auto 12px; }
+.ps-cerrar { position: absolute; top: 12px; right: 14px; width: 32px; height: 32px; border-radius: 50%; border: 0; background: var(--fondo); color: var(--suave); font-size: 20px; line-height: 1; cursor: pointer; }
+.ps-hoja-sup { font-size: 12.5px; color: var(--suave); font-weight: 600; }
+.ps-hoja-sup::first-letter { text-transform: uppercase; }
+.ps-hoja-tit { font-size: 20px; letter-spacing: -.02em; line-height: 1.2; margin: 3px 40px 14px 0; }
+.ps-video { display: block; width: 100%; max-height: 56dvh; aspect-ratio: 9 / 16; background: #000; border-radius: 16px; object-fit: contain; margin-bottom: 12px; }
+.ps-dos { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 8px; }
+.ps-dos div { background: var(--fondo); border-radius: 14px; padding: 12px 14px; display: grid; }
+.ps-dos span { font-size: 12px; font-weight: 650; color: var(--suave); }
+.ps-dos b { font-size: 26px; font-weight: 750; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+.ps-dos small { font-size: 11.5px; color: var(--tenue); }
+.ps-tabla { margin-top: 6px; }
+.ps-tabla th { padding: 10px 0 6px; text-align: right; }
+.ps-tabla td { padding: 10px 0; text-align: right; font-size: 14.5px; font-variant-numeric: tabular-nums; }
+.ps-tabla td:first-child { text-align: left; color: var(--suave); font-size: 14px; }
+.ps-tabla .logo-red { border-radius: 5px; }
+.ps-abrir { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 16px; }
+.ps-abrir a { font-size: 14px; font-weight: 650; text-underline-offset: 3px; }
+
+.ps-pie { display: flex; justify-content: center; gap: 8px; font-size: 13px; color: var(--tenue); margin-top: 8px; }
+.ps-pie a { color: var(--suave); text-decoration: none; }
+
+@media (min-width: 720px) {
+  .ps { padding: 26px 28px 40px; }
+  .ps-velo { align-items: center; padding: 20px; }
+  .ps-hoja { width: min(500px, 100%); border-radius: 24px; padding: 18px 22px 22px; }
+  .ps-asa { display: none; }
+  .ps-carrusel { margin: 0; padding: 0 0 4px; }
+  .ps-chips { margin: 0 0 12px; padding: 0; }
+  .ps-fila { grid-template-columns: minmax(0, 1fr) repeat(3, 76px); }
+}
+@media (min-width: 980px) {
+  .ps-rejilla { display: grid; grid-template-columns: minmax(360px, 420px) minmax(0, 1fr); gap: 28px; align-items: start; }
+  .ps-col-b { position: sticky; top: 20px; }
+}
+/* Por salir: una fila por video (portada chica, título, cuándo) */
+.ps-salen { overflow: hidden; }
+.ps .ps-sale { width: 100%; display: grid; grid-template-columns: 40px minmax(0, 1fr) 14px; gap: 12px; align-items: center; text-align: left; background: none; border: 0; border-top: 1px solid var(--linea); padding: 10px 14px; cursor: pointer; }
+.ps .ps-sale:first-child { border-top: 0; }
+.ps .ps-sale:active, .ps .ps-sale:hover { background: color-mix(in srgb, var(--fondo) 70%, var(--carta)); }
+.ps .ps-sale-img { width: 40px; aspect-ratio: 9 / 16; border-radius: 7px; box-shadow: none; }
+.ps-sale-txt { display: grid; gap: 2px; min-width: 0; }
+.ps-sale-txt b { font-size: 14.5px; font-weight: 620; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ps-sale-txt small { font-size: 12.5px; font-weight: 650; color: var(--suave); font-variant-numeric: tabular-nums; }
+.ps-flecha { font-size: 22px; color: var(--tenue); line-height: 1; }
+/* Qué número ver: cuatro botones del mismo ancho, sin scroll */
+.ps .ps-chips { margin: 0 0 12px; padding: 0; overflow: visible; }
+.ps .ps-chips button { flex: 1 1 0; padding: 8px 4px; font-size: 12.5px; text-align: center; min-width: 0; }
+.ps .ps-portada-pie { white-space: nowrap; }
+.ps .ps-chips button { flex: 1 1 auto; padding: 8px 10px; }
+/* En el teléfono: el título arriba a lo ancho y los tres números debajo, cada uno bajo su red */
+@media (max-width: 519px) {
+  .ps .ps-fila { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 6px; padding: 12px 16px; }
+  .ps .ps-fila.r1 { grid-template-columns: minmax(0, 1fr); }
+  .ps .ps-fila-tit { grid-column: 1 / -1; }
+  .ps .ps-fila-tit b { -webkit-line-clamp: 1; }
+  .ps .ps-fila-cab { padding: 10px 16px 2px; }
+  .ps .ps-fila-cab > span:first-child { display: none; }
+  .ps .ps-col { justify-self: start; text-align: left; font-size: 15px; }
+  .ps .ps-col.top { margin: 0 0 0 -7px; }
+}
+/* Páginas de atrás (la cola y las cuentas) */
+.ps-angosto { max-width: 720px; }
+.ps-titulo { font-size: 24px; letter-spacing: -.02em; margin: 0 0 16px; }
+.ps-prog { display: grid; gap: 14px; }
+.ps-chico { justify-self: start; background: var(--carta); border: 1px solid var(--linea); border-radius: 999px; padding: 8px 14px; font-size: 13px; font-weight: 650; color: var(--suave); cursor: pointer; }
+.ps-prog > .carta > div:first-child { border-top: 0 !important; padding-top: 0 !important; }
+/* TikTok, compacta (JIS: «muy grande, hazla más pequeña») */
+.ps .ps-toca { padding: 12px; border-radius: 18px; box-shadow: 3px 3px 0 var(--tinta); margin: 0 3px 12px 0; }
+.ps .ps-toca-cab { gap: 7px; margin-bottom: 10px; display: flex; align-items: center; }
+.ps .ps-toca-cab b { font-size: 14px; white-space: nowrap; }
+.ps .ps-toca-cab span { font-size: 13px; color: var(--suave); min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ps .ps-toca-cuerpo { gap: 10px; }
+.ps .ps-portada { width: 54px; gap: 4px; }
+.ps .ps-portada img { width: 54px; border-radius: 9px; }
+.ps .ps-portada-pie { font-size: 11px; }
+.ps .ps-toca .ps-copiar { padding: 9px 11px 8px; gap: 5px; }
+.ps .ps-toca .ps-copiar-txt { font-size: 13.5px; line-height: 1.4; max-height: 76px; -webkit-mask-image: linear-gradient(#000 70%, transparent); mask-image: linear-gradient(#000 70%, transparent); overflow: hidden; }
+.ps .ps-toca .ps-copiar.ok .ps-copiar-txt { -webkit-mask-image: none; mask-image: none; }
+.ps .ps-toca-pasos { font-size: 12px; margin-top: 9px; }
+.ps .ps-toca-pasos .ps-enlace { font-size: 12px !important; }
+/* Por salir: tira de portadas chicas, no crece hacia abajo */
+.ps-tira { display: flex; gap: 10px; overflow-x: auto; margin: 0 -16px; padding: 0 16px 2px; scrollbar-width: none; }
+.ps-tira::-webkit-scrollbar { display: none; }
+.ps .ps-mini { flex: none; width: 58px; display: grid; justify-items: center; gap: 1px; background: none; border: 0; padding: 0; cursor: pointer; }
+.ps-mini-img { width: 58px; aspect-ratio: 9 / 16; border-radius: 10px; overflow: hidden; background: var(--linea); border: 1px solid var(--linea); margin-bottom: 4px; }
+.ps-mini-img img, .ps-mini-img .ps-sin { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ps-mini-dia { font-size: 10.5px; font-weight: 650; color: var(--suave); }
+.ps-mini-hora { font-size: 12.5px; font-weight: 750; font-variant-numeric: tabular-nums; }
+@media (min-width: 720px) { .ps-tira { margin: 0; padding: 0 0 2px; } }

@@ -14,8 +14,8 @@ La corren 3 tareas programadas en la PC con Windows, **una por video y cada una 
 
 ## 1. Qué está ganando (LO HACEN LOS 3 VIDEOS, antes de elegir nada)
 JIS, 26/11/2026: «que cada video, antes de escoger la historia, abra el panel y vea cuáles están ganando, abra los ganadores en el txt y después edite siempre probando cosas nuevas, pero en la misma línea de los ganadores». Así, cada día salen 3 experimentos y cada semana 21: con el tiempo se llega al video perfecto.
-- **Solo el video 1**: `python .motor\ganadores.py` (escribe el RESULTADO a 48 h dentro de cada `que-se-hizo.txt` y deja `3 Publicado\ganadores.md`) y después `python .motor\laboratorio.py --guardar` (deja `3 Publicado\laboratorio.md`). Sube al panel las etiquetas corregidas: `cd panel && npm run etiquetas` (si da error porque el panel no conoce la acción «etiquetas», publícalo primero con `npx vercel deploy --prod --yes` y vuelve a correrlo). Luego anota 3-5 líneas con fecha en `3 Publicado\aprendizajes.md` y actualiza la tabla de `3 Publicado\estilo.md` (estado de cada palanca). Push en ese momento.
-- **Los 3 videos**: `python .motor\laboratorio.py --video K` (K = 1, 2 o 3). Lee el panel (los mismos números que ve JIS en «Qué está ganando») y los `etiquetas.json` de todas las funciones, y dice:
+- **Solo el video 1**: `python .motor\ganadores.py` (escribe el RESULTADO a 48 h dentro de cada `que-se-hizo.txt` y deja `3 Publicado\ganadores.md`) y después `python .motor\laboratorio.py --guardar` (deja `3 Publicado\laboratorio.md`). Luego anota 3-5 líneas con fecha en `3 Publicado\aprendizajes.md` y actualiza la tabla de `3 Publicado\estilo.md` (estado de cada palanca). Push en ese momento.
+- **Los 3 videos**: `python .motor\laboratorio.py --video K` (K = 1, 2 o 3). Lee los números del panel (vistas, likes, compartidos, guardados y retención de cada video) y los `etiquetas.json` de todas las funciones, y dice:
   - **cada palanca** (las ~30 de `.motor\variables.json`: tema, época, gancho, primera palabra, desarrollo, giros, cierre, voz, velocidad, duración, transición, cámara, cortes, fotos y clips, subtítulos, música, volumen, efectos, audio real, silencios, portada, texto, hora…): cuántos videos usó cada opción, cómo les fue y si alguna **va ganando**;
   - **el PLAN de este video**: la BASE (lo que gana, o lo de siempre mientras no haya datos) y las PRUEBAS (lo que se cambia a propósito);
   - **la hora de hoy** de cada video (3 franjas distintas que rotan, para medir la hora de subida);
@@ -59,7 +59,7 @@ JIS, 26/11/2026: «que cada video, antes de escoger la historia, abra el panel y
 
 ## 4. Programar
 - La hora sale de la **franja** de `etiquetas.json` (la reparte el laboratorio: 3 franjas distintas por día, rotando entre mañana 7-10 · mediodía 11-13 · tarde 14-17 · noche 18-20 · noche tarde 21-23): usa `hora_sugerida` ±20 min, nunca la misma hora exacta que ayer. Si es noticia muy fresca, puede ir a la franja libre más temprana (anótalo).
-- `cd <proyecto>\panel && npm run programar -- --carpeta "..\2 Funciones\NNN. Título" --hora "AAAA-MM-DD HH:MM" --probar`, y si todo está bien, lo mismo sin `--probar`. (El panel guarda `etiquetas.json` con la publicación: de ahí sale «Qué está ganando».)
+- `cd <proyecto>\panel && npm run programar -- --carpeta "..\2 Funciones\NNN. Título" --hora "AAAA-MM-DD HH:MM" --probar`, y si todo está bien, lo mismo sin `--probar`. (El panel guarda `etiquetas.json` con la publicación solo por `portada_ms`; las palancas se comparan en el laboratorio, no en el panel.)
 - Anota la hora (y el día de la semana) en `que-se-hizo.txt` y una línea en `3 Publicado\registro.csv`: fecha, nombre, hora, tipo, gancho, cierre.
 
 ## 5. Limpiar (siempre)

@@ -2,7 +2,6 @@
 import { useMemo, useRef, useState } from 'react';
 import { upload } from '@vercel/blob/client';
 import { Estados } from './Estado';
-import PublicarTikTok from './PublicarTikTok';
 import Vistazo from './Vistazo';
 
 const ZONA = 'America/Guayaquil';
@@ -33,6 +32,7 @@ export default function Programar({ cola, cuentas, ttDirecto = false, ytSolo = f
   const [mensaje, setMensaje] = useState(null);
   const [lista, setLista] = useState(cola);
   const [viendo, setViendo] = useState(null);
+  const [abierto, setAbierto] = useState(false); // subir a mano casi nunca se usa: queda cerrado
   const entrada = useRef();
 
   const hNum = hora ? Number(hora.slice(11, 13)) : null;
@@ -83,8 +83,12 @@ export default function Programar({ cola, cuentas, ttDirecto = false, ytSolo = f
   const ttUsuario = cuentas.tiktok?.usuario;
   return (
     <>
-      <section className="rejilla dos">
+      <section className="ps-prog">
+        {!abierto ? (
+          <button type="button" className="ps-chico" onClick={() => setAbierto(true)}>+ Subir un video a mano</button>
+        ) : (
         <div className="carta">
+          <div className="fila" style={{ justifyContent: 'space-between', marginBottom: 12 }}><h2 style={{ margin: 0 }}>Subir a mano</h2><button type="button" className="enlace" onClick={() => setAbierto(false)}>Cerrar</button></div>
           {!archivo ? (
             <div className={`soltar ${encima ? 'encima' : ''}`} onClick={() => entrada.current.click()}
               onDragOver={(e) => { e.preventDefault(); setEncima(true); }} onDragLeave={() => setEncima(false)}
@@ -118,8 +122,8 @@ export default function Programar({ cola, cuentas, ttDirecto = false, ytSolo = f
           <button className="boton" disabled={!archivo || !hora || !pieza || progreso != null} onClick={enviar}>{progreso != null ? `Subiendo… ${Math.round(progreso)} %` : 'Programar'}</button>
           {progreso != null && <div className="barraprog"><div style={{ width: `${progreso}%` }} /></div>}
         </div>
+        )}
         <div className="carta">
-          <h2>La cola</h2>
           {lista.length === 0 && <div className="vacio">Vacía.</div>}
           {lista.map((p) => (
             <div key={p.id} style={{ padding: '11px 0', borderTop: '1px solid var(--linea)', opacity: p.estado === 'cancelada' ? 0.45 : 1 }}>
@@ -141,7 +145,6 @@ export default function Programar({ cola, cuentas, ttDirecto = false, ytSolo = f
                 {p.estado === 'con_error' && <button className="boton claro chico" onClick={() => accion(p.id, 'reintentar')}>Reintentar</button>}
               </div>
               {viendo === p.id && p.estado === 'programada' && <div style={{ marginTop: 10 }}><Vistazo p={p} ttDirecto={ttDirecto} /></div>}
-              {p.tt_estado === 'en_borradores' && <div style={{ marginTop: 10 }}><PublicarTikTok p={p} compacta /></div>}
             </div>
           ))}
         </div>

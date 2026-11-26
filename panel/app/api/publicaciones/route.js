@@ -34,7 +34,7 @@ export async function POST(req) {
   return NextResponse.json(data);
 }
 
-// Cambios desde el panel: cancelar, reintentar, sacar ya, cambiar hora o texto, o las etiquetas.
+// Cambios desde el panel: cancelar, reintentar, sacar ya, cambiar hora o texto.
 export async function PATCH(req) {
   const { id, accion, ...campos } = await req.json();
   const { data: p } = await db().from('publicaciones').select('*').eq('id', id).single();
@@ -78,10 +78,6 @@ export async function PATCH(req) {
   } else if (accion === 'yt_publicado') {
     if (p.yt_estado !== 'para_ti') return NextResponse.json({ error: 'Todavía no le toca a YouTube' }, { status: 409 });
     cambio = { yt_estado: 'publicado', yt_url: campos.yt_url || null };
-  } else if (accion === 'etiquetas') {
-    // Las palancas de la función (etiquetas.json), corregidas después de programar: de aquí sale «Qué está ganando».
-    if (!campos.etiquetas || typeof campos.etiquetas !== 'object' || Array.isArray(campos.etiquetas)) return NextResponse.json({ error: 'Faltan las etiquetas' }, { status: 400 });
-    cambio = { etiquetas: campos.etiquetas };
   } else if (accion === 'ya') {
     cambio = { programada_para: new Date().toISOString() };
   } else if (accion === 'editar') {

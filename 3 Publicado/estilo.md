@@ -38,7 +38,7 @@ La raíz no se prueba: mundo de papel, títeres de papel con borde blanco en pal
 
 ## Qué se mira en el paso 1 cada día (lista)
 1. `ganadores.md`: los 3 mejores y los 3 peores, y «Por tema».
-2. `python .motor/laboratorio.py` (lee el panel, «Qué está ganando»): cada palanca, cuál va ganando, el plan del próximo video y las horas de hoy.
+2. `python .motor/laboratorio.py` (lee los números del panel y los cruza con los textos): cada palanca, cuál va ganando, el plan del próximo video y las horas de hoy.
 3. Los `que-se-hizo.txt` de los mejores y los peores: primera palabra, gancho literal, estructura con segundos, cierre literal, portada.
 4. Retención (cuando IG la dé): ¿en qué segundo se van? Si se van antes de los 3 s, el problema es el gancho; si se van a la mitad, el ritmo o el largo.
 5. Compartidos y guardados: dicen qué historia da ganas de mandarla a alguien.
