@@ -1,0 +1,15 @@
+# 006. El soldado que no se rindió en 29 años · Lubang, Filipinas, 1944-1974
+# Fuentes: 1) The New York Times, «Hiroo Onoda, Soldier Who Hid in Jungle for Decades, Dies at 91» (17/01/2014)  2) Wikipedia, «Hiroo Onoda» y «Norio Suzuki (explorer)» (consultadas 26/11/2026).
+# Nadie habla con frases inventadas: solo el narrador. La lista de Suzuki (Onoda, un panda y el Abominable Hombre de las Nieves, en ese orden) es lo que él mismo contó.
+# Los ~30 muertos en la isla se dicen como lo dicen las fuentes («lo culpan»), sin heroizar.
+# Formato: QUIEN [emoción]: texto  ·  ... = pausa larga  ·  *palabra* = con fuerza
+NARRADOR [asombro]: La guerra terminó en mil novecientos cuarenta y cinco... y este soldado siguió peleando *veintinueve* años más.
+NARRADOR [misterio]: Hiroo Onoda era teniente de Japón en una isla de Filipinas. Su orden era clara: *nunca* rendirse.
+NARRADOR [confidencial]: Le tiraron volantes que decían que la guerra había terminado... y pensó que era una trampa.
+NARRADOR [asombro]: Ni las cartas de su familia lo convencieron. Siguió escondido en la selva, comiendo cocos y arroz robado.
+NARRADOR [triste]: Y no fue inofensivo. En la isla lo culpan de la muerte de unos treinta campesinos.
+NARRADOR [confidencial]: En mil novecientos setenta y cuatro llegó un joven japonés que buscaba tres cosas: al teniente Onoda, un oso panda... y al Abominable Hombre de las Nieves.
+NARRADOR [asombro]: Lo encontró en cuatro días. Pero Onoda no se rindió. Solo obedecía a su comandante.
+NARRADOR [tension]: Así que trajeron a su antiguo jefe... que ya trabajaba vendiendo libros. Y le dio la orden.
+NARRADOR [solemne]: Onoda entregó su espada... y un fusil que todavía funcionaba.
+NARRADOR [cierre]: Veintinueve años de guerra... y la terminó un *vendedor de libros*.

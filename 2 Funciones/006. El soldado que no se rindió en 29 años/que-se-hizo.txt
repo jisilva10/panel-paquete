@@ -1,0 +1,73 @@
+QUÉ SE HIZO · 006. El soldado que no se rindió en 29 años
+(Todo lo necesario para entender y replicar este video SIN verlo. El video.mp4 queda en esta carpeta solo en la PC; a GitHub va solo el texto.)
+
+== FICHA ==
+Número: 006
+Título: El soldado que no se rindió en 29 años
+Nombre en el panel: 006. El soldado que no se rindió en 29 años
+Creado: 2026-11-26
+Hora programada: 2026-11-26 15:50 (Ecuador)
+Duración (s): 61.2
+Tipo: persona increíble
+Tema en una frase: Hiroo Onoda, teniente japonés mandado a la isla de Lubang (Filipinas) en 1944 con la orden de no rendirse nunca, no creyó los volantes ni las cartas de su familia y siguió en la selva hasta 1974 (con muertes de civiles en la isla); lo encontró en 4 días Norio Suzuki, un joven que buscaba «al teniente Onoda, un panda y el Abominable Hombre de las Nieves, en ese orden», y solo se rindió cuando trajeron a su antiguo comandante, que ya era vendedor de libros.
+Por qué debería enganchar: el «¿en serio?» se entiende en un segundo (la guerra terminó y él siguió 29 años), y tiene dos giros chistosos de verdad (la lista de Suzuki y el jefe vendedor de libros).
+Fuentes: 1) The New York Times, «Hiroo Onoda, Soldier Who Hid in Jungle for Decades, Dies at 91» (17/01/2014)  2) Wikipedia, «Hiroo Onoda» y «Norio Suzuki (explorer)» (consultadas 26/11/2026).
+Datos con cuidado: nadie habla con frases inventadas (solo el narrador). Los ~30 muertos se dicen como las fuentes («en la isla lo culpan»), sin heroizar ni chistes en esa parte (la aldea se oscurece). La lista de Suzuki es lo que él mismo contó. No se dice que «nadie le avisó» (sí le avisaron: no creyó).
+
+== TEXTO ==
+Primera palabra: La
+Gancho (primera frase, literal): «La guerra terminó en mil novecientos cuarenta y cinco... y este soldado siguió peleando veintinueve años más.»
+Tipo de gancho: dato imposible
+Estructura: gancho con el calendario «FIN DE LA GUERRA 1945» que corre hasta 1974 y el sello «+29 AÑOS» (0-6.5 s) · quién era: foto real de 1944 + letrero FILIPINAS + pergamino «ORDEN · NUNCA RENDIRSE» (6.6-13.2 s) · los volantes «LA GUERRA TERMINÓ» llueven, agarra uno y lo rompe («¡RAS!») en «trampa» (13.5-18 s) · las cartas y la foto de la familia; se da vuelta; el escondite con cocos y arroz (18.1-24.9 s) · la aldea oscura, cartel «≈30 CAMPESINOS» (25-29.6 s) · 1974: llega Suzuki; tarjetas 1 Onoda, 2 panda, 3 yeti (29.8-39.3 s) · «lo encontró»: la cámara entra por la cámara de Suzuki y se ve el clip real de Lubang; «en cuatro días» (39.8-42 s) · Onoda no se rinde (brazos cruzados, ceño) (42-45.9 s) · llega el antiguo jefe con libros; pergamino «ORDEN · MISIÓN TERMINADA», Onoda saluda (46-51.2 s) · foto real de la rendición ante Marcos, la espada y el fusil caen al suelo, la cámara de la prensa (51.3-54 s) · por el visor de la prensa, clip real de Onoda en 1974 (54-57 s) · final: Onoda saluda, el jefe sonríe, la pila de libros crece en «vendedor», sello «29 AÑOS» (57-61.2 s)
+Narrador en: tercera persona
+Personajes que hablan: NARRADOR (solo)
+Cierre (estilo): ironía
+Frase de cierre (literal): «Veintinueve años de guerra... y la terminó un vendedor de libros.»
+Palabras totales: 157
+Emociones usadas en la voz: asombro, misterio, confidencial, asombro, triste, confidencial, asombro, tension, solemne, cierre
+Ritmo de la voz: rapido
+
+== EDICIÓN ==
+Mundo (lugar de papel): una sola isla tropical de papel (Lubang) de izquierda a derecha: cielo, mar y montes verdes al fondo (parallax), palmeras de papel, pasto; la cámara viaja por: el calendario → la isla (foto, letrero) → los volantes → las cartas → el escondite (choza de hojas) → la aldea (3 chozas nipa) → donde llega Suzuki (calendario 1974) → el encuentro → la rendición (foto, prensa) → el final con los libros.
+Lugares y cómo se entra a cada uno: la cámara viaja de lado (≤1 s por tramo) en la palabra de cada escena; los volantes caen del cielo; la aldea entra con la pantalla oscureciéndose; en «encontró» la cámara se mete por el lente de la cámara de Suzuki (zoom 4.2) y el visor se abre en círculo (iris); detrás del visor ya estamos en el encuentro; en «fusil» la cámara entra por el lente de la cámara de la prensa (zoom 4) y al salir estamos en el final.
+Personajes dibujados (y a quién se parecen): Onoda (gorra de campaña japonesa caqui con estrella y tiras al costado, bigote fino, uniforme verde oliva con parches, fusil a la espalda; como en las fotos de 1974); Norio Suzuki (joven, pelo negro largo, camiseta naranja, mochila, cámara colgada); el mayor Taniguchi (viejo, calvo con canas a los lados, lentes redondos, traje oscuro y corbata roja, con libros).
+Fotos reales (cuántas, de dónde, en qué segundo): 2 · Onoda joven, 1944-45 (Wikimedia Commons «Hiroo Onoda young.jpg», dominio público), se levanta en «Onoda» (~6.8 s) y baja en «orden» (~11 s); fuente «Foto: Wikimedia Commons · 1944» · la rendición ante Ferdinand Marcos, 11/03/1974 (Wikimedia Commons «President Marcos and Hiroo Onoda.jpg», Palacio de Malacañang, dominio público; venía en CMYK y se pasó a RGB), se levanta en «Onoda» (~51.2 s); fuente «Foto: Palacio de Malacañang · 1974».
+Clips reales (cuántos, de dónde, cuánto duran, cómo entran): 2 · del mismo noticiero AP Archive «SYND 13-3-74 JAPANESE SOLDIER RETURNS TO CIVILIZATION AFTER 30 YEARS» (YouTube Da7IdbCZqOU): vista aérea de Lubang (segundo 40-43.5, aclarada con eq porque era muy oscura) por el visor de la cámara de Suzuki (39.85-42.05 s), título «LUBANG, 1974»; Onoda de cerca con camisa blanca (segundo 321.3-324.6) por el visor de la cámara de la prensa (53.97-57.07 s), título «ONODA, MARZO DE 1974». Fuente en los dos: «Video: AP Archive · YouTube (1974)». Recortados para sacar las barras negras y el logo de AP (crop=336:344:153:8). Audio original al 35 %.
+Subtítulos (estilo, tamaño, posición): Lilita One 84 px, hasta 3 palabras, la que suena en amarillo #ffd23f, borde tinta, y=1580, sin «...» ni «:».
+Música / efectos: historia.mp3 al 32 % con sidechain a la voz. Efectos: papel-despliega al inicio, cartón en el calendario, golpe-seco en el sello «+29», papel-aletea con los volantes, golpe + swish al romper el volante, pops en los cocos, cartón-cae en el arroz, whoosh-grave + subdrop al entrar a la aldea, golpe-grave en «treinta», pops en las 3 tarjetas, whoosh-cine al entrar a cada visor, metal en la espada y el fusil, riser antes del flash de la prensa, cartón-cae + golpe-grave en «vendedor», braam al final. −14,3 LUFS (loudnorm a −13,5).
+Portada (escena y titular): el gancho (5.8 s): el calendario «Y ÉL, SIGUE · 1974», el sello «+29 AÑOS» y Onoda con el ceño fruncido; escena subida 270 px; placas «LA GUERRA YA HABÍA TERMINADO» (amarilla) y «¿Y ÉL SIGUIÓ 29 AÑOS?» (tinta). portada_ms 5800.
+Texto de la publicación: «La guerra terminó en 1945… y él siguió en la selva 29 años más, esperando una orden.» + «Fuentes: The New York Times (2014) · Wikipedia «Hiroo Onoda»» + #HirooOnoda #historiareal #segundaguerramundial #filipinas #enserio
+
+== QUÉ SE PROBÓ ==
+Lo que se repitió de los ganadores (y de cuál): todavía no hay números (0 piezas con 48 h). Se repitió la forma de 001/002/004/005: gancho «dato imposible» en la primera frase, mundo continuo, foto que se levanta del suelo, clips dentro de la escena (visor de cámara como en la base de los emús), ritmo rápido, solo narrador.
+Lo nuevo que se probó en este video: (1) cierre en IRONÍA (primera vez; hasta ahora bucle, frase del protagonista y dato que remata); (2) duración 61 s (la más larga desde el 001 rehecho); (3) un calendario que corre de 1945 a 1974 en el gancho y una lista numerada en tarjetas (1-2-3).
+Hipótesis (qué espero que pase): el gancho se entiende sin contexto y la lista de Suzuki (panda, yeti) da risa y compartidos; el cierre irónico del vendedor de libros debería dar más comentarios que el «dato que remata». Riesgo: 61 s puede bajar la retención frente a los de 50-54 s, y es el segundo video de Japón / II Guerra del mismo día (el 005, Yamaguchi, sale a las 11:40).
+
+== RESULTADO (se llena después; lo actualiza la rutina) ==
+48 h · TikTok: ___  Instagram: ___  YouTube: ___  Retención IG: ___
+Lectura: (¿ganó, perdió? ¿por qué creo?)
+
+== GUION COMPLETO ==
+# 006. El soldado que no se rindió en 29 años · Lubang, Filipinas, 1944-1974
+# Fuentes: 1) The New York Times, «Hiroo Onoda, Soldier Who Hid in Jungle for Decades, Dies at 91» (17/01/2014)  2) Wikipedia, «Hiroo Onoda» y «Norio Suzuki (explorer)» (consultadas 26/11/2026).
+# Nadie habla con frases inventadas: solo el narrador. La lista de Suzuki (Onoda, un panda y el Abominable Hombre de las Nieves, en ese orden) es lo que él mismo contó.
+# Los ~30 muertos en la isla se dicen como lo dicen las fuentes («lo culpan»), sin heroizar.
+NARRADOR [asombro]: La guerra terminó en mil novecientos cuarenta y cinco... y este soldado siguió peleando *veintinueve* años más.
+NARRADOR [misterio]: Hiroo Onoda era teniente de Japón en una isla de Filipinas. Su orden era clara: *nunca* rendirse.
+NARRADOR [confidencial]: Le tiraron volantes que decían que la guerra había terminado... y pensó que era una trampa.
+NARRADOR [asombro]: Ni las cartas de su familia lo convencieron. Siguió escondido en la selva, comiendo cocos y arroz robado.
+NARRADOR [triste]: Y no fue inofensivo. En la isla lo culpan de la muerte de unos treinta campesinos.
+NARRADOR [confidencial]: En mil novecientos setenta y cuatro llegó un joven japonés que buscaba tres cosas: al teniente Onoda, un oso panda... y al Abominable Hombre de las Nieves.
+NARRADOR [asombro]: Lo encontró en cuatro días. Pero Onoda no se rindió. Solo obedecía a su comandante.
+NARRADOR [tension]: Así que trajeron a su antiguo jefe... que ya trabajaba vendiendo libros. Y le dio la orden.
+NARRADOR [solemne]: Onoda entregó su espada... y un fusil que todavía funcionaba.
+NARRADOR [cierre]: Veintinueve años de guerra... y la terminó un *vendedor de libros*.
+
+== CÓMO SE ARMÓ ==
+1. Historia: la #2 de hoy.md (la dejó el video 1). ya_hecho.py "Onoda" "Lubang" "rendirse": solo salía en hoy.md y notas (nuevo). No estaba en el banco, no hubo que tachar. Esta sesión arrancó a las 7:39 (la tarea de las 4:15 corrió tarde).
+2. Material: fotos de Wikimedia Commons por la API (la de Marcos dio HTML con thumb.wikimedia.org; funcionó el original de upload.wikimedia.org con otro User-Agent). Clip con yt-dlp --js-runtimes node a 480p; el noticiero es 640x360 con barras negras y el logo AP al costado: el primer crop dejaba el logo, se ajustó a crop=336:344:153:8. La vista aérea se aclaró con eq (brillo, contraste, gamma).
+3. Voz: voces.py qwen rapido, 61.2 s (tiempos-qwen.json en cp1252).
+4. Película: plantilla.html escrita de cero sobre la base que pinta siempre. titere() nuevo con gorra japonesa con tiras, pelo largo/canoso, lentes, corbata, mochila, cámara al cuello, saludo, brazos cruzados y brazo que sostiene; fusil, katana, volantes, sobres, foto de familia, choza de hojas, chozas nipa, tarjetas con panda y yeti, pila de libros, cámara de prensa en trípode. Dos visores (cámara de Suzuki y de la prensa).
+5. Lo que se vio mal en los fotogramas y se arregló: (1) en el primer render no salía NINGÚN títere: sube() calculaba NaN con sale=Infinity; (2) dos Onodas encimados al pasar de las cartas al escondite (el primero ahora se hunde antes); (3) el volante que agarra le tapaba la cara (más a la izquierda); (4) los libros del jefe le tapaban la cara (ahora en el suelo, a su lado); (5) el brazo que «sostiene» apuntaba para abajo (ahora hacia adelante); (6) el pergamino «MISIÓN TERMINADA» se salía del papel (la letra ahora se achica sola) y salía muy poco tiempo (ahora entra en «dio» y la cámara se va más tarde); (7) el cartel ≈30 tapaba la choza del medio (ahora a la izquierda); (8) el sello final y la pila de libros se cortaban por el borde; (9) para la portada, el calendario llega a 1974 antes (en «veintinueve»).
+6. Render: hyperframes 0.8.33, ~1 min 55 s, 5 renders. revisar_celeste.py: 1836 cuadros, 0 vacíos. Se miraron las 6 hojas (un fotograma por segundo) en cada vuelta.
+7. Portada: snapshot del segundo 5.8 con SUBS = false en index.html (hyperframes snapshot --at 5.8), escena subida 270 px (el snapshot traía una franja celeste arriba), portada.py con las dos placas.
