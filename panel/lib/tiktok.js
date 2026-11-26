@@ -78,10 +78,13 @@ export async function videos(t, maximo = 60) {
 }
 
 // ── Subida a borradores (FILE_UPLOAD, por trozos leídos del Blob) ──
-const TROZO = 20 * 1024 * 1024;
+// TikTok: si el video va en un solo trozo, chunk_size tiene que ser el video entero (si no, «The chunk size is invalid»).
+// Un trozo puede pesar hasta 64 MB; arriba de eso, trozos de 10 MB (el último se lleva lo que sobra, hasta 20 MB).
+const ENTERO = 64 * 1024 * 1024;
+const TROZO = 10 * 1024 * 1024;
 
 export function planTrozos(bytes) {
-  const chunk = bytes <= TROZO ? bytes : TROZO;
+  const chunk = bytes <= ENTERO ? bytes : TROZO;
   const total = Math.floor(bytes / chunk);
   return { chunk, total };
 }
