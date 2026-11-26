@@ -72,7 +72,7 @@ async function pasoTikTok(p, token) {
       // Publicación directa: solo con el interruptor prendido Y si JIS aprobó este video en el panel.
       if (tt.directo() && p.tt_aprobacion?.consentimiento) {
         const info = await tt.infoCreador(token); // TikTok pide revisarlo justo antes de publicar
-        id = await tt.publicarDirecto(token, p.video_url, Number(p.video_bytes), tt.postInfo(p.tt_aprobacion, info, Number(p.duracion)));
+        id = await tt.publicarDirecto(token, p.video_url, Number(p.video_bytes), tt.postInfo(p.tt_aprobacion, info, Number(p.duracion), p.etiquetas?.portada_ms));
       } else {
         id = await tt.subirABorradores(token, p.video_url, Number(p.video_bytes));
       }

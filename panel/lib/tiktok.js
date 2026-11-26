@@ -120,7 +120,9 @@ export async function infoCreador(t) {
 }
 
 // Arma el post_info con la aprobación guardada y revisa que siga valiendo con lo que TikTok dice AHORA.
-export function postInfo(a, info, duracion) {
+// portadaMs: el momento del video (en ms) de la escena que se usó para la portada (etiquetas.json → portada_ms).
+// TikTok no acepta una imagen de portada por API: solo elige un cuadro del video. Sin dato, usa el primer cuadro.
+export function postInfo(a, info, duracion, portadaMs) {
   if (!a?.consentimiento) throw new Error('Falta el consentimiento');
   if (!(info.privacy_level_options || []).includes(a.privacy_level)) throw new Error(`TikTok ya no ofrece «${PRIVACIDAD_TT[a.privacy_level] || a.privacy_level}» para esta cuenta: vuelve a aprobarlo`);
   if (a.divulgar && !a.brand_organic_toggle && !a.brand_content_toggle) throw new Error('Si el video promociona algo, hay que decir si es tu marca, contenido de marca o ambos');
@@ -135,6 +137,7 @@ export function postInfo(a, info, duracion) {
     brand_content_toggle: Boolean(a.divulgar && a.brand_content_toggle),
     brand_organic_toggle: Boolean(a.divulgar && a.brand_organic_toggle),
     is_aigc: Boolean(a.is_aigc),
+    ...(Number.isFinite(Number(portadaMs)) && Number(portadaMs) >= 0 ? { video_cover_timestamp_ms: Math.round(Number(portadaMs)) } : {}),
   };
 }
 

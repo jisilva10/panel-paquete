@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 // si eso no se puede, se baja como archivo con ?download=1 (el almacén lo manda como «attachment»).
 const paraBajar = (url) => (url ? `${url}${url.includes('?') ? '&' : '?'}download=1` : url);
 
-function useArchivo(url, nombre) {
+export function useArchivo(url, nombre) {
   const [archivo, setArchivo] = useState(null);
   useEffect(() => {
     if (!url || typeof navigator === 'undefined' || !navigator.canShare) return;
@@ -21,7 +21,7 @@ function useArchivo(url, nombre) {
   return archivo;
 }
 
-async function guardar(archivo, url) {
+export async function guardar(archivo, url) {
   if (archivo) {
     try { await navigator.share({ files: [archivo] }); return; } catch (e) { if (e?.name === 'AbortError') return; }
   }
