@@ -7,7 +7,7 @@ Título: El robo que terminó en un supermercado
 Nombre en el panel: 001. El robo que terminó en un supermercado
 Creado: 2026-11-25
 Hora programada: 2026-11-25 21:30 (Ecuador)
-Duración (s): 68.3
+Duración (s): 53.3 (versión 2; la primera duraba 68.3 y se cambió antes de salir)
 Tipo: noticia/tendencia
 Tema en una frase: La toma de rehenes del supermercado Éxito de Cartagena (24-25/11/2026): unos hombres fallan el asalto a un carro de valores, se encierran unas 17 horas con decenas de personas, se emborrachan con el licor de la tienda, las fuerzas especiales entran a la 1:30 a. m. y todos los rehenes salen vivos; según la investigación tenían escopetas, pistolas traumáticas, réplicas de juguete y balas de salva.
 Por qué debería enganchar: es lo que todo Colombia comentó hoy (terminó en la madrugada del 25); tiene giro absurdo (de robar un blindado a quedar atrapados en un súper) y remate irónico (armas de juguete, el licor).
@@ -18,13 +18,13 @@ Datos con cuidado: el número de rehenes cambia según la fuente (20, 30, 46, 76
 Primera palabra: Querían
 Gancho (primera frase, literal): «Querían robar un carro blindado... y terminaron secuestrando un supermercado.»
 Tipo de gancho: dato imposible (en medio del lío)
-Estructura: gancho (0-5 s) · el robo fallido y la huida al súper (5-22 s) · afuera, el país mirando (22-28 s) · adentro, el licor y la frase del rehén (28-37 s) · 17 horas y entran las fuerzas (37-45 s) · todos vivos, clip real (45-52 s) · giro: armas de juguete (52-61 s) · cierre en bucle (62-67 s)
+Estructura (versión 2): gancho (0-4 s) · el robo fallido y la huida al súper (4-17 s) · afuera, el país mirando (17-22 s) · adentro, el licor y la frase del rehén (22-28 s) · 17 horas y entran las fuerzas (28-33 s) · todos vivos, clip real (33-39 s) · giro: armas de juguete (39-47 s) · cierre en bucle (48-52 s)
 Narrador en: tercera persona
 Personajes que hablan: NARRADOR; REHEN (un rehén real, Daniel Díaz Acevedo, dice solo su frase real «Ellos se emborrachan», dicha a El Colombiano y citada por Infobae; dibujado sin parecido porque no hay foto suya, con su camisa verde)
 Cierre (estilo): bucle al gancho + ironía
 Frase de cierre (literal): «Querían un carro lleno de plata... y lo único que se llevaron fue el licor.»
 Palabras totales: ~170 (sin las líneas de fuentes)
-Ritmo de la voz: dramatico (antes del cambio del 25/11: hasta 0,45 s entre líneas y silencios largos en los «...»; JIS lo sintió lento)
+Ritmo de la voz: rapido (versión 2). La versión 1 tenía ritmo dramatico (hasta 0,45 s entre líneas y silencios largos en los «...»); JIS la sintió lenta y pidió rehacerla más rápida antes de que saliera.
 Emociones usadas en la voz: misterio, tension, indignado, solemne, confidencial, alarma (rehén), tension, asombro, burla, cierre
 
 == EDICIÓN ==
@@ -72,3 +72,5 @@ NARRADOR [cierre]: Querían un carro lleno de plata... y lo único que se llevar
 6. Fallas y arreglos: (a) la cámara entraba al súper en el segundo 21 porque «adentro» sale dos veces en el guion → W("adentro", 2) en plantilla y construir; (b) un encapuchado tapaba el letrero de Cartagena → los encapuchados pasaron a la derecha del blindado; (c) soldados y policías quedaban fuera de cuadro → más cerca y plano más abierto; (d) todo quedaba muy abajo con mucho cielo → la cámara bajó ~140 px; (e) la escopeta se veía como una línea → más gruesa y plano más abierto en la mesa; (f) en la plantilla base la línea de subtítulos tenía el «const an = …» comentado por error (no salían subtítulos) → corregido aquí y en .motor/base/plantilla.html.
 7. Portada: snapshot de Hyperframes en el segundo 34 con subs() apagado en un index.html temporal, luego portada.py.
 8. Render: Hyperframes 0.8.33, 2051 fotogramas, ~1 min 50 s por render (3 renders).
+9. VERSIÓN 2 (25/11, 20:30-20:50, pedida por JIS antes de que saliera): (a) «el letrero de CARTAGENA no se ve» → en «Martes» la cámara se corre a la izquierda (CALLE-300) y el letrero se va cuando aparecen los encapuchados (antes se quedaba cortado al borde); (b) «hazlo más rápido» → voz nueva con `voces.py . qwen rapido` (67 s → 52 s de voz; video 68 → 53 s); (c) se revisaron TODOS los fotogramas (uno por segundo, 5 hojas) y se arreglaron además: el tercer encapuchado cortado a la derecha (cámara a CALLE+290), los soldados tapando la tele (tele más chica, W0 400, en x=1060), la escopeta cortada a la izquierda (cámara en MESA-20) y las balas de salva que no alcanzaban a verse (aparecen con «balas», no con «salva»). Queda: el blindado se ve un poco detrás de la tele; al final la cámara cruza el súper rumbo a la calle en «salva» (barrido de 1 s).
+10. Problemas de la versión 2: otra sesión corrió limpiar.py en esta carpeta mientras Qwen hacía la voz (se borró .voz y falló). Se rehizo todo en `laboratorio/001-v2` (fuera de git) y al final se copiaron aquí video.mp4, portada.jpg y tiempos-qwen.json. En el panel se canceló la versión 1 (se borró su video del almacén) y se programó la 2 a la misma hora.
