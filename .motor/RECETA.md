@@ -54,6 +54,9 @@ La corren 3 tareas programadas en la PC con Windows, **una por video y cada una 
 - `python .motor\limpiar.py "2 Funciones\NNN. Título"` → quedan `guion.txt`, `que-se-hizo.txt`, `etiquetas.json`, `texto.txt`, **`video.mp4`** (sube de `salida\`) y `portada.jpg`. **El video se queda siempre en la carpeta** para que JIS lo vea antes (decisión de JIS, 25/11/2026); se borra solo lo de trabajo (clips, fotos, voz, plantilla). El video y la portada no van a GitHub.
 
 ## 6. Si algo falla
+- **Para siempre (JIS, 25/11/2026):** a los 10 min de cada hora de salida, mira la cola (`npm run estado` en `panel`, o `GET /api/publicaciones` con la llave). Si TikTok dice `tt_error`, arréglalo, publica el panel y toca «reintentar». Ya pasó: el 001 no llegó a TikTok por «The chunk size is invalid». Un video de 20-40 MB iba como 1 trozo con chunk_size de 20 MB, y TikTok exige que **un trozo solo sea el video entero**. Está arreglado en `panel/lib/tiktok.js` (`planTrozos`): hasta 64 MB va entero, y si pesa más, en trozos de 10 MB. No lo vuelvas a cambiar sin probar con un video de más de 20 MB.
+- «En borradores» en el panel quiere decir que TikTok lo mandó a la **bandeja de entrada** de la app (notificación «tu video está listo»). JIS lo abre desde ahí, no desde el perfil.
+- El almacén de videos los sirve «para ver»: un enlace normal en el teléfono abre el reproductor y no guarda nada. Para bajar, se usa el menú de compartir («Guardar video») o `?download=1` (así lo hace la tarjeta de YouTube).
 - Si una misma cosa falla dos veces (voz, render, subida), salta ese video, sigue con los otros y deja la nota en `3 Publicado\notas.md`. Mejor 2 buenos que 3 rotos.
 - Si a las 7:30 no terminaste, programa lo que esté listo y deja nota.
 
