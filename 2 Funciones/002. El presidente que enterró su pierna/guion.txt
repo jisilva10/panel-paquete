@@ -1,0 +1,15 @@
+# 002. El presidente que enterró su pierna · México, 1832-1847 · y Springfield (Illinois), hoy
+# Fuentes: 1) Wikipedia, «Antonio López de Santa Anna» y «Primera intervención francesa en México (Guerra de los Pasteles)»  2) NPR Illinois, Ben Singson, «Santa Anna's prosthetic leg going back on display at Springfield museum» (31/08/2026). Apoyo: Austin Chronicle, «Day Trips: Santa Anna's Leg, Illinois State Military Museum» (11/08/2023).
+# Datos: pastelero francés Remontel (Tacubaya, 1832), oficiales que comieron sin pagar (Wikipedia es); pierna izquierda por cañonazo francés en Veracruz, 1838 (Wikipedia en, Chronicle); enterrada con honores militares (NPR, Chronicle); turba la desentierra y la arrastra al caer en dic. 1844 (Wikipedia en); pierna de corcho capturada por el 4.º de Illinois en Cerro Gordo, 1847 (NPR, Chronicle); en el museo desde 1922 y «ningún funcionario mexicano la ha pedido formalmente» a 2026 (NPR).
+# La PIERNA es un objeto: su línea es inventada (permitido para objetos). Santa Anna no dice nada.
+# Formato: QUIEN [emoción]: texto  ·  ... = pausa larga  ·  *palabra* = con fuerza
+NARRADOR [misterio]: Este presidente de México perdió una pierna en una guerra que empezó... por unos *pasteles*.
+NARRADOR [burla]: Mil ochocientos treinta y dos. Unos oficiales mexicanos se comen los pasteles de un pastelero francés... y no pagan.
+NARRADOR [tension]: Seis años después, Francia manda barcos de guerra a cobrar esa cuenta y muchas otras. Y ataca Veracruz.
+NARRADOR [alarma]: Un cañonazo le destroza la pierna izquierda a Antonio López de Santa Anna. Se la cortan.
+NARRADOR [asombro]: ¿Y qué hace él? La *entierra*... con honores militares.
+PIERNA [solemne]: Fue un honor, mi general.
+NARRADOR [tension]: Pero cuando cae del poder, una turba furiosa la *desentierra*... y la arrastra por las calles.
+NARRADOR [burla]: Él se pone una pierna de corcho. En mil ochocientos cuarenta y siete, en guerra con Estados Unidos, soldados de Illinois lo sorprenden en Cerro Gordo. Él huye... y la pierna se queda.
+NARRADOR [confidencial]: Desde mil novecientos veintidós está en un museo de Illinois. Y México nunca la ha pedido oficialmente.
+NARRADOR [cierre]: Perdió una pierna por unos pasteles... y la de repuesto, por salir *corriendo*.

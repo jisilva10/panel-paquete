@@ -40,6 +40,7 @@ VOZ_QWEN = {
   'MAYOR': 'Militar australiano de sesenta años hablando español con acento, voz ronca y grave',
   'EMU': 'Voz aguda y nasal de un ave caricaturesca, rápida',
   'REHEN': 'Hombre joven colombiano de Medellín, de unos veinticinco años, voz nerviosa y agotada después de muchas horas de miedo',
+  'PIERNA': 'Voz caricaturesca de un objeto que habla: un viejo soldado de papel, voz grave y teatral, muy digna y orgullosa',
 }
 PAUSA = {'...': R['silencio'], ',': 0.10, '.': 0.24, ':': 0.24, '?': 0.24, '!': 0.22}
 

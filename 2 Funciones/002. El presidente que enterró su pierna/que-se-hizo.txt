@@ -1,0 +1,75 @@
+QUÉ SE HIZO · 002. El presidente que enterró su pierna
+(Todo lo necesario para entender y replicar este video SIN verlo. El video.mp4 queda en esta carpeta solo en la PC; a GitHub va solo el texto.)
+
+== FICHA ==
+Número: 002
+Título: El presidente que enterró su pierna
+Nombre en el panel: 002. El presidente que enterró su pierna
+Creado: 2026-11-25
+Hora programada: 2026-11-25 22:20 (Ecuador)
+Duración (s): 58.4
+Tipo: latinoamérica
+Tema en una frase: Antonio López de Santa Anna (México) pierde la pierna izquierda por un cañonazo francés en Veracruz (1838), en la «Guerra de los Pasteles», que empezó en parte por el reclamo de un pastelero francés de Tacubaya al que unos oficiales mexicanos no le pagaron (1832); entierra la pierna con honores militares; al caer del poder (1844) una turba la desentierra y la arrastra por las calles; en Cerro Gordo (1847) soldados de Illinois le quitan la pierna de corcho cuando huye; desde 1922 está en el Museo Militar de Illinois (Springfield) y, según NPR, ningún funcionario mexicano la ha pedido formalmente.
+Por qué debería enganchar: cadena de giros imposibles (pasteles → guerra → pierna → funeral → turba → pierna robada → museo) y remate de hoy (la pierna se exhibe de octubre a diciembre de 2026). Fotos reales de la época y video real de la pierna.
+Fuentes: 1) Wikipedia, «Antonio López de Santa Anna» y «Primera intervención francesa en México (Guerra de los Pasteles)» (es)  2) NPR Illinois, Ben Singson, «Santa Anna's prosthetic leg going back on display at Springfield museum» (31/08/2026). Apoyo: Austin Chronicle, «Day Trips: Santa Anna's Leg, Illinois State Military Museum» (11/08/2023).
+Datos con cuidado: no se dice el año del funeral (1842 es lo que se cuenta siempre, pero no salía en las dos fuentes leídas), ni lo del pollo que dicen que estaba comiendo en Cerro Gordo, ni dinero encontrado con la pierna (no confirmado). History.com no se pudo leer (redirige a otro sitio). Santa Anna no dice nada inventado; solo habla la PIERNA (objeto). «Pierna de corcho»: NPR dice corcho; el Chronicle dice corcho, madera y cuero.
+
+== TEXTO ==
+Primera palabra: Este
+Gancho (primera frase, literal): «Este presidente de México perdió una pierna en una guerra que empezó... por unos pasteles.»
+Tipo de gancho: dato imposible
+Estructura: gancho con su foto real (0-5 s) · Tacubaya 1832, oficiales que no pagan (5-11 s) · Francia cobra con barcos, Veracruz (11-20 s) · cañonazo y tijera (20-25 s) · la entierra con honores (25-29 s) · la pierna habla (29-30 s) · turba la desentierra y arrastra (30-36 s) · pierna de corcho, Cerro Gordo, huye y la pierna se queda (36-46 s) · museo de Illinois con el clip real y el buzón vacío de México (46-52 s) · cierre en bucle en la pastelería (52-58 s)
+Narrador en: tercera persona
+Personajes que hablan: NARRADOR; PIERNA (la pierna amputada, objeto: «Fue un honor, mi general», inventado y permitido porque es un objeto; voz nueva en voces.py)
+Cierre (estilo): bucle al gancho + ironía
+Frase de cierre (literal): «Perdió una pierna por unos pasteles... y la de repuesto, por salir corriendo.»
+Palabras totales: ~150 (sin las líneas de fuentes)
+Emociones usadas en la voz: misterio, burla, tension, alarma, asombro, solemne (pierna), tension, burla, confidencial, cierre
+Ritmo de la voz: rapido
+
+== EDICIÓN ==
+Mundo (lugar de papel): un solo camino de papel de México a Illinois, con volcanes nevados a lo lejos: pastelería francesa de Tacubaya (toldo azul y blanco, letrero «PÂTISSERIE» en Rye, mesa con 3 pasteles) → playa de Veracruz con el mar y barcos franceses → cementerio (muro, cipreses, lápida «Q.E.P.D.» con la pierna, bandera de México) → lomas verdes de Cerro Gordo → fachada del «MUSEO MILITAR DE ILLINOIS» con vitrina «SPRINGFIELD» → vuelta a la pastelería.
+Lugares y cómo se entra a cada uno: pastelería (0 s; zoom a la pierna en «pierna», que se marca con un anillo amarillo; pastel gigante en «pasteles») → letrero «TACUBAYA 1832» (5 s), 3 oficiales con chacó aparecen en «oficiales», comen (los pasteles se muerden), el pastelero francés se enoja en «pagan» y se van; la «CUENTA» sale volando → la cámara viaja al mar (12 s): letrero «VERACRUZ 1838», 3 barcos franceses entran en «barcos», la cuenta queda pegada en la vela en «cuenta» → la pintura real se levanta del suelo en «Veracruz» → Santa Anna en la playa, bala de cañón desde el barco, «¡BUM!» y sacudida en «cañonazo», la pierna se raja; zoom → tijera de papel en «cortan», la pierna cae → cementerio en «entierra»: ataúd, 2 soldados, 3 humos de saludo en «honores», Santa Anna con muleta → zoom: la pierna se asoma del ataúd y habla → en «cae» Santa Anna se va de espaldas → la turba (siluetas con antorchas y horquetas) llega en «turba», la pierna salta del suelo en «desentierra» y se la llevan con soga en «arrastra»; la cámara los sigue → Cerro Gordo: Santa Anna con pierna de corcho (anillo amarillo) en «corcho», letrero «CERRO GORDO 1847», grabado real en «cuarenta», 3 soldados de Illinois con quepí azul y bandera de EE. UU. en «Illinois», se asusta en «sorprenden», huye saltando en «huye» y la pierna queda en el pasto (zoom en «queda») → latigazo al museo en «novecientos»: la cámara se mete por la vitrina y se abre el visor con el clip real (47.3-49.9 s) → buzón rojo «PEDIDOS DE MÉXICO» que se abre vacío con telaraña y araña en «nunca» → latigazo de vuelta a la pastelería: pierna de repuesto en «repuesto», Santa Anna cruza saltando en una pierna en «corriendo», el pastelero sigue enojado.
+Personajes dibujados (y a quién se parecen): Santa Anna parecido a su retrato de 1850 (entradas, pelo oscuro peinado de lado, patillas, cara ancha con papada, casaca azul con charreteras doradas, cuello bordado y banda verde-blanco-rojo), con piernas de pantalón blanco y botas para que se vea la que pierde; 3 oficiales mexicanos genéricos (chacó con pluma roja, correaje blanco cruzado); pastelero francés sin nombre (gorro de chef, bigote); 2 soldados mexicanos en el entierro; 3 soldados de Illinois (quepí y casaca azul); turba de 7 siluetas; la PIERNA con cara (ojos, ceño, galón dorado).
+Fotos reales (cuántas, de dónde, en qué segundo): 3 · retrato de Santa Anna (carte de visite c. 1850, Biblioteca del Congreso de EE. UU., Wikimedia, dominio público) se levanta en «presidente», 0.2-4 s · pintura «Attaque de Veracruz… 5 décembre 1838» de Pharamond Blanchard (1840, Versalles, Wikimedia, dominio público; aclarada con gamma 1.7 porque es nocturna) en «Veracruz», 18.4-19.8 s · grabado «The Battle of Cerro Gordo» (Sarony & Major, 1847, Biblioteca del Congreso, Wikimedia) en «cuarenta», 39-42 s. Las tres en poste de madera con cinta y la fuente chiquita abajo.
+Clips reales (cuántos, de dónde, cuánto duran, cómo entran): 1 · KSAT 12 (YouTube IiMxZLSSrhQ, «Students head to Illinois to ask for return of Santa Anna's fake leg to Mexico», 2016), segundo 50.3 a 53 del original, recortado para quitar el logo · 2.6 s · visor con iris que se abre desde la vitrina en «novecientos»; arriba «LA PIERNA, DE VERDAD», abajo «Video: KSAT 12 · Springfield, Illinois». Audio original al 30 %.
+Subtítulos (estilo, tamaño, posición): Lilita One 84 px, hasta 3 palabras, la que suena en amarillo #ffd23f, borde tinta, y=1580, sin «...» ni «:» y (nuevo) sin punto ni coma al final de la palabra.
+Música / efectos: historia.mp3 al 32 % con sidechain a la voz; pops (presidente, pasteles, pierna que habla, desentierra, corcho, repuesto), cartón (oficiales, pintura, entierro, letreros, soldados), papel-aletea (comen, cuenta), whoosh-grave (barcos, turba, vuelta final), golpe-grave + subdrop en el cañonazo, metal en la tijera y en el buzón, 3 golpes secos en «honores», carton-cae (cae, queda), riser antes de «sorprenden», whoosh-cine (museo y visor). Final a −14.0 LUFS (loudnorm dejó −16.2; se subió 2.3 dB con limitador).
+Portada (escena y titular): el entierro en el segundo 29.3 sin subtítulos: Santa Anna a la izquierda, la pierna con cara saliendo del ataúd, lápida Q.E.P.D. y un soldado; placas «LE HIZO UN FUNERAL» (amarilla) y «¿A SU PIERNA?» (tinta).
+Texto de la publicación: «Perdió la pierna en una guerra que empezó por unos pasteles. Lo que hizo después con ella es todavía peor.» + «Fuentes: Wikipedia (Santa Anna · Guerra de los Pasteles) · NPR Illinois (31/08/2026)» + #SantaAnna #México #historia #historiasreales #enserio
+
+== QUÉ SE PROBÓ ==
+Lo que se repitió de los ganadores (y de cuál): ninguno con números todavía (día 1). De 001 se repitió la forma: gancho de dato imposible, mundo continuo, visor con clip real, cierre en bucle con ironía, 55-70 s.
+Lo nuevo que se probó en este video: (1) tema latinoamérica de época (no noticia), con remate de hoy; (2) un objeto que habla (la pierna) en vez de una persona; (3) ritmo de voz «rapido» (el 001 salió «dramatico»); (4) 3 fotos reales + 1 clip (más material real que el 001); (5) subtítulos sin punto final.
+Hipótesis (qué espero que pase): una cadena de giros absurdos de historia latinoamericana retiene igual o más que una noticia fresca, y el ritmo rápido sube la retención en la mitad del video frente al 001. La pierna que habla y el buzón vacío de México deberían subir los comentarios (México vs. Illinois). Riesgo: 58 s con muchos lugares puede marear; si la retención cae en el segundo 30-40, probar la misma forma en 35-45 s.
+
+== RESULTADO (se llena después; lo actualiza la rutina) ==
+48 h · TikTok: ___  Instagram: ___  YouTube: ___  Retención IG: ___
+Lectura: (¿ganó, perdió? ¿por qué creo?)
+
+== GUION COMPLETO ==
+# 002. El presidente que enterró su pierna · México, 1832-1847 · y Springfield (Illinois), hoy
+# Fuentes: 1) Wikipedia, «Antonio López de Santa Anna» y «Primera intervención francesa en México (Guerra de los Pasteles)»  2) NPR Illinois, Ben Singson, «Santa Anna's prosthetic leg going back on display at Springfield museum» (31/08/2026). Apoyo: Austin Chronicle, «Day Trips: Santa Anna's Leg, Illinois State Military Museum» (11/08/2023).
+# Datos: pastelero francés Remontel (Tacubaya, 1832), oficiales que comieron sin pagar (Wikipedia es); pierna izquierda por cañonazo francés en Veracruz, 1838 (Wikipedia en, Chronicle); enterrada con honores militares (NPR, Chronicle); turba la desentierra y la arrastra al caer en dic. 1844 (Wikipedia en); pierna de corcho capturada por el 4.º de Illinois en Cerro Gordo, 1847 (NPR, Chronicle); en el museo desde 1922 y «ningún funcionario mexicano la ha pedido formalmente» a 2026 (NPR).
+# La PIERNA es un objeto: su línea es inventada (permitido para objetos). Santa Anna no dice nada.
+# Formato: QUIEN [emoción]: texto  ·  ... = pausa larga  ·  *palabra* = con fuerza
+NARRADOR [misterio]: Este presidente de México perdió una pierna en una guerra que empezó... por unos *pasteles*.
+NARRADOR [burla]: Mil ochocientos treinta y dos. Unos oficiales mexicanos se comen los pasteles de un pastelero francés... y no pagan.
+NARRADOR [tension]: Seis años después, Francia manda barcos de guerra a cobrar esa cuenta y muchas otras. Y ataca Veracruz.
+NARRADOR [alarma]: Un cañonazo le destroza la pierna izquierda a Antonio López de Santa Anna. Se la cortan.
+NARRADOR [asombro]: ¿Y qué hace él? La *entierra*... con honores militares.
+PIERNA [solemne]: Fue un honor, mi general.
+NARRADOR [tension]: Pero cuando cae del poder, una turba furiosa la *desentierra*... y la arrastra por las calles.
+NARRADOR [burla]: Él se pone una pierna de corcho. En mil ochocientos cuarenta y siete, en guerra con Estados Unidos, soldados de Illinois lo sorprenden en Cerro Gordo. Él huye... y la pierna se queda.
+NARRADOR [confidencial]: Desde mil novecientos veintidós está en un museo de Illinois. Y México nunca la ha pedido oficialmente.
+NARRADOR [cierre]: Perdió una pierna por unos pasteles... y la de repuesto, por salir *corriendo*.
+
+== CÓMO SE ARMÓ ==
+1. Búsqueda (25/11, ~20:45 Ecuador): 10 candidatas en todos los temas (noticias insólitas del día, lo más buscado de Telemundo, News of the Weird, banco). El video 1 no había dejado hoy.md: esta sesión lo escribió (#2 Santa Anna, #3 Fiona la hipopótama, reservas: tarántulas en medias en Lima y Victor Lustig) y lo empujó. Del banco se tachó «El funeral de una pierna».
+2. Datos con agentes web: NPR Illinois, Wikipedia es (Guerra de los Pasteles), Wikipedia en (Santa Anna) y Austin Chronicle. History.com redirige a otro sitio y no se leyó. Se quitó del guion lo no confirmado (año del funeral, el pollo, el dinero).
+3. Voz: voces.py qwen rapido, voz nueva PIERNA («voz caricaturesca de un objeto que habla: un viejo soldado de papel, grave, teatral, digna y orgullosa»). 58.4 s en ~5 min. Whisper repartió parejo las líneas 2, 8 y 9 (se nota poco).
+4. Fotos de Wikimedia (curl con user-agent genérico; la miniatura de 960 px del grabado dio error y se bajó la de 1280). Retrato recortado al óvalo. Clip KSAT con yt-dlp --js-runtimes node, recortado (crop 980x550) para sacar el logo del canal.
+5. plantilla.html reescrita entera (pastelería, mar y barcos, cementerio, turba, Cerro Gordo, museo, buzón, Santa Anna con piernas, pierna con cara, tijera, bala). construir.py: FX nuevos y audio del clip KSAT al 30 %.
+6. Fallas y arreglos: (a) la foto del retrato salía cortada en el borde → cámara del gancho más a la izquierda y más abierta; (b) el pastel gigante tapaba el letrero PÂTISSERIE → más abajo; (c) el letrero TACUBAYA 1832 salía cortado → la cámara se abre a la izquierda y el letrero se va cuando llegan los oficiales; (d) en «no pagan» la cámara ya se había ido al mar → el viaje empieza 0.7 s después; (e) la bandera del cementerio asomaba en Veracruz y el mar en el cementerio → cementerio, Cerro Gordo y museo corridos 250 px y mar más corto; (f) cementerio amontonado → soldados más separados; (g) soldados de Illinois fuera de cuadro y grabado tapando a Santa Anna → todo más al centro; (h) letrero CERRO GORDO cortado al huir → se va antes; (i) la pierna tirada salía cortada → la cámara la centra; (j) el buzón de México nunca se veía porque el clip lo tapaba → el clip entra en «novecientos» y dura 2.6 s; (k) subtítulos con punto final → se quita; (l) FOTOGRAMAS VACÍOS: el render deja 2-3 fotogramas en blanco al inicio de cada tramo de trabajo (cada 292 fotogramas con 6 procesos: 0-1, 292-294, 584-585, 876-877, 1168-1169, 1460-1461) → se detectaron con PIL (desviación < 3) y se reemplazaron con ffmpeg freezeframes por el fotograma siguiente. Puede que el 001 también los tenga. (m) Volumen −16.2 LUFS → +2.3 dB con limitador = −14.0.
+7. Portada: snapshot de Hyperframes en 29.3 s con subs() apagado en index.html (después se regeneró con construir.py), luego portada.py.
+8. Render: Hyperframes 0.8.33, 1752 fotogramas, ~1 min 45 s por render (2 renders) + 1 pasada de ffmpeg para los fotogramas vacíos y el volumen.
