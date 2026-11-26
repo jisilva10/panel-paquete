@@ -1,6 +1,6 @@
 # La rutina de las 3 a. m. · es_enserio.tv
 
-La corren 3 tareas programadas en la PC con Windows, **una por video y cada una en su propia sesión** (3:00 video 1 = noticia + quién gana; 4:15 video 2; 5:30 video 3; ver `.motor/tarea-programada.md`). Entre las tres: **3 videos nuevos, montados, con su texto y programados**. Cada sesión hace los pasos de abajo para su único video. JIS solo aprieta «Publicar» en TikTok y «Subir» en YouTube desde el panel.
+La corren 3 tareas programadas en la PC con Windows, **una por video y cada una en su propia sesión** (3:00 video 1 = quién gana + elegir las 3 mejores del día; 4:15 video 2; 5:30 video 3; ver `.motor/tarea-programada.md`). Entre las tres: **3 videos nuevos, montados, con su texto y programados**. Cada sesión hace los pasos de abajo para su único video. JIS solo aprieta «Publicar» en TikTok y «Subir» en YouTube desde el panel.
 
 `<proyecto>` = la carpeta Titeres. Python: `<proyecto>\.motor\venv\Scripts\python`.
 
@@ -18,13 +18,14 @@ La corren 3 tareas programadas en la PC con Windows, **una por video y cada una 
 - Mira también «Por tema» en `ganadores.md`: el mejor y el peor **de cada tema**. Lo que gana se aprende **para cada tema por separado** (cómo se escribe bien una noticia, cómo se escribe bien una estafa…), no para quedarse en un solo tema.
 - Las dos primeras semanas son ruido: explora. Desde la semana 4: de cada 10 videos, 7 con la forma que gana **en ese tema** (gancho, estructura, cierre, edición), 2 con la rival y 1 algo nuevo.
 
-## 2. Los temas del día (3 videos) — siempre rotan
-- **Los temas rotan siempre**, aunque uno guste más. Usa la lista «Temas de hoy» de `ganadores.md`: 1 noticia/tendencia (todos los días) + los 2 temas que hace más tiempo no salen. Aunque al público le guste más uno, no se repite tema en el mismo día: se mejora la forma de escribir cada tema.
-- Temas: noticia/tendencia · historia absurda · persona increíble · error de millones · golpe/estafa · política · crimen · inventos y ciencia · latinoamérica. El `Tipo` del `que-se-hizo.txt` y de `etiquetas.json` usa exactamente esos nombres.
-- **Al menos 1 de los 3 es lo que la gente está hablando HOY**: la noticia que le está doliendo al mundo o la tendencia del momento (como lo de los bancos de Paraguay). No es dar la noticia: es contar la historia detrás de lo que todos comentan, lo que da morbo o lo que la gente quiere entender. Búscalo en la web antes que nada:
-  - Lo más buscado y comentado en Latinoamérica (Google Trends por país: México, Colombia, Argentina, Perú, Ecuador, Chile, Paraguay), tendencias de X y de TikTok (Creative Center), lo más leído de medios grandes (Infobae, El País, BBC Mundo, CNN en Español, El Comercio, El Tiempo).
-  - Elige lo que tenga una historia con giro y que se pueda contar en menos de un minuto. Si es muy fresco, cuenta solo lo confirmado por dos medios.
-- Los otros 2: los temas que tocan hoy según la rotación. Busca la historia en la web o en `1 Historias\banco.md`, y escríbela con lo que mejor funcionó **en ese tema** (paso 1).
+## 2. Las 3 mejores historias del día — sin rotación fija
+- **Se eligen las 3 MEJORES que encuentres, de cualquier tema** (JIS, 25/11/2026). No hay cuota de noticias ni rotación: si las 3 mejores son del mismo tema, van las 3.
+- Busca candidatas en TODO, al menos 8-10 antes de elegir:
+  - Lo que la gente está hablando HOY: Google Trends por país (México, Colombia, Argentina, Perú, Ecuador, Chile, Paraguay), tendencias de X y de TikTok (Creative Center), lo más leído de Infobae, El País, BBC Mundo, CNN en Español, El Comercio, El Tiempo. Con noticias no se da la noticia: se cuenta la historia detrás, lo que da morbo o lo que la gente quiere entender. Si es muy fresca, solo lo confirmado por dos medios.
+  - Historias de cualquier época en la web y en `1 Historias\banco.md`: absurdas, personas increíbles, errores de millones, golpes y estafas, política, crimen, inventos y ciencia, Latinoamérica.
+- Ponles nota y elige las 3 que más hagan decir «¿en serio?»: giro imposible, que se entienda y enganche en el primer segundo, que se pueda contar en menos de un minuto, que haya fotos o clips reales, y lo que dice `ganadores.md` / `aprendizajes.md` que funciona. Lo fresco (tendencia de hoy) suma, no es obligatorio.
+- **El video 1 deja la lista en `3 Publicado\hoy.md`** (y hace push en ese momento): fecha, las 3 elegidas en orden (#1, #2, #3) con su tema, por qué y sus dos fuentes, más 2 de reserva. Los videos 2 y 3 hacen `git pull --rebase`, toman la #2 y la #3; si ya no sirve (se hizo, falló, salió mal), la siguiente de reserva. Si `hoy.md` no tiene la fecha de hoy, esa sesión busca y elige ella misma la mejor que no esté hecha.
+- Temas (para el `Tipo` de `que-se-hizo.txt` y `etiquetas.json`, exactamente así): noticia/tendencia · historia absurda · persona increíble · error de millones · golpe/estafa · política · crimen · inventos y ciencia · latinoamérica. Se siguen midiendo por tema para aprender a escribir mejor cada uno.
 - Reglas: dos fuentes, la gente real solo dice lo que dijo, nada sexual ni religioso, sin difamar. Nunca «moraleja»: cierre con fuerza.
 - Si una noticia es buena pero se queda corta, anótala en `banco.md` para otro día.
 - **Nunca repetir.** Con la historia elegida, corre `python .motor\ya_hecho.py "protagonista" "lugar" "palabra clave"`. Si dice «YA SE HIZO», elige otra (ni la misma historia ni el mismo protagonista, aunque sea con otro ángulo). Mira también `registro.csv` de hoy: otra sesión pudo haber elegido algo parecido. Si la sacaste de `banco.md`, tácha la línea (`~~ ~~`) apenas la elijas y haz `git add -A`, commit y `git push` en ese momento, para que las otras sesiones lo vean.
@@ -38,13 +39,13 @@ La corren 3 tareas programadas en la PC con Windows, **una por video y cada una 
 5. **Voz**: dentro de la carpeta, `python ..\..\.motor\voces.py . qwen rapido`. **Ritmo** (JIS, 25/11/2026: pausas dramáticas sí, pero cortas; lo lento aburre): `rapido` es el normal (silencios de 0,28 s como mucho y 7 % más ágil); `medio` y `dramatico` se prueban de vez en cuando (1 de cada 5) para medir. Anótalo en `etiquetas.json` → `"ritmo"` y en «Ritmo de la voz» del `que-se-hizo.txt`.
 6. **Película**: reescribe las funciones de la escena en `plantilla.html` (el ejemplo es la guerra de los emús): mundo de papel continuo, la cámara entra a cada lugar, personas reales dibujadas parecidas (y su foto si es histórico), la boca con la voz, nada delante que estorbe, nada amontonado, subtítulos sin «...» ni «:». Cada cosa se ata a una palabra con `W("palabra", n)`. Ajusta efectos y clips de audio en `construir.py`.
    `python construir.py qwen` y `npx --yes hyperframes@0.8.33 render -o salida\video.mp4`.
-   Saca fotogramas de los momentos clave y míralos ANTES de seguir; arregla lo que se vea mal.
+   **Revisa TODOS los fotogramas** (JIS, 25/11/2026: en el video 1 el letrero de «CARTAGENA» salía cortado y nadie lo vio): `ffmpeg -i salida\video.mp4 -vf "fps=1,scale=240:426,tile=6x2" hoja_%02d.jpg` → una hoja por cada 12 s, un fotograma por segundo, y míralas todas ANTES de seguir. Busca: letreros o textos cortados por el borde, títeres fuera de cuadro o tapándose, fotos cortadas, cosas encima de los subtítulos, escenas vacías. Arregla y vuelve a renderizar hasta que ninguna hoja tenga fallas.
 7. **Portada**: `python ..\..\.motor\portada.py escena.png "ARRIBA" "ABAJO" portada.jpg limpio.png` (escena sin subtítulo, titular bajo las caras, sin número).
 8. **Texto de la publicación** (`texto.txt`): 1-2 frases que den ganas (≤125 caracteres), una línea «Fuentes: …» y 5 hashtags.
 9. **`que-se-hizo.txt`: llénalo ENTERO.** Es lo único que queda del video. Tiene que bastar para entenderlo y replicarlo sin verlo: duración, tema, primera palabra, gancho literal, estructura con segundos, narrador, cierre literal, mundo y lugares, fotos y clips (cuántos, de dónde, cuándo), subtítulos, música, portada, texto, qué se repitió de qué ganador, qué se probó nuevo, la hipótesis, el guion completo y cómo se armó (incluido lo que falló y cómo se arregló).
 
 ## 4. Programar
-- Horas de ese mismo día (Ecuador), una por video, variando ±20 min cada día y sin repetir la del día anterior: cerca de **11:30**, **16:00** y **20:30**. La noticia del día va en la primera.
+- Horas de ese mismo día (Ecuador), una por video, variando ±20 min cada día y sin repetir la del día anterior: cerca de **11:30**, **16:00** y **20:30**. La #1 de `hoy.md` va en la primera (si una es noticia fresca, conviene que salga antes).
 - `cd <proyecto>\panel && npm run programar -- --carpeta "..\2 Funciones\NNN. Título" --hora "AAAA-MM-DD HH:MM" --probar`, y si todo está bien, lo mismo sin `--probar`.
 - Anota la hora en `que-se-hizo.txt` y una línea en `3 Publicado\registro.csv`: fecha, nombre, hora, tipo, gancho, cierre.
 

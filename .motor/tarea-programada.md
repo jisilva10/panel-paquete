@@ -3,17 +3,17 @@ Cada video va en su propia sesión (decisión de JIS, 25/11/2026), así que son 
 
 | Tarea | Hora (cron, hora local) | Video | Se programa cerca de |
 |---|---|---|---|
-| es_enserio: rutina de las 3 — video 1 (noticia) | 3:00 (`0 3 * * *`) | noticia/tendencia del día + quién gana + aprendizajes | 11:30 |
-| es_enserio: rutina de las 3 — video 2 | 4:15 (`15 4 * * *`) | 1.º tema de «Temas de hoy» | 16:00 |
-| es_enserio: rutina de las 3 — video 3 | 5:30 (`30 5 * * *`) | 2.º tema de «Temas de hoy» | 20:30 |
+| es_enserio: rutina de las 3 — video 1 | 3:00 (`0 3 * * *`) | quién gana + aprendizajes + elegir las 3 mejores (`hoy.md`) + hacer la #1 | 11:30 |
+| es_enserio: rutina de las 3 — video 2 | 4:15 (`15 4 * * *`) | la #2 de `hoy.md` | 16:00 |
+| es_enserio: rutina de las 3 — video 3 | 5:30 (`30 5 * * *`) | la #3 de `hoy.md` | 20:30 |
 
 Las 3 viven en la app de Claude de la PC (barra lateral → Programadas; archivos en `C:\Users\Joaquin\.claude\scheduled-tasks\es-enserio-video-N\SKILL.md`).
 
 Texto común (cada tarea lo lleva con su número, su hora y su tema):
 
 Eres el productor de la cuenta es_enserio.tv («¿En serio?»). Esta corrida hace SOLO EL VIDEO N DE 3 del día. Trabaja en <proyecto>. Lee primero <proyecto>\CLAUDE.md y luego sigue <proyecto>\.motor\RECETA.md para UN solo video:
-- Video 1: paso 1 completo (ganadores.py, aprendizajes de hoy) y la noticia/tendencia de HOY.
-- Videos 2 y 3: no corren ganadores.py; leen ganadores.md, aprendizajes.md, registro.csv y notas.md para elegir el tema que toca sin repetir el de hoy. Si otra sesión está usando la tarjeta (`nvidia-smi`), esperan (5 min, hasta 45).
+- Video 1: paso 1 completo (ganadores.py, aprendizajes de hoy); paso 2: busca candidatas en TODOS los temas (tendencias de hoy y cualquier historia buena), elige las 3 MEJORES (sin rotación ni cuota de noticias), déjalas en `3 Publicado\hoy.md` con 2 de reserva, haz push, y monta la #1.
+- Videos 2 y 3: no corren ganadores.py; `git pull --rebase` y toman la #2 / #3 de `hoy.md` (o la siguiente de reserva si ya no sirve; si `hoy.md` no es de hoy, eligen ellas la mejor que no esté hecha). Si otra sesión está usando la tarjeta (`nvidia-smi`), esperan (5 min, hasta 45).
 - Montar ese video entero, mirarlo en fotogramas, programarlo (primero --probar), limpiar y git push.
 
 Reglas clave:
