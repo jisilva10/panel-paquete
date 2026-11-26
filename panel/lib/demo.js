@@ -5,6 +5,7 @@ export function colaDemo() {
   const h = (d) => new Date(Date.now() + d * 3600e3).toISOString();
   const base = { redes: ['instagram', 'tiktok', 'youtube'], video_url: 'https://example.com/v.mp4', estado: 'programada', ig_estado: 'pendiente', tt_estado: 'pendiente', yt_estado: 'pendiente', etiquetas: {} };
   return [
+    { ...base, id: 'd0', pieza: '0. El robo del supermercado', programada_para: h(-1), estado: 'hecha', ig_estado: 'publicado', tt_estado: 'publicado', yt_estado: 'publicado', portada_url: '/icono-512.png', video_url: null, texto: 'Querían robar un carro blindado y terminaron 17 horas en un súper.' },
     { ...base, id: 'd1', pieza: '1. La guerra de los emús', programada_para: h(-2), estado: 'hecha', ig_estado: 'publicado', tt_estado: 'en_borradores', yt_estado: 'para_ti', portada_url: '/icono-512.png', texto: 'En 1932 Australia le declaró la guerra a 20.000 emús. Adivina quién ganó.\n\n#historia #australia #emus #guerra #loquenosabias' },
     { ...base, id: 'd2', pieza: '2. El panadero del Titanic', programada_para: h(5), portada_url: '/icono-512.png', texto: 'Sobrevivió dos horas en el agua helada… con whisky.' },
     { ...base, id: 'd3', pieza: '3. La chaqueta de Jensen Huang', programada_para: h(10), texto: '' },

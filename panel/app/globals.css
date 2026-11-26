@@ -447,3 +447,18 @@ div.campo > span { display: block; margin-bottom: 6px; }
 .ps-mini-dia { font-size: 10.5px; font-weight: 650; color: var(--suave); }
 .ps-mini-hora { font-size: 12.5px; font-weight: 750; font-variant-numeric: tabular-nums; }
 @media (min-width: 720px) { .ps-tira { margin: 0; padding: 0 0 2px; } }
+/* Hoy: dónde ya salió cada video (gris = todavía no · color con ✓ = publicado · ! = error) */
+.ps .ps-mini { width: 64px; }
+.ps-mini-img { width: 64px; }
+.ps-donde { display: inline-flex; gap: 4px; margin-top: 4px; }
+.ps-red { position: relative; display: inline-flex; line-height: 0; }
+.ps-red .logo-red { border-radius: 4px; }
+.ps-red.no { filter: grayscale(1); opacity: .35; }
+.ps-red i { position: absolute; top: -4px; right: -4px; width: 10px; height: 10px; border-radius: 50%; display: grid; place-items: center; font-style: normal; font-size: 7.5px; font-weight: 900; line-height: 1; color: #fff; background: var(--bien); box-shadow: 0 0 0 1.5px var(--fondo); }
+.ps-red.mal i { background: var(--mal); }
+.ps-hoja-donde { margin: -6px 0 12px; }
+.ps-hoja-donde .ps-donde { gap: 10px; }
+.ps-hoja-donde .ps-red i { width: 13px; height: 13px; font-size: 9px; top: -5px; right: -5px; box-shadow: 0 0 0 2px var(--carta); }
+.ps-hoja-donde .logo-red { border-radius: 6px; }
+.ps-mini-img { position: relative; }
+.ps .ps-mini-dia { position: absolute; left: 4px; right: 4px; bottom: 4px; text-align: center; font-size: 10px; font-weight: 750; color: var(--tinta); background: var(--acento); border-radius: 6px; padding: 2px 0; }

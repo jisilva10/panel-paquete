@@ -111,12 +111,33 @@ function Hoja({ cerrar, children }) {
   );
 }
 
+// ── Dónde ya salió: logo en gris = todavía no; a color con ✓ verde = publicado; «!» rojo = error ──
+const CAMPO = { tiktok: 'tt_estado', instagram: 'ig_estado', youtube: 'yt_estado' };
+function estadoEn(p, red) {
+  const e = p[CAMPO[red]];
+  if (!e || e === 'no_va' || (p.redes && !p.redes.includes(red))) return null;
+  return e === 'publicado' ? 'si' : e === 'error' ? 'mal' : 'no';
+}
+const NOMBRE_ESTADO = { si: 'publicado', no: 'todavía no', mal: 'con error' };
+function DondeSalio({ p, t = 15 }) {
+  return (
+    <span className="ps-donde">
+      {REDES.map(([r, L, n]) => {
+        const e = estadoEn(p, r);
+        return e && <span key={r} className={`ps-red ${e}`} title={`${n}: ${NOMBRE_ESTADO[e]}`}><L t={t} />{e === 'si' && <i>✓</i>}{e === 'mal' && <i>!</i>}</span>;
+      })}
+    </span>
+  );
+}
+
 function VerVideo({ p, ttDirecto }) {
   return (
     <>
       <div className="ps-hoja-sup">{cuando(p.programada_para)} · {hora(p.programada_para)}</div>
       <h3 className="ps-hoja-tit">{titulo(p.pieza)}</h3>
-      <video className="ps-video" src={p.video_url} poster={p.portada_url || undefined} controls playsInline preload="metadata" />
+      <div className="ps-hoja-donde"><DondeSalio p={p} t={22} /></div>
+      {p.video_url ? <video className="ps-video" src={p.video_url} poster={p.portada_url || undefined} controls playsInline preload="metadata" />
+        : p.portada_url ? <img className="ps-video" src={p.portada_url} alt="" /> : null}
       <CajaCopiar texto={p.texto} />
       {ttDirecto && p.redes?.includes('tiktok') && p.tt_estado === 'pendiente' && <AprobarTikTok p={p} />}
     </>
@@ -270,20 +291,23 @@ function Videos({ piezas, abrir }) {
 export default function Inicio({ r, ttDirecto = false, api = '/api' }) {
   const [hoja, setHoja] = useState(null); // { tipo: 'video' | 'pieza', p }
   const borradores = r.cola.filter((p) => p.tt_estado === 'en_borradores');
-  const salen = r.cola.filter((p) => p.estado === 'programada' && p.video_url).sort((a, b) => new Date(a.programada_para) - new Date(b.programada_para));
+  // Hoy: lo de hoy (ya salió o no) y lo que todavía espera. Lo que ya salió sigue aquí hasta mañana; después vive en «Videos».
+  const ahora = new Date();
+  const salen = r.cola.filter((p) => p.estado !== 'cancelada' && (clave(p.programada_para) === clave(ahora.toISOString()) || (p.estado === 'programada' && new Date(p.programada_para) > ahora)))
+    .sort((a, b) => new Date(a.programada_para) - new Date(b.programada_para));
   return (
     <div className="ps-rejilla">
       <div className="ps-col-a">
         {borradores.length > 0 && <section className="ps-sec">{borradores.map((p) => <TeToca key={p.id} p={p} api={api} />)}</section>}
         {salen.length > 0 && (
           <section className="ps-sec">
-            <h2 className="ps-h">Por salir <span>{salen.length}</span></h2>
+            <h2 className="ps-h">Hoy <span>{salen.length}</span></h2>
             <div className="ps-tira">
               {salen.map((p) => (
                 <button type="button" key={p.id} className="ps-mini" onClick={() => setHoja({ tipo: 'video', p })} aria-label={titulo(p.pieza)}>
-                  <span className="ps-mini-img">{p.portada_url ? <img src={p.portada_url} alt="" loading="lazy" /> : <span className="ps-sin" />}</span>
-                  <span className="ps-mini-dia">{cuando(p.programada_para)}</span>
+                  <span className="ps-mini-img">{p.portada_url ? <img src={p.portada_url} alt="" loading="lazy" /> : <span className="ps-sin" />}{cuando(p.programada_para) !== 'Hoy' && <span className="ps-mini-dia">{cuando(p.programada_para)}</span>}</span>
                   <span className="ps-mini-hora">{hora(p.programada_para)}</span>
+                  <DondeSalio p={p} />
                 </button>
               ))}
             </div>
