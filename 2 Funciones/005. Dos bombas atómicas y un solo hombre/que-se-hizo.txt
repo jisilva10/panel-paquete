@@ -1,0 +1,72 @@
+QUÉ SE HIZO · 005. Dos bombas atómicas y un solo hombre
+(Todo lo necesario para entender y replicar este video SIN verlo. El video.mp4 queda en esta carpeta solo en la PC; a GitHub va solo el texto.)
+
+== FICHA ==
+Número: 005
+Título: Dos bombas atómicas y un solo hombre
+Nombre en el panel: 005. Dos bombas atómicas y un solo hombre
+Creado: 2026-11-26
+Hora programada: 2026-11-26 11:40 (Ecuador)
+Duración (s): 54.1
+Tipo: persona increíble
+Tema en una frase: Tsutomu Yamaguchi, ingeniero que diseñaba barcos para Mitsubishi, estaba de viaje de trabajo en Hiroshima el 6/8/1945 y quedó quemado y medio sordo a 3 km de la bomba; al otro día volvió en tren a su casa, en Nagasaki, y el 9/8, vendado, le estaba contando a su jefe lo que vio cuando cayó la segunda bomba, otra vez a 3 km. Sobrevivió de nuevo; en 2009 Japón lo reconoció como el único sobreviviente oficial de las dos; murió en 2010 a los 93.
+Por qué debería enganchar: el «¿en serio?» más directo posible (dos bombas atómicas, un hombre, tres días) y el giro del tren («su casa estaba en… Nagasaki») a mitad de video.
+Fuentes: 1) NPR, «Survivor Of Two Atom Bombings Dies» (09/01/2010)  2) Wikipedia, «Tsutomu Yamaguchi» (consultada 26/11/2026; cita a NBC News 25/03/2009 y The Times 25/03/2009). Apoyo: NBC News 2010. History.com redirigía a otro dominio y no se usó.
+Datos con cuidado: el jefe no tiene nombre ni frase (Wikipedia dice que le decía que estaba «loco»; se contó solo «no le creyó»). No se pone ninguna frase en boca de Yamaguchi. Se evitó el apodo «el más desafortunado del mundo» (en Japón molestó). Tono crudo pero con respeto: nada de chistes con la bomba.
+
+== TEXTO ==
+Primera palabra: A
+Gancho (primera frase, literal): «A este hombre le cayeron dos bombas atómicas... en tres días.»
+Tipo de gancho: dato imposible
+Estructura: gancho con los dos calendarios (6 HIROSHIMA / 9 NAGASAKI) y la flecha «3 DÍAS» (0-3.6 s) · Hiroshima: quién era, el plano del barco, la maleta, el letrero (3.7-11 s) · destello blanco, la foto real de la nube se levanta, cae al suelo, vendas, «3 KM» (11-20 s) · el tren a Nagasaki con él vendado en la ventana; giro «su casa estaba en... Nagasaki» (20.4-25 s) · la oficina: la fachada se levanta, el jefe no le cree (26-33 s) · segundo destello: la cámara entra a la ventana y se ve el clip real de Nagasaki (35.5-39 s) · «sobrevivió»: se levanta y sonríe (39.5-41 s) · 2009: letrero «JAPÓN LO RECONOCE · 1 de 1», él de viejo y el televisor con su entrevista real (41.6-46.5 s) · cierre con la estrella «93 AÑOS» (46.8-54 s)
+Narrador en: tercera persona
+Personajes que hablan: NARRADOR (solo)
+Cierre (estilo): dato que remata
+Frase de cierre (literal): «Las dos bombas más terribles de la historia no pudieron con él... vivió hasta los noventa y tres años.»
+Palabras totales: 150
+Emociones usadas en la voz: asombro, misterio, tension, tension, confidencial, tension, asombro, asombro, solemne, cierre
+Ritmo de la voz: rapido
+
+== EDICIÓN ==
+Mundo (lugar de papel): un solo paisaje de Japón de papel (montes verdes, pasto) que va de izquierda a derecha: los calendarios → Hiroshima (casitas de techo japonés) → la vía del tren → Nagasaki (mar, letrero, edificio de la oficina) → el lugar de 2009 (letrero, él de viejo, televisor).
+Lugares y cómo se entra a cada uno: calendarios que suben del suelo en «dos»; flecha roja que se dibuja con «3 DÍAS» en «días» → la cámara viaja a Hiroshima en «Agosto»; plano azul del barco en «barcos», maleta en «viaje», letrero HIROSHIMA sobre su cabeza en «Hiroshima» → destello blanco en «destello» (la pantalla se pone blanca, el cielo se vuelve naranja y la cámara tiembla), la foto se levanta; en «suelo» se hunde y cierra los ojos; en «quemado» vuelve con vendas; «3 KM» arriba → en «tren» la cámara sigue al tren (humo, él en la ventana) hasta NAGASAKI → la cámara ve el edificio OFICINA entero y en «oficina» la fachada sube (la cámara entra); el jefe sube en «jefe» y en «creyó» niega con la cabeza y cruza los brazos → segundo destello; la cámara se mete en la ventana (zoom 1.7) y por ahí se ve el clip «NAGASAKI, ESE DÍA»; el jefe se agacha detrás del escritorio; Yamaguchi se hunde → en «sobrevivió» salta y sonríe → la cámara viaja a 2009: letrero, él de viejo y el televisor con el clip → «93 AÑOS» en «noventa».
+Personajes dibujados (y a quién se parecen): Tsutomu Yamaguchi joven (pelo negro corto, camisa blanca, corbata azul; vendas en la cabeza, la mejilla y el brazo después de Hiroshima) y de viejo (pelo blanco a los lados, lentes redondos, chaleco beige, como en la entrevista de ABC); el jefe genérico (pelo gris, lentes, traje oscuro, corbata roja).
+Fotos reales (cuántas, de dónde, en qué segundo): 1 · la nube de Hiroshima (Wikimedia Commons «Atomic cloud over Hiroshima - NARA 542192 - Edit.jpg», dominio público), se levanta en «destello» (~12.4 s) y queda hasta el tren. Fuente: «Foto: Archivos de EE. UU. (NARA) · 1945».
+Clips reales (cuántos, de dónde, cuánto duran, cómo entran): 2 · Nagasaki a color, 1945 (YouTube E27u6H1l-mM, «1945 - ATOMIC BOMB: NAGASAKI BURST», archivo del gobierno de EE. UU.; segundo 28-31.3, recortado abajo para sacar el código de tiempo) por la ventana de la oficina (35.9-39.2 s), fuente «Video: archivo de EE. UU. · 1945 · YouTube» · entrevista de ABC News Australia a Yamaguchi (YouTube 9_VsNZl6LGU, 07/01/2010; segundo 3.5-6.2, solo el primer plano de su cara: después sale un altar y se cortó) en un televisor (43.4-46 s, luego queda el último cuadro), fuente «Video: ABC News Australia · YouTube (2010)». Audio original al 35 %.
+Subtítulos (estilo, tamaño, posición): Lilita One 84 px, hasta 3 palabras, la que suena en amarillo #ffd23f, borde tinta, y=1580, sin «...» ni «:».
+Música / efectos: historia.mp3 al 32 % con sidechain a la voz. Efectos: papel-despliega al inicio, cartón en los calendarios, papel-swish en «3 días», whoosh al viajar, papel-aletea en el plano, riser + golpe-grave + subdrop en cada destello, carton-cae en «suelo», whoosh-grave en el tren, whoosh-cine al entrar a la oficina, braam en «sobrevivió», pop en «noventa», golpe-grave al final. −14.1 LUFS (loudnorm dio −15.3; se subió 1.3 dB con limitador).
+Portada (escena y titular): el gancho (segundo 3.4): Yamaguchi sorprendido entre los calendarios 6 HIROSHIMA y 9 NAGASAKI con la flecha «3 DÍAS»; escena subida 250 px; placas «LE CAYERON DOS BOMBAS» (amarilla) y «¿Y SOBREVIVIÓ?» (tinta). portada_ms 3400.
+Texto de la publicación: «Le cayó la bomba de Hiroshima, volvió a casa en tren… y su casa estaba en Nagasaki.» + «Fuentes: NPR (2010) · Wikipedia «Tsutomu Yamaguchi»» + #Hiroshima #Nagasaki #historiareal #sobreviviente #enserio
+
+== QUÉ SE PROBÓ ==
+Lo que se repitió de los ganadores (y de cuál): todavía no hay números (0 piezas con 48 h). Se repitió la forma de 001/002/004: gancho «dato imposible», mundo continuo, foto que se levanta del suelo, clips dentro de la escena, ritmo rápido, cierre «dato que remata» (como el 004).
+Lo nuevo que se probó en este video: (1) primer «persona increíble» y primera historia seria (guerra) contada con respeto; (2) clip real del protagonista hablando (entrevista) dentro de un televisor; (3) un giro a mitad de video con pausa («su casa estaba en... Nagasaki»); (4) el destello blanco de pantalla completa como transición.
+Hipótesis (qué espero que pase): el gancho es el más fuerte hasta ahora (se entiende sin contexto) y el giro del tren retiene en la mitad; puede dar muchos compartidos. Riesgo: el tema es duro y puede rendir menos que lo absurdo, o el algoritmo puede frenar «bomba atómica».
+
+== RESULTADO (se llena después; lo actualiza la rutina) ==
+48 h · TikTok: ___  Instagram: ___  YouTube: ___  Retención IG: ___
+Lectura: (¿ganó, perdió? ¿por qué creo?)
+
+== GUION COMPLETO ==
+# 005. Dos bombas atómicas y un solo hombre · Hiroshima y Nagasaki, 1945
+# Fuentes: 1) NPR, «Survivor Of Two Atom Bombings Dies» (09/01/2010)  2) Wikipedia, «Tsutomu Yamaguchi» (consultada 26/11/2026; cita a NBC News 25/03/2009 y The Times 25/03/2009). Apoyo: NBC News, «Double atomic bomb survivor dies in Japan» (2010).
+# Nadie habla con frases inventadas: solo el narrador. El jefe no tiene nombre ni frase.
+NARRADOR [asombro]: A este hombre le cayeron *dos* bombas atómicas... en tres días.
+NARRADOR [misterio]: Agosto de mil novecientos cuarenta y cinco. Tsutomu Yamaguchi diseñaba barcos, y estaba de viaje de trabajo en Hiroshima.
+NARRADOR [tension]: A las ocho y cuarto vio un destello enorme en el cielo... y la explosión lo tiró al *suelo*.
+NARRADOR [tension]: Quedó quemado y medio sordo... pero vivo. Estaba a tres kilómetros.
+NARRADOR [confidencial]: Al otro día tomó un tren de vuelta a su casa. Y su casa estaba en... *Nagasaki*.
+NARRADOR [tension]: Dos días después, todo vendado, fue a la oficina y le contó a su jefe lo que había visto. El jefe no le creyó.
+NARRADOR [asombro]: Y justo en ese momento... otro *destello*. La segunda bomba. Otra vez a tres kilómetros.
+NARRADOR [asombro]: Y otra vez... sobrevivió.
+NARRADOR [solemne]: Recién en dos mil nueve, Japón lo reconoció como el único sobreviviente oficial de las dos bombas.
+NARRADOR [cierre]: Las dos bombas más terribles de la historia no pudieron con él... vivió hasta los *noventa y tres* años.
+
+== CÓMO SE ARMÓ ==
+1. Historia: la sesión de las 3:00 se cortó esperando un permiso; esta sesión la lanzaron a mano a las 6:40. Se juntaron 10 candidatas (hoy.md); las noticias del día no tenían giro. Se eligió Yamaguchi (del banco) como #1; ya_hecho.py: nuevo. Se tachó en banco.md y se hizo push con hoy.md.
+2. Material: las 2 fotos de Wikimedia (la primera descarga dio 429 con upload.wikimedia.org; funcionó con thumb.wikimedia.org y otro User-Agent); la foto de Yamaguchi de Wikipedia (no libre) se bajó pero NO se usó: se usó el clip de ABC. Clips con yt-dlp --js-runtimes node a 480p y pasados a fotogramas (fps=30).
+3. Voz: voces.py qwen rapido, 54.1 s.
+4. Película: plantilla.html escrita de cero sobre la base que pinta siempre: calendarios, Hiroshima, tren (la cámara sigue al tren), oficina con fachada que sube, ventana con clip, 2009 con televisor. persona() nueva con pelo (negro, blanco, gris), lentes, cuello y corbata, brazos cruzados, vendas, ojos cerrados y sonrisa. construir.py: efectos nuevos y audio de los 2 clips (y tiempos-qwen.json abierto en cp1252).
+5. Lo que se vio mal en los fotogramas y se arregló: la flecha «3 DÍAS» no se veía (la cámara se iba antes: ahora espera a «días»); el letrero HIROSHIMA salía cortado (ahora va arriba de su cabeza); al caer, la cabeza salía del cuadro (ahora se hunde en vez de girar); la ventana del tren salía vacía (la cara estaba fuera del recorte); el edificio salía cortado al llegar el tren (la cámara se queda en la estación y después ve la fachada entera); la pata del escritorio y Yamaguchi se veían debajo de la fachada antes de entrar (ahora salen con «oficina»); la foto de Hiroshima y el televisor del final se cortaban por el borde (foto más a la izquierda, final con zoom 0.82); la fuente del clip quedaba encima del marco de la ventana (más abajo); el clip de ABC mostraba un altar al final (se cortó a 80 cuadros, nada religioso).
+6. Render: hyperframes 0.8.33, ~1 min 35 s. revisar_celeste.py: 1625 cuadros, 0 vacíos. Se miraron las 5 hojas (un fotograma por segundo) en 3 vueltas.
+7. Portada: snapshot del segundo 3.4 con SUBS = false en index.html, escena subida 250 px, portada.py con las dos placas.

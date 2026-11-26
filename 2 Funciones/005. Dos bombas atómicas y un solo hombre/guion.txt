@@ -1,0 +1,13 @@
+# 005. Dos bombas atómicas y un solo hombre · Hiroshima y Nagasaki, 1945
+# Fuentes: 1) NPR, «Survivor Of Two Atom Bombings Dies» (09/01/2010)  2) Wikipedia, «Tsutomu Yamaguchi» (consultada 26/11/2026; cita a NBC News 25/03/2009 y The Times 25/03/2009). Apoyo: NBC News, «Double atomic bomb survivor dies in Japan» (2010).
+# Nadie habla con frases inventadas: solo el narrador. El jefe no tiene nombre ni frase.
+NARRADOR [asombro]: A este hombre le cayeron *dos* bombas atómicas... en tres días.
+NARRADOR [misterio]: Agosto de mil novecientos cuarenta y cinco. Tsutomu Yamaguchi diseñaba barcos, y estaba de viaje de trabajo en Hiroshima.
+NARRADOR [tension]: A las ocho y cuarto vio un destello enorme en el cielo... y la explosión lo tiró al *suelo*.
+NARRADOR [tension]: Quedó quemado y medio sordo... pero vivo. Estaba a tres kilómetros.
+NARRADOR [confidencial]: Al otro día tomó un tren de vuelta a su casa. Y su casa estaba en... *Nagasaki*.
+NARRADOR [tension]: Dos días después, todo vendado, fue a la oficina y le contó a su jefe lo que había visto. El jefe no le creyó.
+NARRADOR [asombro]: Y justo en ese momento... otro *destello*. La segunda bomba. Otra vez a tres kilómetros.
+NARRADOR [asombro]: Y otra vez... sobrevivió.
+NARRADOR [solemne]: Recién en dos mil nueve, Japón lo reconoció como el único sobreviviente oficial de las dos bombas.
+NARRADOR [cierre]: Las dos bombas más terribles de la historia no pudieron con él... vivió hasta los *noventa y tres* años.
