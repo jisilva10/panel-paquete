@@ -43,6 +43,15 @@ create table if not exists publicaciones (
 );
 create index if not exists publicaciones_cola on publicaciones (estado, programada_para);
 
+-- Publicar solas (25/11/2026), detrás de interruptores apagados:
+-- YouTube por API (YT_SUBIR_SOLO=1): estados pendiente · para_ti · subiendo · publicado · error · no_va
+alter table publicaciones add column if not exists yt_desde      timestamptz;
+alter table publicaciones add column if not exists yt_video_id   text;
+alter table publicaciones add column if not exists yt_error      text;
+alter table publicaciones add column if not exists yt_privacidad text not null default 'public'; -- public · unlisted · private
+-- TikTok Direct Post (TT_DIRECTO=1): lo que JIS aprobó para este video (privacidad, interacciones, divulgación, consentimiento)
+alter table publicaciones add column if not exists tt_aprobacion jsonb;
+
 -- Cada pieza publicada, por red. Los números de dos redes nunca se suman.
 create table if not exists medios (
   red            text not null,

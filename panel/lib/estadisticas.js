@@ -73,7 +73,11 @@ async function leerYouTube() {
   const fecha = hoyEcuador();
   const c = await yt.canal();
   await db().from('cuenta_diaria').upsert({ red: 'youtube', fecha, seguidores: c.seguidores, leido_en: new Date().toISOString() });
-  await db().from('cuentas').upsert({ red: 'youtube', cuenta_id: process.env.YT_CANAL, usuario: (c.usuario || c.titulo || '').replace(/^@/, ''), access_token: 'llave-de-google', actualizado: new Date().toISOString() });
+  // Sin pisar la conexión para subir (si la hay): solo se actualiza el nombre; la fila se crea con una llave de mentira.
+  const usuario = (c.usuario || c.titulo || '').replace(/^@/, '');
+  const { data: ya } = await db().from('cuentas').select('red').eq('red', 'youtube').maybeSingle();
+  if (ya) await db().from('cuentas').update({ cuenta_id: process.env.YT_CANAL, usuario, actualizado: new Date().toISOString() }).eq('red', 'youtube');
+  else await db().from('cuentas').insert({ red: 'youtube', cuenta_id: process.env.YT_CANAL, usuario, access_token: 'llave-de-google', actualizado: new Date().toISOString() });
   const lista = await yt.videos(c.subidas, 50);
   for (const v of lista) {
     await db().from('medios').upsert({ red: 'youtube', media_id: v.id, titulo: v.titulo.slice(0, 140), formato: 'reel', publicado_en: v.publicado, permalink: v.permalink, duracion: v.duracion, origen: 'api' });

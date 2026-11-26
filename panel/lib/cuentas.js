@@ -1,10 +1,12 @@
 import { db, anotar } from './db';
 import * as ig from './instagram';
 import * as tt from './tiktok';
+import * as yt from './youtube';
 
 export async function cuentasConectadas() {
-  const { data } = await db().from('cuentas').select('red,usuario,expira,refresh_expira,actualizado');
-  return Object.fromEntries((data || []).map((c) => [c.red, c]));
+  const { data } = await db().from('cuentas').select('red,usuario,expira,refresh_expira,actualizado,refresh_token');
+  // La llave nunca sale de aquí: solo se dice si está («para_subir», que en YouTube = conectado con OAuth).
+  return Object.fromEntries((data || []).map(({ refresh_token, ...c }) => [c.red, { ...c, para_subir: Boolean(refresh_token) }]));
 }
 
 export async function guardarCuenta(red, datos) {
@@ -26,6 +28,12 @@ export async function tokenDe(red) {
     }
     if (red === 'tiktok' && faltaMs < 10 * 60 * 1000) {
       const n = await tt.refrescar(c.refresh_token);
+      await guardarCuenta(red, n);
+      return { ...c, ...n };
+    }
+    // YouTube: la llave dura 1 hora; se renueva con la larga (solo si se conectó para subir).
+    if (red === 'youtube' && c.refresh_token && faltaMs < 5 * 60 * 1000) {
+      const n = await yt.refrescar(c.refresh_token);
       await guardarCuenta(red, n);
       return { ...c, ...n };
     }

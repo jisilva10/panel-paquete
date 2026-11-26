@@ -4,6 +4,7 @@ import { guardarCuenta } from '../../../../../lib/cuentas';
 import { anotar } from '../../../../../lib/db';
 import * as ig from '../../../../../lib/instagram';
 import * as tt from '../../../../../lib/tiktok';
+import * as yt from '../../../../../lib/youtube';
 
 export async function GET(req, { params }) {
   const { red } = await params;
@@ -13,7 +14,8 @@ export async function GET(req, { params }) {
   if (u.searchParams.get('state') !== req.cookies.get(`estado_${red}`)?.value) return ir('fallo=La%20sesi%C3%B3n%20de%20conexi%C3%B3n%20venci%C3%B3%2C%20prueba%20otra%20vez');
   const vuelta = `${base(req)}/api/conectar/${red}/vuelta`;
   try {
-    const datos = red === 'instagram' ? await ig.canjearCodigo(u.searchParams.get('code'), vuelta) : await tt.canjearCodigo(u.searchParams.get('code'), vuelta);
+    const code = u.searchParams.get('code');
+    const datos = red === 'instagram' ? await ig.canjearCodigo(code, vuelta) : red === 'youtube' ? await yt.canjearCodigo(code, vuelta) : await tt.canjearCodigo(code, vuelta);
     await guardarCuenta(red, datos);
     await anotar('conectado', `${red} @${datos.usuario || ''}`);
     return ir(`listo=${red}`);

@@ -24,6 +24,10 @@ Supabase (pg_cron + pg_net) llama a `/api/cron/publicar` cada 5 min y a `/api/cr
 | PANEL_TOKEN_MAC | Claude (la llave de la Mac; copia en `.secretos/mac.txt`) |
 | IG_APP_SECRET | **JIS** (Meta → Noerion Radar → API de Instagram → Clave secreta de la app de Instagram) |
 | TT_CLIENT_KEY, TT_CLIENT_SECRET | **JIS** (TikTok for Developers → Noerion Panel → **Sandbox** «Noerion» → Credentials) |
+| YT_API_KEY, YT_CANAL | Claude (llave de Google del proyecto «enseriotv» para leer números públicos) |
+| YT_CLIENT_ID, YT_CLIENT_SECRET | **JIS** (Google Cloud → enseriotv → Google Auth Platform → Clients). Para subir Shorts solos |
+| YT_SUBIR_SOLO | Claude. **Interruptor**: `1` = YouTube sube solo (si la cuenta está conectada para subir). Sin poner = tarjeta «Subir» (hoy) |
+| TT_DIRECTO | Claude. **Interruptor**: `1` = TikTok publica directo los videos aprobados en el panel (pide `video.publish`). Sin poner = borradores (hoy) |
 
 ## Comandos (los corro yo)
 Las llaves de Supabase son secretas en Vercel y no bajan a la Mac: la Mac entra al panel con su propia llave (`.secretos/mac.txt` = `PANEL_TOKEN_MAC`) y el servidor hace el trabajo de base.
@@ -32,3 +36,6 @@ Las llaves de Supabase son secretas en Vercel y no bajan a la Mac: la Mac entra 
 - `npm run db` → tablas + reloj + Excel (lo corre el servidor; se puede repetir) · `npm run importar` → vuelve a leer `RESULTADOS.xlsx`.
 - `npx vercel deploy --prod` → publica cambios. `npx vercel env pull .env.local --environment production` → baja lo que no es secreto (el token del almacén de videos).
 - Vista de prueba sin base: servidor `panel-demo` del launch.json (`.env.development.local` con PANEL_DEMO=1).
+
+## Publicar solas (25/11/2026)
+Todo detrás de interruptores apagados. Qué falta y en qué orden: `marca/auditorias/youtube.md` y `marca/auditorias/tiktok.md`. Después de cambiar `supabase/esquema.sql`: `npm run db -- tablas`.

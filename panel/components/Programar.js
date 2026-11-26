@@ -21,7 +21,7 @@ function nombreDe(archivo) {
   return archivo.name.replace(/\.(mp4|mov)$/i, '').replace(/\s*-\s*(final|v\d+)$/i, '').trim();
 }
 
-export default function Programar({ cola, cuentas }) {
+export default function Programar({ cola, cuentas, ttDirecto = false, ytSolo = false }) {
   const [archivo, setArchivo] = useState(null);
   const [duracion, setDuracion] = useState(null);
   const [pieza, setPieza] = useState('');
@@ -73,8 +73,8 @@ export default function Programar({ cola, cuentas }) {
     }
   }
 
-  async function accion(id, a) {
-    const r = await fetch('/api/publicaciones', { method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id, accion: a }) });
+  async function accion(id, a, extra = {}) {
+    const r = await fetch('/api/publicaciones', { method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id, accion: a, ...extra }) });
     const j = await r.json();
     if (!r.ok) { alert(j.error); return; }
     setLista(lista.map((p) => (p.id === id ? j : p)));
@@ -112,8 +112,8 @@ export default function Programar({ cola, cuentas }) {
             <label className="marcar"><input type="checkbox" checked={redes.tiktok} onChange={(e) => setRedes({ ...redes, tiktok: e.target.checked })} /><i className="punto tt" />TikTok{ttUsuario ? ` · @${ttUsuario}` : cuentas.tiktok ? '' : ' (sin conectar)'}</label>
             <label className="marcar"><input type="checkbox" checked={redes.youtube} onChange={(e) => setRedes({ ...redes, youtube: e.target.checked })} /><i className="punto yt" />YouTube{cuentas.youtube ? ` · @${cuentas.youtube.usuario}` : ''}</label>
           </div>
-          {redes.tiktok && <p className="nota" style={{ marginTop: -4 }}>En TikTok el video llega a esa hora a los borradores de {ttUsuario ? `@${ttUsuario}` : 'tu cuenta'}. Te llega una notificación y en este panel aparece el botón «Publicar en TikTok» con el texto listo para pegar. TikTok no deja hacerlo solo.</p>}
-          {redes.youtube && <p className="nota">En YouTube, a esa hora aparece «Subir a YouTube» con el video y el texto listos: lo subes desde la app.</p>}
+          {redes.tiktok && <p className="nota" style={{ marginTop: -4 }}>{ttDirecto ? <>En TikTok sale solo a esa hora si lo apruebas antes (toca «Ver» en la cola). Si no lo apruebas, llega a los borradores de {ttUsuario ? `@${ttUsuario}` : 'tu cuenta'}.</> : <>En TikTok el video llega a esa hora a los borradores de {ttUsuario ? `@${ttUsuario}` : 'tu cuenta'}. Te llega una notificación y en este panel aparece el botón «Publicar en TikTok» con el texto listo para pegar.</>}</p>}
+          {redes.youtube && <p className="nota">{ytSolo ? 'En YouTube sale solo a esa hora (público; puedes cambiarlo en la cola).' : 'En YouTube, a esa hora aparece «Subir a YouTube» con el video y el texto listos: lo subes desde la app.'}</p>}
           {mensaje && <div className={`alerta ${mensaje.t}`}>{mensaje.m}</div>}
           <button className="boton" disabled={!archivo || !hora || !pieza || progreso != null} onClick={enviar}>{progreso != null ? `Subiendo… ${Math.round(progreso)} %` : 'Programar'}</button>
           {progreso != null && <div className="barraprog"><div style={{ width: `${progreso}%` }} /></div>}
@@ -126,14 +126,21 @@ export default function Programar({ cola, cuentas }) {
               <div style={{ fontWeight: 550 }}>{p.pieza}</div>
               <div className="nota" style={{ margin: '3px 0 7px' }}>{cuando(p.programada_para)}</div>
               <Estados p={p} />
-              {(p.ig_error || p.tt_error) && <div className="nota" style={{ color: 'var(--mal)', marginTop: 6 }}>{p.ig_error || p.tt_error}</div>}
+              {(p.ig_error || p.tt_error || p.yt_error) && <div className="nota" style={{ color: 'var(--mal)', marginTop: 6 }}>{p.ig_error || p.tt_error || p.yt_error}</div>}
+              {ytSolo && p.estado === 'programada' && p.redes?.includes('youtube') && (
+                <label className="nota fila" style={{ gap: 6, marginTop: 8 }}><i className="punto yt" />YouTube
+                  <select style={{ width: 'auto', padding: '4px 8px' }} value={p.yt_privacidad || 'public'} onChange={(e) => accion(p.id, 'editar', { yt_privacidad: e.target.value })}>
+                    <option value="public">Público</option><option value="unlisted">No listado</option><option value="private">Privado</option>
+                  </select>
+                </label>
+              )}
               <div className="fila" style={{ marginTop: 8, gap: 6 }}>
                 {p.estado === 'programada' && p.video_url && <button className="boton claro chico" onClick={() => setViendo(viendo === p.id ? null : p.id)}>{viendo === p.id ? 'Cerrar' : 'Ver'}</button>}
                 {p.estado === 'programada' && <button className="boton claro chico" onClick={() => accion(p.id, 'ya')}>Sacar ya</button>}
                 {p.estado === 'programada' && <button className="boton claro chico" onClick={() => confirm('¿Cancelar y borrar el video de la cola?') && accion(p.id, 'cancelar')}>Cancelar</button>}
                 {p.estado === 'con_error' && <button className="boton claro chico" onClick={() => accion(p.id, 'reintentar')}>Reintentar</button>}
               </div>
-              {viendo === p.id && p.estado === 'programada' && <div style={{ marginTop: 10 }}><Vistazo p={p} /></div>}
+              {viendo === p.id && p.estado === 'programada' && <div style={{ marginTop: 10 }}><Vistazo p={p} ttDirecto={ttDirecto} /></div>}
               {p.tt_estado === 'en_borradores' && <div style={{ marginTop: 10 }}><PublicarTikTok p={p} compacta /></div>}
             </div>
           ))}

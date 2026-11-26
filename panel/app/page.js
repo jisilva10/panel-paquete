@@ -1,6 +1,7 @@
 import Barra from '../components/Barra';
 import Tablero from '../components/Tablero';
 import { resumen } from '../lib/resumen';
+import { directo } from '../lib/tiktok';
 
 export const dynamic = 'force-dynamic';
 
@@ -15,7 +16,7 @@ export default async function Inicio() {
       <Barra activo="/" />
       {falta.length > 0 && <div className="alerta">Falta conectar {falta.join(', ')}. <a href="/conectar">Conectar →</a></div>}
       {r.errores.length > 0 && <div className="alerta mal" title={r.errores.map((e) => e.detalle).join('\n')}>{r.errores[0].detalle}</div>}
-      <Tablero r={r} vistazo />
+      <Tablero r={r} vistazo ttDirecto={directo()} />
     </main>
   );
 }

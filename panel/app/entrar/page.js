@@ -11,6 +11,10 @@ export default async function Entrar({ searchParams }) {
         <label className="campo"><span>Clave</span><input type="password" name="clave" autoFocus autoComplete="current-password" /></label>
         <button className="boton" style={{ width: '100%' }}>Entrar</button>
       </form>
+      <p className="nota" style={{ marginTop: 16, textAlign: 'center' }}>
+        Herramienta privada de es_enserio.tv para programar y publicar su propio contenido en Instagram, TikTok y YouTube.
+        <br /><a className="enlace" href="/privacidad">Privacidad</a> · <a className="enlace" href="/terminos">Términos</a>
+      </p>
     </main>
   );
 }

@@ -1,8 +1,18 @@
-// TikTok: Login Kit + Display API (números) + Content Posting API (subida a borradores).
-// TikTok no permite que una herramienta propia publique en público: el video
-// llega a la bandeja de TikTok y JIS toca «Publicar». Docs: developers.tiktok.com
+// TikTok: Login Kit + Display API (números) + Content Posting API.
+// Hoy: el video llega a los borradores (Upload, video.upload) y JIS toca «Publicar».
+// Publicación directa (Direct Post, video.publish): detrás del interruptor TT_DIRECTO=1, y solo para los
+// videos que JIS aprobó en el panel con la pantalla que exige TikTok (Content Sharing Guidelines). Sin
+// aprobación, aunque el interruptor esté prendido, el video va a borradores como siempre.
 const API = 'https://open.tiktokapis.com/v2';
-export const PERMISOS_TT = 'user.info.basic,user.info.profile,user.info.stats,video.list,video.upload';
+export const directo = () => process.env.TT_DIRECTO === '1';
+// video.publish solo se pide con el interruptor prendido (si la app no lo tiene aprobado, TikTok rechaza la conexión).
+export const PERMISOS_TT = () => 'user.info.basic,user.info.profile,user.info.stats,video.list,video.upload' + (directo() ? ',video.publish' : '');
+export const PRIVACIDAD_TT = {
+  PUBLIC_TO_EVERYONE: 'Todo el mundo',
+  MUTUAL_FOLLOW_FRIENDS: 'Amigos (se siguen mutuamente)',
+  FOLLOWER_OF_CREATOR: 'Seguidores',
+  SELF_ONLY: 'Solo yo',
+};
 
 async function leer(r) {
   const j = await r.json().catch(() => ({}));
@@ -16,7 +26,7 @@ async function leer(r) {
 export function urlAutorizar(redirect, state) {
   const p = new URLSearchParams({
     client_key: process.env.TT_CLIENT_KEY?.trim(),
-    scope: PERMISOS_TT,
+    scope: PERMISOS_TT(),
     response_type: 'code',
     redirect_uri: redirect,
     state,
@@ -90,11 +100,50 @@ export function planTrozos(bytes) {
 }
 
 export async function subirABorradores(t, videoUrl, bytes) {
-  const { chunk, total } = planTrozos(bytes);
-  const ini = await leer(await fetch(`${API}/post/publish/inbox/video/init/`, {
+  return iniciarYSubir(t, '/post/publish/inbox/video/init/', {}, videoUrl, bytes);
+}
+
+// Direct Post: post_info sale de lo que JIS aprobó (privacidad, comentarios, dúo, stitch, divulgación comercial, IA).
+export async function publicarDirecto(t, videoUrl, bytes, post_info) {
+  return iniciarYSubir(t, '/post/publish/video/init/', { post_info }, videoUrl, bytes);
+}
+
+// Lo que TikTok dice del creador justo ahora: apodo, opciones de privacidad, qué tiene apagado y el largo máximo.
+// Si hoy no puede publicar (spam_risk_too_many_posts, reached_active_user_cap…) leer() lanza el error con su código.
+export async function infoCreador(t) {
+  const j = await leer(await fetch(`${API}/post/publish/creator_info/query/`, {
     method: 'POST',
     headers: { Authorization: `Bearer ${t}`, 'Content-Type': 'application/json; charset=UTF-8' },
-    body: JSON.stringify({ source_info: { source: 'FILE_UPLOAD', video_size: bytes, chunk_size: chunk, total_chunk_count: total } }),
+    cache: 'no-store',
+  }));
+  return j.data || {};
+}
+
+// Arma el post_info con la aprobación guardada y revisa que siga valiendo con lo que TikTok dice AHORA.
+export function postInfo(a, info, duracion) {
+  if (!a?.consentimiento) throw new Error('Falta el consentimiento');
+  if (!(info.privacy_level_options || []).includes(a.privacy_level)) throw new Error(`TikTok ya no ofrece «${PRIVACIDAD_TT[a.privacy_level] || a.privacy_level}» para esta cuenta: vuelve a aprobarlo`);
+  if (a.divulgar && !a.brand_organic_toggle && !a.brand_content_toggle) throw new Error('Si el video promociona algo, hay que decir si es tu marca, contenido de marca o ambos');
+  if (a.divulgar && a.brand_content_toggle && a.privacy_level === 'SELF_ONLY') throw new Error('El contenido de marca no puede ser privado');
+  if (info.max_video_post_duration_sec && duracion && duracion > info.max_video_post_duration_sec) throw new Error(`El video dura ${Math.round(duracion)} s y esta cuenta permite hasta ${info.max_video_post_duration_sec} s`);
+  return {
+    title: String(a.title || '').slice(0, 2200),
+    privacy_level: a.privacy_level,
+    disable_comment: info.comment_disabled ? true : !a.permitir_comentarios,
+    disable_duet: info.duet_disabled ? true : !a.permitir_duo,
+    disable_stitch: info.stitch_disabled ? true : !a.permitir_stitch,
+    brand_content_toggle: Boolean(a.divulgar && a.brand_content_toggle),
+    brand_organic_toggle: Boolean(a.divulgar && a.brand_organic_toggle),
+    is_aigc: Boolean(a.is_aigc),
+  };
+}
+
+async function iniciarYSubir(t, ruta, extra, videoUrl, bytes) {
+  const { chunk, total } = planTrozos(bytes);
+  const ini = await leer(await fetch(`${API}${ruta}`, {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${t}`, 'Content-Type': 'application/json; charset=UTF-8' },
+    body: JSON.stringify({ ...extra, source_info: { source: 'FILE_UPLOAD', video_size: bytes, chunk_size: chunk, total_chunk_count: total } }),
   }));
   const { publish_id, upload_url } = ini.data;
   for (let i = 0; i < total; i++) {

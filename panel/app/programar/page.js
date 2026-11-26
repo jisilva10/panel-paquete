@@ -3,6 +3,8 @@ import Programar from '../../components/Programar';
 import { db } from '../../lib/db';
 import { cuentasConectadas } from '../../lib/cuentas';
 import { enDemo, colaDemo } from '../../lib/demo';
+import { directo } from '../../lib/tiktok';
+import { subirSolo } from '../../lib/youtube';
 
 export const dynamic = 'force-dynamic';
 
@@ -16,7 +18,7 @@ export default async function Pagina() {
       <Barra activo="/programar" />
       <h1>Programar</h1>
       <p className="sub">Sueltas el MP4, pones el texto y la hora. A esa hora sale solo.</p>
-      <Programar cola={cola || []} cuentas={cuentas} />
+      <Programar cola={cola || []} cuentas={cuentas} ttDirecto={directo()} ytSolo={subirSolo() && !!cuentas.youtube?.para_subir} />
     </main>
   );
 }

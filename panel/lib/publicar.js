@@ -3,12 +3,13 @@ import { db, anotar } from './db';
 import { tokenDe } from './cuentas';
 import * as ig from './instagram';
 import * as tt from './tiktok';
+import * as yt from './youtube';
 
 const espera = (ms) => new Promise((r) => setTimeout(r, ms));
 const ahora = () => new Date().toISOString();
 const FIN_IG = ['publicado', 'error', 'no_va'];
 const FIN_TT = ['en_borradores', 'publicado', 'error', 'no_va'];
-const FIN_YT = ['para_ti', 'publicado', 'no_va'];
+const FIN_YT = ['para_ti', 'publicado', 'error', 'no_va'];
 
 async function cambiar(id, campos, si) {
   let q = db().from('publicaciones').update(campos).eq('id', id);
@@ -22,6 +23,7 @@ async function destrabar() {
   const hace = (min) => new Date(Date.now() - min * 60000).toISOString();
   await db().from('publicaciones').update({ ig_estado: 'pendiente' }).eq('ig_estado', 'creando').lt('ig_desde', hace(10));
   await db().from('publicaciones').update({ tt_estado: 'pendiente' }).eq('tt_estado', 'subiendo').lt('tt_desde', hace(15));
+  await db().from('publicaciones').update({ yt_estado: 'pendiente' }).eq('yt_estado', 'subiendo').lt('yt_desde', hace(20));
 }
 
 async function pasoInstagram(p, token) {
@@ -66,7 +68,14 @@ async function pasoTikTok(p, token) {
     const tomada = await cambiar(p.id, { tt_estado: 'subiendo', tt_desde: ahora() }, { tt_estado: 'pendiente' });
     if (!tomada) return;
     try {
-      const id = await tt.subirABorradores(token, p.video_url, Number(p.video_bytes));
+      let id;
+      // Publicación directa: solo con el interruptor prendido Y si JIS aprobó este video en el panel.
+      if (tt.directo() && p.tt_aprobacion?.consentimiento) {
+        const info = await tt.infoCreador(token); // TikTok pide revisarlo justo antes de publicar
+        id = await tt.publicarDirecto(token, p.video_url, Number(p.video_bytes), tt.postInfo(p.tt_aprobacion, info, Number(p.duracion)));
+      } else {
+        id = await tt.subirABorradores(token, p.video_url, Number(p.video_bytes));
+      }
       p = await cambiar(p.id, { tt_estado: 'en_tiktok', tt_publish_id: id, tt_error: null });
       await anotar('subido', `TikTok · ${p.pieza}`);
     } catch (e) {
@@ -104,13 +113,37 @@ async function revisarTikTok(p, token) {
   return false;
 }
 
+// YouTube: con el interruptor apagado (o sin conectar para subir) aparece la tarjeta «Subir», como siempre.
+// Prendido y conectado: se sube solo con videos.insert, con la privacidad que tenga la función (público por defecto).
+async function pasoYouTube(p, apurado) {
+  const c = yt.subirSolo() ? await tokenDe('youtube') : null;
+  if (!yt.conectadaParaSubir(c)) {
+    await cambiar(p.id, { yt_estado: 'para_ti' }, { yt_estado: 'pendiente' });
+    await anotar('para_ti', `YouTube · ${p.pieza}`);
+    return;
+  }
+  if (apurado) return; // poco tiempo en esta corrida: lo sube la siguiente (en 5 min)
+  const tomada = await cambiar(p.id, { yt_estado: 'subiendo', yt_desde: ahora() }, { yt_estado: 'pendiente' });
+  if (!tomada) return;
+  try {
+    const id = await yt.subirVideo(c.access_token, { videoUrl: p.video_url, bytes: Number(p.video_bytes), texto: p.texto, privacidad: p.yt_privacidad });
+    const url = `https://youtube.com/shorts/${id}`;
+    await cambiar(p.id, { yt_estado: 'publicado', yt_video_id: id, yt_url: url, yt_error: null });
+    await db().from('medios').upsert({ red: 'youtube', media_id: id, pieza: p.pieza, titulo: p.texto?.split('\n')[0]?.slice(0, 140), formato: 'reel', publicado_en: ahora(), duracion: p.duracion, permalink: url, publicacion_id: p.id });
+    await anotar('publicado', `YouTube · ${p.pieza}`);
+  } catch (e) {
+    await cambiar(p.id, { yt_estado: 'error', yt_error: e.message });
+    await anotar('error', `YouTube ${p.pieza}: ${e.message}`);
+  }
+}
+
 async function cerrar(id) {
   const { data: p } = await db().from('publicaciones').select('*').eq('id', id).single();
   const igListo = !p.redes.includes('instagram') || FIN_IG.includes(p.ig_estado);
   const ttListo = !p.redes.includes('tiktok') || FIN_TT.includes(p.tt_estado);
   const ytListo = !p.redes.includes('youtube') || FIN_YT.includes(p.yt_estado);
   if (!igListo || !ttListo || !ytListo) return;
-  const huboError = p.ig_estado === 'error' || p.tt_estado === 'error';
+  const huboError = p.ig_estado === 'error' || p.tt_estado === 'error' || p.yt_estado === 'error';
   await cambiar(p.id, { estado: huboError ? 'con_error' : 'hecha' });
 }
 
@@ -126,6 +159,7 @@ async function limpiar() {
 }
 
 export async function correrCola() {
+  const inicio = Date.now();
   await destrabar();
   const { data: cola } = await db().from('publicaciones').select('*')
     .in('estado', ['programada', 'en_curso']).lte('programada_para', ahora())
@@ -144,12 +178,9 @@ export async function correrCola() {
       if (c) await pasoTikTok(p2, c.access_token);
       else await cambiar(p.id, { tt_estado: 'error', tt_error: 'TikTok no está conectado' });
     }
-    // YouTube: a la hora, le aparece la tarjeta para subirlo él.
+    // YouTube: a la hora, la tarjeta para subirlo él (o, con YT_SUBIR_SOLO=1 y la cuenta conectada, sale solo).
     const { data: p3 } = await db().from('publicaciones').select('*').eq('id', p.id).single();
-    if (p3.redes.includes('youtube') && p3.yt_estado === 'pendiente') {
-      await cambiar(p.id, { yt_estado: 'para_ti' });
-      await anotar('para_ti', `YouTube · ${p.pieza}`);
-    }
+    if (p3.redes.includes('youtube') && p3.yt_estado === 'pendiente') await pasoYouTube(p3, Date.now() - inicio > 150000);
     await cerrar(p.id);
     hechas.push(p.pieza);
   }

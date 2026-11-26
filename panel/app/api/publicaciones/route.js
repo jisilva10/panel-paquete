@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import { del } from '@vercel/blob';
 import { db } from '../../../lib/db';
+import { tokenDe } from '../../../lib/cuentas';
+import * as tt from '../../../lib/tiktok';
 
 export async function GET() {
   const { data, error } = await db().from('publicaciones').select('id,pieza,programada_para,estado,ig_estado,tt_estado,yt_estado,ig_error,tt_error,etiquetas').neq('estado', 'cancelada').order('programada_para', { ascending: false }).limit(30);
@@ -39,7 +41,7 @@ export async function PATCH(req) {
   if (!p) return NextResponse.json({ error: 'No existe' }, { status: 404 });
   let cambio = {};
   if (accion === 'cancelar') {
-    if (p.ig_estado === 'publicado' || ['en_tiktok', 'en_borradores', 'publicado'].includes(p.tt_estado) || p.yt_estado === 'publicado') return NextResponse.json({ error: 'Ya salió en una red' }, { status: 409 });
+    if (p.ig_estado === 'publicado' || ['en_tiktok', 'en_borradores', 'publicado'].includes(p.tt_estado) || ['subiendo', 'publicado'].includes(p.yt_estado)) return NextResponse.json({ error: 'Ya salió en una red' }, { status: 409 });
     cambio = { estado: 'cancelada' };
     if (p.video_url) { try { await del(p.video_url); } catch {} cambio.video_url = null; }
   } else if (accion === 'reintentar') {
@@ -47,6 +49,29 @@ export async function PATCH(req) {
     cambio = { estado: 'programada' };
     if (p.ig_estado === 'error') Object.assign(cambio, { ig_estado: 'pendiente', ig_error: null, ig_contenedor: null });
     if (p.tt_estado === 'error') Object.assign(cambio, { tt_estado: 'pendiente', tt_error: null });
+    if (p.yt_estado === 'error') Object.assign(cambio, { yt_estado: 'pendiente', yt_error: null });
+  } else if (accion === 'tt_aprobar') {
+    // Pantalla de aprobación de TikTok (Direct Post). Se revisa contra lo que TikTok dice ahora del creador.
+    if (!tt.directo()) return NextResponse.json({ error: 'La publicación directa en TikTok está apagada' }, { status: 409 });
+    if (p.estado !== 'programada' || p.tt_estado !== 'pendiente') return NextResponse.json({ error: 'Este video ya empezó a salir' }, { status: 409 });
+    const c = await tokenDe('tiktok');
+    if (!c) return NextResponse.json({ error: 'TikTok no está conectado' }, { status: 409 });
+    const a = campos.aprobacion || {};
+    try {
+      const info = await tt.infoCreador(c.access_token);
+      tt.postInfo(a, info, Number(p.duracion));
+      cambio = { tt_aprobacion: {
+        title: String(a.title ?? p.texto ?? '').slice(0, 2200), privacy_level: a.privacy_level,
+        permitir_comentarios: !!a.permitir_comentarios, permitir_duo: !!a.permitir_duo, permitir_stitch: !!a.permitir_stitch,
+        divulgar: !!a.divulgar, brand_organic_toggle: !!a.brand_organic_toggle, brand_content_toggle: !!a.brand_content_toggle,
+        is_aigc: !!a.is_aigc, consentimiento: true, creador: info.creator_nickname || info.creator_username || null, aprobado_en: new Date().toISOString(),
+      } };
+    } catch (e) {
+      return NextResponse.json({ error: e.message }, { status: 400 });
+    }
+  } else if (accion === 'tt_quitar_aprobacion') {
+    if (p.tt_estado !== 'pendiente') return NextResponse.json({ error: 'Este video ya empezó a salir' }, { status: 409 });
+    cambio = { tt_aprobacion: null };
   } else if (accion === 'tt_publicado') {
     if (p.tt_estado !== 'en_borradores') return NextResponse.json({ error: 'No está en borradores' }, { status: 409 });
     cambio = { tt_estado: 'publicado' };
@@ -58,6 +83,10 @@ export async function PATCH(req) {
   } else if (accion === 'editar') {
     if (p.estado !== 'programada') return NextResponse.json({ error: 'Ya empezó a salir' }, { status: 409 });
     for (const k of ['texto', 'programada_para', 'pieza']) if (campos[k] != null) cambio[k] = campos[k];
+    if (campos.yt_privacidad != null) {
+      if (!['public', 'unlisted', 'private'].includes(campos.yt_privacidad)) return NextResponse.json({ error: 'Privacidad de YouTube no válida' }, { status: 400 });
+      cambio.yt_privacidad = campos.yt_privacidad;
+    }
   }
   const { data, error } = await db().from('publicaciones').update(cambio).eq('id', id).select().single();
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });

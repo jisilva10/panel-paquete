@@ -227,7 +227,7 @@ function QueGana({ piezas }) {
   );
 }
 
-export default function Tablero({ r, api = '/api', gana = true, vistazo = false }) {
+export default function Tablero({ r, api = '/api', gana = true, vistazo = false, ttDirecto = false }) {
   const [abierta, setAbierta] = useState(null);
   const [tarjeta, setTarjeta] = useState(null); // { red, p }
   const borradores = r.cola.filter((p) => p.tt_estado === 'en_borradores');
@@ -242,7 +242,7 @@ export default function Tablero({ r, api = '/api', gana = true, vistazo = false 
             {enCola.map((p) => (
               <button key={p.id} className="por-salir-item" onClick={() => setTarjeta({ red: 'vistazo', p })}>
                 {p.portada_url ? <img src={p.portada_url} alt="" loading="lazy" /> : <span className="sin-portada" />}
-                <span className="por-salir-txt"><b>{p.pieza}</b><small>{horaCorta(p.programada_para)}</small></span>
+                <span className="por-salir-txt"><b>{p.pieza}</b><small>{horaCorta(p.programada_para)}</small>{ttDirecto && p.redes?.includes('tiktok') && p.tt_estado === 'pendiente' && <small className="falta-tt">{p.tt_aprobacion ? 'TikTok aprobado ✓' : 'TikTok: falta aprobar'}</small>}</span>
               </button>
             ))}
           </div>
@@ -287,7 +287,7 @@ export default function Tablero({ r, api = '/api', gana = true, vistazo = false 
         <div className="velo" onClick={() => setTarjeta(null)}>
           <div className="ventana" onClick={(e) => e.stopPropagation()}>
             <button className="cerrar" onClick={() => setTarjeta(null)} aria-label="Cerrar">×</button>
-            {tarjeta.red === 'vistazo' ? <Vistazo p={tarjeta.p} /> : tarjeta.red === 'tiktok' ? <PublicarTikTok p={tarjeta.p} api={api} /> : <PublicarYouTube p={tarjeta.p} api={api} />}
+            {tarjeta.red === 'vistazo' ? <Vistazo p={tarjeta.p} ttDirecto={ttDirecto} /> : tarjeta.red === 'tiktok' ? <PublicarTikTok p={tarjeta.p} api={api} /> : <PublicarYouTube p={tarjeta.p} api={api} />}
           </div>
         </div>
       )}
