@@ -17,9 +17,10 @@ const diaLargo = (iso) => (iso ? new Intl.DateTimeFormat('es-EC', { timeZone: ZO
 function Red({ logo, nombre, d }) {
   const dSeg = d.seguidores.hoy != null && d.seguidores.antes != null ? d.seguidores.hoy - d.seguidores.antes : null;
   const dVis = d.semanaAntes ? (d.semana - d.semanaAntes) / d.semanaAntes : null;
+  const dLik = d.likesAntes ? (d.likes - d.likesAntes) / d.likesAntes : null;
   const clase = (x) => (x > 0 ? 'sube' : x < 0 ? 'baja' : '');
   return (
-    <div className="carta red">
+    <div className={`carta red ${d.likes !== undefined ? 'tres' : ''}`}>
       <div className="red-logo">{logo}</div>
       <div className="red-datos">
         <div>
@@ -30,6 +31,12 @@ function Red({ logo, nombre, d }) {
           <div className="red-num">{n(d.semana)}</div>
           <div className="red-pie">vistas · 7 días{dVis != null && <b className={clase(dVis)}> {dVis > 0 ? '+' : ''}{Math.round(dVis * 100)} %</b>}</div>
         </div>
+        {d.likes !== undefined && (
+          <div>
+            <div className="red-num">{n(d.likes)}</div>
+            <div className="red-pie">me gusta · 7 días{dLik != null && <b className={clase(dLik)}> {dLik > 0 ? '+' : ''}{Math.round(dLik * 100)} %</b>}</div>
+          </div>
+        )}
       </div>
       <span className="sr">{nombre}</span>
     </div>
@@ -101,16 +108,21 @@ function Semanas({ piezas }) {
 }
 
 // ── La tabla: un solo cuadro con su propio scroll y orden por columna ──
-const COLUMNAS = [
-  { k: 'numero', t: '#', v: (p) => p.numero },
-  { k: 'ig_vistas', t: <><LogoIG t={15} /> Vistas</>, v: (p) => p.instagram?.vistas },
-  { k: 'tt_vistas', t: <><LogoTT t={15} /> Vistas</>, v: (p) => p.tiktok?.vistas },
-  { k: 'yt_vistas', t: <><LogoYT t={15} /> Vistas</>, v: (p) => p.youtube?.vistas },
-  { k: 'retencion', t: <><LogoIG t={15} /> Retención</>, v: (p) => p.retencion },
-];
+const columnas = (que) => {
+  const t = que === 'me_gusta' ? 'Me gusta' : 'Vistas';
+  return [
+    { k: 'numero', t: '#', v: (p) => p.numero },
+    { k: 'ig', t: <><LogoIG t={15} /> <span className="th-txt">{t}</span></>, v: (p) => p.instagram?.[que] },
+    { k: 'tt', t: <><LogoTT t={15} /> <span className="th-txt">{t}</span></>, v: (p) => p.tiktok?.[que] },
+    { k: 'yt', t: <><LogoYT t={15} /> <span className="th-txt">{t}</span></>, v: (p) => p.youtube?.[que] },
+    { k: 'retencion', t: <><LogoIG t={15} /> Retención</>, v: (p) => p.retencion },
+  ];
+};
 
 function Tabla({ piezas, abrir }) {
   const [orden, setOrden] = useState({ k: 'numero', dir: 'natural' });
+  const [que, setQue] = useState('vistas');
+  const COLUMNAS = useMemo(() => columnas(que), [que]);
   const lista = useMemo(() => {
     if (orden.dir === 'natural') return piezas;
     const col = COLUMNAS.find((c) => c.k === orden.k);
@@ -121,13 +133,19 @@ function Tabla({ piezas, abrir }) {
       if (va == null) return 1; if (vb == null) return -1;
       return (va - vb) * s;
     });
-  }, [piezas, orden]);
+  }, [piezas, orden, COLUMNAS]);
   function tocar(k) {
     if (k === 'numero') return setOrden(orden.k === 'numero' && orden.dir === 'natural' ? { k, dir: 'asc' } : { k, dir: 'natural' });
     setOrden(orden.k === k && orden.dir === 'desc' ? { k, dir: 'asc' } : { k, dir: 'desc' });
   }
   const flecha = (k) => (orden.k !== k || orden.dir === 'natural' ? '' : orden.dir === 'desc' ? '↓' : '↑');
   return (
+    <>
+    <div className="que-ver" role="tablist" aria-label="Qué número ver">
+      {[['vistas', 'Vistas'], ['me_gusta', 'Me gusta']].map(([k, t]) => (
+        <button key={k} role="tab" aria-selected={que === k} className={que === k ? 'activo' : ''} onClick={() => setQue(k)}>{t}</button>
+      ))}
+    </div>
     <div className="tabla-caja">
       <table className="tabla-posts">
         <thead>
@@ -144,15 +162,16 @@ function Tabla({ piezas, abrir }) {
             <tr key={p.pieza + i} onClick={() => abrir(p)}>
               <td className="col-num">{p.numero ?? '·'}</td>
               <td className="col-pieza"><span className="pieza-nombre">{p.pieza.replace(/^\d+\.\s*/, '')}</span><span className="pieza-dia">{dia(p.fecha)}</span></td>
-              <td className="n">{n(p.instagram?.vistas)}</td>
-              <td className="n">{n(p.tiktok?.vistas)}</td>
-              <td className="n">{n(p.youtube?.vistas)}</td>
+              <td className="n">{n(p.instagram?.[que])}</td>
+              <td className="n">{n(p.tiktok?.[que])}</td>
+              <td className="n">{n(p.youtube?.[que])}</td>
               <td className="n">{pct(p.retencion)}</td>
             </tr>
           ))}
         </tbody>
       </table>
     </div>
+    </>
   );
 }
 

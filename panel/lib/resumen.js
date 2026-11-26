@@ -52,10 +52,11 @@ export async function resumen() {
   }
 
   // Semana contra semana: vistas de lo que salió en cada ventana, por red.
-  const ventana = (red, desdeDias, hastaDias) => filas
+  const ventana = (red, desdeDias, hastaDias, campo = 'vistas') => filas
     .filter((f) => f.red === red && f.publicado_en)
     .filter((f) => { const d = (Date.now() - new Date(f.publicado_en)) / DIA; return d >= hastaDias && d < desdeDias; })
-    .reduce((s, f) => s + (Number(f.n.vistas) || 0), 0);
+    .reduce((s, f) => s + (Number(f.n[campo]) || 0), 0);
+  const likes = (red) => ({ likes: ventana(red, 7, 0, 'me_gusta'), likesAntes: ventana(red, 14, 7, 'me_gusta') });
 
   const seguidores = (red) => {
     const s = (diarias || []).filter((d) => d.red === red && d.seguidores != null);
@@ -66,9 +67,9 @@ export async function resumen() {
 
   return {
     redes: {
-      instagram: { seguidores: seguidores('instagram'), semana: ventana('instagram', 7, 0), semanaAntes: ventana('instagram', 14, 7), vistas7d: (diarias || []).filter((d) => d.red === 'instagram').at(-1)?.vistas_7d ?? null },
-      tiktok: { seguidores: seguidores('tiktok'), semana: ventana('tiktok', 7, 0), semanaAntes: ventana('tiktok', 14, 7) },
-      youtube: { seguidores: seguidores('youtube'), semana: ventana('youtube', 7, 0), semanaAntes: ventana('youtube', 14, 7) },
+      instagram: { seguidores: seguidores('instagram'), semana: ventana('instagram', 7, 0), semanaAntes: ventana('instagram', 14, 7), vistas7d: (diarias || []).filter((d) => d.red === 'instagram').at(-1)?.vistas_7d ?? null, ...likes('instagram') },
+      tiktok: { seguidores: seguidores('tiktok'), semana: ventana('tiktok', 7, 0), semanaAntes: ventana('tiktok', 14, 7), ...likes('tiktok') },
+      youtube: { seguidores: seguidores('youtube'), semana: ventana('youtube', 7, 0), semanaAntes: ventana('youtube', 14, 7), ...likes('youtube') },
     },
     piezas: lista.slice(0, 120),
     cola: (cola || []).sort((a, b) => new Date(a.programada_para) - new Date(b.programada_para)),

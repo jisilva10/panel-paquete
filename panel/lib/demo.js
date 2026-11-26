@@ -26,9 +26,9 @@ export async function resumenDemo() {
   const serie = (a, b) => Array.from({ length: 10 }, (_, i) => ({ fecha: new Date(Date.now() - (9 - i) * 86400e3).toISOString().slice(0, 10), v: Math.round(a + ((b - a) * i) / 9) }));
   return {
     redes: {
-      tiktok: { seguidores: { hoy: 412, antes: 120, serie: serie(0, 412) }, semana: 30400, semanaAntes: 9500 },
-      instagram: { seguidores: { hoy: 138, antes: 60, serie: serie(0, 138) }, semana: 9800, semanaAntes: 3400 },
-      youtube: { seguidores: { hoy: 95, antes: 31, serie: serie(0, 95) }, semana: 14600, semanaAntes: 3500 },
+      tiktok: { seguidores: { hoy: 412, antes: 120, serie: serie(0, 412) }, semana: 30400, semanaAntes: 9500, likes: 1820, likesAntes: 570 },
+      instagram: { seguidores: { hoy: 138, antes: 60, serie: serie(0, 138) }, semana: 9800, semanaAntes: 3400, likes: 490, likesAntes: 170 },
+      youtube: { seguidores: { hoy: 95, antes: 31, serie: serie(0, 95) }, semana: 14600, semanaAntes: 3500, likes: 580, likesAntes: 140 },
     },
     piezas,
     cola: colaDemo(),

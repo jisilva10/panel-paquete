@@ -239,3 +239,18 @@ div.campo > span { display: block; margin-bottom: 6px; }
 .aprobar-tt { margin-top: 12px; }
 .aprobar-tt .marcar { padding: 7px 11px; }
 .falta-tt { color: var(--aviso); }
+/* Me gusta: tercer número en cada red y el interruptor de la tabla */
+.red.tres .red-datos { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.red.tres .red-num { font-size: 25px; }
+.red.tres .red-pie { white-space: normal; line-height: 1.3; }
+.der { flex-direction: column; }
+.que-ver { flex: none; display: inline-flex; align-self: flex-start; gap: 2px; margin: 12px 12px 4px; padding: 3px; border-radius: 999px; background: var(--fondo); }
+.que-ver button { font: inherit; font-size: 13px; font-weight: 550; color: var(--suave); background: none; border: 0; border-radius: 999px; padding: 6px 14px; cursor: pointer; }
+.que-ver button.activo { background: var(--carta); color: var(--tinta); box-shadow: 0 1px 2px rgb(0 0 0 / .1); }
+@media (max-width: 860px) {
+  .red.tres { gap: 14px; padding: 16px; }
+  .red.tres .red-num { font-size: 21px; }
+  .red.tres .red-logo .logo-red { width: 34px; height: 34px; }
+}
+.red.tres .red-pie b { display: block; white-space: nowrap; margin-top: 1px; }
+@media (max-width: 860px) { .tabla-posts .th-txt { display: none; } }
