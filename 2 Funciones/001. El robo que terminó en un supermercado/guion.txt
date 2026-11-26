@@ -1,0 +1,14 @@
+# 001. El robo que terminó en un supermercado · Cartagena, Colombia, 24-25 nov 2026
+# Fuentes: 1) Infobae, «Liberan a todos los rehenes en el Éxito de Cartagena…» (24-25/11/2026)  2) El Tiempo, «Asalto de hombres armados en Éxito de Cartagena con rehenes» (25/11/2026)
+# Frase del rehén: Daniel Díaz Acevedo a El Colombiano, citado por Infobae. Armas: investigación de El Tiempo citada por Infobae.
+# Formato: QUIEN [emoción]: texto  ·  ... = pausa larga  ·  *palabra* = con fuerza
+NARRADOR [misterio]: Querían robar un carro blindado... y terminaron *secuestrando* un supermercado.
+NARRADOR [tension]: Martes, ocho de la mañana, Cartagena. Unos hombres armados intentan asaltar un carro de valores.
+NARRADOR [indignado]: La policía los sorprende. Y ellos corren... directo al supermercado. Con decenas de personas adentro.
+NARRADOR [solemne]: Afuera, soldados, policías... y medio país mirando.
+NARRADOR [confidencial]: Y adentro, según contó uno de los rehenes, los secuestradores sacaron el licor de la tienda.
+REHEN [alarma]: Ellos se *emborrachan*.
+NARRADOR [tension]: Diecisiete horas después, a la una y media de la madrugada... entran las fuerzas especiales.
+NARRADOR [asombro]: Todos los rehenes salen *vivos*. Uno de los captores murió y otros quedaron detenidos.
+NARRADOR [burla]: Y según la investigación, no tenían armas de guerra. Escopetas, pistolas traumáticas... réplicas de *juguete* y balas de salva.
+NARRADOR [cierre]: Querían un carro lleno de plata... y lo único que se llevaron fue el licor.

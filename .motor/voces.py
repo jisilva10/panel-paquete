@@ -30,6 +30,7 @@ VOZ_QWEN = {
   'NARRADOR': 'Narrador latinoamericano de unos cuarenta años, voz cálida y grave, cuenta historias reales increíbles como un buen contador de anécdotas',
   'MAYOR': 'Militar australiano de sesenta años hablando español con acento, voz ronca y grave',
   'EMU': 'Voz aguda y nasal de un ave caricaturesca, rápida',
+  'REHEN': 'Hombre joven colombiano de Medellín, de unos veinticinco años, voz nerviosa y agotada después de muchas horas de miedo',
 }
 PAUSA = {'...': 0.42, ',': 0.12, '.': 0.30, ':': 0.30, '?': 0.30, '!': 0.28}
 

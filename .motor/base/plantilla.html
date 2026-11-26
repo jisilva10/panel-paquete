@@ -420,7 +420,9 @@
       function subs(g, t) {
         const gr = GRUPOS.find((x) => t >= x.a && t < x.b); if (!gr) return;
         g.font = "84px Lilita"; g.textBaseline = "middle"; g.lineJoin = "round";
-        const txt = gr.ws.map((w) => w.p.replace(/\.\.\.|…|:/g, '').replace(/,$/, ''));  // sin «...» ni «:» (25/11) const an = txt.map((s) => g.measureText(s + " ").width); const total = an.reduce((a, b) => a + b, 0);
+        // sin «...» ni «:» (25/11)
+        const txt = gr.ws.map((w) => w.p.replace(/\.\.\.|…|:/g, '').replace(/,$/, ''));
+        const an = txt.map((s) => g.measureText(s + " ").width); const total = an.reduce((a, b) => a + b, 0);
         const fit = Math.min(1, 940 / total); let x = 540 - total / 2; const y = 1580;
         const pop = eBack(prog(t, gr.a, gr.a + 0.16));
         g.save(); g.translate(540, y); g.scale(fit * (0.86 + 0.14 * pop), fit * (0.86 + 0.14 * pop)); g.translate(-540, -y);

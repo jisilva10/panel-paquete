@@ -1,0 +1,73 @@
+QUÉ SE HIZO · 001. El robo que terminó en un supermercado
+(Todo lo necesario para entender y replicar este video SIN verlo. El video se borra; esto queda.)
+
+== FICHA ==
+Número: 001
+Título: El robo que terminó en un supermercado
+Nombre en el panel: 001. El robo que terminó en un supermercado
+Creado: 2026-11-25
+Hora programada: 2026-11-25 21:30 (Ecuador)
+Duración (s): 68.3
+Tipo: noticia/tendencia
+Tema en una frase: La toma de rehenes del supermercado Éxito de Cartagena (24-25/11/2026): unos hombres fallan el asalto a un carro de valores, se encierran unas 17 horas con decenas de personas, se emborrachan con el licor de la tienda, las fuerzas especiales entran a la 1:30 a. m. y todos los rehenes salen vivos; según la investigación tenían escopetas, pistolas traumáticas, réplicas de juguete y balas de salva.
+Por qué debería enganchar: es lo que todo Colombia comentó hoy (terminó en la madrugada del 25); tiene giro absurdo (de robar un blindado a quedar atrapados en un súper) y remate irónico (armas de juguete, el licor).
+Fuentes: 1) Infobae, «Liberan a todos los rehenes en el Éxito de Cartagena…» (24-25/11/2026)  2) El Tiempo, «Asalto de hombres armados en Éxito de Cartagena con rehenes» (25/11/2026). Clip: El País (YouTube 5gKq7PcIDuI). CNN en Español no se pudo leer (bloqueo 451).
+Datos con cuidado: el número de rehenes cambia según la fuente (20, 30, 46, 76), por eso se dijo «decenas». No se nombra a ningún captor (la familia del fallecido niega que fuera cabecilla). Los montos que pedían no salían en el texto de las dos fuentes: no se dicen.
+
+== TEXTO ==
+Primera palabra: Querían
+Gancho (primera frase, literal): «Querían robar un carro blindado... y terminaron secuestrando un supermercado.»
+Tipo de gancho: dato imposible (en medio del lío)
+Estructura: gancho (0-5 s) · el robo fallido y la huida al súper (5-22 s) · afuera, el país mirando (22-28 s) · adentro, el licor y la frase del rehén (28-37 s) · 17 horas y entran las fuerzas (37-45 s) · todos vivos, clip real (45-52 s) · giro: armas de juguete (52-61 s) · cierre en bucle (62-67 s)
+Narrador en: tercera persona
+Personajes que hablan: NARRADOR; REHEN (un rehén real, Daniel Díaz Acevedo, dice solo su frase real «Ellos se emborrachan», dicha a El Colombiano y citada por Infobae; dibujado sin parecido porque no hay foto suya, con su camisa verde)
+Cierre (estilo): bucle al gancho + ironía
+Frase de cierre (literal): «Querían un carro lleno de plata... y lo único que se llevaron fue el licor.»
+Palabras totales: ~170 (sin las líneas de fuentes)
+Emociones usadas en la voz: misterio, tension, indignado, solemne, confidencial, alarma (rehén), tension, asombro, burla, cierre
+
+== EDICIÓN ==
+Mundo (lugar de papel): una sola avenida de Cartagena (casas coloniales de colores con balcones y buganvillas en parallax, asfalto) que sigue hasta dentro del supermercado (pared crema, estantes de licor, piso de baldosas).
+Lugares y cómo se entra a cada uno: calle con el carro blindado «VALORES» (0 s; latigazo al súper en «secuestrando» y vuelta en «Martes», letrero «CARTAGENA 8:00 a. m.») → 3 encapuchados aparecen en «hombres»; llega la patrulla en «policía»; la cámara los sigue cuando corren al súper (16 s) → vitrina con siluetas de decenas de personas (zoom en «decenas») → plano abierto con soldados y policías a los lados (22 s) → tele de papel con la foto real (25 s) → la cámara se mete por la vitrina en «adentro» (28 s) → adentro: rehenes en el piso a la izquierda, encapuchados con botellas a la derecha (los estantes se vacían en «licor») → zoom al rehén que habla (35 s) → reloj que gira 17 horas y todo se oscurece (37 s) → destello y sacudida en «entran», foto real de las fuerzas se levanta del piso (43 s) → visor con el clip real (46.8-50.2 s) → rehenes de pie saltando → mesa de la investigación: escopeta, pistola, réplica naranja de juguete (zoom fuerte) y balas (53-61 s) → vuelta a la calle: una botella cae y rueda frente al blindado (64 s).
+Personajes dibujados (y a quién se parecen): 3 encapuchados sin nombre (pasamontañas negro, mejillas rojas al emborracharse, botella en la mano); 5 rehenes genéricos (el que habla con camisa verde, como el rehén real); 2 soldados con casco y 2 policías con chaleco «POLICÍA». Nadie real dibujado con cara.
+Fotos reales (cuántas, de dónde, en qué segundo): 2 · fachada del Éxito con la policía (AP vía Infobae) dentro de una tele de papel, 25-28 s; fuerzas especiales frente al Éxito (Mindefensa vía Infobae) que se levanta del piso, 43-47 s. Fuente chiquita debajo de cada una.
+Clips reales (cuántos, de dónde, cuánto duran, cómo entran): 1 · El País (YouTube, «Liberan a 20 rehenes en supermercado Éxito de Cartagena», segundo 47.5 a 51) · 3.4 s · visor con iris que se abre en «vivos», arriba «ESTO PASÓ DE VERDAD», abajo «Video: El País · 25/11/2026». Audio original al 35 %. Se eligió el trozo sin rótulos (casi todo ese video tiene texto encima).
+Subtítulos (estilo, tamaño, posición): Lilita One 84 px, hasta 3 palabras, la que suena en amarillo #ffd23f, borde tinta, y=1580, sin «...» ni «:».
+Música / efectos: historia.mp3 al 32 % con sidechain a la voz; pops en «hombres» y «decenas», whoosh-grave y golpe en «policía», papel-swish en «corren», whoosh-cine al entrar por la vitrina, riser en «diecisiete», braam + golpe-grave en «entran», carton-cae en cada arma, pop doble en «juguete», metal en la botella final. Todo a −14 LUFS.
+Portada (escena y titular): adentro, los 3 encapuchados con botellas delante de los estantes de licor (segundo 34, sin subtítulos); placas «17 HORAS DE SECUESTRO» (amarilla) y «¿CON ARMAS DE JUGUETE?» (tinta).
+Texto de la publicación: «Querían robar un carro blindado y terminaron 17 horas encerrados en un supermercado. Lo de las armas es lo mejor.» + «Fuentes: Infobae · El Tiempo (24-25/11/2026)» + #Cartagena #Colombia #noticias #historiasreales #enserio
+
+== QUÉ SE PROBÓ ==
+Lo que se repitió de los ganadores (y de cuál): ninguno todavía (día 1, sin números). Se repitió la forma de la plantilla de los emús: mundo continuo, la cámara entra por un objeto (la vitrina), visor con clip real, cierre en bucle.
+Lo nuevo que se probó en este video: noticia de hace horas (llegar a tiempo); una persona real habla con su frase literal y voz propia (REHEN, voz nueva en voces.py); un «giro de la investigación» (armas de juguete) justo antes del cierre.
+Hipótesis (qué espero que pase): una noticia que todos comentan hoy, contada con giro absurdo, retiene más que una historia vieja; el remate de las armas de juguete debería subir los compartidos. Riesgo: 68 s puede ser largo; si la retención cae a la mitad, probar la noticia en 35-45 s.
+
+== RESULTADO (se llena después; lo actualiza la rutina) ==
+48 h · TikTok: ___  Instagram: ___  YouTube: ___  Retención IG: ___
+Lectura: (¿ganó, perdió? ¿por qué creo?)
+
+== GUION COMPLETO ==
+# 001. El robo que terminó en un supermercado · Cartagena, Colombia, 24-25 nov 2026
+# Fuentes: 1) Infobae, «Liberan a todos los rehenes en el Éxito de Cartagena…» (24-25/11/2026)  2) El Tiempo, «Asalto de hombres armados en Éxito de Cartagena con rehenes» (25/11/2026)
+# Frase del rehén: Daniel Díaz Acevedo a El Colombiano, citado por Infobae. Armas: investigación de El Tiempo citada por Infobae.
+# Formato: QUIEN [emoción]: texto  ·  ... = pausa larga  ·  *palabra* = con fuerza
+NARRADOR [misterio]: Querían robar un carro blindado... y terminaron *secuestrando* un supermercado.
+NARRADOR [tension]: Martes, ocho de la mañana, Cartagena. Unos hombres armados intentan asaltar un carro de valores.
+NARRADOR [indignado]: La policía los sorprende. Y ellos corren... directo al supermercado. Con decenas de personas adentro.
+NARRADOR [solemne]: Afuera, soldados, policías... y medio país mirando.
+NARRADOR [confidencial]: Y adentro, según contó uno de los rehenes, los secuestradores sacaron el licor de la tienda.
+REHEN [alarma]: Ellos se *emborrachan*.
+NARRADOR [tension]: Diecisiete horas después, a la una y media de la madrugada... entran las fuerzas especiales.
+NARRADOR [asombro]: Todos los rehenes salen *vivos*. Uno de los captores murió y otros quedaron detenidos.
+NARRADOR [burla]: Y según la investigación, no tenían armas de guerra. Escopetas, pistolas traumáticas... réplicas de *juguete* y balas de salva.
+NARRADOR [cierre]: Querían un carro lleno de plata... y lo único que se llevaron fue el licor.
+
+== CÓMO SE ARMÓ ==
+1. Búsqueda (25/11, ~20:00 Ecuador): agenda EFE/Infobae del día → la toma de rehenes en Cartagena (terminó a la 1:30 a. m.). Descartadas: el líder de La Jauría trasladado al Callao (menos giro) y los 10 años de la muerte de Fidel Castro.
+2. Lectura de Infobae y El Tiempo con un agente web (CNN dio 451). Solo datos que estaban en el texto literal.
+3. voces.py: se agregó la voz REHEN («hombre joven colombiano de Medellín, voz nerviosa y agotada»). Qwen: 67 s de audio en ~6 min con la GTX 1660 Ti. Las líneas 5 y 9 quedaron con tiempos repartidos parejo (Whisper contó distinto); se nota poco en los subtítulos.
+4. Fotos: Infobae (AP y Mindefensa, 350 px, agrandadas a 700) y El Tiempo (WebP 1200 px; no se usó porque es un collage). Clip: yt-dlp necesitó `--js-runtimes node` (sin eso YouTube no da formatos).
+5. plantilla.html reescrita entera (calle, tele, supermercado, adentro, mesa, visor, luces). construir.py: FX nuevos y audio del clip de El País.
+6. Fallas y arreglos: (a) la cámara entraba al súper en el segundo 21 porque «adentro» sale dos veces en el guion → W("adentro", 2) en plantilla y construir; (b) un encapuchado tapaba el letrero de Cartagena → los encapuchados pasaron a la derecha del blindado; (c) soldados y policías quedaban fuera de cuadro → más cerca y plano más abierto; (d) todo quedaba muy abajo con mucho cielo → la cámara bajó ~140 px; (e) la escopeta se veía como una línea → más gruesa y plano más abierto en la mesa; (f) en la plantilla base la línea de subtítulos tenía el «const an = …» comentado por error (no salían subtítulos) → corregido aquí y en .motor/base/plantilla.html.
+7. Portada: snapshot de Hyperframes en el segundo 34 con subs() apagado en un index.html temporal, luego portada.py.
+8. Render: Hyperframes 0.8.33, 2051 fotogramas, ~1 min 50 s por render (3 renders).
