@@ -41,6 +41,8 @@ Si esta carpeta acaba de llegar a una compu nueva, lee primero **MUDANZA.md**.
 ## Dos compus, una sola carpeta (GitHub)
 - La carpeta vive en GitHub: **github.com/jisilva10/panel-paquete** (rama `main`). La **Mac** es donde JIS pide cambios; la **PC con Windows** es la que produce.
 - **Siempre** al empezar a trabajar, en cualquiera de las dos: `git pull --rebase`. **Siempre** al terminar un cambio: `git add -A`, `git commit` y `git push`. Un cambio que no se empuja no llega a la otra compu.
+- **Esto ya pasa solo** (JIS, 26/11/2026: «que funcione así para siempre, sea tarea programada o chat nuevo»): `.claude/settings.json` engancha `.claude/hooks/sincronizar.mjs` a toda sesión abierta en Titeres. Al abrir la sesión trae GitHub; cada vez que Claude termina de responder guarda lo cambiado («Automático: cambios de la PC/Mac») y lo sube. En la Mac también va en `~/.claude/settings.json` (con `--desde-fuera`) para las sesiones abiertas en otra carpeta que tocan Titeres. Igual haz tu commit con buen mensaje cuando cierres algo: el automático es la red de seguridad.
+- Si al abrir la sesión ves **«⚠️ Titeres/GitHub»**, para y arréglalo antes de tocar nada: casi siempre es que las dos compus cambiaron las mismas líneas. `git pull --rebase`, junta las dos versiones (la de GitHub manda en reglas, receta y motor; en `2 Funciones` y `3 Publicado` se conservan las dos), `git rebase --continue` y `git push`.
 - Firma de los commits: `jisilva10 <jisilva10@users.noreply.github.com>` (nunca el correo de JIS).
 - Nunca van a GitHub: llaves, `.secretos/`, `.env*`, `venv/`, `node_modules/`, videos, audio ni fotogramas.
 - La rutina de las 3 a. m. corre **solo si el sistema es Windows** (`platform.system()`); en la Mac no produce nada.
