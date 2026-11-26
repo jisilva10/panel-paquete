@@ -90,6 +90,41 @@ def en_palabras(t):
 ACENTO = ' Habla en español latinoamericano neutro, con pronunciación nativa (nada de acento inglés).'
 
 MODELO = None
+_CANDADO = None
+
+def _tarjeta_usada_mib():
+    try:
+        r = subprocess.run(['nvidia-smi', '--query-gpu=memory.used', '--format=csv,noheader,nounits'], capture_output=True, text=True, timeout=20)
+        return int(r.stdout.split()[0])
+    except Exception:
+        return 0
+
+def esperar_tarjeta(max_min=60):
+    """La tarjeta (6 GB) aguanta UNA voz Qwen a la vez. Si otra sesión la está usando, espera.
+    Toma el candado .motor/.tarjeta.lock (se suelta solo al terminar el proceso) y además mira que la memoria esté libre."""
+    global _CANDADO
+    try:
+        import msvcrt
+    except ImportError:
+        return  # no es Windows
+    import time
+    f = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), '.tarjeta.lock'), 'a+')
+    t0, avisado = time.time(), False
+    while True:
+        try:
+            f.seek(0); msvcrt.locking(f.fileno(), msvcrt.LK_NBLCK, 1)
+            if _tarjeta_usada_mib() < 2500:
+                _CANDADO = f
+                return
+            f.seek(0); msvcrt.locking(f.fileno(), msvcrt.LK_UNLCK, 1)
+        except OSError:
+            pass
+        if not avisado:
+            print('· la tarjeta está ocupada por otra voz: espero a que se libere...', flush=True); avisado = True
+        if time.time() - t0 > max_min * 60:
+            sys.exit(f'la tarjeta siguió ocupada {max_min} min: prueba más tarde')
+        time.sleep(20)
+
 def qwen_linea(L, i):
     """Qwen3-TTS con voz diseñada. Mac con chip Apple: mlx-audio. Windows/Linux con NVIDIA: el paquete oficial qwen-tts (PyTorch/CUDA)."""
     global MODELO
@@ -110,6 +145,7 @@ def qwen_linea(L, i):
     import torch
     from qwen_tts import Qwen3TTSModel
     if MODELO is None:
+        esperar_tarjeta()
         MODELO = ('torch', Qwen3TTSModel.from_pretrained('Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign', device_map='cuda:0', dtype=torch.bfloat16))
     torch.manual_seed(7 + i)
     wavs, sr = MODELO[1].generate_voice_design(text=texto, language='Spanish', instruct=instr)

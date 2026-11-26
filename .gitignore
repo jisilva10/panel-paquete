@@ -18,6 +18,7 @@ laboratorio/
 2 Funciones/**/*.wav
 2 Funciones/**/*.mp4
 2 Funciones/**/portada.jpg
+.motor/.tarjeta.lock
 .motor/base/.voz/
 .motor/base/salida/
 .motor/base/*.wav
