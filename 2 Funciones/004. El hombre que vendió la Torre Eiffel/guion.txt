@@ -1,0 +1,14 @@
+# 004. El hombre que vendió la Torre Eiffel · París, 1925
+# Fuentes: 1) Wikipedia, «Victor Lustig» (consultada 26/11/2026)  2) Mental Floss, Bill DeMain, «Smooth Operator: How Con Man "Count" Victor Lustig Sold The Eiffel Tower—Twice» (21/08/2020).
+# Los dos: se hizo pasar por subdirector del Ministerio de Correos y Telégrafos con papeles falsos; cinco chatarreros (Mental Floss) en un hotel de lujo; la torre se iba a desarmar por lo caro del mantenimiento y vender sus 7.000 toneladas de metal (Mental Floss), en secreto; André Poisson pagó y además le dio un soborno; Lustig huyó a Austria; Poisson no lo denunció por vergüenza; volvió e intentó venderla otra vez y esta vez avisaron a la policía; huyó a EE. UU.; engañó a Al Capone (50.000 dólares que le devolvió, y Capone le dio una recompensa).
+# Wikipedia: preso en Alcatraz, murió en 1947 de neumonía; su acta de defunción dice de oficio «apprentice salesman» (aprendiz de vendedor). Lustig no habla en el video (no hay frase suya confirmada para usar).
+# Formato: QUIEN [emoción]: texto  ·  ... = pausa larga  ·  *palabra* = con fuerza
+NARRADOR [asombro]: En 1925, un hombre vendió la Torre Eiffel... y no era suyo ni un *tornillo*.
+NARRADOR [misterio]: Se llamaba Victor Lustig. Leyó en el periódico que arreglar la torre costaba una fortuna... y se le ocurrió una idea.
+NARRADOR [confidencial]: Se hizo pasar por funcionario del gobierno, con papeles falsos, y citó a cinco chatarreros en un hotel de lujo.
+NARRADOR [tension]: Les dijo que París iba a desarmar la torre y vender sus siete mil toneladas de hierro. Pero en *secreto*.
+NARRADOR [burla]: Uno de ellos, André Poisson, se lo creyó todo. Pagó por la torre... y encima le dio un *soborno* para quedársela.
+NARRADOR [asombro]: Lustig huyó a Austria con la plata. Y Poisson nunca lo denunció... le dio demasiada *vergüenza*.
+NARRADOR [tension]: Así que Lustig volvió a París... e intentó venderla *otra vez*. Esta vez, alguien avisó a la policía.
+NARRADOR [asombro]: Escapó a Estados Unidos, hasta engañó a Al Capone, y terminó preso en Alcatraz.
+NARRADOR [cierre]: Y en su acta de defunción, donde dice oficio, pusieron... *aprendiz de vendedor*.

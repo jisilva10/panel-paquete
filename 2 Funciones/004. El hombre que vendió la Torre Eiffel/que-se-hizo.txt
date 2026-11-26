@@ -1,0 +1,70 @@
+QUÉ SE HIZO · 004. El hombre que vendió la Torre Eiffel
+(Todo lo necesario para entender y replicar este video SIN verlo. El video.mp4 queda en esta carpeta solo en la PC; a GitHub va solo el texto.)
+
+== FICHA ==
+Número: 004
+Título: El hombre que vendió la Torre Eiffel
+Nombre en el panel: 004. El hombre que vendió la Torre Eiffel
+Creado: 2026-11-26
+Hora programada: 2026-11-26 20:40 (Ecuador)
+Duración (s): 58.3
+Tipo: golpe/estafa
+Tema en una frase: En 1925 el estafador Victor Lustig leyó que arreglar la Torre Eiffel costaba una fortuna, se hizo pasar por subdirector del Ministerio de Correos y Telégrafos con papeles falsos, citó a cinco chatarreros en un hotel de lujo y les «vendió» en secreto las 7.000 toneladas de hierro de la torre; André Poisson pagó y encima le dio un soborno; Lustig huyó a Austria y Poisson no lo denunció por vergüenza; Lustig volvió a intentarlo y esta vez avisaron a la policía; huyó a EE. UU., engañó a Al Capone y terminó en Alcatraz. Su acta de defunción (1947) dice de oficio «Apprentice Salesman» (aprendiz de vendedor).
+Por qué debería enganchar: el dato imposible se entiende en el primer segundo (alguien vendió la Torre Eiffel), cada línea trae un giro (soborno, vergüenza, otra vez, Capone, Alcatraz) y el cierre es un documento real que remata con ironía.
+Fuentes: 1) Wikipedia, «Victor Lustig» (consultada 26/11/2026)  2) Mental Floss, Bill DeMain, «Smooth Operator: How Con Man "Count" Victor Lustig Sold The Eiffel Tower—Twice» (21/08/2020). Smithsonian y toureiffel.paris dieron 403.
+Datos con cuidado: la segunda venta se cuenta como «intentó venderla otra vez» (Wikipedia: avisaron a la policía y huyó; Mental Floss dice que la vendió y la víctima fue a la policía): se dejó lo que dicen las dos. No se pone ninguna frase en boca de Lustig (no hay cita suya confirmada). Poisson no tiene fotos conocidas: es un títere genérico con bombín. El periódico del café es un diario de papel inventado («EL DIARIO»), con el titular que resume la nota que leyó Lustig (Mental Floss: el gobierno pensaba en demolerla antes que repararla).
+
+== TEXTO ==
+Primera palabra: En
+Gancho (primera frase, literal): «En 1925, un hombre vendió la Torre Eiffel... y no era suyo ni un tornillo.»
+Tipo de gancho: dato imposible
+Estructura: gancho con la torre, sello VENDIDA y un tornillo que se cae (0-6.2 s) · el café: Lustig y el diario con la torre real (6.3-13.4 s) · el ministerio de Correos y los papeles falsos, cartas que vuelan al hotel (13.7-20.6 s) · el Gran Hotel: la cámara entra, cinco chatarreros, la pantalla con el hierro real, «7.000 TONELADAS», Lustig hace «shh» (20.8-26.6 s) · Poisson se adelanta, la bolsa de francos y el sobre del soborno (26.7-34.0 s) · huida a Austria y Poisson rojo de vergüenza (34.1-40.6 s) · vuelta a la torre: SE VENDE, ¡PRIII!, la policía (40.7-46.4 s) · barco a EE. UU., Al Capone, Alcatraz con la ficha real (46.5-52.0 s) · cierre: el acta de defunción real y zoom con resaltador a «Apprentice Salesman» (52.2-56.8 s) · final quieto (hasta 58.3 s)
+Narrador en: tercera persona
+Personajes que hablan: NARRADOR (solo)
+Cierre (estilo): dato que remata
+Frase de cierre (literal): «Y en su acta de defunción, donde dice oficio, pusieron... aprendiz de vendedor.»
+Palabras totales: 158
+Emociones usadas en la voz: asombro, misterio, confidencial, tension, burla, asombro, tension, asombro, cierre
+Ritmo de la voz: rapido
+
+== EDICIÓN ==
+Mundo (lugar de papel): una sola calle de papel de París que sigue hasta el mar y América: Torre Eiffel (con tejados lilas detrás) → café con toldo rojo → Ministerio de Correos (bandera francesa) → Gran Hotel (fachada que se levanta y deja ver el salón con lámpara y pantalla) → camino a Austria (montañas) → el mar con el barco → Capone con la bandera de EE. UU. → Alcatraz (isla, prisión) → el acta en su poste.
+Lugares y cómo se entra a cada uno: la torre y el cartel PARÍS 1925 al empezar; sello VENDIDA en «vendió»; el tornillo cae y rebota en «tornillo» → la cámara viaja al café en «Lustig»; zoom al diario en «periódico» (el clip de la torre se mueve dentro de la foto del diario); el diario baja y sale el foco en «idea» → al ministerio en «funcionario» (Lustig con chistera); papel OFICIAL en «papeles»; cinco cartas vuelan al hotel en «cinco» → la fachada del GRAN HOTEL se levanta en «hotel» (la cámara entra); chatarreros suben en «chatarreros»; la pantalla baja en «desarmar»; zoom a la pantalla en «siete» con el clip del hierro y «7.000 TONELADAS»; Lustig con el dedo en la boca y guiño en «secreto» → los otros cuatro bajan en «Poisson»; bolsa ₣ en «pagó»; sobre en «soborno» → Lustig corre a AUSTRIA en «huyó» → la cámara vuelve a Poisson: rubor y gota en «vergüenza» → salto a la torre en «volvió»; SE VENDE en «otra»; gendarme con ¡PRIII! en «policía», Lustig sale corriendo → barco y bandera en «escapó»/«Estados»; Capone y bolsa $ en «Capone» → Alcatraz y la ficha real en «Alcatraz» → el acta sube en «acta»; zoom, resaltador amarillo y círculo rojo en «aprendiz».
+Personajes dibujados (y a quién se parecen): Victor Lustig (pelo oscuro peinado hacia atrás, bigote fino, traje azul oscuro, corbata roja; chistera desde el ministerio), parecido a sus fotos; Al Capone (cara redonda, fedora claro, cicatriz en la mejilla izquierda, traje a rayas, corbata dorada); André Poisson genérico (bombín, bigote, traje marrón, corbata verde); 4 chatarreros genéricos (gorras y bombines), 2 compradores nuevos y un gendarme francés con quepis.
+Fotos reales (cuántas, de dónde, en qué segundo): 2 · Ficha del FBI de Lustig como «Robert V. Miller», 1935 (Wikimedia Commons «Victor Lustig Mugshot.jpeg», dominio público; recortada a la foto de frente) con rejas encima, se levanta en «Alcatraz» (~51.6 s) · Acta de defunción, Missouri 1947 (Wikimedia Commons «Victor Lustig Death Certificate.png», dominio público) se levanta en «acta» (~53 s) y la cámara hace zoom a la línea 10. Fuente chiquita abajo de cada una (dos líneas cortas para que se lea en el zoom).
+Clips reales (cuántos, de dónde, cuánto duran, cómo entran): 2 · British Pathé en YouTube, «Eiffel (1939)» (v85xoZBWHj0): segundo 18-21, la torre entera, dentro de la foto del diario del café (8.6-11.6 s); segundo 41.5-44.5, el hierro de la torre visto desde arriba, en la pantalla del salón del hotel (23.3-26.3 s, luego queda de fondo). Audio original al 35 %. Fuente «Video: British Pathé · YouTube (1939)».
+Subtítulos (estilo, tamaño, posición): Lilita One 84 px, hasta 3 palabras, la que suena en amarillo #ffd23f, borde tinta, y=1580, sin «...» ni «:».
+Música / efectos: historia.mp3 al 32 % con sidechain a la voz. Efectos: papel-despliega al inicio, golpe-seco en «vendió» y «otra», metal en el tornillo y en «siete», cartón en cada títere, papel-aletea en el diario, pop en la idea y los chatarreros, papel-swish en cartas/plata/soborno, whoosh-cine al entrar al hotel y en el zoom final, braam en «secreto», subdrop en «vergüenza», riser + golpe-grave en «policía», golpe-grave al final. −14.0 LUFS.
+Portada (escena y titular): la torre con SE VENDE, dos compradores y Lustig con chistera (segundo 44.6, escena subida 250 px para que las placas queden bajo las caras); placas «LA VENDIÓ COMO CHATARRA» (amarilla) y «¡Y NO ERA SUYA!» (tinta). portada_ms 44600.
+Texto de la publicación: «En 1925 un hombre vendió la Torre Eiffel como chatarra. Y no era suya.» + «Fuentes: Wikipedia «Victor Lustig» · Mental Floss (2020)» + #TorreEiffel #estafa #historiareal #Paris #enserio
+
+== QUÉ SE PROBÓ ==
+Lo que se repitió de los ganadores (y de cuál): todavía no hay números (0 piezas con 48 h). Se repitió la forma de 001/002: gancho con dato imposible, mundo continuo, fotos que se levantan del suelo, clips reales dentro de la escena, ritmo rápido.
+Lo nuevo que se probó en este video: (1) primer video de golpe/estafa; (2) cierre «dato que remata» mostrado con el DOCUMENTO real (zoom y resaltador sobre el acta) en vez de bucle o frase del protagonista; (3) clips dentro de objetos nuevos (la foto de un diario y la pantalla de un salón) en vez del visor de cámara; (4) 58 s (lo más largo hasta ahora).
+Hipótesis (qué espero que pase): una estafa histórica muy conocida de nombre pero no de detalle retiene bien si cada línea trae un giro; el remate con el documento real debería dar guardados y comentarios («¿en serio dice eso?»). Riesgo: 58 s puede perder gente en la mitad (hotel).
+
+== RESULTADO (se llena después; lo actualiza la rutina) ==
+48 h · TikTok: ___  Instagram: ___  YouTube: ___  Retención IG: ___
+Lectura: (¿ganó, perdió? ¿por qué creo?)
+
+== GUION COMPLETO ==
+# 004. El hombre que vendió la Torre Eiffel · París, 1925
+# Fuentes: 1) Wikipedia, «Victor Lustig» (consultada 26/11/2026)  2) Mental Floss, Bill DeMain, «Smooth Operator: How Con Man "Count" Victor Lustig Sold The Eiffel Tower—Twice» (21/08/2020).
+NARRADOR [asombro]: En 1925, un hombre vendió la Torre Eiffel... y no era suyo ni un *tornillo*.
+NARRADOR [misterio]: Se llamaba Victor Lustig. Leyó en el periódico que arreglar la torre costaba una fortuna... y se le ocurrió una idea.
+NARRADOR [confidencial]: Se hizo pasar por funcionario del gobierno, con papeles falsos, y citó a cinco chatarreros en un hotel de lujo.
+NARRADOR [tension]: Les dijo que París iba a desarmar la torre y vender sus siete mil toneladas de hierro. Pero en *secreto*.
+NARRADOR [burla]: Uno de ellos, André Poisson, se lo creyó todo. Pagó por la torre... y encima le dio un *soborno* para quedársela.
+NARRADOR [asombro]: Lustig huyó a Austria con la plata. Y Poisson nunca lo denunció... le dio demasiada *vergüenza*.
+NARRADOR [tension]: Así que Lustig volvió a París... e intentó venderla *otra vez*. Esta vez, alguien avisó a la policía.
+NARRADOR [asombro]: Escapó a Estados Unidos, hasta engañó a Al Capone, y terminó preso en Alcatraz.
+NARRADOR [cierre]: Y en su acta de defunción, donde dice oficio, pusieron... *aprendiz de vendedor*.
+
+== CÓMO SE ARMÓ ==
+1. Historia: hoy.md no tenía la fecha de hoy (las sesiones de los videos 1 y 2 del 26/11 se cortaron en su primer comando esperando un permiso), así que esta sesión eligió sola. Candidatas: Lustig (banco), tarántulas en Lima y otras del banco (Onoda, Yamaguchi, melaza de Boston, Garbo). Se eligió Lustig por el «¿en serio?» inmediato y por tener documentos reales. ya_hecho.py dio coincidencia solo porque el 002 lo nombró como candidata descartada. Se tachó en banco.md y se hizo push.
+2. Material: fotos de Wikimedia por su API (una tercera, la torre en 1925 con el letrero Citroën, dio 429 y no se usó); el clip con yt-dlp --js-runtimes node a 640x480, recortado a dos tramos de 3 s y pasado a fotogramas (fps=30) en clips/torre y clips/hierro.
+3. Voz: voces.py qwen rapido, 57.1 s (tiempos-qwen.json en cp1252: construir.py ahora lo abre con encoding='cp1252').
+4. Película: plantilla.html reescrita entera sobre la base que pinta siempre. Funciones: torre, cafe (+periodico con clip), ministerio, hotel (salón, pantalla con clip, chatarreros, fachada que se levanta), austria, america (barco, bandera, Capone, Alcatraz) y acta; persona() con pelo, bigote fino, sombreros (bombín, chistera, fedora, gorra, quepis), corbata, rubor, guiño, dedo en la boca, cicatriz y traje a rayas. La cámara tarda 0.55 s en los saltos largos y 0.8 s en los cortos.
+5. Lo que se vio mal en los fotogramas y se arregló: el diario tapaba a Lustig (se corrió a un lado y se achicó); el hotel tapaba a Lustig en el ministerio y el cartel decía «MINISTERIO DE C…» (hotel más lejos, cartel «CORREOS»); los chatarreros quedaban detrás de la fachada (la fachada ahora se pinta antes); chatarreros amontonados y cortados (más juntos al centro y más chicos); zoom a la pantalla cortaba el clip y «7.000 TONELADAS» (zoom 1.25, letrero arriba); la bolsa de plata tapaba caras (más baja); el letrero AUSTRIA cortado y el barco encima (puerto más lejos); la policía casi no se veía porque la cámara salía al barco (la cámara espera 0.75 s más); Capone pegado a Alcatraz y la ficha cortada (Alcatraz y el acta más lejos, fuente en dos líneas); la fuente del acta cortada en el zoom (dos líneas cortas y cámara más abajo); el cartel PARÍS 1925 se veía cortado al volver (solo al principio). Un render salió entero vacío porque un «\n» quedó como salto de línea dentro del texto JS: revisar_celeste lo detectó (1750 vacíos) y se arregló.
+6. Render: hyperframes 0.8.33, 1 min 21 s. revisar_celeste.py: 1750 cuadros, 0 vacíos. −14.0 LUFS. Se miraron las 5 hojas (un fotograma por segundo).
+7. Portada: snapshot del segundo 44.6 con SUBS = false en index.html, escena subida 250 px, portada.py con las dos placas.
