@@ -17,5 +17,11 @@ laboratorio/
 2 Funciones/**/material/
 2 Funciones/**/*.wav
 2 Funciones/**/*.mp4
+.motor/base/.voz/
+.motor/base/salida/
+.motor/base/*.wav
+.motor/base/index.html
+.motor/base/tiempos-qwen.json
+.motor/base/tiempos-edge.json
 .DS_Store
 *.log
