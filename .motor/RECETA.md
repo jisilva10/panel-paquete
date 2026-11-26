@@ -1,6 +1,6 @@
 # La rutina de las 3 a. m. · es_enserio.tv
 
-La corre la tarea programada **«es_enserio: rutina de las 3»**, una vez al día a las 3:00 en la PC con Windows (nadie la usa y el límite de Claude está entero). En una corrida: **3 videos nuevos, montados, con su texto y programados**. JIS solo aprieta «Publicar» en TikTok y «Subir» en YouTube desde el panel.
+La corren 3 tareas programadas en la PC con Windows, **una por video y cada una en su propia sesión** (3:00 video 1 = noticia + quién gana; 4:15 video 2; 5:30 video 3; ver `.motor/tarea-programada.md`). Entre las tres: **3 videos nuevos, montados, con su texto y programados**. Cada sesión hace los pasos de abajo para su único video. JIS solo aprieta «Publicar» en TikTok y «Subir» en YouTube desde el panel.
 
 `<proyecto>` = la carpeta Titeres. Python: `<proyecto>\.motor\venv\Scripts\python`.
 

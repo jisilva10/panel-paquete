@@ -53,7 +53,7 @@ Si esta carpeta acaba de llegar a una compu nueva, lee primero **MUDANZA.md**.
 
 ## La rutina de las 3 a. m.
 **La producción corre SOLO en la PC con Windows** (decisión de JIS, 26/11/2026), que queda prendida de noche. La Mac de JIS no produce ni programa nada: su tarea está apagada y su llave del panel queda anulada cuando la PC crea la suya.
-Una sola tarea programada de Claude, **«es_enserio: rutina de las 3»**, todos los días a las 3:00 (nadie usa la PC y el límite de Claude está entero). En esa corrida: ver quién gana → leer los `que-se-hizo.txt` de los ganadores → escribir 3 guiones (al menos uno de la noticia/tendencia del día) → montar los 3 → llenar su `que-se-hizo.txt` → programarlos para ese día → limpiar. Texto exacto de la tarea: `.motor/tarea-programada.md`. Pasos: `.motor/RECETA.md`.
+**Cada video va en su propia sesión** (decisión de JIS, 25/11/2026, para no gastar el límite): son 3 tareas programadas de Claude, **«es_enserio: rutina de las 3 — video 1 (noticia)»** a las 3:00, **«— video 2»** a las 4:15 y **«— video 3»** a las 5:30 (nadie usa la PC y el límite de Claude está entero). El video 1 ve quién gana y anota aprendizajes; cada una escribe, monta, programa (≈11:30, 16:00, 20:30) y limpia **un** video, sin repetir el tema de las otras y sin usar la tarjeta a la vez. Texto exacto de las tareas: `.motor/tarea-programada.md`. Pasos: `.motor/RECETA.md`.
 
 ## Cómo medir
 - **Se aprende por el texto, no por los videos.** Cada video deja su `que-se-hizo.txt` (tema, primera palabra, gancho literal, estructura, largo, narrador, cierre literal, edición, qué se probó, hipótesis y guion completo). `ganadores.py` escribe dentro de cada uno su resultado a las 48 h y arma `3 Publicado/ganadores.md`; de ahí salen los guiones nuevos.
