@@ -49,6 +49,20 @@ async function leerInstagram() {
   return `${lista.length} piezas`;
 }
 
+// El 003 salió en TikTok de 16 s en vez de 55 (26/11/2026). Si lo que dice TikTok es bastante más corto que el
+// video que se mandó, queda anotado en la publicación (tt_error) y el panel lo muestra en rojo.
+async function revisarLargo(v) {
+  if (!v.duration) return;
+  const { data: m } = await db().from('medios').select('publicacion_id').eq('red', 'tiktok').eq('media_id', String(v.id)).maybeSingle();
+  if (!m?.publicacion_id) return;
+  const { data: p } = await db().from('publicaciones').select('id,pieza,duracion,tt_error').eq('id', m.publicacion_id).maybeSingle();
+  const debe = Number(p?.duracion);
+  if (!debe || p.tt_error || Number(v.duration) >= debe - 3) return;
+  const msg = `TikTok: «${p.pieza}» quedó de ${Math.round(v.duration)} s y el video dura ${Math.round(debe)} s. Bórralo en TikTok y vuelve a subirlo entero.`;
+  await db().from('publicaciones').update({ tt_error: msg }).eq('id', p.id);
+  await anotar('error', msg);
+}
+
 async function leerTikTok() {
   const c = await tokenDe('tiktok');
   if (!c) return 'sin conectar';
@@ -64,6 +78,7 @@ async function leerTikTok() {
     if (v.duration) await db().from('medios').update({ duracion: v.duration }).eq('red', 'tiktok').eq('media_id', String(v.id)).is('duracion', null);
     await db().from('metricas').upsert({ red: 'tiktok', media_id: String(v.id), fecha, vistas: v.view_count, me_gusta: v.like_count, comentarios: v.comment_count, compartidos: v.share_count, leido_en: new Date().toISOString() });
     await vincular('tiktok', String(v.id), publicado);
+    await revisarLargo(v);
   }
   return `${lista.length} piezas`;
 }

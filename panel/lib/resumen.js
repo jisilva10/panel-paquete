@@ -19,6 +19,8 @@ export async function resumen() {
   const { data: lecturas } = await db().from('bitacora').select('cuando,detalle').eq('tipo', 'numeros').order('cuando', { ascending: false }).limit(1);
   const ultimaBuena = lecturas?.[0] && !/error/.test(lecturas[0].detalle || '') ? new Date(lecturas[0].cuando) : null;
   const erroresVivos = (errores || []).filter((e) => !ultimaBuena || new Date(e.cuando) > ultimaBuena);
+  // Un video que salió cortado en TikTok se avisa siempre (hasta que JIS lo quite con la «×»).
+  for (const c of cola || []) if (c.tt_error?.includes('quedó de')) erroresVivos.unshift({ id: `tt-corto-${c.id}`, detalle: c.tt_error });
   const num = new Map((ultimas || []).map((m) => [`${m.red}|${m.media_id}`, m]));
   const filas = (medios || []).map((m) => ({ ...m, n: num.get(`${m.red}|${m.media_id}`) || {} }))
     .filter((m) => !(m.origen === 'excel' && m.n.vistas == null));

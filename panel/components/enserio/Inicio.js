@@ -85,7 +85,7 @@ function TeToca({ p, api }) {
         <CajaCopiar texto={p.texto || ''} />
       </div>
       <p className="ps-toca-pasos">
-        Notificación de TikTok → borra <b>#panelenserio</b>, pega y pon la portada.{' '}
+        Notificación de TikTok → borra <b>#panelenserio</b>, pega y pon la portada.{p.duracion ? <> Antes de publicar, que dure <b>{Math.round(p.duracion)} s</b>.</> : null}{' '}
         <button type="button" className="ps-enlace" onClick={listo}>Listo</button>
       </p>
     </article>
@@ -116,6 +116,7 @@ const CAMPO = { tiktok: 'tt_estado', instagram: 'ig_estado', youtube: 'yt_estado
 function estadoEn(p, red) {
   const e = p[CAMPO[red]];
   if (!e || e === 'no_va' || (p.redes && !p.redes.includes(red))) return null;
+  if (red === 'tiktok' && p.tt_error?.includes('quedó de')) return 'mal'; // salió, pero cortado
   return e === 'publicado' ? 'si' : e === 'error' ? 'mal' : 'no';
 }
 const NOMBRE_ESTADO = { si: 'publicado', no: 'todavía no', mal: 'con error' };
