@@ -27,6 +27,8 @@ La corren 3 tareas programadas en la PC con Windows, **una por video y cada una 
 - Los otros 2: los temas que tocan hoy según la rotación. Busca la historia en la web o en `1 Historias\banco.md`, y escríbela con lo que mejor funcionó **en ese tema** (paso 1).
 - Reglas: dos fuentes, la gente real solo dice lo que dijo, nada sexual ni religioso, sin difamar. Nunca «moraleja»: cierre con fuerza.
 - Si una noticia es buena pero se queda corta, anótala en `banco.md` para otro día.
+- **Nunca repetir.** Con la historia elegida, corre `python .motor\ya_hecho.py "protagonista" "lugar" "palabra clave"`. Si dice «YA SE HIZO», elige otra (ni la misma historia ni el mismo protagonista, aunque sea con otro ángulo). Mira también `registro.csv` de hoy: otra sesión pudo haber elegido algo parecido. Si la sacaste de `banco.md`, tácha la línea (`~~ ~~`) apenas la elijas y haz `git add -A`, commit y `git push` en ese momento, para que las otras sesiones lo vean.
+- Antes de escribir el guion, `python .motor\ya_hecho.py --lista`: el gancho, el cierre y el título tienen que ser frases nuevas (se copia la forma que gana, nunca el texto).
 
 ## 3. Cada video (repite 3 veces)
 1. **Carpeta**: `python .motor\nueva_funcion.py "Título corto"` → crea `2 Funciones\NNN. Título\` con el **mismo nombre que tendrá en el panel**. Todo lo de ese video vive ahí.

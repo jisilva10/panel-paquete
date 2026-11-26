@@ -20,6 +20,7 @@ Reglas clave:
 - SOLO para la PC con Windows: lo PRIMERO es `python -c "import platform; print(platform.system())"`; si no dice Windows, termina diciendo «esta rutina solo corre en la PC».
 - Al empezar `git pull --rebase`; al terminar `git add -A`, commit y `git push`.
 - Si Instagram o TikTok no están conectados en el panel, para y anótalo en <proyecto>\3 Publicado\notas.md.
+- NUNCA repetir: antes de elegir la historia, `python .motor\ya_hecho.py "protagonista" "lugar" "palabra clave"`; si dice «YA SE HIZO», otra. Gancho, cierre y título siempre nuevos (`ya_hecho.py --lista`). Si la historia sale del banco, tácharla y hacer push en ese momento.
 - Nunca programes un video que no hayas mirado en fotogramas. Nada sexual ni religioso. Las personas reales solo dicen lo que dijeron. Dos fuentes por historia.
 - Si algo falla dos veces, no programes ese video y deja nota.
 - No toques nada de Noerion ni de su panel.
