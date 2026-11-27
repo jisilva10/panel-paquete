@@ -1,4 +1,4 @@
-# Ganadores · 2026-11-26 22:23
+# Ganadores · 2026-11-27 00:02
 
 0 piezas con más de 48 h. Puntaje = vistas relativas en cada red (0-1) + compartidos y guardados.
 

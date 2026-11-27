@@ -14,17 +14,17 @@ Estados: **explorando** (sin datos) · **va ganando** (gana con 3+ videos) · **
 5. Fase explorar (hasta el 16/12/2026 o 30 videos con 48 h): **3 pruebas por video**. Después, de cada 10: **7** «ganador» (la fórmula + 1 prueba), **2** «rival» (la segunda opción de 2 palancas) y **1** «nuevo» (3 pruebas + una idea nunca hecha). Lo reparte `laboratorio.py` solo.
 6. Lo que JIS dice al ver un video **pesa como dato**: se anota aquí con fecha y se aplica de inmediato.
 
-## La fórmula hoy (27/11/2026 · día 3 · explorando, 0 videos con 48 h; señales tempranas: IG/YT prefieren las absurdas del 25/11, retención IG mejor en la estafa 004)
+## La fórmula hoy (28/11/2026 · día 4 · explorando, 0 videos con 48 h; señales tempranas: IG/YT prefieren las absurdas del 25/11, retención IG mejor en la estafa 004, en IG se quedan ~20 s sin importar el largo)
 
 Es la BASE que usa el laboratorio (`3 Publicado/laboratorio.md` tiene el detalle de cada palanca y se rehace cada día). Cuando una palanca pasa a «va ganando», se cambia aquí también.
 
 | Grupo | Hoy se usa (la base) | Lo que más falta probar |
 |---|---|---|
-| Historia | Las mejores, de 3 temas distintos por día | historia absurda, error de millones, política, crimen, inventos y ciencia · últimos 10 años · África/Oceanía · tono indignante o suspenso |
-| Texto | Gancho «dato imposible» en la primera frase · tercera persona · cronológico · 2-3 giros · cierre que remata · sin llamado | (27/11 video 1: contradicción) · gancho en «tú», cifra gigante, final primero · lista de 3, misterio al final · cierre en pregunta, «cómo está hoy», giro final · llamado (comentar el video, seguir, like) |
-| Edición y sonido | Mundo de papel continuo · la cámara entra por un objeto · 4-5 fotos y clips reales · subtítulos Lilita 84 px abajo · música «historia» al 32 % · 7-14 efectos · audio real bajito | (27/11 video 1: música alta 45 %) · hoja que pasa, iris, zoom rápido · cortes rápidos o tranquilos · parallax · subtítulos al centro o en caja · música de suspenso, chistosa o sin música · silencio antes del giro |
-| Voz, duración, portada | Ritmo rápido · velocidad 1.07 · 50-60 s · portada en el clímax con «afirmación + pregunta» | (27/11 video 1: velocidad 1.17) · velocidad 1.00 / 1.12 · 30-40 y 40-50 s · portada con la cara o el objeto clave · titular en pregunta sola o cifra |
-| Hora | Rota por franjas (3 distintas por día) | mañana (7-10) y noche (18-20) |
+| Historia | Las mejores, de 3 temas distintos por día | historia absurda y error de millones (nunca salieron) · últimos 10 años |
+| Texto | Gancho «dato imposible» en la primera frase · tercera persona · cronológico · 2-3 giros · cierre que remata · sin llamado | (27/11: contradicción, lista de 3, giro final) · (28/11 video 1: misterio que se revela al final) · gancho en «tú», cifra gigante, final primero · cierre en pregunta, «cómo está hoy» · llamado (comentar el video, seguir, like) |
+| Edición y sonido | Mundo de papel continuo · la cámara entra por un objeto · 4-5 fotos y clips reales · subtítulos Lilita 84 px abajo · música «historia» al 32 % · 7-14 efectos · audio real bajito | (27/11: música alta 45 %, iris, música suspenso) · (28/11 video 1: foto que se levanta) · hoja que pasa, zoom rápido · cortes rápidos o tranquilos · parallax · subtítulos al centro o en caja · música chistosa o sin música · silencio antes del giro |
+| Voz, duración, portada | Ritmo rápido · velocidad 1.07 · 50-60 s · portada en el clímax con «afirmación + pregunta» | (27/11: velocidad 1.17, ritmo medio) · (28/11 video 1: 20-30 s) · velocidad 1.00 / 1.12 · 30-40 y 40-50 s · portada con la cara o el objeto clave · titular en pregunta sola o cifra |
+| Hora | Rota por franjas (3 distintas por día) | tarde (14-17), la menos usada |
 
 La raíz no se prueba: mundo de papel, títeres de papel con borde blanco en palito, boca con la voz, lo real dentro del mundo con la fuente chiquita, tipografías y colores.
 
