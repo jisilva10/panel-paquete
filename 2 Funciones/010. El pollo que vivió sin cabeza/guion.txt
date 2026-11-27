@@ -1,0 +1,10 @@
+# 010. El pollo que vivió sin cabeza · Mike, Fruita (Colorado, EE. UU.), 1945-1947
+# Fuentes: 1) BBC News, Chris Stokel-Walker, «The chicken that lived for 18 months without a head» (10/09/2015)  2) Wikipedia, «Mike the Headless Chicken» (consultada 27/11/2026; cita Time, 29/10/1945, y el Guinness).
+# Datos: 10/09/1945 Lloyd Olsen mataba pollos para vender (BBC: 40 o 50 ese día); a la mañana siguiente el gallo seguía vivo (BBC). Lo alimentaban con un gotero (BBC y Wikipedia). Recorrió ferias (BBC: Life y la gira; Wikipedia: Time y Life). 4.500 dólares al mes en su mejor momento (Wikipedia). Vivió 18 meses (las dos).
+# Nadie habla con frases inventadas: solo el narrador.
+# Formato: QUIEN [emoción]: texto  ·  ... = pausa larga  ·  *palabra* = con fuerza
+NARRADOR [misterio]: Este gallo vivió un año y medio... sin algo que ningún animal puede perder.
+NARRADOR [tension]: Colorado, mil novecientos cuarenta y cinco. Un granjero lo eligió para la cena.
+NARRADOR [asombro]: Pero a la mañana siguiente, el gallo seguía vivo... y caminando por el patio.
+NARRADOR [confidencial]: Lo alimentaron con un gotero, lo llevaron de feria en feria, y llegó a ganar cuatro mil quinientos dólares al mes.
+NARRADOR [cierre]: Se llamaba Mike. Y todo eso lo hizo... *sin cabeza*.
