@@ -21,7 +21,7 @@ Columnas: tipo · por qué engancha · fuentes por confirmar. Se tacha cuando sa
 - **La plaga del baile (1518)** · misterio · cientos bailaron sin parar en Estrasburgo. · Wikipedia, History.com
 - **La inundación de melaza (Boston, 1919)** · absurdo trágico · una ola de melaza a 55 km/h. · Wikipedia, Smithsonian
 - **El espía que inventó 27 espías** · historia · Juan Pujol «Garbo», español, engañó a Hitler. · Wikipedia, MI5
-- **Mike, el pollo sin cabeza** · absurdo · vivió 18 meses (1945-47). · Wikipedia, Smithsonian
+- ~~**Mike, el pollo sin cabeza** · absurdo · vivió 18 meses (1945-47). · Wikipedia, Smithsonian~~ (video 1 del 28/11)
 
 - ~~**El robo del siglo y el sándwich** · crimen · Amberes 2003, Notarbartolo; lo delató un sándwich con su ADN. · Wikipedia, National Geographic~~ · video 1 del 27/11/2026
 - **El robo del Louvre en 7 minutos** · crimen · 19/10/2025, joyas de la corona; a un año siguen perdidas. (París: esperar unos días tras el 004) · Infobae 19/10/2026, Telemundo

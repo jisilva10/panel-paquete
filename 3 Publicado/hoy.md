@@ -1,33 +1,34 @@
-# Hoy · 27/11/2026
+# Hoy · 28/11/2026
 
-Las 3 mejores historias del día, de 3 temas distintos (los que nunca salieron: crimen, política, inventos y ciencia). La armó la central la noche del 26/11 (video 1 del 27/11, hecho con adelanto).
-Nada de Japón ni II Guerra (salieron dos el 26/11), por eso Garbo queda para otro día. Nada de París (el 004 fue en París y `ya_hecho.py` marca el lugar): el robo del Louvre se guarda en el banco.
-Candidatas revisadas: 10 (abajo). Las noticias raras del 25-26/11 (dentadura en Benidorm, nube-ovni en Valencia, pavos de la policía en California) no tienen giro.
+Las 3 mejores historias del día, de 3 temas distintos (ninguno de los del 27/11: crimen, política, inventos y ciencia). La armó la central en la madrugada del 27/11 (video 1 del 28/11, hecho con adelanto).
+Nada de Japón ni II Guerra, nada de París; tres países distintos (EE. UU., Gales, Ecuador).
+Candidatas revisadas: 11 (abajo). Las búsquedas de tendencias de hoy (Google Trends MX/CO/AR, noticias insólitas) no dieron una historia con giro: lo más comentado en la región (fútbol, Infonavit, la gasolina mala de Bolivia) no tiene «¿en serio?» o está en disputa.
 
-## #1 · VIDEO 1 · franja noche (18-20, cerca de las 19:00) · El robo del siglo que arruinó un sándwich
-- Tema: crimen. Amberes (Bélgica), fin de semana del 15-16/02/2003: la banda de Leonardo Notarbartolo («la Escuela de Turín») vacía la bóveda del Antwerp Diamond Center, dos pisos bajo tierra, con 10 capas de seguridad (radar, sensor sísmico, calor, campo magnético, cerradura de combinación). Más de 100 millones de dólares. Notarbartolo alquiló una oficina y se hizo pasar por comerciante durante años. Pero «Speedy», nervioso, tiró la basura en un bosque junto a la autopista E19: el dueño del terreno la encontró, y ahí había un sándwich de salame a medio comer con el ADN de Notarbartolo. 10 años de cárcel. Los diamantes nunca aparecieron.
-- Por qué: contradicción perfecta (la bóveda imposible vs. un sándwich), suspenso, tono que falta; Europa; fotos reales de la bóveda abierta y de Notarbartolo.
-- Fuentes: 1) Wikipedia «Antwerp diamond heist» (cita a Wired, Joshua Davis, 12/03/2009)  2) National Geographic, Roff Smith, 10/05/2013.
+## #1 · VIDEO 1 · franja tarde (14-17, cerca de las 15:30) · El pollo que vivió sin cabeza
+- Tema: historia absurda (nunca salió). Fruita, Colorado (EE. UU.), 10/09/1945: el granjero Lloyd Olsen le cortó la cabeza a un gallo para la cena, pero el hacha no tocó la vena yugular y le dejó casi todo el tronco del cerebro. Mike siguió caminando y «picoteando». Olsen lo alimentó con un gotero (leche y agua) 18 meses; salió en Time y Life, recorrió ferias (25 centavos la entrada, hasta 4.500 dólares al mes) y murió ahogado en un motel de Phoenix en 1947 porque se olvidaron la jeringa. Fruita le hace un festival cada año desde 1999. Guinness: el pollo sin cabeza que más vivió.
+- Por qué: el «¿en serio?» más puro, cabe en 20-30 s (la prueba de duración de hoy) y deja guardar el misterio hasta el final (prueba «misterio que se revela al final»). Tono chistoso con algo de asombro.
+- Fuentes: 1) BBC News, «The chicken that lived for 18 months without a head» (10/09/2015)  2) Wikipedia «Mike the Headless Chicken» (cita Time, 29/10/1945).
 
-## #2 · VIDEO 2 · franja mañana (7-10, cerca de las 08:30) · El primer ministro que desapareció en el mar
-- Tema: política. Oceanía (falta). Harold Holt, primer ministro de Australia, se metió a nadar en Cheviot Beach el 17/12/1967 y nunca más apareció; nunca se encontró el cuerpo. Después le pusieron su nombre a una piscina en Melbourne (Harold Holt Memorial Swimming Centre). Contar solo lo confirmado; las teorías (submarino chino, etc.) solo como «lo que se dijo», sin darlas por ciertas.
-- Fuentes: 1) National Archives of Australia, «Harold Holt» (Australia's Prime Ministers)  2) ABC News Australia (aniversario de la desaparición). Apoyo: Wikipedia «Disappearance of Harold Holt».
-
-## #3 · VIDEO 3 · franja mediodía (11-13, cerca de las 12:00) · El inventor que dañó el planeta dos veces
-- Tema: inventos y ciencia. Thomas Midgley Jr. (EE. UU.): inventó la gasolina con plomo (1921) y los CFC/freón (1928), dos de los inventos que más daño le hicieron al mundo; se lavó las manos con plomo frente a periodistas para probar que era seguro (y después tuvo que irse a curar). Con polio, inventó un sistema de poleas para levantarse de la cama… y en 1944 murió enredado en él.
-- Fuentes: 1) Smithsonian Magazine (Midgley y el plomo)  2) Wikipedia «Thomas Midgley Jr.». Apoyo: BBC Future. Ojo: muerte «estrangulado por su invento» la dan las dos fuentes; decirlo sin burla.
-
-## Reserva 1 · El hombre que tiró 8.000 bitcoins a la basura
-- Tema: error de millones (Gales, últimos 10 años). James Howells tiró en 2013 un disco duro con 8.000 bitcoins; lleva más de 10 años pidiendo excavar el basurero de Newport; un juez cerró su caso en 2025. Contar el valor con la cifra del día (con fuente).
+## #2 · VIDEO 2 · franja noche tarde (21-23, cerca de las 21:45) · El hombre que tiró 8.000 bitcoins a la basura
+- Tema: error de millones (nunca salió). Newport (Gales), 2013: James Howells tiró por error un disco duro con 8.000 bitcoins; más de 10 años pidiendo excavar el basurero (ofreció repartir con la ciudad, drones, robots); en 2025 un juez cerró su caso. Contar el valor con la cifra del día (con fuente).
 - Fuentes: 1) BBC News (Howells y el basurero de Newport)  2) The Guardian.
 
-## Reserva 2 · La plaga del baile (1518)
-- Tema: historia absurda. Estrasburgo: cientos de personas bailaron días sin parar. Sin entrar a lo religioso (solo lo médico e histórico).
-- Fuentes: 1) History.com  2) Wikipedia «Dancing plague of 1518».
+## #3 · VIDEO 3 · franja noche (18-20, cerca de las 19:00) · El astronauta que bajó a una cueva de Ecuador
+- Tema: latinoamérica. 1976: siete años después de pisar la Luna, Neil Armstrong fue presidente honorario de una expedición británico-ecuatoriana a la Cueva de los Tayos (Morona Santiago), buscando la «biblioteca de metal» que Juan Moricz y Erich von Däniken decían que había adentro. No encontraron ninguna biblioteca. Contar las teorías solo como «lo que se dijo»; nada religioso.
+- Fuentes: 1) Wikipedia «Cueva de los Tayos» / «Tayos Cave»  2) BBC Mundo o El Comercio (Ecuador) sobre la expedición de 1976.
+
+## Reserva 1 · El panadero que sobrevivió al Titanic
+- Tema: persona increíble. Charles Joughin, jefe de panaderos del Titanic, estuvo horas en el agua helada y sobrevivió; él dijo que había tomado whisky.
+- Fuentes: 1) Wikipedia «Charles Joughin»  2) Encyclopedia Titanica.
+
+## Reserva 2 · El país que nunca existió
+- Tema: golpe/estafa. Gregor MacGregor (1822) vendió tierras, bonos y hasta puestos en «Poyais», un país inventado en la costa de Honduras; cientos de colonos zarparon y se encontraron con selva. Guiño latino.
+- Fuentes: 1) Wikipedia «Gregor MacGregor»  2) BBC / Smithsonian (Poyais).
 
 ## Las otras candidatas (descartadas hoy)
-- Robo del Louvre (19/10/2025, 7 minutos, joyas de la corona que a un año siguen perdidas; renunció la presidenta del museo): buenísima, pero es París otra vez (004) y otro robo el mismo día que el #1. Al banco.
-- Fallo de 96 millones de pesos a una cocinera de Río Negro (Argentina): poca historia detrás.
-- Garbo, el espía de los 27 espías: II Guerra (ya hubo dos de la II Guerra el 26/11). Otro día.
-- El panadero del Titanic (Joughin): persona increíble salió 2 veces esta semana; queda en el banco.
-- La guerra del cerdo (1859): política ya va con Holt; queda en el banco.
+- La plaga del baile (Estrasburgo, 1518): historia absurda, como el #1. Otro día.
+- La inundación de melaza (Boston, 1919): absurda y trágica; mismo tema que el #1. Queda en el banco.
+- Garbo, el espía de los 27 espías: II Guerra, y YouTube frena la guerra (005 y 006). Más adelante.
+- La guerra del cerdo (1859): política salió el 27/11. Queda en el banco.
+- Ajedrez a 6.277 m en el Chimborazo: tendencia de Ecuador, pero sin giro y el #3 ya es de Ecuador.
+- Gasolina mala en Bolivia (más de 10.000 autos dañados, el Gobierno habla de sabotaje): cifras en disputa, sin historia clara.
