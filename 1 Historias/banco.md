@@ -25,7 +25,7 @@ Columnas: tipo · por qué engancha · fuentes por confirmar. Se tacha cuando sa
 
 - ~~**El robo del siglo y el sándwich** · crimen · Amberes 2003, Notarbartolo; lo delató un sándwich con su ADN. · Wikipedia, National Geographic~~ · video 1 del 27/11/2026
 - **El robo del Louvre en 7 minutos** · crimen · 19/10/2025, joyas de la corona; a un año siguen perdidas. (París: esperar unos días tras el 004) · Infobae 19/10/2026, Telemundo
-- **El primer ministro que desapareció nadando** · política · Harold Holt, Australia 1967; le pusieron su nombre a una piscina. · National Archives of Australia, ABC
+~~- **El primer ministro que desapareció nadando** · política · Harold Holt, Australia 1967; le pusieron su nombre a una piscina. · National Archives of Australia, ABC~~ (008, 27/11)
 - **El inventor que dañó el planeta dos veces** · inventos y ciencia · Thomas Midgley Jr.: gasolina con plomo y CFC. · Smithsonian, Wikipedia
 - **8.000 bitcoins en la basura** · error de millones · James Howells, Newport (Gales). · BBC, The Guardian
 

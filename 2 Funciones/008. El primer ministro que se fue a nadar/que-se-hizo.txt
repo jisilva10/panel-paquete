@@ -1,0 +1,92 @@
+QUÉ SE HIZO · 008. El primer ministro que se fue a nadar
+(Todo lo necesario para entender y replicar este video SIN verlo. El video.mp4 queda en esta carpeta solo en la PC; a GitHub va solo el texto.)
+
+== FICHA ==
+Número: 008
+Título: El primer ministro que se fue a nadar
+Nombre en el panel: 008. El primer ministro que se fue a nadar
+Creado: 2026-11-26 (por la central, con adelanto: es el video 2 del 27/11/2026)
+Hora programada: 2026-11-27 08:20 (Ecuador · viernes)
+Duración (s): 52.1
+Tipo: política
+Tema en una frase: El domingo 17 de diciembre de 1967, Harold Holt, primer ministro de Australia (59 años), fue con unos amigos a Cheviot Beach (Portsea, cerca de Melbourne); el mar estaba bravo y nadie más quiso entrar, pero a él le encantaba bucear y se metió; meses antes (mayo de 1967) casi se ahoga en esa misma playa; sus amigos lo vieron nadar mar adentro y desapareció; lo buscaron cientos de personas con buzos, barcos y helicópteros (una de las búsquedas más grandes de Australia); el cuerpo nunca apareció; vinieron los rumores (espía, submarino chino) que nunca se probaron; en 2005 el forense de Victoria concluyó que se ahogó; y en Melbourne le pusieron su nombre a una piscina (Harold Holt Memorial Swimming Centre, 1969).
+Por qué debería enganchar: el «¿en serio?» está en la primera frase (un primer ministro que desaparece nadando) y el remate es un giro irónico que nadie espera (la piscina). Primera política y primera de Oceanía de la cuenta.
+Fuentes: 1) National Archives of Australia, «Harold Holt's disappearance» (fact sheet 144) y «Australia's Prime Ministers · Harold Holt · After office»  2) SBS News, «Harold Holt: the Australian prime minister who disappeared» (2017). Apoyo: Wikipedia «Disappearance of Harold Holt» (casi ahogado en mayo de 1967, más de 340 personas en la búsqueda, forense de 2005, la piscina de 1969).
+Datos con cuidado: nadie dice frases inventadas (solo el narrador). Las teorías se cuentan como rumores y se dice que nada se probó (el historiador Tom Frame: «especulación fantasiosa»). «Cientos de personas» (SBS: casi 200 la primera tarde; Wikipedia: más de 340). El forense de 2005 se dice «la justicia concluyó que se ahogó». Los amigos (Marjorie Gillespie y otros) no se nombran.
+
+== TEXTO ==
+Primera palabra: Este
+Gancho (primera frase, literal): «Este primer ministro se metió al mar un domingo al mediodía. Nunca más lo volvieron a ver.»
+Tipo de gancho: dato imposible
+Estructura: gancho en la playa: Holt en traje de baño con máscara y tubo camina al mar, se hunde, burbujas (0-4.3 s) · iris desde el sol al Parlamento de Canberra: letrero «AUSTRALIA · DICIEMBRE 1967», Holt de traje y su foto real (4.3-11.2 s) · iris desde su cara a la playa salvaje: tres amigos y Holt (11.2-13.8 s) · por los binoculares de un amigo, clip real de las olas de Cheviot (13.8-17.2 s) · nadie quiere entrar; foto real de Holt en Portsea con el arpón; se pone la máscara y se mete (17.2-19.2 s) · recuerdo en sepia: «MESES ANTES · MAYO 1967», Holt casi se ahoga (19.2-23.6 s) · los amigos en la orilla lo ven nadar mar adentro; se hunde; caras de espanto (23.7-27.5 s) · iris desde donde se hundió al mar abierto: bote, buzos, helicóptero (27.5-31.8 s) · por la ventana del helicóptero, clip real de la búsqueda (31.8-34.9 s) · el helicóptero se va, los rescatistas tristes en «nunca» (35-36.8 s) · los rumores: signos de pregunta, un sombrero de espía, un submarino que sube y se hunde en «probó» (36.8-42.4 s) · iris a la playa vacía: un expediente «2005» y el mazo que golpea en «concluyó» (42.5-45.7 s) · iris a Melbourne: el edificio, el cartel «HAROLD HOLT · MEMORIAL SWIMMING CENTRE» que se da vuelta en «nombre», la piscina con nadadores y la foto real que se levanta en «piscina» (45.8-52.1 s)
+Desarrollo (cómo se cuenta): cronológico (el recuerdo de mayo de 1967 va en sepia)
+Giros (cuántos y cuáles): 2 · meses antes casi se ahoga en la misma playa · el cuerpo nunca apareció y vinieron los rumores (submarino chino). Más el giro final (la piscina).
+Narrador en: tercera persona
+Personajes que hablan: NARRADOR (solo)
+Cierre (estilo): giro final
+Frase de cierre (literal): «Y para recordarlo, en Melbourne le pusieron su nombre... a una piscina.»
+Palabras totales: 149
+Emociones usadas en la voz: misterio, tension, confidencial, asombro, tension, asombro, confidencial, solemne, cierre
+Ritmo de la voz: rapido
+Velocidad de la voz: 1.07 (base; se entiende todo, Whisper la transcribió entera)
+
+== EDICIÓN ==
+Mundo (lugar de papel): una sola franja de Australia de izquierda a derecha, de día: Canberra (pasto, eucaliptos, el Parlamento blanco con la bandera) → la playa salvaje (acantilado de arenisca con pasto arriba, rocas, arena que baja al mar en diagonal) → el mar abierto (bote, buzos, helicóptero, submarino) → Melbourne (pasto, eucaliptos, el edificio de la piscina). El mar lejano corre detrás de todo; las olas crecen en «olas» (amplitud 12 → 34).
+Lugares y cómo se entra a cada uno: PRUEBA: no viaja la cámara entre lugares, se abre un IRIS de papel (círculo con borde blanco y sombra, 0,55 s) desde un punto: desde el sol al Parlamento (en «Australia»), desde la cara de Holt a la playa (en «amigos»), desde donde se hundió al mar abierto (en «buscaron»), de vuelta a la playa vacía (en «dos mil cinco»), a Melbourne (en «recordarlo»). Dentro de cada lugar, paneo suave (tramos ≤1 s, zoom 0,9-1,2). Los dos clips también entran por iris (binoculares y ventana del helicóptero).
+Personajes dibujados (y a quién se parecen): Harold Holt, parecido a sus fotos de 1966 (pelo canoso peinado hacia atrás con frente alta, cejas grises, cara bronceada y sonriente; de traje azul oscuro con corbata granate en Canberra; en traje de baño azul oscuro con máscara de buceo y tubo naranja en la playa, como en la foto de Portsea); tres amigos sin nombre (mujer de pelo castaño y vestido rojo, hombre de pelo oscuro y camisa amarilla, chica rubia de celeste); dos rescatistas de naranja en el bote; cuatro buzos (cabezas con máscara y tubo amarillo).
+Fotos reales (cuántas, de dónde, en qué segundo): 3 · retrato de Holt, 1966 (Wikimedia Commons «Harold Holt.jpg», NAA, CC BY 3.0) se levanta en «Holt» (~8.4 s), fuente «Foto: Archivo Nacional de Australia · 1966» · Holt en Portsea preparándose para pescar con arpón, 1966 (Wikimedia Commons «Harold Holt at Portsea.jpg», dominio público) se levanta en «bucear» (~17.3 s) · la piscina Harold Holt en Glen Iris, Melbourne, 2007 (Wikimedia Commons «Harold Holt Swim Centre.JPG», dominio público) se levanta en «piscina» (~50 s), fuente «Foto: Wikimedia Commons · 2007». La fuente se achica sola para caber en el ancho de la foto.
+Clips reales (cuántos, de dónde, cuánto duran, cómo entran): 2 · del mismo noticiero «ABC News: PM Harold Holt Feared Drowned (1967)» (YouTube yTHSTFhK26g, ABCLibrarySales): las olas rompiendo en las rocas de Cheviot (segundo 154-157.6, contraste y gamma para que no se queme) por los binoculares de un amigo (13.8-17.2 s) · la búsqueda desde el aire, un bote que da vueltas en el mar picado (segundo 144.5-148.3) por la ventana redonda del helicóptero (31.8-35 s). Recortados con crop=272:280:10:4 para sacar el logo de ABC Archives. Fuente en los dos: «Video: ABC News (Australia) · 1967».
+Subtítulos (estilo, tamaño, posición): Lilita One 84 px, hasta 3 palabras, la que suena en amarillo #ffd23f, borde tinta, y=1580, sin «...», «:», «*» ni coma o punto final.
+Música (cuál y a qué volumen): historia.mp3 al 32 % con sidechain a la voz, se apaga en los últimos 2 s.
+Efectos de sonido (cuántos y en qué palabras): 14 · papel-despliega al inicio, whoosh-corto en cada iris (Australia, amigos, recordarlo), whoosh-grave en el iris de «buscaron», papel-despliega en cada foto (Holt, bucear, piscina), whoosh-cine al entrar a los binoculares y al helicóptero, carton-pone en «meses» (letrero), subdrop en «pronto» (se hunde), pop en «rumores», golpe-seco en «concluyó» (mazo). Sin braam ni golpe al final.
+Audio original de los clips: los 2, al 35 % (volumen 0,55 en la mezcla, fundidos de 0,3/0,4 s).
+Silencios: no.
+Transiciones y cámara (cómo cambia y cada cuánto): 5 iris de papel entre lugares (la prueba) + 2 iris a los clips; dentro de cada lugar, paneo suave con respiración; cambia cada 2-3 s; la escena del recuerdo se tiñe de sepia (multiply) de «meses» a «amigos».
+El primer segundo (qué se ve y qué se mueve): la playa con olas que se mueven y Holt (traje de baño, máscara y tubo) caminando hacia el agua.
+Portada (escena y titular): el clímax (26.7 s): los tres amigos con la boca abierta en la orilla y Holt hundiéndose con burbujas, escena subida 110 px; placas «EL PRIMER MINISTRO FUE A NADAR» (amarilla) y «¿Y NUNCA LO ENCONTRARON?» (tinta). portada_ms 26700.
+Texto de la publicación: «1967: el primer ministro de Australia se fue a nadar… y en casi 59 años nadie volvió a verlo.» (97 caracteres; es el título de YouTube) + «Fuentes: Archivo Nacional de Australia (NAA) · SBS News (2017)» + #HaroldHolt #historiareal #australia #misterio #enserio
+
+== PALANCAS == (copiado de etiquetas.json; ★ = se probó a propósito en este video)
+Modo: explorar · Pruebas: transicion, texto_pub, cierre
+Historia: Tema: política · Época: siglo XX · Dónde pasó: África/Oceanía · Tono: suspenso
+Texto: Tipo de gancho: dato imposible · Primera palabra: este/esta · Cómo se desarrolla: cronológico · Giros: 2 · Narrador: tercera persona · Quién habla: solo narrador · ★ Frase final: giro final · Llamado al público: no
+Edición y sonido: ★ Transición: iris que se abre · Cada cuánto cambia la imagen: medio (2-3 s) · Cámara: paneo suave · Fotos + clips reales: 4-5 · Cómo entra lo real: mezcla · Letreros en pantalla: pocos · El primer segundo: ya en movimiento · Subtítulos: Lilita 84 px abajo · Música: historia (la de siempre) · Volumen de música: media (≈32 %) · Efectos de sonido: normales (7-14) · Audio original del clip: bajito (≈35 %) · Silencio antes del giro: no
+Voz, duración, portada: Duración: 50-60 s · Pausas de la voz: rapido · Velocidad de la voz: 1.07 · Escena de portada: el clímax · Titular de portada: afirmación + pregunta · ★ Texto de la publicación: cifra
+Publicación: Hora de subida: mañana (7-10)
+
+== QUÉ SE PROBÓ ==
+Modo del laboratorio: explorar (3 pruebas, una por grupo)
+Lo que se repitió de los ganadores (y de cuál): todavía 0 piezas con 48 h. Se repitió la base de 001-007: gancho «dato imposible» con «Este» (como 005/007), cronológico, 2 giros, solo narrador, ritmo rápido a 1.07, 4-5 reales (fotos que se levantan + clips dentro de un objeto del mundo), música al 32 %, 50-60 s. Para no repetir al 007: otro gancho (no contradicción), voz a 1.07 (no 1.17), música al 32 % (no 45 %), letreros pocos.
+Lo nuevo que se probó en este video:
+- transicion · cámara entra por un objeto → iris que se abre · nunca probado: cada cambio de lugar es un círculo de papel que se abre desde un punto (el sol, la cara de Holt, donde se hundió) en vez de que la cámara viaje o se meta por algo.
+- cierre · dato que remata → giro final · nunca probado: la piscina con su nombre se guarda hasta la última palabra («...a una piscina»); no se menciona antes en ningún lado (ni en la portada ni en el texto).
+- texto_pub · afirmación que intriga → cifra · nunca probado: el texto arranca con «1967:» y cierra con «casi 59 años».
+Hipótesis (qué espero que pase): el iris hace los cambios de lugar más claros y con más ritmo que la cámara viajando (más retención en el medio del video); el giro final de la piscina da comentarios («¿en serio?», «qué ironía») y compartidos. Riesgo: el iris puede sentirse repetido (5 veces) y la cifra en el texto puede intrigar menos que una afirmación.
+
+== RESULTADO (se llena después; lo actualiza la rutina) ==
+48 h · TikTok: ___  Instagram: ___  YouTube: ___  Retención IG: ___
+Lectura: (¿ganó, perdió? ¿por qué creo?)
+
+== GUION COMPLETO ==
+# 008. El primer ministro que se fue a nadar · Cheviot Beach (Portsea, Australia), 17 de diciembre de 1967
+# Fuentes: 1) National Archives of Australia, «Harold Holt's disappearance» (fact sheet 144) y «Australia's Prime Ministers · Harold Holt · After office»  2) SBS News, «Harold Holt: the Australian prime minister who disappeared» (aniversario, 2017). Apoyo: Wikipedia «Disappearance of Harold Holt» (casi se ahoga en mayo de 1967 en la misma playa; búsqueda de más de 340 personas; forense de 2005).
+# Nadie habla con frases inventadas: solo el narrador. Las teorías (espía, submarino chino) se dicen como rumores que nunca se probaron (el historiador Tom Frame: «especulación fantasiosa»).
+# Formato: QUIEN [emoción]: texto  ·  ... = pausa larga  ·  *palabra* = con fuerza
+NARRADOR [misterio]: Este primer ministro se metió al mar un domingo al mediodía. *Nunca* más lo volvieron a ver.
+NARRADOR [tension]: Australia, diciembre de mil novecientos sesenta y siete. Harold Holt tenía cincuenta y nueve años y fue con unos amigos a una playa salvaje.
+NARRADOR [confidencial]: Las olas estaban enormes. Nadie más quiso entrar. Pero a él le encantaba bucear... y se metió igual.
+NARRADOR [asombro]: Lo raro es que, meses antes, casi se ahoga en esa *misma* playa.
+NARRADOR [tension]: Sus amigos lo vieron nadar mar adentro... y de pronto, ya no estaba.
+NARRADOR [asombro]: Lo buscaron cientos de personas, con buzos, barcos y helicópteros. Una de las búsquedas más grandes de Australia.
+NARRADOR [confidencial]: Su cuerpo nunca apareció. Y empezaron los rumores: que era un espía, que se lo llevó un submarino chino... Nada de eso se probó.
+NARRADOR [solemne]: En dos mil cinco, la justicia concluyó que se ahogó.
+NARRADOR [cierre]: Y para recordarlo, en Melbourne le pusieron su nombre... a una *piscina*.
+
+== CÓMO SE ARMÓ ==
+1. Historia: la #2 de hoy.md del 27/11 (la dejó el video 1). ya_hecho.py "Harold Holt" "Cheviot" "primer ministro" → nuevo (con «Australia» solo salían la guerra de los emús del banco y una fuente del 005). Se tachó en banco.md. Lugar en la cola dado por la central: DIA 2026-11-27, VIDEO 2.
+2. Material: 3 fotos de Wikimedia Commons (dos originales grandes dieron HTML; se bajaron como miniatura de 1280 px con otro User-Agent; al final se usó la de 2007, de dominio público). El noticiero ABC de 1967 con yt-dlp --js-runtimes node a 480p (352x288, logo ABC Archives abajo a la derecha): hojas de fotogramas cada 5 s y después cada segundo para elegir; clips a fotogramas (fps=30) con crop=272:280:10:4.
+3. Voz: voces.py . qwen rapido 1.07 → 50.8 s de voz (52.05 con la cola). Las líneas con números (1967, 59, 2005) y «con buzos» (Whisper oyó «kombuzos») quedaban con tiempos repartidos parejos: se volvió a correr faster-whisper en CPU (en CUDA falla por cublas64_12.dll) y se realinearon las palabras expandiendo los números a sus palabras. 149 de 149 palabras con su tiempo.
+4. Película: plantilla.html nueva entera: vista() con iris (keyframe con {cx, cy}: se pinta el mundo dos veces, el nuevo dentro de un círculo que crece en 0,55 s con borde de papel), persona() nueva (pelo canoso de Holt, máscara y tubo, binoculares, brazos que se agitan, traje y traje de baño), nadador() (el mismo títere; el agua de adelante le tapa el cuerpo), parlamento, acantilados, bote, buzos, helicóptero con hélice que gira, sombrero de espía, submarino, mesa con expediente y mazo, piscina con andariveles y nadadores, letrero que achica la letra sola, fotoPalo con la fuente que se achica sola, visorBinoculares y visorHeli. construir.py: 14 efectos, música 0.32, audio de los 2 clips.
+5. Lo que se vio mal en las hojas y se arregló (5 renders + snapshots): todo muy cerca y medio cielo vacío (zoom 1.2 → 0.9-1.0 y la cámara más abajo); el letrero de 1967 se cortaba a la izquierda y quedaba detrás de Holt (ahora se hunde antes de que suba Holt); la foto de Holt se cortaba a la derecha y su fuente no cabía; los amigos amontonados y cortados en el borde (más separados, más chicos, y se van cuando sube la foto de Portsea); «MAYO 1967» se salía del cartel (la letra se achica sola); la orilla tenía un corte vertical entre la arena y el agua (ahora la arena baja en diagonal); el sombrero de espía encima del submarino (separados); el mar vacío en «buscaron» (el bote y los buzos aparecen ya en «buscaron»/«cientos»); el helicóptero cortado al borde en «cuerpo» (ahora se va volando) y el bote cortado en el paneo (los rescatistas se hunden justo antes); la foto de la piscina tapaba el cartel (más abajo y a la derecha); una franja de mar al borde izquierdo de Melbourne (MEL más a la derecha).
+6. Render: hyperframes 0.8.33, ~1 min 30 s, 26 MB. revisar_celeste.py: 1562 cuadros, 0 vacíos, todo bien. ffmpeg sin errores de principio a fin; duración 52.07 s (la voz con su cola da 52.05). La mezcla dio −14.9 LUFS: se subió +0.9 dB con limitador → −14.0 LUFS. Se miraron las 5 hojas (un fotograma por segundo) del render final.
+7. Portada: snapshot de hyperframes en 26.7 s con SUBS = false, escena subida 110 px (relleno abajo con la misma arena y agua), portada.py con las dos placas.

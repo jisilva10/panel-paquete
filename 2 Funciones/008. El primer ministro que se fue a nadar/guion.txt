@@ -1,0 +1,13 @@
+# 008. El primer ministro que se fue a nadar · Cheviot Beach (Portsea, Australia), 17 de diciembre de 1967
+# Fuentes: 1) National Archives of Australia, «Harold Holt's disappearance» (fact sheet 144) y «Australia's Prime Ministers · Harold Holt · After office»  2) SBS News, «Harold Holt: the Australian prime minister who disappeared» (aniversario, 2017). Apoyo: Wikipedia «Disappearance of Harold Holt» (casi se ahoga en mayo de 1967 en la misma playa; búsqueda de más de 340 personas; forense de 2005).
+# Nadie habla con frases inventadas: solo el narrador. Las teorías (espía, submarino chino) se dicen como rumores que nunca se probaron (el historiador Tom Frame: «especulación fantasiosa»).
+# Formato: QUIEN [emoción]: texto  ·  ... = pausa larga  ·  *palabra* = con fuerza
+NARRADOR [misterio]: Este primer ministro se metió al mar un domingo al mediodía. *Nunca* más lo volvieron a ver.
+NARRADOR [tension]: Australia, diciembre de mil novecientos sesenta y siete. Harold Holt tenía cincuenta y nueve años y fue con unos amigos a una playa salvaje.
+NARRADOR [confidencial]: Las olas estaban enormes. Nadie más quiso entrar. Pero a él le encantaba bucear... y se metió igual.
+NARRADOR [asombro]: Lo raro es que, meses antes, casi se ahoga en esa *misma* playa.
+NARRADOR [tension]: Sus amigos lo vieron nadar mar adentro... y de pronto, ya no estaba.
+NARRADOR [asombro]: Lo buscaron cientos de personas, con buzos, barcos y helicópteros. Una de las búsquedas más grandes de Australia.
+NARRADOR [confidencial]: Su cuerpo nunca apareció. Y empezaron los rumores: que era un espía, que se lo llevó un submarino chino... Nada de eso se probó.
+NARRADOR [solemne]: En dos mil cinco, la justicia concluyó que se ahogó.
+NARRADOR [cierre]: Y para recordarlo, en Melbourne le pusieron su nombre... a una *piscina*.
