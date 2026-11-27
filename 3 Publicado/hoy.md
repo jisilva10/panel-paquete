@@ -1,34 +1,36 @@
-# Hoy · 28/11/2026
+# Hoy · 29/11/2026
 
-Las 3 mejores historias del día, de 3 temas distintos (ninguno de los del 27/11: crimen, política, inventos y ciencia). La armó la central en la madrugada del 27/11 (video 1 del 28/11, hecho con adelanto).
-Nada de Japón ni II Guerra, nada de París; tres países distintos (EE. UU., Gales, Ecuador).
-Candidatas revisadas: 11 (abajo). Las búsquedas de tendencias de hoy (Google Trends MX/CO/AR, noticias insólitas) no dieron una historia con giro: lo más comentado en la región (fútbol, Infonavit, la gasolina mala de Bolivia) no tiene «¿en serio?» o está en disputa.
+Las 3 mejores historias del día, de 3 temas distintos (ninguno de los del 28/11: historia absurda, error de millones, latinoamérica). La armó la central en la madrugada del 27/11 (video 1 del 29/11, hecho con adelanto).
+Tres países distintos (Escocia/Honduras, EE. UU./Taiwán, España). Nada de Japón, nada de Ecuador, nada de Gales.
+Candidatas revisadas: 11 (abajo). Tendencias buscadas: UPI Odd News 20-25/11, Infobae América 26-27/11, Google Trends MX/CO (sin fecha útil), noticias insólitas y estafas de la semana. Lo más comentado con historia detrás: la salida de Jensen Huang de Nvidia (Trump dijo esta semana que le gustaría que volviera).
 
-## #1 · VIDEO 1 · franja tarde (14-17, cerca de las 15:30) · El pollo que vivió sin cabeza
-- Tema: historia absurda (nunca salió). Fruita, Colorado (EE. UU.), 10/09/1945: el granjero Lloyd Olsen le cortó la cabeza a un gallo para la cena, pero el hacha no tocó la vena yugular y le dejó casi todo el tronco del cerebro. Mike siguió caminando y «picoteando». Olsen lo alimentó con un gotero (leche y agua) 18 meses; salió en Time y Life, recorrió ferias (25 centavos la entrada, hasta 4.500 dólares al mes) y murió ahogado en un motel de Phoenix en 1947 porque se olvidaron la jeringa. Fruita le hace un festival cada año desde 1999. Guinness: el pollo sin cabeza que más vivió.
-- Por qué: el «¿en serio?» más puro, cabe en 20-30 s (la prueba de duración de hoy) y deja guardar el misterio hasta el final (prueba «misterio que se revela al final»). Tono chistoso con algo de asombro.
-- Fuentes: 1) BBC News, «The chicken that lived for 18 months without a head» (10/09/2015)  2) Wikipedia «Mike the Headless Chicken» (cita Time, 29/10/1945).
+## #1 · VIDEO 1 · franja mediodía (11-13, cerca de las 12:00) · El país que nunca existió
+- Tema: golpe/estafa. Londres, 1822: el escocés Gregor MacGregor, que volvía de pelear en las guerras de independencia de Sudamérica, se presentó como «Cazique de Poyais», un país en la costa de Honduras con capital, Saint Joseph, que según su guía tenía bulevares, un teatro, una ópera y una catedral. Vendió tierras, un préstamo de 200.000 libras e imprimió sus propios billetes (los colonos cambiaron su plata de verdad por esos). Unos 250 colonos zarparon y encontraron selva; más de la mitad murió. Lo intentó otra vez en Francia, lo juzgaron y salió absuelto. Murió en Caracas en 1845, enterrado con honores militares en la catedral.
+- Por qué: el «¿en serio?» se entiende en un segundo (vendió un país que no existía), deja el gancho de cifra gigante (la prueba de hoy) y se cuenta casi sin fotos (la prueba «0-1 reales»: solo su retrato de época y el billete). La cara del protagonista va en la portada (prueba).
+- Fuentes: 1) Wikipedia «Gregor MacGregor» (con Sinclair, *The Land That Never Was*, 2003)  2) Historic UK, «Gregor MacGregor, Prince of Poyais».
 
-## #2 · VIDEO 2 · franja noche tarde (21-23, cerca de las 21:45) · El hombre que tiró 8.000 bitcoins a la basura
-- Tema: error de millones (nunca salió). Newport (Gales), 2013: James Howells tiró por error un disco duro con 8.000 bitcoins; más de 10 años pidiendo excavar el basurero (ofreció repartir con la ciudad, drones, robots); en 2025 un juez cerró su caso. Contar el valor con la cifra del día (con fuente).
-- Fuentes: 1) BBC News (Howells y el basurero de Newport)  2) The Guardian.
+## #2 · VIDEO 2 · franja mañana (7-10, cerca de las 08:30) · El hombre que fundó Nvidia en un Denny's y se fue en un día
+- Tema: noticia/tendencia. Jensen Huang, que fundó Nvidia en 1993 en un restaurante Denny's y la hizo una de las empresas más valiosas del mundo, renunció este mes tras 33 años al mando; la acción cayó más de 4 % y esta semana Trump dijo que le gustaría que volviera. Contar la historia detrás (el Denny's, el chico que llegó de Taiwán, la empresa) y por qué se fue solo con lo que dicen las noticias: **nada de lo sexual ni nombres**, sin difamar; lo de seguridad nacional solo como lo dijeron la empresa, China y Trump.
+- Por qué: es lo que todos comentan esta semana; llegar a tiempo suma. Si a la hora del video 2 ya no se sostiene con dos medios, va la reserva.
+- Fuentes: 1) Univision, «Jensen Huang se va de Nvidia…»  2) Telemundo/NBC News (Megan Brand y Rob Wile) · y Primera Hora / TVN-2 (lo que dijo Trump).
 
-## #3 · VIDEO 3 · franja noche (18-20, cerca de las 19:00) · El astronauta que bajó a una cueva de Ecuador
-- Tema: latinoamérica. 1976: siete años después de pisar la Luna, Neil Armstrong fue presidente honorario de una expedición británico-ecuatoriana a la Cueva de los Tayos (Morona Santiago), buscando la «biblioteca de metal» que Juan Moricz y Erich von Däniken decían que había adentro. No encontraron ninguna biblioteca. Contar las teorías solo como «lo que se dijo»; nada religioso.
-- Fuentes: 1) Wikipedia «Cueva de los Tayos» / «Tayos Cave»  2) BBC Mundo o El Comercio (Ecuador) sobre la expedición de 1976.
+## #3 · VIDEO 3 · franja tarde (14-17, cerca de las 15:30) · El espía que inventó 27 espías
+- Tema: persona increíble. Juan Pujol García, «Garbo», barcelonés: los alemanes lo contrataron como espía en Londres y él se inventó una red de 27 agentes que no existían (cobraba sus sueldos). Engañó a Hitler sobre el desembarco de Normandía y recibió medallas de los dos bandos: la Cruz de Hierro alemana y la orden del Imperio británico. Fingió su muerte en África.
+- Por qué: giro imposible, sin violencia, de España (país nuevo). Nada de batallas: es un engaño.
+- Fuentes: 1) Wikipedia «Juan Pujol García»  2) MI5, «Garbo» (mi5.gov.uk).
 
-## Reserva 1 · El panadero que sobrevivió al Titanic
-- Tema: persona increíble. Charles Joughin, jefe de panaderos del Titanic, estuvo horas en el agua helada y sobrevivió; él dijo que había tomado whisky.
-- Fuentes: 1) Wikipedia «Charles Joughin»  2) Encyclopedia Titanica.
+## Reserva 1 · El robo del Louvre en siete minutos
+- Tema: crimen. 19/10/2025: entraron al Louvre con un montacargas por una ventana y se llevaron joyas de la corona francesa en unos 7 minutos. Contar lo que se sabe hoy con la fuente del día.
+- Fuentes: 1) Infobae (19/10/2026, un año después)  2) Telemundo / AP.
 
-## Reserva 2 · El país que nunca existió
-- Tema: golpe/estafa. Gregor MacGregor (1822) vendió tierras, bonos y hasta puestos en «Poyais», un país inventado en la costa de Honduras; cientos de colonos zarparon y se encontraron con selva. Guiño latino.
-- Fuentes: 1) Wikipedia «Gregor MacGregor»  2) BBC / Smithsonian (Poyais).
+## Reserva 2 · La guerra del cerdo
+- Tema: política. Isla San Juan, 1859: un granjero de EE. UU. mató a un cerdo de un irlandés de la compañía británica y los dos países llevaron barcos y soldados; la única víctima fue el cerdo.
+- Fuentes: 1) Wikipedia «Pig War»  2) National Park Service (San Juan Island).
 
 ## Las otras candidatas (descartadas hoy)
-- La plaga del baile (Estrasburgo, 1518): historia absurda, como el #1. Otro día.
-- La inundación de melaza (Boston, 1919): absurda y trágica; mismo tema que el #1. Queda en el banco.
-- Garbo, el espía de los 27 espías: II Guerra, y YouTube frena la guerra (005 y 006). Más adelante.
-- La guerra del cerdo (1859): política salió el 27/11. Queda en el banco.
-- Ajedrez a 6.277 m en el Chimborazo: tendencia de Ecuador, pero sin giro y el #3 ya es de Ecuador.
-- Gasolina mala en Bolivia (más de 10.000 autos dañados, el Gobierno habla de sabotaje): cifras en disputa, sin historia clara.
+- El panadero del Titanic (Charles Joughin): persona increíble, británico como el #1. Otro día.
+- Baby Face Nelson (Infobae 26/11): crimen, el gánster que más agentes del FBI mató; violento y de EE. UU. como el #2.
+- El Slinky (Infobae 26/11): inventos; el inventor dejó todo por una secta (religioso): no.
+- El Super Mario de 1985 vendido en 96.875 dólares (UPI 25/11): cifra sin giro.
+- Ajedrez en el Chimborazo (UPI 24/11): sin giro y Ecuador salió el 28/11.
+- La plaga del baile (1518) y la melaza de Boston (1919): historia absurda, salió el 28/11.
