@@ -1,0 +1,681 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="vendor/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Lilita"; src: url("fuentes/LilitaOne-Regular.ttf"); }
+      @font-face { font-family: "Rye"; src: url("fuentes/Rye-Regular.ttf"); }
+      @font-face { font-family: "Bagel"; src: url("fuentes/BagelFatOne-Regular.ttf"); }
+      html, body { margin: 0; background: #8cc6e8; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #8cc6e8; }
+      canvas { position: absolute; inset: 0; }
+      .pre { position: absolute; left: -999px; font-size: 10px; }
+    </style>
+  </head>
+  <body>
+    <div class="pre" style="font-family: Lilita">a</div><div class="pre" style="font-family: Rye">a</div><div class="pre" style="font-family: Bagel">a</div>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="__DURA__" data-width="1080" data-height="1920">
+      <canvas id="lienzo" class="clip" width="1080" height="1920" data-start="0" data-duration="__DURA__" data-track-index="1"></canvas>
+      <audio id="mezcla" src="mezcla.wav" data-start="0" data-duration="__DURA__" data-track-index="30" data-volume="1"></audio>
+    </div>
+    <script>
+      const T = __TIEMPOS__;
+      const SIN_SUBS = __SINSUBS__;
+      // ================= utilidades =================
+      const cl = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+      const prog = (t, a, b) => cl((t - a) / (b - a));
+      const eOut = (x) => 1 - Math.pow(1 - x, 3);
+      const eIO = (x) => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2);
+      const eBack = (x) => { const c = 1.9; return x <= 0 ? 0 : 1 + (c + 1) * Math.pow(x - 1, 3) + c * Math.pow(x - 1, 2); };
+      const lerp = (a, b, k) => a + (b - a) * k;
+      const INK = "#2b1e2e", PAPEL = "#fff8ea", AMARILLO = "#ffd23f";
+      function rnd(s) { s = Math.sin(s * 127.1 + 311.7) * 43758.5453; return s - Math.floor(s); }
+      const norm = (s) => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]/g, "");
+      const PAL = T.lineas.flatMap((l) => l.palabras.map((w) => ({ ...w, n: norm(w.p) })));
+      function W(p, k = 1) { const n = norm(p); let c = 0; for (const w of PAL) if (w.n === n && ++c === k) return w.a; throw new Error("falta la palabra " + p + " #" + k); }
+      const boca = (t) => { const l = T.lineas.find((l) => t >= l.ini && t <= l.fin); return l ? T.boca[Math.min(T.boca.length - 1, Math.round(t * T.fps))] || 0 : 0; };
+      // entra (eBack) y sale (hacia abajo) — 0..1
+      const sube = (t, a, b = 1e9, d = 0.35) => Math.min(eBack(prog(t, a, a + d)), 1 - eOut(prog(t, b, b + 0.35)));
+
+      // recorte de papel: dibuja aparte, borde blanco y sombra
+      const capas = {};
+      function recorte(ctx, id, w, h, ox, oy, dibujar, x, y, rot = 0, esc = 1, fx = 1, escY = 1) {
+        let c = capas[id];
+        if (!c) { c = capas[id] = { a: document.createElement("canvas"), b: document.createElement("canvas") }; c.a.width = c.b.width = w; c.a.height = c.b.height = h; }
+        const a = c.a.getContext("2d"), b = c.b.getContext("2d");
+        a.clearRect(0, 0, w, h); a.save(); a.translate(ox, oy); a.lineJoin = a.lineCap = "round"; dibujar(a); a.restore();
+        b.globalCompositeOperation = "source-over"; b.clearRect(0, 0, w, h); b.drawImage(c.a, 0, 0);
+        b.globalCompositeOperation = "source-in"; b.fillStyle = PAPEL; b.fillRect(0, 0, w, h);
+        ctx.save(); ctx.translate(x, y); ctx.rotate(rot); ctx.scale(esc * fx, esc * escY); ctx.translate(-ox, -oy);
+        ctx.shadowColor = "rgba(30,15,10,.35)"; ctx.shadowBlur = 20; ctx.shadowOffsetX = 8; ctx.shadowOffsetY = 14;
+        ctx.drawImage(c.b, 0, 0); ctx.shadowColor = "transparent";
+        for (let k = 0; k < 12; k++) { const an = (k / 12) * Math.PI * 2; ctx.drawImage(c.b, Math.cos(an) * 8, Math.sin(an) * 8); }
+        ctx.drawImage(c.a, 0, 0); ctx.restore();
+      }
+      function forma(g, fill, path, lw = 5) { g.beginPath(); path(g); g.fillStyle = fill; g.fill(); g.lineWidth = lw; g.strokeStyle = INK; g.stroke(); }
+      function palito(g, x, y, rot = 0, largo = 520) { g.save(); g.translate(x, y); g.rotate(rot); forma(g, "#8a5a32", (p) => p.roundRect(-10, 0, 20, largo, 8), 4); g.restore(); }
+      function texto(g, s, x, y, font, color, align = "center", stroke = 0) { g.save(); g.font = font; g.textAlign = align; g.textBaseline = "middle"; if (stroke) { g.lineWidth = stroke; g.strokeStyle = INK; g.lineJoin = "round"; g.strokeText(s, x, y); } g.fillStyle = color; g.fillText(s, x, y); g.restore(); }
+
+      // ================= el mundo: la Luna arriba, la selva de Morona Santiago, el pozo y la cueva abajo =================
+      const GY = 1250;                                   // el suelo de la selva
+      const MOON_X = 600, MOON_Y = -2500, MOON_R = 560;  // la Luna (Armstrong camina encima)
+      const CUEVA_X = 1500, BOCA = 160;                  // el pozo de la cueva (mitad del ancho)
+      const FONDO = 3250, TECHO = FONDO - 900;           // el piso y el techo de la gran sala de abajo
+      const SALA_A = 1080, SALA_B = 2760;                // paredes de la sala
+      const BIBLIO_X = 2250;                             // donde «decían» que estaba la biblioteca
+      const EXPLO_X = 1060, LIBRO_X = 560, CARTEL_X = 2020;
+      const ROCA_X = 2250, CAMARO_X = 3000;
+      const CAMPO_X = 3350, HELI_X = 4800;
+      const BASE = GY + 170, BASE2 = FONDO + 170;        // pies de los títeres arriba y abajo
+
+      const cargarClip = (dir, n) => { const a = []; for (let i = 1; i <= n; i++) { const im = new Image(); im.src = `clips/${dir}/${String(i).padStart(3, "0")}.jpg`; a.push(im); } return a; };
+      const CLIP_POZO = cargarClip("pozo", 102), CLIP_LLEGA = cargarClip("llegada", 96);
+      const FOTO_SUETER = new Image(); FOTO_SUETER.src = "fotos/sueter.jpg";
+      const FOTO_CUEVA = new Image(); FOTO_CUEVA.src = "fotos/cueva.jpg";
+      const FOTO_HALLAZGOS = new Image(); FOTO_HALLAZGOS.src = "fotos/hallazgos.jpg";
+
+      // momentos (salen de las palabras)
+      const M = {};
+      function momentos() {
+        M.luna = W("luna", 1); M.siete = W("siete"); M.despues = W("despues"); M.bajo1 = W("bajo", 1); M.ecuador = W("ecuador", 1); M.biblio1 = W("biblioteca", 1); M.metal1 = W("metal", 1);
+        M.mil = W("mil"); M.tayos = W("tayos"); M.morona = W("morona"); M.hueco = W("hueco"); M.setenta = W("setenta", 2); M.metros = W("metros"); M.pajaros = W("pajaros"); M.noche = W("noche");
+        M.explorador = W("explorador"); M.abajo = W("abajo"); M.hojas = W("hojas"); M.historia = W("historia"); M.grabada = W("grabada"); M.libro = W("libro"); M.extra = W("extraterrestres");
+        M.ecuador2 = W("ecuador", 2); M.reino = W("reino"); M.expedicion = W("expedicion"); M.cien = W("cien"); M.militares = W("militares"); M.heli = W("helicopteros"); M.presidente = W("presidente"); M.neil = W("neil"); M.armstrong = W("armstrong");
+        M.bajo2 = W("bajo", 2); M.escalera = W("escalera"); M.fondo = W("fondo"); M.cueva3 = W("cueva", 3);
+        M.biblio2 = W("biblioteca", 2); M.no = W("no"); M.estaba = W("estaba"); M.encontraron = W("encontraron"); M.tarantulas = W("tarantulas"); M.vasijas = W("vasijas"); M.miles = W("miles"); M.pero = W("pero"); M.hoja = W("hoja"); M.metal4 = W("metal", 4);
+        M.eso = W("eso"); M.video = W("video"); M.primer = W("primer"); M.camino2 = W("camino", 2); M.luna2 = W("luna", 2); M.resbalo = W("resbalo"); M.piedra = W("piedra"); M.mojada = W("mojada"); M.fin = T.dura;
+        // los dos clips: el pozo de verdad (se entra por la boca de la cueva) y la llegada de Armstrong (por el visor de la cámara de 1976)
+        M.pozoIn = M.bajo2 + 0.45; M.pozoOut = Math.max(M.pozoIn + 2.4, M.fondo - 0.05);
+        M.llegaIn = M.video + 0.15; M.llegaOut = Math.max(M.llegaIn + 2.6, M.luna2 - 0.05);
+      }
+
+      // ---------- la cámara ----------
+      function camara(t) {
+        const K = [
+          [0, MOON_X - 40, MOON_Y - MOON_R - 330, 1.25],
+          [M.luna - 0.1, MOON_X + 20, MOON_Y - MOON_R - 330, 1.12],
+          [M.siete - 0.1, MOON_X, MOON_Y - 260, 0.62],                  // se ve la Luna entera
+          [M.despues + 0.3, CUEVA_X - 300, -700, 0.62],                  // cae por el cielo entre las nubes
+          [M.bajo1 + 0.3, CUEVA_X, GY - 260, 0.78],                       // la selva de Ecuador
+          [M.ecuador + 0.2, CUEVA_X, GY - 160, 1.0],
+          [M.biblio1 - 0.1, CUEVA_X, GY - 330, 1.18],
+          [M.mil + 0.1, CUEVA_X + 330, GY - 290, 1.02],
+          [M.tayos, CUEVA_X + 330, GY - 260, 1.04],
+          [M.hueco + 0.1, CUEVA_X + 120, GY + 820, 0.5],                 // todo el pozo hasta la sala
+          [M.pajaros - 0.1, CUEVA_X, GY - 280, 1.0],
+          [M.noche, CUEVA_X, GY - 420, 0.86],
+          [M.explorador, EXPLO_X + 180, GY - 290, 1.12],
+          [M.abajo + 0.1, (SALA_A + SALA_B) / 2 + 80, FONDO - 420, 0.74],  // allá abajo (lo que se dijo)
+          [M.libro - 0.1, LIBRO_X + 120, GY - 300, 1.06],
+          [M.extra, LIBRO_X + 120, GY - 470, 0.98],
+          [M.ecuador2 + 0.1, CAMPO_X - 300, GY - 280, 0.98],
+          [M.cien + 0.1, CAMPO_X + 120, GY - 360, 0.74],
+          [M.militares, CAMPO_X + 800, GY - 300, 0.92],
+          [M.heli + 0.2, HELI_X + 560, GY - 480, 0.8],
+          [M.presidente + 0.1, HELI_X - 20, GY - 300, 0.98],
+          [M.bajo2 - 0.85, HELI_X - 40, GY - 300, 1.0],
+          [M.bajo2 + 0.1, CUEVA_X, GY - 160, 1.15],
+          [M.pozoIn + 0.3, CUEVA_X, GY + 40, 5.5],                       // se mete por la boca de la cueva
+          [M.pozoIn + 0.31, CUEVA_X + 460, FONDO - 260, 1.02],          // (detrás del clip ya estamos abajo)
+          [M.fondo + 0.4, CUEVA_X + 460, FONDO - 260, 1.02],
+          [M.biblio2 - 0.1, 2030, FONDO - 260, 0.96],
+          [M.no + 0.1, 2050, FONDO - 250, 1.04],
+          [M.tarantulas - 0.1, 1980, FONDO - 240, 1.08],
+          [M.vasijas, 2250, FONDO - 250, 0.92],
+          [M.pero + 0.1, 2250, FONDO - 250, 0.92],
+          [M.hoja + 0.1, 2050, FONDO - 250, 1.04],
+          [M.eso + 0.3, ROCA_X + 200, GY - 270, 0.95],
+          [M.video - 0.05, CAMARO_X - 150, GY - 330, 1.12],
+          [M.llegaIn + 0.25, CAMARO_X - 295, BASE - 380, 5.5],            // se mete por el visor de la cámara
+          [M.llegaIn + 0.26, ROCA_X - 120, GY - 300, 1.1],
+          [M.luna2, ROCA_X - 60, GY - 300, 1.12],
+          [M.resbalo + 0.2, ROCA_X + 140, GY - 300, 1.16],
+          [M.mojada + 0.2, ROCA_X + 220, GY - 320, 1.2],
+          [M.fin, ROCA_X + 200, GY - 640, 0.82],
+        ];
+        let i = 0; while (i < K.length - 1 && t > K[i + 1][0]) i++;
+        const a = K[i], b = K[Math.min(i + 1, K.length - 1)];
+        const dur = Math.min(1.1, Math.max(0.01, b[0] - a[0]));
+        const k = b === a ? 0 : eIO(prog(t, b[0] - dur, b[0]));
+        let x = lerp(a[1], b[1], k), y = lerp(a[2], b[2], k), z = Math.exp(lerp(Math.log(a[3]), Math.log(b[3]), k));
+        x += Math.sin(t * 0.5) * 6; y += Math.cos(t * 0.4) * 4;
+        const sac = prog(t, M.resbalo, M.resbalo + 0.05) * (1 - prog(t, M.resbalo + 0.05, M.resbalo + 0.6));
+        x += Math.sin(t * 80) * 10 * sac; y += Math.cos(t * 70) * 8 * sac;
+        return { x, y, z };
+      }
+      const noche = (t) => prog(t, M.noche - 0.5, M.noche) * (1 - prog(t, M.explorador - 0.4, M.explorador));
+
+      // ---------- cielo: del espacio (arriba) al cielo de la selva ----------
+      function cielo(g, t, cam) {
+        const sp = cl((-cam.y - 300) / 1900);
+        const top = [lerp(127, 14, sp), lerp(190, 18, sp), lerp(226, 44, sp)], bot = [lerp(214, 32, sp), lerp(236, 30, sp), lerp(222, 70, sp)];
+        const gr = g.createLinearGradient(0, 0, 0, 1920);
+        gr.addColorStop(0, `rgb(${top.map(Math.round)})`); gr.addColorStop(1, `rgb(${bot.map(Math.round)})`);
+        g.fillStyle = gr; g.fillRect(0, 0, 1080, 1920);
+        const n = noche(t);
+        if (n > 0) { g.fillStyle = `rgba(16,20,52,${0.85 * n})`; g.fillRect(0, 0, 1080, 1920); }
+        const est = Math.max(sp, n);
+        if (est > 0) {
+          g.save(); g.globalAlpha = est;
+          for (let i = 0; i < 110; i++) { const x = (rnd(i) * 1300 - cam.x * 0.05) % 1300 - 110, y = (rnd(i + 50) * 2100 - cam.y * 0.04) % 2100 - 90; g.fillStyle = "#fff6d8"; const r = 2 + rnd(i + 9) * 4 * (0.8 + 0.2 * Math.sin(t * 3 + i)); g.beginPath(); g.arc(x < 0 ? x + 1300 : x, y < 0 ? y + 2100 : y, r, 0, 7); g.fill(); }
+          g.restore();
+        }
+        // la Luna en el cielo de la selva: de noche y al final (la misma Luna de arriba)
+        const lunita = Math.max(n, prog(t, M.luna2 - 0.6, M.luna2 + 0.2) * 0.9) * (1 - sp);
+        if (lunita > 0) { g.save(); g.globalAlpha = lunita; recorte(g, "lunita", 260, 260, 130, 130, (c) => { forma(c, "#f2efe4", (p) => p.arc(0, 0, 90, 0, 7)); for (const [x, y, r] of [[-30, -20, 18], [28, 18, 14], [10, -40, 9]]) forma(c, "#d9d4c4", (p) => p.arc(x, y, r, 0, 7), 3); }, 820 - cam.x * 0.02, 300 + Math.min(0, (cam.y - (GY - 300)) * 0.05), 0, 1); g.restore(); }
+      }
+
+      // ---------- la Luna con Armstrong en el traje ----------
+      function luna(g, t) {
+        // la Tierra al fondo
+        recorte(g, "tierra", 300, 300, 150, 150, (c) => { forma(c, "#3f86c6", (p) => p.arc(0, 0, 110, 0, 7)); forma(c, "#5aa64a", (p) => { p.moveTo(-60, -60); p.quadraticCurveTo(-10, -90, 20, -50); p.quadraticCurveTo(0, -10, -40, 0); p.quadraticCurveTo(-80, -20, -60, -60); }, 3); forma(c, "#5aa64a", (p) => { p.moveTo(20, 20); p.quadraticCurveTo(70, 10, 60, 60); p.quadraticCurveTo(30, 90, 10, 60); p.closePath(); }, 3); }, MOON_X - 330, MOON_Y - MOON_R - 860, 0, 0.9);
+        // el disco de la Luna gira despacio bajo los pies (ya en movimiento)
+        const rot = -t * 0.09;
+        recorte(g, "luna", 1800, 1800, 900, 900, (c) => {
+          forma(c, "#d8d5cc", (p) => p.arc(0, 0, MOON_R, 0, 7), 6);
+          c.save(); c.rotate(rot);
+          for (let i = 0; i < 16; i++) { const an = rnd(i) * 7, r = rnd(i + 3) * (MOON_R - 90), s = 24 + rnd(i + 7) * 60; forma(c, "#bdb9ae", (p) => p.ellipse(Math.cos(an) * r, Math.sin(an) * r, s, s * 0.8, an, 0, 7), 4); }
+          // huellas sobre el borde
+          c.fillStyle = "#9c978c"; for (let i = 0; i < 9; i++) { const an = -Math.PI / 2 + 0.12 + i * 0.07; c.save(); c.translate(Math.cos(an) * (MOON_R - 20), Math.sin(an) * (MOON_R - 20)); c.rotate(an + Math.PI / 2); c.beginPath(); c.ellipse(i % 2 ? 10 : -10, 0, 9, 16, 0, 0, 7); c.fill(); c.restore(); }
+          // la bandera clavada
+          const an = -Math.PI / 2 + 0.55; c.save(); c.translate(Math.cos(an) * MOON_R, Math.sin(an) * MOON_R); c.rotate(an + Math.PI / 2);
+          forma(c, "#9aa0a6", (p) => p.rect(-5, -300, 10, 300), 3); bandera(c, "eeuu", 0, -300, 0.9); c.restore();
+          c.restore();
+        }, MOON_X, MOON_Y, 0, 1);
+        // Armstrong en el traje, encima, dando saltitos de la Luna
+        const salto = Math.abs(Math.sin(t * 3.2)) * 40;
+        recorte(g, "armLuna", 760, 900, 380, 820, (c) => armstrong(c, { ropa: "traje", boca: t < M.siete ? 0 : 0, brazo: Math.sin(t * 3.2) * 0.4 }), MOON_X - 30, MOON_Y - MOON_R + 8 - salto, Math.sin(t * 3.2) * 0.05, 0.86);
+      }
+      function bandera(c, cual, x, y, s = 1) {
+        c.save(); c.translate(x, y); c.scale(s, s);
+        if (cual === "eeuu") {
+          forma(c, "#fff", (p) => p.rect(0, 0, 190, 120), 4);
+          c.fillStyle = "#c62b35"; for (let i = 0; i < 7; i++) c.fillRect(0, i * 17.2, 190, 8.6);
+          c.fillStyle = "#26408f"; c.fillRect(0, 0, 80, 60); c.strokeStyle = INK; c.lineWidth = 4; c.strokeRect(0, 0, 190, 120);
+        } else if (cual === "ecuador") {
+          c.fillStyle = "#ffd100"; c.fillRect(0, 0, 220, 70); c.fillStyle = "#1f4fa8"; c.fillRect(0, 70, 220, 35); c.fillStyle = "#d32a36"; c.fillRect(0, 105, 220, 35);
+          forma(c, "#c99a3c", (p) => p.ellipse(110, 70, 22, 26, 0, 0, 7), 3);
+          c.strokeStyle = INK; c.lineWidth = 4; c.strokeRect(0, 0, 220, 140);
+        } else { // Reino Unido
+          c.fillStyle = "#26408f"; c.fillRect(0, 0, 220, 140);
+          c.strokeStyle = "#fff"; c.lineWidth = 26; c.beginPath(); c.moveTo(0, 0); c.lineTo(220, 140); c.moveTo(220, 0); c.lineTo(0, 140); c.stroke();
+          c.strokeStyle = "#c62b35"; c.lineWidth = 9; c.beginPath(); c.moveTo(0, 0); c.lineTo(220, 140); c.moveTo(220, 0); c.lineTo(0, 140); c.stroke();
+          c.fillStyle = "#fff"; c.fillRect(88, 0, 44, 140); c.fillRect(0, 48, 220, 44); c.fillStyle = "#c62b35"; c.fillRect(98, 0, 24, 140); c.fillRect(0, 58, 220, 24);
+          c.strokeStyle = INK; c.lineWidth = 4; c.strokeRect(0, 0, 220, 140);
+        }
+        c.restore();
+      }
+
+      // ---------- Neil Armstrong (pelo castaño claro peinado de lado, frente amplia, ojos celestes, mandíbula cuadrada) ----------
+      function armstrong(c, o) {
+        const ropa = o.ropa;
+        const br = o.brazo || 0, br2 = o.brazo2 === undefined ? -br : o.brazo2;
+        const cuerpo = ropa === "traje" ? "#f2f0ea" : ropa === "rojo" ? "#d23a32" : "#2f5fae";
+        // piernas
+        const pierna = ropa === "rojo" ? "#3c5f8f" : cuerpo;
+        const pa = o.piernaA || 0, pb = o.piernaB || 0;
+        for (const [s, an] of [[-1, pa], [1, pb]]) { c.save(); c.translate(s * 50, -170); c.rotate(an); forma(c, pierna, (p) => p.roundRect(-34, 0, 68, 175, 20)); forma(c, ropa === "traje" ? "#dcd8cf" : "#3a2a22", (p) => p.roundRect(-40 + (s > 0 ? 6 : -6), 150, 84, 40, 14)); c.restore(); }
+        // mochila del traje
+        if (ropa === "traje") forma(c, "#e4e0d6", (p) => p.roundRect(-140, -470, 280, 260, 30));
+        // brazos detrás del cuerpo
+        const brazo = (s, an) => { c.save(); c.translate(s * 112, -420); c.rotate(s * (0.25 + an)); forma(c, cuerpo, (p) => p.roundRect(-30, 0, 60, 200, 26)); forma(c, ropa === "traje" ? "#dcd8cf" : "#f1c49b", (p) => p.arc(0, 205, 32, 0, 7)); c.restore(); };
+        brazo(-1, br); brazo(1, br2);
+        // cuerpo
+        forma(c, cuerpo, (p) => { p.moveTo(-125, -160); p.lineTo(-112, -440); p.quadraticCurveTo(0, -480, 112, -440); p.lineTo(125, -160); p.closePath(); });
+        if (ropa === "rojo") { forma(c, "#8fd0e8", (p) => { p.moveTo(-40, -455); p.lineTo(40, -455); p.lineTo(30, -170); p.lineTo(-30, -170); p.closePath(); }, 4); c.strokeStyle = INK; c.lineWidth = 6; c.beginPath(); c.moveTo(-70, -440); c.lineTo(55, -230); c.stroke(); forma(c, "#3a3330", (p) => p.roundRect(40, -250, 50, 40, 8), 3); }
+        if (ropa === "cueva") { c.strokeStyle = "#d23a32"; c.lineWidth = 16; c.beginPath(); c.moveTo(-80, -440); c.lineTo(-40, -200); c.moveTo(80, -440); c.lineTo(40, -200); c.moveTo(-60, -260); c.lineTo(60, -260); c.stroke(); forma(c, "#b9bcc1", (p) => p.arc(0, -255, 16, 0, 7), 3); }
+        if (ropa === "traje") { c.fillStyle = "#c62b35"; c.fillRect(-90, -400, 46, 30); c.fillStyle = "#26408f"; c.fillRect(-90, -400, 20, 15); c.lineWidth = 3; c.strokeStyle = INK; c.strokeRect(-90, -400, 46, 30); forma(c, "#c9c4b8", (p) => p.roundRect(-60, -330, 120, 70, 12), 4); }
+        // cabeza
+        const cx = 0, cy = -600;
+        forma(c, "#f1c49b", (p) => { p.moveTo(-105, cy - 40); p.quadraticCurveTo(-112, cy + 80, -70, cy + 125); p.quadraticCurveTo(0, cy + 160, 70, cy + 125); p.quadraticCurveTo(112, cy + 80, 105, cy - 40); p.quadraticCurveTo(100, cy - 150, 0, cy - 150); p.quadraticCurveTo(-100, cy - 150, -105, cy - 40); p.closePath(); });
+        for (const s of [-1, 1]) forma(c, "#eab48a", (p) => p.ellipse(s * 110, cy + 10, 20, 32, 0, 0, 7), 4);
+        // pelo castaño claro, raya al costado, entradas
+        if (ropa !== "cueva") forma(c, "#b98d5c", (p) => { p.moveTo(-108, cy - 20); p.quadraticCurveTo(-118, cy - 140, -20, cy - 168); p.quadraticCurveTo(80, cy - 175, 110, cy - 90); p.quadraticCurveTo(112, cy - 50, 104, cy - 30); p.quadraticCurveTo(70, cy - 120, -10, cy - 118); p.quadraticCurveTo(-70, cy - 110, -90, cy - 60); p.quadraticCurveTo(-98, cy - 40, -108, cy - 20); p.closePath(); }, 4);
+        const sor = o.sorpresa || 0;
+        for (const s of [-1, 1]) { forma(c, "#fff", (p) => p.ellipse(s * 40, cy - 10, 22, 20 + sor * 10, 0, 0, 7), 4); c.fillStyle = "#4a8fc4"; c.beginPath(); c.arc(s * 40 + (o.mira || 0) * 6, cy - 8, 11, 0, 7); c.fill(); c.fillStyle = INK; c.beginPath(); c.arc(s * 40 + (o.mira || 0) * 6, cy - 8, 5, 0, 7); c.fill(); }
+        c.lineWidth = 7; c.strokeStyle = "#8a6440"; for (const s of [-1, 1]) { c.beginPath(); c.moveTo(s * 68, cy - 42 - sor * 14); c.lineTo(s * 18, cy - 46 - sor * 14); c.stroke(); }
+        forma(c, "#e3a37c", (p) => { p.moveTo(-6, cy - 5); p.quadraticCurveTo(-22, cy + 40, -4, cy + 48); p.lineTo(14, cy + 46); }, 4);
+        const ab = 4 + (o.boca || 0) * 34 + sor * 22;
+        forma(c, "#7a2a2a", (p) => { p.moveTo(-40, cy + 78); p.quadraticCurveTo(0, cy + 90 + ab, 40, cy + 78); p.quadraticCurveTo(0, cy + 84, -40, cy + 78); }, 4);
+        // casco de la cueva con su lámpara
+        if (ropa === "cueva") {
+          forma(c, "#e6c25a", (p) => { p.moveTo(-122, cy - 50); p.quadraticCurveTo(-120, cy - 190, 0, cy - 195); p.quadraticCurveTo(120, cy - 190, 122, cy - 50); p.closePath(); });
+          forma(c, "#e6c25a", (p) => p.roundRect(-140, cy - 62, 280, 26, 12), 4);
+          forma(c, "#9aa0a6", (p) => p.roundRect(-30, cy - 175, 60, 52, 10), 4); forma(c, "#fff6b0", (p) => p.arc(0, cy - 149, 18, 0, 7), 3);
+        }
+        // casco del traje lunar (burbuja transparente) con el visor dorado levantado
+        if (ropa === "traje") {
+          c.save(); c.globalAlpha = 0.28; c.fillStyle = "#cfe8ff"; c.beginPath(); c.arc(0, cy - 20, 180, 0, 7); c.fill(); c.restore();
+          c.lineWidth = 7; c.strokeStyle = INK; c.beginPath(); c.arc(0, cy - 20, 180, 0, 7); c.stroke();
+          forma(c, "#e9b949", (p) => { p.arc(0, cy - 20, 180, Math.PI * 1.08, Math.PI * 1.92); p.arc(0, cy - 20, 140, Math.PI * 1.9, Math.PI * 1.1, true); p.closePath(); }, 5);
+          c.strokeStyle = "rgba(255,255,255,.8)"; c.lineWidth = 10; c.beginPath(); c.arc(0, cy - 20, 150, Math.PI * 1.2, Math.PI * 1.35); c.stroke();
+          forma(c, "#e4e0d6", (p) => p.roundRect(-150, cy + 140, 300, 40, 16), 5);
+        }
+      }
+
+      // persona de papel genérica (soldados, científicos, el explorador, el camarógrafo)
+      function persona(c, o) {
+        forma(c, o.ropa, (p) => { p.moveTo(-120, 0); p.lineTo(-96, -265); p.quadraticCurveTo(0, -300, 96, -265); p.lineTo(120, 0); p.closePath(); });
+        if (o.brazo) { c.save(); c.translate(-100, -240); c.rotate(o.brazo); forma(c, o.ropa, (p) => p.roundRect(-22, 0, 44, 170, 18)); forma(c, o.cara, (p) => p.arc(0, 176, 26, 0, 7)); c.restore(); }
+        forma(c, o.cara, (p) => p.ellipse(0, -400, 120, 130, 0, 0, 7));
+        if (o.pelo) forma(c, o.pelo, (p) => { p.ellipse(0, -470, 118, 66, 0, Math.PI, 0); p.closePath(); }, 4);
+        if (o.barba) forma(c, o.barba, (p) => { p.moveTo(-112, -400); p.quadraticCurveTo(-100, -270, 0, -262); p.quadraticCurveTo(100, -270, 112, -400); p.quadraticCurveTo(60, -330, 0, -335); p.quadraticCurveTo(-60, -330, -112, -400); p.closePath(); }, 4);
+        if (o.sombrero === "explorador") { forma(c, "#a88b5a", (p) => p.ellipse(0, -488, 180, 34, 0, 0, 7)); forma(c, "#a88b5a", (p) => { p.moveTo(-96, -488); p.quadraticCurveTo(-90, -590, 0, -592); p.quadraticCurveTo(90, -590, 96, -488); p.closePath(); }); forma(c, "#5b4532", (p) => p.rect(-98, -516, 196, 22), 3); }
+        else if (o.sombrero === "militar") { forma(c, "#56603a", (p) => { p.moveTo(-130, -470); p.quadraticCurveTo(-124, -600, 0, -604); p.quadraticCurveTo(124, -600, 130, -470); p.closePath(); }); forma(c, "#56603a", (p) => p.ellipse(0, -472, 150, 24, 0, 0, 7)); }
+        else if (o.sombrero === "gorra") { forma(c, o.gorra || "#c62b35", (p) => { p.moveTo(-112, -470); p.quadraticCurveTo(-104, -580, 0, -584); p.quadraticCurveTo(104, -580, 112, -470); p.closePath(); }); forma(c, o.gorra || "#c62b35", (p) => p.ellipse(70, -470, 90, 18, 0, 0, 7)); }
+        const sor = o.sorpresa || 0;
+        for (const s of [-1, 1]) { forma(c, "#fff", (p) => p.ellipse(s * 44, -420, 26 + sor * 8, 28 + sor * 10, 0, 0, 7), 4); c.fillStyle = INK; c.beginPath(); c.arc(s * 44 + (o.mira || 0) * 8, -418, 12, 0, 7); c.fill(); }
+        forma(c, "#e49a72", (p) => p.ellipse(0, -362, 30, 25, 0, 0, 7));
+        const ab = 8 + (o.boca || 0) * 50 + sor * 26;
+        if (!o.barba) forma(c, "#5a1a22", (p) => p.ellipse(0, -305 + ab * 0.25, 38, ab * 0.5, 0, 0, 7));
+        else forma(c, "#5a1a22", (p) => p.ellipse(0, -318, 30, 8 + sor * 14, 0, 0, 7));
+      }
+
+      // ---------- la selva de Morona Santiago ----------
+      function lomas(g, t, cam) {
+        // dos capas de montañas de la cordillera, con parallax
+        for (const [pf, col, alto, sem] of [[0.45, "#7aa28c", 360, 1], [0.7, "#4f8a55", 240, 2]]) {
+          g.save(); g.setTransform(cam.z, 0, 0, cam.z, 540 - cam.x * pf * cam.z, 960 + (GY - cam.y) * pf * cam.z - GY * cam.z);
+          g.fillStyle = col; g.strokeStyle = INK; g.lineWidth = 4;
+          g.beginPath(); g.moveTo(-3000, GY); for (let x = -3000; x <= 7000; x += 70) g.lineTo(x, GY - 60 - alto * (0.55 + 0.45 * Math.sin(x * 0.0021 * sem + sem)) - 40 * Math.sin(x * 0.009)); g.lineTo(7000, GY + 3000); g.lineTo(-3000, GY + 3000); g.closePath(); g.fill(); g.stroke();
+          // neblina
+          g.fillStyle = "rgba(255,255,255,.18)"; for (let i = 0; i < 6; i++) { g.beginPath(); g.ellipse(-1000 + i * 1300 + rnd(i * sem) * 300, GY - 120 - sem * 30, 420, 40, 0, 0, 7); g.fill(); }
+          g.restore();
+        }
+      }
+      function nubes(g, t) {
+        // nubes de papel entre la Luna y la selva (se ven al caer)
+        for (const [x, y, s] of [[300, -1700, 1.3], [1500, -1450, 1.1], [700, -1050, 1.5], [1900, -800, 1.2], [200, -450, 1.0], [1300, -250, 1.3], [2400, -1200, 1.1]])
+          recorte(g, "nube" + x + y, 520, 240, 260, 120, (c) => { c.fillStyle = "#fffdf6"; for (const [ex, ey, rx, ry] of [[-90, 14, 110, 60], [30, -14, 130, 74], [140, 20, 90, 52]]) { c.beginPath(); c.ellipse(ex, ey, rx, ry, 0, 0, 7); c.fill(); } }, x + Math.sin(t * 0.3 + x) * 20, y, 0, s);
+      }
+      function tierra(g, t) {
+        // la tierra por dentro, con capas
+        g.fillStyle = "#86603d"; g.fillRect(-3000, GY - 30, 10000, 6000);
+        g.strokeStyle = "rgba(60,36,20,.45)"; g.lineWidth = 6;
+        for (let k = 0; k < 14; k++) { const y0 = GY + 260 + k * 190; g.beginPath(); g.moveTo(-3000, y0); for (let x = -3000; x <= 7000; x += 120) g.lineTo(x, y0 + Math.sin(x * 0.004 + k) * 26); g.stroke(); }
+        // el pasto de arriba
+        g.fillStyle = "#5f9a3e"; g.fillRect(-3000, GY - 40, 10000, 200);
+        g.strokeStyle = INK; g.lineWidth = 5; g.beginPath(); g.moveTo(-3000, GY - 40); for (let x = -3000; x <= 7000; x += 80) g.lineTo(x, GY - 40 + Math.sin(x * 0.013) * 7); g.stroke();
+        // el pozo y la gran sala (hueco oscuro de paredes rectas, como las de los Tayos)
+        g.save();
+        g.beginPath();
+        g.moveTo(CUEVA_X - BOCA - 40, GY - 44); g.quadraticCurveTo(CUEVA_X - BOCA, GY + 40, CUEVA_X - BOCA + 10, GY + 300);
+        g.lineTo(CUEVA_X - BOCA - 20, TECHO); g.lineTo(SALA_A + 60, TECHO); g.lineTo(SALA_A, TECHO + 80); g.lineTo(SALA_A, FONDO + 260); g.lineTo(SALA_B, FONDO + 260); g.lineTo(SALA_B, TECHO + 60); g.lineTo(SALA_B - 70, TECHO);
+        g.lineTo(CUEVA_X + BOCA + 20, TECHO); g.lineTo(CUEVA_X + BOCA - 10, GY + 300); g.quadraticCurveTo(CUEVA_X + BOCA, GY + 40, CUEVA_X + BOCA + 40, GY - 44); g.closePath();
+        g.fillStyle = "#3a2619"; g.fill(); g.lineWidth = 9; g.strokeStyle = INK; g.stroke();
+        g.clip();
+        // bloques rectos en las paredes (lo que hizo pensar que eran talladas)
+        g.strokeStyle = "rgba(20,10,5,.55)"; g.lineWidth = 5;
+        for (let i = 0; i < 26; i++) { const x = SALA_A + 40 + (i % 13) * 128, y = TECHO + 40 + Math.floor(i / 13) * 230; g.fillStyle = i % 3 ? "#4b3222" : "#563a27"; g.fillRect(x, y, 112, 200); g.strokeRect(x, y, 112, 200); }
+        for (let k = 0; k < 9; k++) { g.fillStyle = k % 2 ? "#4b3222" : "#533624"; g.fillRect(CUEVA_X - BOCA - 30, GY + 120 + k * 120, 2 * BOCA + 60, 110); }
+        // la luz que baja por el pozo
+        const lz = g.createLinearGradient(0, GY, 0, FONDO + 200); lz.addColorStop(0, "rgba(255,248,210,.42)"); lz.addColorStop(1, "rgba(255,248,210,.04)");
+        g.fillStyle = lz; g.beginPath(); g.moveTo(CUEVA_X - BOCA + 20, GY); g.lineTo(CUEVA_X + BOCA - 20, GY); g.lineTo(CUEVA_X + BOCA + 260, FONDO + 200); g.lineTo(CUEVA_X - BOCA - 160, FONDO + 200); g.closePath(); g.fill();
+        // el piso de la sala
+        g.fillStyle = "#6a4a30"; g.fillRect(SALA_A, FONDO - 10, SALA_B - SALA_A, 300);
+        g.strokeStyle = INK; g.lineWidth = 6; g.beginPath(); g.moveTo(SALA_A, FONDO - 10); for (let x = SALA_A; x <= SALA_B; x += 60) g.lineTo(x, FONDO - 10 + Math.sin(x * 0.02) * 6); g.stroke();
+        g.restore();
+        // la escalera de soga del pozo
+        g.strokeStyle = "#d8c08a"; g.lineWidth = 7;
+        for (const dx of [-80, -10]) { g.beginPath(); g.moveTo(CUEVA_X + dx, GY - 30); g.lineTo(CUEVA_X + dx + 6, FONDO + 120); g.stroke(); }
+        g.lineWidth = 6; for (let y = GY + 20; y < FONDO + 100; y += 70) { g.beginPath(); g.moveTo(CUEVA_X - 80, y); g.lineTo(CUEVA_X - 10, y); g.stroke(); }
+        // helechos en el borde de la boca (a los lados, no delante)
+        for (const [x, s, f] of [[CUEVA_X - BOCA - 120, 1, -1], [CUEVA_X + BOCA + 120, 1.1, 1], [CUEVA_X - BOCA - 330, 0.8, 1], [CUEVA_X + BOCA + 360, 0.85, -1]])
+          recorte(g, "helecho" + x, 420, 360, 210, 340, (c) => { for (let i = 0; i < 7; i++) { const an = -Math.PI / 2 + (i - 3) * 0.32; c.save(); c.rotate(an + Math.PI / 2); forma(c, i % 2 ? "#3f8a3a" : "#4fa046", (p) => { p.moveTo(0, 0); p.quadraticCurveTo(-34, -150, 0, -300); p.quadraticCurveTo(34, -150, 0, 0); }, 4); c.restore(); } }, x, GY - 20, Math.sin(t * 1.2 + x) * 0.03, s, f);
+        // árboles de la selva (detrás de todo lo que pasa en el suelo)
+        for (const [x, s, k] of [[-300, 1.25, 0], [260, 1.0, 1], [2600, 1.15, 2], [2980, 0.9, 3], [3950, 1.2, 4], [4700, 1.0, 5], [5200, 1.3, 6]])
+          recorte(g, "arbol" + k, 640, 1200, 320, 1160, (c) => { forma(c, "#6b4a2e", (p) => { p.moveTo(-34, 0); p.lineTo(-20, -720); p.lineTo(20, -720); p.lineTo(34, 0); p.closePath(); }); for (const [dx, dy, r, col] of [[-120, -760, 170, "#3e7f3a"], [110, -800, 180, "#4a9142"], [0, -940, 200, "#3a7536"], [-30, -700, 140, "#559c48"]]) forma(c, col, (p) => p.arc(dx, dy, r, 0, 7)); }, x, GY - 10, Math.sin(t * 0.8 + k) * 0.012, s);
+      }
+      function delante(g) {
+        // bandas de suelo que tapan los palitos (con el hueco del pozo): arriba y abajo
+        g.fillStyle = "#7a5634";
+        g.fillRect(-3000, GY + 160, CUEVA_X - BOCA + 3000, 760); g.fillRect(CUEVA_X + BOCA, GY + 160, 10000, 760);
+        g.strokeStyle = INK; g.lineWidth = 6; g.beginPath(); g.moveTo(-3000, GY + 160); g.lineTo(CUEVA_X - BOCA, GY + 160); g.moveTo(CUEVA_X + BOCA, GY + 160); g.lineTo(7000, GY + 160); g.stroke();
+        g.fillStyle = "#5f4129"; g.fillRect(SALA_A, FONDO + 160, SALA_B - SALA_A, 760);
+        g.beginPath(); g.moveTo(SALA_A, FONDO + 160); g.lineTo(SALA_B, FONDO + 160); g.stroke();
+      }
+
+      // ---------- la biblioteca de metal (lo que SE DIJO: punteada y transparente) ----------
+      function biblioteca(g, t, x, y, a, s, rompe = 0) {
+        if (a <= 0) return;
+        g.save(); g.globalAlpha = a * (1 - rompe);
+        g.translate(x, y); g.scale(s, s);
+        const brillo = 0.5 + 0.5 * Math.sin(t * 5);
+        g.shadowColor = `rgba(255,220,120,${0.5 + 0.3 * brillo})`; g.shadowBlur = 50;
+        g.fillStyle = "rgba(255,236,170,.16)"; g.fillRect(-300, -460, 600, 470); g.shadowBlur = 0;
+        for (let fila = 0; fila < 3; fila++) {
+          const y0 = -440 + fila * 150;
+          for (let i = 0; i < 9; i++) {
+            const dx = -270 + i * 62 + (rompe ? (rnd(i + fila * 9) - 0.5) * 900 * rompe : 0), dy = y0 + (rompe ? -rnd(i * 3 + fila) * 500 * rompe : 0);
+            g.save(); g.translate(dx + 24, dy + 60); g.rotate(rompe * (rnd(i + fila) - 0.5) * 4);
+            g.fillStyle = i % 3 === 1 ? "#cfd3d8" : "#e3bf55"; g.fillRect(-24, -60, 48, 120);
+            g.strokeStyle = "rgba(90,60,20,.8)"; g.lineWidth = 3; g.strokeRect(-24, -60, 48, 120);
+            g.beginPath(); for (let k = 0; k < 5; k++) { g.moveTo(-16, -44 + k * 22); g.lineTo(-4, -50 + k * 22); g.lineTo(6, -40 + k * 22); g.lineTo(16, -46 + k * 22); } g.stroke();
+            g.restore();
+          }
+          if (!rompe) { g.fillStyle = "rgba(200,170,90,.8)"; g.fillRect(-300, y0 + 124, 600, 12); }
+        }
+        if (!rompe) { g.setLineDash([22, 16]); g.lineWidth = 8; g.strokeStyle = PAPEL; g.strokeRect(-320, -480, 640, 510); g.setLineDash([]); }
+        g.restore();
+        if (!rompe) {
+          // el «?» flotando: nadie la vio
+          const k = eBack(prog(t, 0, 1));
+          recorte(g, "preg" + Math.round(x), 200, 220, 100, 110, (c) => { forma(c, AMARILLO, (p) => p.arc(0, 0, 80, 0, 7)); c.font = "130px Bagel"; c.textAlign = "center"; c.textBaseline = "middle"; c.fillStyle = INK; c.fillText("?", 2, 10); }, x, y - 600 * s + Math.sin(t * 3) * 12, Math.sin(t * 2) * 0.1, s * a);
+        }
+      }
+
+      // ---------- la boca de la cueva y lo que pasa arriba ----------
+      function arriba(g, t) {
+        // en el gancho: la biblioteca «de metal» sale brillando de la boca
+        const kb = sube(t, M.biblio1 - 0.25, M.mil - 0.3, 0.5);
+        if (kb > 0) biblioteca(g, t, CUEVA_X, GY - 120 - kb * 120, Math.min(1, kb), 0.62);
+        // el cartel de la cueva
+        const kc = sube(t, M.mil - 0.15, M.pajaros - 0.45);
+        if (kc > 0) recorte(g, "cartel", 760, 640, 380, 600, (c) => {
+          forma(c, "#7a5232", (p) => p.rect(-16, -260, 32, 260));
+          forma(c, "#d9a86c", (p) => p.roundRect(-330, -560, 660, 320, 18));
+          c.strokeStyle = "rgba(90,50,20,.5)"; c.lineWidth = 3; for (let k = 0; k < 4; k++) { c.beginPath(); c.moveTo(-320, -500 + k * 70); c.lineTo(320, -500 + k * 70); c.stroke(); }
+          texto(c, "CUEVA DE LOS", 0, -490, "54px Rye", INK); texto(c, "TAYOS", 0, -405, "112px Rye", "#8e2a22");
+          texto(c, "MORONA SANTIAGO · 1976", 0, -300, "40px Lilita", INK);
+        }, CARTEL_X, BASE - 30, 0, 1, 1, Math.min(1, kc));
+        // la cinta de 70 metros a lo largo del pozo
+        const km = sube(t, M.setenta - 0.3, M.pajaros - 0.3);
+        if (km > 0) {
+          const largo = (TECHO - GY) * Math.min(1, km);
+          g.save(); g.fillStyle = AMARILLO; g.fillRect(CUEVA_X + BOCA + 60, GY - 20, 34, largo); g.strokeStyle = INK; g.lineWidth = 5; g.strokeRect(CUEVA_X + BOCA + 60, GY - 20, 34, largo);
+          g.fillStyle = INK; for (let y = GY; y < GY - 20 + largo; y += 90) g.fillRect(CUEVA_X + BOCA + 60, y, 18, 6);
+          g.restore();
+          if (km > 0.6) recorte(g, "cinta70", 460, 260, 230, 130, (c) => { forma(c, AMARILLO, (p) => p.roundRect(-190, -90, 380, 180, 30), 6); c.font = "150px Bagel"; c.textAlign = "center"; c.textBaseline = "middle"; c.fillStyle = INK; c.fillText("70 m", 0, 10); }, CUEVA_X + BOCA + 330, (GY + TECHO) / 2, -0.05, 1.5 * eBack(prog(t, M.metros - 0.2, M.metros + 0.2)));
+        }
+        // los tayos: pájaros de la noche que salen del pozo
+        const kp = prog(t, M.pajaros - 0.3, M.pajaros + 0.6), kfin = prog(t, M.explorador - 0.5, M.explorador + 0.2);
+        if (kp > 0 && kfin < 1) for (let i = 0; i < 9; i++) {
+          const a = cl(kp * 1.6 - i * 0.08); if (a <= 0) continue;
+          const an = t * 0.8 + i * (Math.PI * 2 / 9), r = 260 + (i % 3) * 140;
+          let x = CUEVA_X + Math.cos(an) * r * a, y = GY - 160 - a * (200 + (i % 3) * 230) + Math.sin(an) * 70;
+          x += kfin * (rnd(i) - 0.5) * 2400; y -= kfin * 1200;
+          recorte(g, "tayo" + i, 420, 260, 210, 130, (c) => tayo(c, Math.sin(t * 14 + i * 2)), x, y, 0, 0.55 + (i % 3) * 0.08, -Math.sin(an) > 0 ? 1 : -1);
+        }
+        // el explorador que hablaba de la biblioteca (sin nombre, no dice nada inventado)
+        const ke = sube(t, M.explorador - 0.25, M.libro - 0.3);
+        if (ke > 0) { const y = BASE + (1 - Math.min(1, ke)) * 760; palito(g, EXPLO_X, y - 40); recorte(g, "explorador", 600, 820, 300, 760, (c) => persona(c, { cara: "#e9b98f", ropa: "#a08458", sombrero: "explorador", barba: "#4a3428", brazo: 1.0 + Math.sin(t * 4) * 0.1, mira: 1 }), EXPLO_X, y, Math.sin(t * 1.4) * 0.03, 0.95, -1); }
+        // el libro famoso que habló de extraterrestres
+        const kl = sube(t, M.libro - 0.2, M.ecuador2 - 0.3);
+        if (kl > 0) {
+          const abre = eOut(prog(t, M.libro + 0.2, M.libro + 0.7));
+          const y = BASE - 40 + (1 - Math.min(1, kl)) * 700;
+          recorte(g, "libro", 760, 520, 380, 480, (c) => {
+            forma(c, "#8a5a32", (p) => p.rect(-14, -200, 28, 200));
+            c.save(); c.translate(0, -230);
+            forma(c, "#6e2f7a", (p) => p.roundRect(-300 * abre - 20, -200, 300 * abre + 20, 230, 10));
+            forma(c, "#fff3d6", (p) => p.roundRect(-280 * abre, -186, 280 * abre, 200, 6), 3);
+            forma(c, "#fff3d6", (p) => p.roundRect(0, -186, 280, 200, 6), 3);
+            forma(c, "#6e2f7a", (p) => p.roundRect(0, -200, 300 * (1 - abre) + 20, 230, 10));
+            if (abre < 0.5) { c.fillStyle = AMARILLO; c.font = "60px Bagel"; c.textAlign = "center"; c.fillText("?", 150, -70); }
+            c.strokeStyle = "rgba(60,40,40,.5)"; c.lineWidth = 4; if (abre > 0.6) for (let k = 0; k < 6; k++) { c.beginPath(); c.moveTo(-240, -150 + k * 28); c.lineTo(-40, -150 + k * 28); c.moveTo(40, -150 + k * 28); c.lineTo(240, -150 + k * 28); c.stroke(); }
+            c.restore();
+          }, LIBRO_X, y, 0, 1);
+          // el platillo volador sale del libro
+          const ku = prog(t, M.extra - 0.35, M.extra + 0.6);
+          if (ku > 0) {
+            const yu = y - 380 - eOut(ku) * 520 + Math.sin(t * 4) * 14;
+            g.save(); g.globalAlpha = 0.35 * Math.min(1, ku * 2); g.fillStyle = "#c8f5b0"; g.beginPath(); g.moveTo(LIBRO_X - 60, yu + 40); g.lineTo(LIBRO_X + 60, yu + 40); g.lineTo(LIBRO_X + 200, y - 250); g.lineTo(LIBRO_X - 200, y - 250); g.closePath(); g.fill(); g.restore();
+            recorte(g, "ovni", 560, 300, 280, 150, (c) => { forma(c, "#9fd8a0", (p) => p.ellipse(0, -46, 90, 70, 0, Math.PI, 0)); forma(c, "#b9bec6", (p) => p.ellipse(0, 0, 230, 56, 0, 0, 7)); for (let k = 0; k < 6; k++) forma(c, k % 2 ? AMARILLO : "#ff7a59", (p) => p.arc(-170 + k * 68, 8, 13, 0, 7), 3); }, LIBRO_X, yu, Math.sin(t * 3) * 0.08, 0.9 * Math.min(1, ku * 2));
+          }
+        }
+      }
+      function tayo(c, ala) {
+        // el tayo (guácharo): pardo rojizo con pintas blancas, pico ganchudo, ojos grandes
+        forma(c, "#8a4f2c", (p) => { p.moveTo(-40, 0); p.quadraticCurveTo(-120, -110 * ala - 30, -200, -40 * ala); p.quadraticCurveTo(-120, 10, -40, 20); p.closePath(); }, 4);
+        forma(c, "#8a4f2c", (p) => { p.moveTo(40, 0); p.quadraticCurveTo(120, -110 * ala - 30, 200, -40 * ala); p.quadraticCurveTo(120, 10, 40, 20); p.closePath(); }, 4);
+        forma(c, "#a2603a", (p) => p.ellipse(0, 10, 70, 46, 0, 0, 7));
+        forma(c, "#7a4426", (p) => { p.moveTo(-60, 20); p.lineTo(-130, 50); p.lineTo(-60, 40); p.closePath(); }, 4);
+        c.fillStyle = "#fff"; for (const [x, y] of [[-20, 0], [10, 20], [30, -6], [-110, -30 * ala], [120, -30 * ala]]) { c.beginPath(); c.arc(x, y, 6, 0, 7); c.fill(); }
+        forma(c, "#a2603a", (p) => p.arc(66, -10, 34, 0, 7), 4);
+        forma(c, "#fff", (p) => p.arc(76, -16, 14, 0, 7), 3); c.fillStyle = INK; c.beginPath(); c.arc(79, -16, 7, 0, 7); c.fill();
+        forma(c, "#e0c06a", (p) => { p.moveTo(96, -6); p.quadraticCurveTo(122, -4, 118, 18); p.lineTo(98, 6); p.closePath(); }, 3);
+      }
+
+      // ---------- el campamento de la expedición ----------
+      function campamento(g, t) {
+        // banderas de Ecuador y del Reino Unido
+        for (const [i, cual, a] of [[0, "ecuador", M.ecuador2 - 0.2], [1, "uk", M.reino - 0.2]]) {
+          const k = sube(t, a, M.bajo2 - 0.4); if (k <= 0) continue;
+          const x = CAMPO_X - 650 + i * 220, y = BASE + (1 - Math.min(1, k)) * 900;
+          recorte(g, "mastil" + i, 300, 880, 40, 860, (c) => { forma(c, "#9aa0a6", (p) => p.rect(-8, -720, 16, 720), 3); c.save(); c.translate(8, -700); c.transform(1, Math.sin(t * 4 + i) * 0.05, 0, 1, 0, 0); bandera(c, cual, 0, 0, 1); c.restore(); }, x, y - 40, 0, 1);
+        }
+        // más de cien personas: aparecen en olas detrás de las carpas
+        const kc = prog(t, M.cien - 0.3, M.cien + 0.7);
+        if (kc > 0 && t < M.bajo2) for (let i = 0; i < 16; i++) {
+          const a = M.cien - 0.3 + i * 0.05, k = eBack(prog(t, a, a + 0.3)); if (k <= 0) continue;
+          const x = CAMPO_X - 400 + i * 80, y = GY - 120 + (i % 2) * 36 + (1 - Math.min(1, k)) * 400;
+          const sold = i % 3 === 0;
+          recorte(g, "gente" + i, 600, 820, 300, 760, (c) => persona(c, { cara: ["#f1c49b", "#d9a477", "#c48a5e", "#ecc0a0"][i % 4], ropa: sold ? "#5d6a3e" : ["#c9b27a", "#e8e1cf", "#7a8fb0"][i % 3], sombrero: sold ? "militar" : i % 4 === 1 ? "explorador" : undefined, pelo: sold ? undefined : ["#3a2a22", "#8a5a32", "#d9c08a"][i % 3], boca: 0.2 * Math.abs(Math.sin(t * 6 + i)) }), x, y, Math.sin(t * 2 + i) * 0.03, 0.36);
+        }
+        // tres carpas
+        for (const [i, dx] of [[0, -250], [1, 100], [2, 450]]) recorte(g, "carpa" + i, 520, 380, 260, 360, (c) => { forma(c, i === 1 ? "#a99a62" : "#8f8456", (p) => { p.moveTo(-220, 0); p.lineTo(0, -280); p.lineTo(220, 0); p.closePath(); }); forma(c, "#3b2d1c", (p) => { p.moveTo(-50, 0); p.lineTo(0, -160); p.lineTo(50, 0); p.closePath(); }); }, CAMPO_X + dx, GY + 20, 0, 0.9);
+        // los militares, al frente del campamento (al lado, no tapando)
+        for (const i of [0, 1, 2]) {
+          const a = M.militares - 0.25 + i * 0.12, k = sube(t, a, M.bajo2 - 0.4); if (k <= 0) continue;
+          const x = CAMPO_X + 630 + i * 170, y = BASE + (1 - Math.min(1, k)) * 760;
+          palito(g, x, y - 40);
+          recorte(g, "soldado" + i, 600, 820, 300, 760, (c) => persona(c, { cara: ["#d9a477", "#c48a5e", "#f1c49b"][i], ropa: "#5d6a3e", sombrero: "militar", brazo: t > M.presidente ? 2.7 : 0.25, mira: -1 }), x, y, Math.sin(t * 1.4 + i) * 0.03, 0.78, -1);
+        }
+        // el helicóptero llega
+        const kh = prog(t, M.heli - 0.5, M.heli + 0.9);
+        if (kh > 0 && t < M.bajo2 - 0.3) {
+          const e = eOut(kh), x = lerp(HELI_X + 1600, HELI_X + 700, e), y = lerp(GY - 1300, GY + 40, e);
+          recorte(g, "heli", 1000, 560, 520, 440, (c) => helicoptero(c, t), x, y, -0.18 * (1 - e) + Math.sin(t * 9) * 0.01 * (1 - e), 1);
+          // las aspas giran
+          const ap = Math.abs(Math.sin(t * 22));
+          g.save(); g.fillStyle = "rgba(43,30,46,.55)"; g.fillRect(x - 40 - 480 * ap, y - 352, 960 * ap + 80, 14); g.restore();
+        }
+        // Armstrong de rojo baja del helicóptero
+        const ka = sube(t, M.presidente - 0.2, M.bajo2 - 0.4);
+        if (ka > 0) { const x = lerp(HELI_X + 350, HELI_X - 240, eIO(prog(t, M.presidente - 0.25, M.presidente + 0.3))), y = BASE + (1 - Math.min(1, ka)) * 760 - Math.abs(Math.sin(t * 10)) * 8 * boca(t); palito(g, x, y - 40); recorte(g, "armRojo", 760, 900, 380, 820, (c) => armstrong(c, { ropa: "rojo", brazo: t > M.neil ? -2.6 + Math.sin(t * 8) * 0.25 : 0.1, brazo2: -0.1 }), x, y, Math.sin(t * 1.3) * 0.03, 0.9); }
+        // la foto real: Armstrong en Ecuador, con la misma chaqueta roja
+        fotoLevanta(g, t, FOTO_SUETER, "fSueter", HELI_X + 200, BASE, 400, M.presidente + 0.45, M.bajo2 - 0.3, "Foto: Arthur Champion (Ecuador, 1976)", 0.03);
+      }
+      function helicoptero(c, t) {
+        forma(c, "#5f6b3c", (p) => { p.moveTo(-300, -40); p.quadraticCurveTo(-320, -230, -120, -250); p.lineTo(120, -250); p.quadraticCurveTo(220, -240, 240, -140); p.lineTo(240, -40); p.closePath(); });
+        forma(c, "#5f6b3c", (p) => { p.moveTo(200, -170); p.lineTo(470, -150); p.lineTo(470, -120); p.lineTo(220, -90); p.closePath(); });
+        forma(c, "#5f6b3c", (p) => p.roundRect(440, -230, 40, 120, 10));
+        forma(c, "#bfe3f2", (p) => { p.moveTo(-290, -60); p.quadraticCurveTo(-300, -210, -150, -226); p.lineTo(-110, -226); p.lineTo(-110, -60); p.closePath(); }, 4);
+        forma(c, "#3a3e2c", (p) => p.roundRect(-60, -210, 140, 160, 10), 4);
+        // escarapela de Ecuador
+        forma(c, "#d32a36", (p) => p.arc(150, -160, 32, 0, 7), 4); forma(c, "#1f4fa8", (p) => p.arc(150, -160, 21, 0, 7), 3); forma(c, "#ffd100", (p) => p.arc(150, -160, 10, 0, 7), 3);
+        forma(c, "#3a3e2c", (p) => p.rect(-10, -330, 20, 80), 4);
+        c.strokeStyle = INK; c.lineWidth = 10; c.beginPath(); c.moveTo(-260, 20); c.lineTo(220, 20); c.moveTo(-180, -40); c.lineTo(-200, 20); c.moveTo(140, -40); c.lineTo(160, 20); c.stroke();
+      }
+
+      // ---------- foto real que se levanta del suelo en su estaca ----------
+      function fotoLevanta(g, t, img, id, x, yBase, W0, a, b, fuente, rot = 0) {
+        const k = sube(t, a, b, 0.4); if (k <= 0 || !img.width) return;
+        const H0 = Math.round(W0 * img.height / img.width);
+        recorte(g, id, W0 + 120, H0 + 460, (W0 + 120) / 2, H0 + 360, (c) => {
+          forma(c, "#8a5a32", (p) => p.rect(-14, -40, 28, 300));
+          c.save(); c.translate(0, -40); c.rotate(rot);
+          forma(c, "#f6efe0", (p) => p.rect(-W0 / 2 - 20, -H0 - 92, W0 + 40, H0 + 102), 3);
+          c.drawImage(img, -W0 / 2, -H0 - 72, W0, H0); c.lineWidth = 3; c.strokeStyle = INK; c.strokeRect(-W0 / 2, -H0 - 72, W0, H0);
+          texto(c, fuente, 0, -40, "24px Lilita", "#6b5a52");
+          c.restore();
+        }, x, yBase - 140, 0, 1, 1, Math.min(1.08, k));
+      }
+
+      // ---------- abajo: Armstrong en la sala ----------
+      function abajo(g, t) {
+        // lo que «decía» el explorador: la biblioteca brillando en la pared de abajo
+        const k1 = sube(t, M.abajo - 0.2, M.libro - 0.35, 0.5);
+        if (k1 > 0) biblioteca(g, t, BIBLIO_X, FONDO + 20, Math.min(1, k1), 1);
+        // la biblioteca otra vez... y no está
+        const k2 = prog(t, M.biblio2 - 0.3, M.biblio2 + 0.2), rompe = eOut(prog(t, M.no - 0.05, M.estaba + 0.3));
+        if (k2 > 0 && rompe < 1) biblioteca(g, t, BIBLIO_X, FONDO + 20, k2, 1, rompe);
+        if (rompe > 0 && rompe < 1) { g.save(); g.globalAlpha = 1 - rompe; for (let i = 0; i < 10; i++) { g.fillStyle = "#e9e1cf"; g.beginPath(); g.arc(BIBLIO_X + (rnd(i) - 0.5) * 700 * rompe, FONDO - 200 - rnd(i + 3) * 300 * rompe, 60 + 60 * rompe, 0, 7); g.fill(); } g.restore(); }
+        // Armstrong baja por la escalera y llega al fondo
+        if (t > M.pozoIn && t < M.eso + 0.6) {
+          const llega = eOut(prog(t, M.pozoIn + 0.3, M.fondo + 0.1));
+          const camina = eIO(prog(t, M.cueva3, M.biblio2 - 0.2));
+          let x = CUEVA_X - 45 + 185 * eIO(prog(t, M.fondo - 0.1, M.fondo + 0.4)) + camina * 120, y = lerp(TECHO + 200, BASE2, llega);
+          const subiendo = prog(t, M.eso - 0.1, M.eso + 0.5);
+          y -= subiendo * 900;
+          const susto = prog(t, M.tarantulas + 0.05, M.tarantulas + 0.25) * (1 - prog(t, M.vasijas - 0.2, M.vasijas + 0.2));
+          if (llega >= 1 && subiendo <= 0) palito(g, x, y - 40);
+          recorte(g, "armCueva", 760, 900, 380, 820, (c) => armstrong(c, { ropa: "cueva", sorpresa: susto + prog(t, M.no, M.no + 0.15) * (1 - prog(t, M.encontraron - 0.3, M.encontraron)) * 0.6, brazo: llega < 1 ? -2.9 : 0.15 + susto * -1.6, brazo2: llega < 1 ? 2.9 : 0.1, mira: 1 }), x, y, Math.sin(t * 1.3) * 0.03 - susto * 0.08, 0.86);
+          // la luz de la lámpara del casco
+          if (llega >= 1 && subiendo <= 0) {
+            const busca = prog(t, M.pero - 0.2, M.metal4 + 0.4) > 0 ? Math.sin(t * 2.6) * 0.35 : 0;
+            const an = -0.18 + busca;
+            g.save(); g.translate(x + 10, y - 650 * 0.86); g.rotate(an);
+            const lz = g.createLinearGradient(0, 0, 900, 0); lz.addColorStop(0, "rgba(255,244,170,.55)"); lz.addColorStop(1, "rgba(255,244,170,0)");
+            g.fillStyle = lz; g.beginPath(); g.moveTo(0, -14); g.lineTo(900, -210); g.lineTo(900, 230); g.lineTo(0, 14); g.closePath(); g.fill(); g.restore();
+          }
+        }
+        // la foto real: Armstrong de verdad, abajo en la cueva
+        fotoLevanta(g, t, FOTO_CUEVA, "fCueva", CUEVA_X + 600, BASE2, 480, M.fondo - 0.05, M.biblio2 - 0.45, "Foto: Arthur Champion (Cueva de los Tayos, 1976)", -0.02);
+        // la tarántula gigante baja del techo
+        const kt = prog(t, M.tarantulas - 0.25, M.tarantulas + 0.25), sale = prog(t, M.pero - 0.2, M.pero + 0.5);
+        if (kt > 0 && sale < 1) {
+          const y = lerp(TECHO - 100, FONDO - 430, eBack(kt)) - sale * 700, x = 2150;
+          g.strokeStyle = "rgba(255,255,255,.7)"; g.lineWidth = 3; g.beginPath(); g.moveTo(x, TECHO); g.lineTo(x, y - 60); g.stroke();
+          recorte(g, "tarantula", 640, 460, 320, 230, (c) => tarantula(c, t), x, y, Math.sin(t * 2) * 0.1, 0.8);
+        }
+        // vasijas y conchas de miles de años
+        for (const [i, dx] of [[0, 2000], [1, 2200], [2, 2400]]) {
+          const k = sube(t, M.vasijas - 0.2 + i * 0.12, M.eso); if (k <= 0) continue;
+          recorte(g, "vasija" + i, 260, 300, 130, 270, (c) => vasija(c, i), dx, FONDO + 150 + (1 - Math.min(1, k)) * 300, (i - 1) * 0.06, 0.9);
+        }
+        fotoLevanta(g, t, FOTO_HALLAZGOS, "fHallazgos", 2585, BASE2 - 60, 400, M.vasijas + 0.1, M.pero + 0.05, "Foto: Arthur Champion (1976)", 0.03);
+      }
+      function tarantula(c, t) {
+        for (const s of [-1, 1]) for (let k = 0; k < 4; k++) {
+          const an = -0.9 + k * 0.55 + Math.sin(t * 9 + k) * 0.08;
+          c.save(); c.scale(s, 1); c.translate(60, 10); c.rotate(an);
+          forma(c, "#3a2a26", (p) => { p.moveTo(0, -10); p.lineTo(150, -40); p.lineTo(250, 60); p.lineTo(236, 70); p.lineTo(146, -16); p.lineTo(0, 12); p.closePath(); }, 4);
+          c.restore();
+        }
+        forma(c, "#4a3530", (p) => p.ellipse(-80, 10, 110, 90, 0, 0, 7));
+        forma(c, "#3a2a26", (p) => p.ellipse(70, 10, 80, 66, 0, 0, 7));
+        c.strokeStyle = "#7a6058"; c.lineWidth = 4; for (let k = 0; k < 14; k++) { const a = k * 0.45; c.beginPath(); c.moveTo(-80 + Math.cos(a) * 80, 10 + Math.sin(a) * 66); c.lineTo(-80 + Math.cos(a) * 112, 10 + Math.sin(a) * 92); c.stroke(); }
+        for (const [x, y] of [[90, -10], [118, -4], [104, 14]]) { c.fillStyle = "#fff"; c.beginPath(); c.arc(x, y, 9, 0, 7); c.fill(); c.fillStyle = INK; c.beginPath(); c.arc(x + 2, y, 4, 0, 7); c.fill(); }
+      }
+      function vasija(c, i) {
+        if (i === 2) { forma(c, "#f0e2d0", (p) => { p.moveTo(-90, 0); p.quadraticCurveTo(-100, -110, 0, -120); p.quadraticCurveTo(100, -110, 90, 0); p.closePath(); }); c.strokeStyle = "#c9a98a"; c.lineWidth = 4; for (let k = -3; k <= 3; k++) { c.beginPath(); c.moveTo(0, -4); c.lineTo(k * 26, -112 + Math.abs(k) * 8); c.stroke(); } return; }
+        const col = i ? "#b5653a" : "#9a5a34";
+        forma(c, col, (p) => { p.moveTo(-50, 0); p.quadraticCurveTo(-120, -90, -60, -170); p.lineTo(-40, -200); p.lineTo(40, -200); p.lineTo(60, -170); p.quadraticCurveTo(120, -90, 50, 0); p.closePath(); });
+        c.strokeStyle = "#f0d9b0"; c.lineWidth = 6; c.beginPath(); c.moveTo(-90, -110); c.lineTo(90, -110); c.moveTo(-84, -80); for (let k = 0; k < 8; k++) c.lineTo(-84 + k * 24, k % 2 ? -64 : -84); c.stroke();
+        if (i === 0) { c.strokeStyle = INK; c.lineWidth = 4; c.beginPath(); c.moveTo(30, -190); c.lineTo(10, -150); c.lineTo(36, -120); c.stroke(); }
+      }
+
+      // ---------- el final: el camarógrafo y la piedra mojada ----------
+      function final(g, t) {
+        if (t < M.eso - 0.2) return;
+        // la piedra mojada en el camino
+        recorte(g, "piedra", 520, 260, 260, 200, (c) => { forma(c, "#7d8a8c", (p) => { p.moveTo(-210, 0); p.quadraticCurveTo(-200, -120, -40, -130); p.quadraticCurveTo(160, -140, 210, 0); p.closePath(); }); c.fillStyle = "rgba(255,255,255,.75)"; for (const [x, y, r] of [[-60, -90, 22], [40, -104, 14], [110, -70, 10]]) { c.beginPath(); c.ellipse(x, y, r * 1.8, r * 0.6, -0.2, 0, 7); c.fill(); } }, ROCA_X, GY + 160, 0, 1);
+        // gotas que saltan al resbalar
+        const kg = prog(t, M.resbalo, M.resbalo + 0.7);
+        if (kg > 0 && kg < 1) for (let i = 0; i < 9; i++) { const x = ROCA_X + 60 + (rnd(i) - 0.3) * 300 * kg, y = GY + 20 - Math.sin(kg * Math.PI) * (90 + rnd(i + 2) * 140); g.save(); g.globalAlpha = 1 - kg; recorte(g, "gota" + i, 60, 80, 30, 40, (c) => forma(c, "#9fd3f0", (p) => { p.moveTo(0, -24); p.quadraticCurveTo(18, 6, 0, 16); p.quadraticCurveTo(-18, 6, 0, -24); }, 3), x, y, 0, 1); g.restore(); }
+        // el camarógrafo con su cámara de 1976
+        const kc = sube(t, M.eso - 0.1);
+        if (kc > 0) {
+          const x = CAMARO_X, y = BASE + (1 - Math.min(1, kc)) * 760;
+          palito(g, x, y - 40);
+          recorte(g, "camarografo", 600, 820, 300, 760, (c) => persona(c, { cara: "#ecc0a0", ropa: "#6d7a8c", sombrero: "gorra", gorra: "#3a5f8f", pelo: "#3a2a22", mira: -1, sorpresa: prog(t, M.resbalo, M.resbalo + 0.2) * (1 - prog(t, M.mojada, M.mojada + 0.4)) }), x, y, 0, 0.86, -1);
+          recorte(g, "cam76", 520, 820, 260, 760, (c) => {
+            c.lineWidth = 12; c.strokeStyle = "#5b4532"; for (const a of [-0.22, 0, 0.22]) { c.beginPath(); c.moveTo(0, -330); c.lineTo(Math.sin(a) * 560, 0); c.stroke(); }
+            forma(c, "#33302e", (p) => p.roundRect(-110, -470, 230, 150, 14));
+            for (const [cx, cy] of [[-40, -530], [70, -530]]) forma(c, "#33302e", (p) => p.arc(cx, cy, 52, 0, 7));
+            forma(c, "#2a2624", (p) => p.rect(-200, -440, 100, 80)); forma(c, "#9fd3f0", (p) => p.arc(-205, -400, 34, 0, 7));
+            forma(c, "#d23a32", (p) => p.arc(80, -440, 10, 0, 7), 3);
+          }, x - 110, y - 20, 0, 0.9);
+        }
+        // Armstrong camina hacia la piedra... y se resbala en un pie
+        const kA = sube(t, M.llegaIn + 0.2);
+        if (kA > 0) {
+          const anda = eIO(prog(t, M.llegaOut - 0.4, M.resbalo - 0.1));
+          const desliza = eOut(prog(t, M.resbalo - 0.08, M.resbalo + 0.55));
+          const recupera = eIO(prog(t, M.piedra - 0.1, M.mojada + 0.5));
+          const x = lerp(ROCA_X - 520, ROCA_X - 60, anda) + desliza * 250;
+          const ag = desliza * (1 - recupera);
+          const y = BASE + (1 - Math.min(1, kA)) * 760 - Math.abs(Math.sin(t * 7)) * 14 * (anda > 0 && anda < 1 ? 1 : 0) - ag * 40;
+          palito(g, x, y - 40, ag * 0.2);
+          recorte(g, "armFinal", 760, 900, 380, 820, (c) => armstrong(c, { ropa: "cueva", sorpresa: ag, brazo: -1.0 * ag + Math.sin(t * 16) * 0.8 * ag, brazo2: -1.4 * ag + Math.cos(t * 16) * 0.8 * ag, piernaA: -0.7 * ag, piernaB: 0.35 * ag, mira: 1 }), x, y, -0.28 * ag + Math.sin(t * 12) * 0.05 * ag, 0.86);
+        }
+      }
+
+      // ---------- clips reales dentro del mundo: el pozo (por la boca de la cueva) y la llegada (por el visor) ----------
+      function clip(g, t, frames, a, b, fuente) {
+        const entra = eOut(prog(t, a, a + 0.45)), sale = eOut(prog(t, b, b + 0.4));
+        if (entra <= 0 || sale >= 1) return;
+        const im = frames[Math.min(frames.length - 1, Math.max(0, Math.floor((t - a) * 30)))];
+        g.save();
+        g.beginPath(); g.arc(540, 900, 30 + entra * 1150, 0, 7); g.clip();
+        g.globalAlpha = 1 - sale;
+        const s = 1 + 0.4 * sale;
+        g.translate(540, 820); g.scale(s, s);
+        g.fillStyle = "#1c1410"; g.fillRect(-900, -1400, 1800, 2800);
+        const w = 960, h = 720;
+        g.save(); g.beginPath(); g.roundRect(-w / 2, -h / 2, w, h, 36); g.clip();
+        if (im && im.complete && im.width) g.drawImage(im, -w / 2, -h / 2, w, h);
+        g.fillStyle = `rgba(255,240,210,${0.04 + 0.03 * rnd(Math.floor(t * 24))})`; g.fillRect(-w / 2, -h / 2, w, h);
+        g.restore();
+        g.lineWidth = 14; g.strokeStyle = PAPEL; g.beginPath(); g.roundRect(-w / 2, -h / 2, w, h, 36); g.stroke();
+        texto(g, fuente, 0, h / 2 + 48, "28px Lilita", "rgba(255,248,234,.75)");
+        g.restore();
+      }
+
+      // ---------- subtítulos: tres palabras, la que suena en amarillo ----------
+      const GRUPOS = [];
+      for (const l of T.lineas) { const ws = l.palabras; for (let i = 0; i < ws.length; i += 3) { const gr = ws.slice(i, i + 3); GRUPOS.push({ ws: gr, a: Math.max(0, gr[0].a), b: i + 3 < ws.length ? ws[i + 3].a : l.fin + 0.2 }); } }
+      function subs(g, t) {
+        if (SIN_SUBS) return;
+        const gr = GRUPOS.find((x) => t >= x.a && t < x.b); if (!gr) return;
+        g.save();
+        g.font = "84px Lilita"; g.textBaseline = "middle"; g.textAlign = "left"; g.lineJoin = "round";
+        const txt = gr.ws.map((w) => w.p.replace(/\.\.\.|…|:|\*/g, "").replace(/[,.]$/, ""));
+        const an = txt.map((s) => g.measureText(s + " ").width); const total = an.reduce((a, b) => a + b, 0);
+        const fit = Math.min(1, 940 / total); let x = 540 - total / 2; const y = 1580;
+        const pop = eBack(prog(t, gr.a, gr.a + 0.16));
+        g.translate(540, y); g.scale(fit * (0.86 + 0.14 * pop), fit * (0.86 + 0.14 * pop)); g.translate(-540, -y);
+        gr.ws.forEach((w, i) => { if (t >= w.a - 0.03) { const on = t >= w.a && t < w.f + 0.06; g.lineWidth = 16; g.strokeStyle = INK; g.strokeText(txt[i], x, y); g.fillStyle = on ? AMARILLO : PAPEL; g.fillText(txt[i], x, y); } x += an[i]; });
+        g.restore();
+      }
+
+      // ================= pintar un fotograma =================
+      function pintar(t) {
+        const g = document.getElementById("lienzo").getContext("2d");
+        g.setTransform(1, 0, 0, 1, 0, 0); g.clearRect(0, 0, 1080, 1920);
+        g.textAlign = "left";
+        const cam = camara(t);
+        cielo(g, t, cam);
+        lomas(g, t, cam);
+        g.setTransform(cam.z, 0, 0, cam.z, 540 - cam.x * cam.z, 960 - cam.y * cam.z);
+        nubes(g, t); luna(g, t);
+        tierra(g, t);
+        arriba(g, t); campamento(g, t); abajo(g, t); final(g, t);
+        delante(g);
+        // de noche, la selva también se oscurece
+        const n = noche(t);
+        g.setTransform(1, 0, 0, 1, 0, 0);
+        if (n > 0) { g.fillStyle = `rgba(16,20,52,${0.45 * n})`; g.fillRect(0, 0, 1080, 1920); }
+        clip(g, t, CLIP_POZO, M.pozoIn, M.pozoOut, "Video: Tree Films · Bill Forsyth (Cueva de los Tayos, 1976)");
+        clip(g, t, CLIP_LLEGA, M.llegaIn, M.llegaOut, "Video: Tree Films · Bill Forsyth (Quito, 1976)");
+        const v = g.createRadialGradient(540, 900, 520, 540, 960, 1250); v.addColorStop(0, "rgba(0,0,0,0)"); v.addColorStop(1, "rgba(60,30,10,.28)"); g.fillStyle = v; g.fillRect(0, 0, 1080, 1920);
+        subs(g, t);
+      }
+
+      // ================= reloj de Hyperframes =================
+      // Pinta SIEMPRE, aunque falte cargar una foto o un clip (si no, quedan cuadros celestes vacíos).
+      momentos();
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true }); const rel = { t: 0 }; window.__ultimoT = 0;
+      tl.to(rel, { t: T.dura, duration: T.dura, ease: "none", onUpdate: () => { window.__ultimoT = rel.t; pintar(rel.t); } }, 0);
+      window.__timelines["main"] = tl; window.__hfTimelinesBuilding = true; window.pintar = pintar; window.M = M;
+      const cargar = (im) => new Promise((r) => (im.complete ? r() : ((im.onload = r), (im.onerror = r))));
+      Promise.all([FOTO_SUETER, FOTO_CUEVA, FOTO_HALLAZGOS, ...CLIP_POZO, ...CLIP_LLEGA].map(cargar))
+        .then(() => Promise.all(["84px Lilita", "64px Rye", "84px Bagel"].map((f) => document.fonts.load(f))))
+        .then(() => { window.__listo = true; pintar(window.__ultimoT || 0); window.__hfTimelinesBuilding = false; window.dispatchEvent(new Event("hf-timelines-built")); });
+    </script>
+  </body>
+</html>

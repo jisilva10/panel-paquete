@@ -1,0 +1,13 @@
+# 012. El astronauta que bajó a una cueva de Ecuador · Neil Armstrong en la Cueva de los Tayos, Morona Santiago (Ecuador), 1976
+# Fuentes: 1) BBC Mundo, Darío Brooks, «La Cueva de los Tayos, la legendaria y misteriosa formación de Ecuador que despertó la fascinación del astronauta Neil Armstrong» (27/11/2017)  2) Vistazo (Ecuador), María Belén Arroyo, «El primer hombre que pisó la Luna resbaló en la Cueva de los Tayos, en Ecuador en 1976» (10/04/2026).
+# Apoyo: Wikipedia «Cueva de los Tayos» (expedición de 1976: más de cien personas, militares británicos y ecuatorianos, la pagaron los dos gobiernos; no se halló la biblioteca; sí restos arqueológicos y entierros de hace unos 1.500 a. C.); J. C. Whalley, «The Los Tayos Expedition», Yorkshire Ramblers' Club Journal (1979): Armstrong era el presidente de la expedición, lo bajaron por el pozo con escaleras hasta el sumidero, tarántulas gigantes, cerámica y conchas de miles de años; helicópteros.
+# Datos con cuidado: la biblioteca de metal y los extraterrestres son «lo que se dijo» (Moricz y el libro de Von Däniken, 1973), nunca se dan por ciertos. El pozo de entrada: unos 70 m (BBC Mundo; Wikipedia, 65 m). El resbalón: Vistazo (pisó una piedra mojada, se deslizó unos tres metros en un pie y recuperó el equilibrio; lo grabó una cinta de video).
+# Nadie habla con frases inventadas: solo el narrador.
+# Formato: QUIEN [emoción]: texto  ·  ... = pausa larga  ·  *palabra* = con fuerza
+NARRADOR [misterio]: Este astronauta caminó en la Luna... y siete años después bajó a una cueva de Ecuador a buscar una *biblioteca de metal*.
+NARRADOR [confidencial]: Mil novecientos setenta y seis. La Cueva de los Tayos, en Morona Santiago: un hueco de setenta metros lleno de pájaros que solo salen de noche.
+NARRADOR [tension]: Un explorador decía que allá abajo había hojas de metal con la historia de la humanidad grabada... y un libro famoso habló de extraterrestres.
+NARRADOR [asombro]: Ecuador y el Reino Unido armaron una expedición de más de cien personas, con militares y helicópteros... y de presidente de honor, Neil Armstrong.
+NARRADOR [tension]: Bajó colgado de una escalera hasta el fondo de la cueva.
+NARRADOR [asombro]: Y la biblioteca de metal... *no estaba*. Encontraron tarántulas gigantes y vasijas de hace miles de años... pero ni una sola hoja de metal.
+NARRADOR [cierre]: Eso sí, hay un video de ese viaje: el primer hombre que caminó en la Luna... se *resbaló* en una piedra mojada.
