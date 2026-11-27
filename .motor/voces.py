@@ -198,9 +198,19 @@ def tiempos_palabras(y, lineas):
         from faster_whisper import WhisperModel  # (en la tarjeta falta cublas64_12.dll y da tiempos malos)
         segs, _ = WhisperModel("small", device="cpu", compute_type="int8").transcribe(tmp, language="es", word_timestamps=True)
         W = [[w.start, w.end, w.word] for seg in segs for w in seg.words]
-    def peso(t):  # cuánto «dura» una palabra: sus letras; cada cifra se lee como una palabra larga
-        t = re.sub(r'[^\wáéíóúñü]', '', t.lower())
-        return max(1, sum(5 if c.isdigit() else 1 for c in t))
+    U = 'cero uno dos tres cuatro cinco seis siete ocho nueve diez once doce trece catorce quince dieciséis diecisiete dieciocho diecinueve veinte veintiuno veintidós veintitrés veinticuatro veinticinco veintiséis veintisiete veintiocho veintinueve'.split()
+    D = {3: 'treinta', 4: 'cuarenta', 5: 'cincuenta', 6: 'sesenta', 7: 'setenta', 8: 'ochenta', 9: 'noventa'}
+    C = {1: 'ciento', 2: 'doscientos', 3: 'trescientos', 4: 'cuatrocientos', 5: 'quinientos', 6: 'seiscientos', 7: 'setecientos', 8: 'ochocientos', 9: 'novecientos'}
+    def en_letras(n):  # solo para medir cuánto se tarda en decir una cifra (Whisper la escribe en dígitos)
+        if n < 30: return U[n]
+        if n < 100: return D[n // 10] + ('' if n % 10 == 0 else ' y ' + U[n % 10])
+        if n < 1000: return 'cien' if n == 100 else C[n // 100] + ('' if n % 100 == 0 else ' ' + en_letras(n % 100))
+        if n < 10**6: return ('mil' if n // 1000 == 1 else en_letras(n // 1000) + ' mil') + ('' if n % 1000 == 0 else ' ' + en_letras(n % 1000))
+        return en_letras(n // 10**6) + ' millones' + ('' if n % 10**6 == 0 else ' ' + en_letras(n % 10**6))
+    def peso(t):  # cuánto «dura» una palabra: sus letras (las cifras, como se dicen)
+        t = re.sub(r'(?<=\d)[.,](?=\d{3})', '', t.lower())
+        t = re.sub(r'\d+', lambda m: en_letras(int(m.group())) if len(m.group()) < 13 else m.group(), t)
+        return max(1, len(re.sub(r'[^a-záéíóúñü]', '', t)))
     for L in lineas:
         tok = L['texto'].replace('*', '').split()
         dentro = [w for w in W if w[0] >= L['ini'] - 0.15 and w[1] <= L['fin'] + 0.15] or [[L['ini'], L['fin'], L['texto']]]
