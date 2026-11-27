@@ -19,6 +19,7 @@ Candidatas revisadas: 11 (abajo). Tendencias buscadas: UPI Odd News 20-25/11, In
 - Tema: persona increíble. Juan Pujol García, «Garbo», barcelonés: los alemanes lo contrataron como espía en Londres y él se inventó una red de 27 agentes que no existían (cobraba sus sueldos). Engañó a Hitler sobre el desembarco de Normandía y recibió medallas de los dos bandos: la Cruz de Hierro alemana y la orden del Imperio británico. Fingió su muerte en África.
 - Por qué: giro imposible, sin violencia, de España (país nuevo). Nada de batallas: es un engaño.
 - Fuentes: 1) Wikipedia «Juan Pujol García»  2) MI5, «Garbo» (mi5.gov.uk).
+- HECHO (27/11, central): «015. El espía que inventó 27 espías», programado 29/11 15:20. Fuentes usadas: MI5 «Agent GARBO» y Wikipedia. No se cuenta la vida en Caracas (013 ya terminó en Caracas el mismo día).
 
 ## Reserva 1 · El robo del Louvre en siete minutos
 - Tema: crimen. 19/10/2025: entraron al Louvre con un montacargas por una ventana y se llevaron joyas de la corona francesa en unos 7 minutos. Contar lo que se sabe hoy con la fuente del día.

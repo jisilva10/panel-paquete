@@ -1,0 +1,13 @@
+# 015. El espía que inventó 27 espías · Juan Pujol García, «Garbo» · Barcelona → Madrid → Lisboa (1941) → Londres → Calais (1944)
+# Fuentes: 1) MI5, «Agent GARBO» (mi5.gov.uk/agent-garbo; con el resumen de Tomás Harris de 1946, publicado como «Garbo: The Spy who Saved D-Day»): nació en Barcelona en 1912; en 1941 intentó tres veces que los británicos lo aceptaran y lo rechazaron; se ofreció a los alemanes como funcionario pro nazi que iba a Londres; se fue a Lisboa y armó informes con la Blue Guide de Inglaterra, libros y revistas, sin haber pisado el país; desde abril de 1942 con el MI5 (Tomás Harris); 27 agentes inventados, «each with full life stories»; Fortitude: Normandía como distracción y el golpe principal en el Paso de Calais; dos divisiones blindadas y 19 de infantería esperando en Calais en julio y agosto; el 29/07/1944, la Cruz de Hierro «by the Führer himself»; en diciembre de 1944, la MBE británica.  2) Wikipedia «Juan Pujol García»: lo mismo (rechazado tres veces desde enero de 1941; tourist guide, libros y revistas de la biblioteca de Lisboa y noticieros de cine; los alemanes terminaron financiando una red de 27 agentes, todos inventados; 340.000 dólares; Cruz de Hierro el 29/07/1944; MBE de manos del rey Jorge VI).
+# Datos con cuidado: «Le creen» = el alto mando alemán (MI5). «Veintiuna divisiones» = 2 blindadas + 19 de infantería (MI5). «Alemania les pagaba a todos» = los alemanes financiaban la red de 27 (Wikipedia). La Cruz de Hierro se dibuja lisa (negra con borde blanco), sin esvástica. Nadie dice frases inventadas: solo el narrador. Hitler no habla.
+# Formato: QUIEN [emoción]: texto  ·  ... = pausa larga  ·  *palabra* = con fuerza
+NARRADOR [misterio]: Este hombre engañó a Hitler con *veintisiete* espías... y se los inventó todos.
+NARRADOR [confidencial]: Juan Pujol, de Barcelona, quería espiar para los ingleses... y lo rechazaron *tres veces*.
+NARRADOR [burla]: Se ofreció a los nazis. Lo mandaron a Londres, pero él se quedó en Lisboa... inventando informes con una *guía de turismo*.
+NARRADOR [asombro]: Nunca había estado en Inglaterra... y los alemanes le creían todo.
+NARRADOR [confidencial]: Los ingleses por fin lo aceptaron, y juntos crearon veintisiete agentes falsos. Y Alemania les pagaba el sueldo a *todos*.
+NARRADOR [tension]: Mil novecientos cuarenta y cuatro. Pujol les jura que Normandía es solo una distracción... que el ataque de verdad viene por *Calais*.
+NARRADOR [asombro]: Le creen. Veintiuna divisiones se quedan esperando en Calais... un ataque que nunca llegó.
+NARRADOR [cierre]: Como premio, Hitler le dio la *Cruz de Hierro*... y meses después, los ingleses le dieron la *suya*.
+NARRADOR [admiracion]: Sigue la cuenta.
