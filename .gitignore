@@ -29,3 +29,15 @@ __pycache__/
 .motor/base/tiempos-edge.json
 .DS_Store
 *.log
+# Trabajo de cada video (fotos, clips, fotogramas, hojas de revisión): nunca a GitHub
+2 Funciones/**/fotos/
+2 Funciones/**/clips/
+2 Funciones/**/vendor/
+2 Funciones/**/fuentes/
+2 Funciones/**/*.png
+2 Funciones/**/*.jpg
+2 Funciones/**/*.jpeg
+2 Funciones/**/*.webp
+2 Funciones/**/*.mp3
+2 Funciones/**/*.webm
+2 Funciones/**/*.mkv

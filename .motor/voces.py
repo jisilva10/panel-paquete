@@ -197,7 +197,7 @@ def tiempos_palabras(y, lineas):
     except ImportError:  # Windows / Linux: pip install faster-whisper
         from faster_whisper import WhisperModel
         try:
-            segs, _ = WhisperModel("small", device="auto").transcribe(tmp, language="es", word_timestamps=True)
+            segs, _ = WhisperModel("small", device="cpu", compute_type="int8").transcribe(tmp, language="es", word_timestamps=True)  # en la tarjeta da tiempos malos (falta cublas64_12.dll)
             W = [[w.start, w.end] for seg in segs for w in seg.words]
         except Exception as e:  # en la PC falta cublas64_12.dll: en la tarjeta falla → procesador (26/11/2026)
             print(f'Whisper en la tarjeta falló ({e}); va en el procesador')
