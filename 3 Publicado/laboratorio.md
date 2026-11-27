@@ -1,23 +1,22 @@
-# Laboratorio · 2026-11-26 · día 2 · fase EXPLORAR (semanas 1-3 o menos de 30 videos con 48 h: 3 pruebas por video)
+# Laboratorio · 2026-11-27 · día 3 · fase EXPLORAR (semanas 1-3 o menos de 30 videos con 48 h: 3 pruebas por video)
 
-6 funciones · 0 con 48 h o más en el panel · ⚠️ panel sin leer: HTTP Error 401: Unauthorized
+6 funciones · 0 con 48 h o más en el panel
 
-## Plan para el video 007 (video 4 de hoy) · modo «explorar»
+## Plan para el video 007 (video 2 de hoy) · modo «explorar»
 
 BASE (copiar, es lo que va ganando o lo de siempre mientras no haya datos):
   primera_palabra=este/esta · desarrollo=cronológico · giros=2 · narrador=tercera persona · voces=solo narrador · cierre=dato que remata · llamado=no · transicion=cámara entra por un objeto · cortes=medio (2-3 s) · camara=paneo suave · reales=4-5 · clip_entra=mezcla · texto_pantalla=pocos · arranque=ya en movimiento · subtitulos=Lilita 84 px abajo · musica=historia (la de siempre) · efectos=normales (7-14) · audio_real=bajito (≈35 %) · silencio=no · duracion=50-60 s · ritmo=rapido · portada_escena=el clímax · portada_titular=afirmación + pregunta · texto_pub=afirmación que intriga
 
 PRUEBAS (cambiar a propósito y anotarlas en «pruebas» de etiquetas.json):
-  - Velocidad de la voz (velocidad): 1.07 → **1.17**  (nunca probado)
   - Tipo de gancho (gancho): dato imposible → **contradicción**  (nunca probado)
   - Volumen de música (musica_vol): media (≈32 %) → **alta (≈45 %)**  (nunca probado)
-  Ya se prueba hoy en otros videos: 004. El hombre que vendió la Torre Eiffel: cierre; 005. Dos bombas atómicas y un solo hombre: tono; 006. El soldado que no se rindió en 29 años: cierre, texto_pantalla
+  - Velocidad de la voz (velocidad): 1.07 → **1.17**  (nunca probado)
   Si la historia no deja hacer una prueba (p. ej. no hay clip para «audio real»), cámbiala por la siguiente menos probada del mismo grupo y anótalo.
 
 ## Hora de subida de hoy (3 franjas distintas, rotan para medir)
-  video 1: noche (18-20) → cerca de las 19:00 (±20 min) · ya la tomó 004. El hombre que vendió la Torre Eiffel
-  video 2: mediodía (11-13) → cerca de las 12:00 (±20 min) · ya la tomó 005. Dos bombas atómicas y un solo hombre
-  video 3: tarde (14-17) → cerca de las 15:30 (±20 min) · ya la tomó 006. El soldado que no se rindió en 29 años
+  video 1: noche (18-20) → cerca de las 19:00 (±20 min)  ← libre
+  video 2: mañana (7-10) → cerca de las 08:30 (±20 min)  ← libre
+  video 3: mediodía (11-13) → cerca de las 12:00 (±20 min)  ← libre
   Si una noticia es muy fresca, puede ir en la franja libre más temprana (y se anota).
   Usos hasta hoy: mañana (7-10) 1 · mediodía (11-13) 1 · tarde (14-17) 1 · noche (18-20) 1 · noche tarde (21-23) 2
 
@@ -28,15 +27,15 @@ PRUEBAS (cambiar a propósito y anotarlas en «pruebas» de etiquetas.json):
   - crimen: 0 en 7 días · último nunca
   - inventos y ciencia: 0 en 7 días · último nunca
   - latinoamérica: 1 en 7 días · último 2026-11-25
-  - golpe/estafa: 1 en 7 días · último 2026-11-26  ← ya salió HOY
-  - noticia/tendencia: 2 en 7 días · último 2026-11-25
-  - persona increíble: 2 en 7 días · último 2026-11-26  ← ya salió HOY
+  - golpe/estafa: 1 en 7 días · último 2026-11-26
+  - noticia/tendencia: 2 en 7 días · último 2026-11-26
+  - persona increíble: 2 en 7 días · último 2026-11-26
   Para elegir la historia también suma lo que falta: Época: últimos 10 años · Dónde pasó: África/Oceanía · Tono: indignante, suspenso
 
 ## Ganadores para abrir (lee su que-se-hizo.txt ANTES de escribir)
   Todavía ninguno con 48 h: abre los 2 más recientes para no repetir su forma.
-  · 2 Funciones/005. Dos bombas atómicas y un solo hombre/que-se-hizo.txt
-  · 2 Funciones/006. El soldado que no se rindió en 29 años/que-se-hizo.txt
+  · 2 Funciones\005. Dos bombas atómicas y un solo hombre\que-se-hizo.txt
+  · 2 Funciones\006. El soldado que no se rindió en 29 años\que-se-hizo.txt
 
 ## Cada palanca (opción: videos hechos / con 48 h / puntaje medio)
 

@@ -70,7 +70,7 @@ def main():
             ruta, _ = ficha(p['pieza'])
             txt = open(ruta, encoding='utf8').read()
             m = re.search(r'== PALANCAS ==.*?\n(.*?)\n\n== ', txt, re.S)
-            if m: out += ['- Palancas:'] + ['  ' + l for l in m.group(1).splitlines()]
+            if m: out.extend(['- Palancas:'] + ['  ' + l for l in m.group(1).splitlines()])
             for k in ('Tipo', 'Tema en una frase', 'Duración (s)', 'Primera palabra', 'Gancho (primera frase, literal)', 'Tipo de gancho', 'Estructura',
                       'Narrador en', 'Ritmo de la voz', 'Cierre (estilo)', 'Frase de cierre (literal)', 'Mundo (lugar de papel)', 'Fotos reales (cuántas, de dónde, en qué segundo)',
                       'Clips reales (cuántos, de dónde, cuánto duran, cómo entran)', 'Subtítulos (estilo, tamaño, posición)', 'Portada (escena y titular)',

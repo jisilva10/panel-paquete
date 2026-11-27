@@ -2,6 +2,13 @@
 
 Lo más nuevo arriba. 3-5 líneas por día: qué parece funcionar (texto y edición) y qué no, y por qué.
 
+## 2026-11-27 (día 3 · lo escribió la central la noche del 26/11)
+- Aún 0 piezas con 48 h (001 y 002 cumplen esta madrugada), pero ya hay señales: en IG y YouTube van arriba las tres del 25/11 (003 hipopótama 1.477/1.368, 002 pierna 1.327/1.164, 001 robo 1.265/1.018). TikTok está plano en ~330-385 para todos: ahí todavía no decide la historia.
+- Retención IG: 004 Lustig 41 % (la mejor, estafa contada con 3 giros), 003 36 %, 006 34 %, 005 32 %, 002 27 %. La estafa con giros retiene más que lo serio.
+- Ojo YouTube: 005 (bombas atómicas) y 006 (Onoda) tienen 9 y 3 vistas con 6-11 h, mientras 004 sacó 360 en 2 h. Puede ser que YouTube frene la guerra y las bombas: probar otros temas antes de volver a la II Guerra.
+- Se arregló `ganadores.py` (fallaba al armar los bloques con `out +=`).
+- El 27/11 va con temas que nunca salieron (crimen, inventos y ciencia, historia absurda, error de millones, política) y lo que falta: últimos 10 años, África/Oceanía, tono suspenso o indignante.
+
 ## 2026-11-26 (día 2)
 - Siguen sin números: 0 piezas con más de 48 h (001 y 002 cumplen 48 h esta noche). Se sigue explorando.
 - Lo que se viene midiendo: 3 de 4 videos con gancho «dato imposible» y 1 con pregunta (003); cierres: bucle (2), frase del protagonista (1), dato que remata (1). Hoy el 005 va con dato imposible + cierre «dato que remata» para tener 2 de cada uno.
