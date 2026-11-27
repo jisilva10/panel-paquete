@@ -1,32 +1,33 @@
-# Hoy · 26/11/2026
+# Hoy · 27/11/2026
 
-Las 3 mejores historias del día (sin rotación ni cuota). La armó la sesión del video 1 (lanzada a mano a las 6:40, porque la de las 3:00 se cortó). El 004 (Lustig) ya salió de esta fecha: no repetir estafa en el #2/#3 salvo que sea la mejor.
-Candidatas revisadas: 10 (abajo). Las noticias de hoy (Anmer Hall, narcolab en Nigeria, Shenzhou-24, la herencia de Mallorca) no tenían el giro de las historias del banco.
+Las 3 mejores historias del día, de 3 temas distintos (los que nunca salieron: crimen, política, inventos y ciencia). La armó la central la noche del 26/11 (video 1 del 27/11, hecho con adelanto).
+Nada de Japón ni II Guerra (salieron dos el 26/11), por eso Garbo queda para otro día. Nada de París (el 004 fue en París y `ya_hecho.py` marca el lugar): el robo del Louvre se guarda en el banco.
+Candidatas revisadas: 10 (abajo). Las noticias raras del 25-26/11 (dentadura en Benidorm, nube-ovni en Valencia, pavos de la policía en California) no tienen giro.
 
-## #1 · VIDEO 1 · El hombre al que le cayeron dos bombas atómicas
-- Tema: persona increíble. Tsutomu Yamaguchi, ingeniero de Mitsubishi: el 6/8/1945 estaba de viaje de trabajo en Hiroshima (a 3 km, quemado y sordo de un oído); volvió a casa, a Nagasaki, y el 9/8, vendado, le estaba contando a su jefe lo de la bomba cuando cayó la segunda. Sobrevivió otra vez. Único reconocido oficialmente por Japón como doble sobreviviente (2009). Murió en 2010, a los 93.
-- Por qué: el giro más imposible que hay; se entiende en 1 segundo; fotos reales libres (las dos nubes, de EE. UU.). Tono: crudo con respeto, sin burla («el más desafortunado» no).
-- Fuentes: 1) NPR, «Survivor Of Two Atom Bombings Dies» (09/01/2010)  2) Wikipedia «Tsutomu Yamaguchi» (citas de NBC News 25/03/2009 y The Times). Apoyo: NBC News, «Double atomic bomb survivor dies in Japan».
+## #1 · VIDEO 1 · franja noche (18-20, cerca de las 19:00) · El robo del siglo que arruinó un sándwich
+- Tema: crimen. Amberes (Bélgica), fin de semana del 15-16/02/2003: la banda de Leonardo Notarbartolo («la Escuela de Turín») vacía la bóveda del Antwerp Diamond Center, dos pisos bajo tierra, con 10 capas de seguridad (radar, sensor sísmico, calor, campo magnético, cerradura de combinación). Más de 100 millones de dólares. Notarbartolo alquiló una oficina y se hizo pasar por comerciante durante años. Pero «Speedy», nervioso, tiró la basura en un bosque junto a la autopista E19: el dueño del terreno la encontró, y ahí había un sándwich de salame a medio comer con el ADN de Notarbartolo. 10 años de cárcel. Los diamantes nunca aparecieron.
+- Por qué: contradicción perfecta (la bóveda imposible vs. un sándwich), suspenso, tono que falta; Europa; fotos reales de la bóveda abierta y de Notarbartolo.
+- Fuentes: 1) Wikipedia «Antwerp diamond heist» (cita a Wired, Joshua Davis, 12/03/2009)  2) National Geographic, Roff Smith, 10/05/2013.
 
-## #2 · VIDEO 2 · El soldado que siguió peleando 29 años
-- Tema: persona increíble / historia. Hiroo Onoda siguió en la selva de Lubang (Filipinas) hasta 1974 porque nadie le dio la orden de rendirse; no creyó los volantes que decían que la guerra había terminado; un joven aventurero japonés (Norio Suzuki) lo encontró y tuvo que traer a su antiguo comandante para que le diera la orden. Fotos reales de la rendición.
-- Fuentes: 1) The New York Times, obituario de Hiroo Onoda (17/01/2014)  2) Wikipedia «Hiroo Onoda». Ojo: en Lubang murieron civiles por sus ataques: decirlo, sin heroizar.
+## #2 · VIDEO 2 · franja mañana (7-10, cerca de las 08:30) · El primer ministro que desapareció en el mar
+- Tema: política. Oceanía (falta). Harold Holt, primer ministro de Australia, se metió a nadar en Cheviot Beach el 17/12/1967 y nunca más apareció; nunca se encontró el cuerpo. Después le pusieron su nombre a una piscina en Melbourne (Harold Holt Memorial Swimming Centre). Contar solo lo confirmado; las teorías (submarino chino, etc.) solo como «lo que se dijo», sin darlas por ciertas.
+- Fuentes: 1) National Archives of Australia, «Harold Holt» (Australia's Prime Ministers)  2) ABC News Australia (aniversario de la desaparición). Apoyo: Wikipedia «Disappearance of Harold Holt».
 
-## #3 · VIDEO 3 · El espía que se inventó 27 espías
-- Tema: historia absurda (espionaje, España/II Guerra Mundial). Juan Pujol García «Garbo»: los ingleses no lo quisieron; se ofreció a los alemanes, les inventó una red de 27 agentes que no existían (desde Lisboa, con guías y revistas) y terminó engañando a Hitler sobre el desembarco de Normandía. Recibió una condecoración de cada bando.
-- Fuentes: 1) MI5, «Garbo: the spy who saved D-Day» (mi5.gov.uk)  2) Wikipedia «Juan Pujol García». Apoyo: BBC.
+## #3 · VIDEO 3 · franja mediodía (11-13, cerca de las 12:00) · El inventor que dañó el planeta dos veces
+- Tema: inventos y ciencia. Thomas Midgley Jr. (EE. UU.): inventó la gasolina con plomo (1921) y los CFC/freón (1928), dos de los inventos que más daño le hicieron al mundo; se lavó las manos con plomo frente a periodistas para probar que era seguro (y después tuvo que irse a curar). Con polio, inventó un sistema de poleas para levantarse de la cama… y en 1944 murió enredado en él.
+- Fuentes: 1) Smithsonian Magazine (Midgley y el plomo)  2) Wikipedia «Thomas Midgley Jr.». Apoyo: BBC Future. Ojo: muerte «estrangulado por su invento» la dan las dos fuentes; decirlo sin burla.
 
-## Reserva 1 · El panadero del Titanic que se salvó con whisky
-- Tema: persona increíble. Charles Joughin, jefe de panaderos: estuvo horas en el agua helada y dijo que había tomado alcohol. Usar solo lo que dijo en la investigación.
-- Fuentes: 1) Encyclopedia Titanica «Charles Joughin»  2) Wikipedia «Charles Joughin».
+## Reserva 1 · El hombre que tiró 8.000 bitcoins a la basura
+- Tema: error de millones (Gales, últimos 10 años). James Howells tiró en 2013 un disco duro con 8.000 bitcoins; lleva más de 10 años pidiendo excavar el basurero de Newport; un juez cerró su caso en 2025. Contar el valor con la cifra del día (con fuente).
+- Fuentes: 1) BBC News (Howells y el basurero de Newport)  2) The Guardian.
 
-## Reserva 2 · La guerra del cerdo (1859)
-- Tema: política. EE. UU. e Inglaterra casi van a la guerra en la isla San Juan porque un granjero mató un cerdo; la única baja fue el cerdo.
-- Fuentes: 1) National Park Service, San Juan Island NHP  2) Wikipedia «Pig War».
+## Reserva 2 · La plaga del baile (1518)
+- Tema: historia absurda. Estrasburgo: cientos de personas bailaron días sin parar. Sin entrar a lo religioso (solo lo médico e histórico).
+- Fuentes: 1) History.com  2) Wikipedia «Dancing plague of 1518».
 
 ## Las otras candidatas (descartadas hoy)
-- Intento de robo en Anmer Hall (residencia del príncipe William): pocos datos confirmados.
-- Mexicanos detenidos en narcolaboratorios de Nigeria: no es fresco (mayo-septiembre) y cifras que no cuadran entre medios.
-- Herencia de Mallorca que fue a una empresa fantasma: enredo legal, difícil en menos de un minuto.
-- Inundación de melaza de Boston (1919): buena, queda en el banco.
-- Mike, el pollo sin cabeza: buena para otro día (historia absurda).
+- Robo del Louvre (19/10/2025, 7 minutos, joyas de la corona que a un año siguen perdidas; renunció la presidenta del museo): buenísima, pero es París otra vez (004) y otro robo el mismo día que el #1. Al banco.
+- Fallo de 96 millones de pesos a una cocinera de Río Negro (Argentina): poca historia detrás.
+- Garbo, el espía de los 27 espías: II Guerra (ya hubo dos de la II Guerra el 26/11). Otro día.
+- El panadero del Titanic (Joughin): persona increíble salió 2 veces esta semana; queda en el banco.
+- La guerra del cerdo (1859): política ya va con Holt; queda en el banco.
