@@ -1,0 +1,15 @@
+# 009. El inventor que dañó el planeta dos veces · Thomas Midgley Jr., Estados Unidos, 1921-1944
+# Fuentes: 1) Wikipedia, «Thomas Midgley Jr.» (consultada 26/11/2026)  2) Popular Science, Tom Phillips, «Thomas Midgley, Jr. may have been the most environmentally disastrous person of all time» (06/05/2019). Apoyo: Nobel Prize (Química 1995, Mario Molina); Smithsonian Magazine («One man, two deadly substances»).
+# Nadie habla con frases inventadas: solo el narrador. La cita final es de J. R. McNeill (historiador ambiental), tal como la recoge Wikipedia.
+# Su muerte se cuenta como la dan las dos fuentes (lo encontraron estrangulado por las cuerdas de su aparato), sin burla y sin decir si fue accidente.
+# Formato: QUIEN [emoción]: texto  ·  ... = pausa larga  ·  *palabra* = con fuerza
+NARRADOR [misterio]: Este hombre tuvo tres grandes inventos. Dos dañaron el planeta... y el tercero lo mató a *él*.
+NARRADOR [tension]: Mil novecientos veintiuno. Thomas Midgley, un químico de Estados Unidos.
+NARRADOR [confidencial]: Invento número uno... *plomo* en la gasolina, para que los motores no golpeen.
+NARRADOR [indignado]: Pero el plomo es veneno. Mueren obreros... y él, frente a la prensa, se echa plomo en las manos y lo respira.
+NARRADOR [asombro]: Y eso que él mismo ya se había enfermado de plomo.
+NARRADOR [tension]: Invento número dos... el freón, para las neveras. Lo respiró y apagó una vela, para mostrar que era seguro.
+NARRADOR [asombro]: Décadas después, el mexicano Mario Molina descubrió que ese gas rompía la capa de *ozono*.
+NARRADOR [solemne]: Invento número tres. La polio lo dejó sin caminar, y armó cuerdas y poleas para salir de la cama.
+NARRADOR [solemne]: En mil novecientos cuarenta y cuatro, murió enredado en esas cuerdas.
+NARRADOR [cierre]: Según un historiador, ningún ser vivo en la historia de la Tierra dañó tanto la atmósfera... como *él*.
