@@ -12,6 +12,7 @@ Candidatas revisadas: 11 (abajo). Tendencias buscadas: UPI Odd News 20-25/11, In
 ## #2 · VIDEO 2 · franja mañana (7-10, cerca de las 08:30) · El hombre que fundó Nvidia en un Denny's y se fue en un día
 - Tema: noticia/tendencia. Jensen Huang, que fundó Nvidia en 1993 en un restaurante Denny's y la hizo una de las empresas más valiosas del mundo, renunció este mes tras 33 años al mando; la acción cayó más de 4 % y esta semana Trump dijo que le gustaría que volviera. Contar la historia detrás (el Denny's, el chico que llegó de Taiwán, la empresa) y por qué se fue solo con lo que dicen las noticias: **nada de lo sexual ni nombres**, sin difamar; lo de seguridad nacional solo como lo dijeron la empresa, China y Trump.
 - Por qué: es lo que todos comentan esta semana; llegar a tiempo suma. Si a la hora del video 2 ya no se sostiene con dos medios, va la reserva.
+- HECHO (27/11, central): «014. El jefe que volvió en 11 días», programado 29/11 08:40. Al verificar, Huang ya había VUELTO el 23/11 (Trump: «I convinced them»): se contó la salida y la vuelta. Fuentes usadas: CNBC (12/11 y 23/11) y ABC News (23/11).
 - Fuentes: 1) Univision, «Jensen Huang se va de Nvidia…»  2) Telemundo/NBC News (Megan Brand y Rob Wile) · y Primera Hora / TVN-2 (lo que dijo Trump).
 
 ## #3 · VIDEO 3 · franja tarde (14-17, cerca de las 15:30) · El espía que inventó 27 espías
