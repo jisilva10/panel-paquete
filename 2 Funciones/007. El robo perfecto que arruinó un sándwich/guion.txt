@@ -1,0 +1,12 @@
+# 007. El robo perfecto que arruinó un sándwich · Amberes, Bélgica, febrero de 2003
+# Fuentes: 1) Wikipedia, «Antwerp diamond heist» (consultada 26/11/2026; cita a Wired, Joshua Davis, 12/03/2009)  2) National Geographic, Roff Smith, «Five Men Pulled Off the Largest Diamond Heist Ever» (10/05/2013).
+# Formato: QUIEN [emoción]: texto  ·  ... = pausa larga  ·  *palabra* = con fuerza
+NARRADOR [misterio]: Este fue el robo más perfecto de la historia... y lo arruinó un *sándwich*.
+NARRADOR [tension]: Amberes, Bélgica, dos mil tres. Dos pisos bajo tierra, la bóveda de diamantes más vigilada del mundo. Radar, sensores de calor, de temblor...
+NARRADOR [confidencial]: Un italiano, Leonardo Notarbartolo, alquiló una oficina en el edificio y se hizo pasar por comerciante. Durante años. Los guardias se acostumbraron a verlo.
+NARRADOR [tension]: Un fin de semana de febrero, su banda entró a la bóveda... y abrió más de cien cajas fuertes.
+NARRADOR [asombro]: Más de cien millones de dólares en diamantes, oro y joyas. Sin que sonara *una* alarma.
+NARRADOR [burla]: Pero uno de la banda, al que le decían Speedy, se puso nervioso... y tiró la basura del robo en un bosque.
+NARRADOR [tension]: El dueño del terreno la encontró y llamó a la policía. Y entre la basura... un sándwich de salame a medio comer.
+NARRADOR [asombro]: Tenía el ADN de Notarbartolo. Lo detuvieron cinco días después del robo.
+NARRADOR [cierre]: Le dieron diez años de cárcel... pero los diamantes, hasta hoy, *nunca* aparecieron.
