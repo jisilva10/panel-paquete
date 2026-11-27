@@ -419,7 +419,7 @@
       for (const l of T.lineas) { const ws = l.palabras; for (let i = 0; i < ws.length; i += 3) { const gr = ws.slice(i, i + 3); GRUPOS.push({ ws: gr, a: Math.max(0, gr[0].a), b: i + 3 < ws.length ? ws[i + 3].a : l.fin + 0.2 }); } }
       function subs(g, t) {
         const gr = GRUPOS.find((x) => t >= x.a && t < x.b); if (!gr) return;
-        g.font = "84px Lilita"; g.textBaseline = "middle"; g.lineJoin = "round";
+        g.font = "84px Lilita"; g.textBaseline = "middle"; g.textAlign = "left"; g.lineJoin = "round"; // left: si otra escena dejó "center", las palabras se pisan (011, 27/11)
         // sin «...» ni «:» (25/11)
         const txt = gr.ws.map((w) => w.p.replace(/\.\.\.|…|:/g, '').replace(/,$/, ''));
         const an = txt.map((s) => g.measureText(s + " ").width); const total = an.reduce((a, b) => a + b, 0);

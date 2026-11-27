@@ -193,27 +193,37 @@ def tiempos_palabras(y, lineas):
     try:  # Mac con chip Apple
         import mlx_whisper
         r = mlx_whisper.transcribe(tmp, path_or_hf_repo="mlx-community/whisper-small-mlx", language="es", word_timestamps=True)
-        W = [[w["start"], w["end"]] for seg in r["segments"] for w in seg["words"]]
-    except ImportError:  # Windows / Linux: pip install faster-whisper
-        from faster_whisper import WhisperModel
-        try:
-            segs, _ = WhisperModel("small", device="cpu", compute_type="int8").transcribe(tmp, language="es", word_timestamps=True)  # en la tarjeta da tiempos malos (falta cublas64_12.dll)
-            W = [[w.start, w.end] for seg in segs for w in seg.words]
-        except Exception as e:  # en la PC falta cublas64_12.dll: en la tarjeta falla → procesador (26/11/2026)
-            print(f'Whisper en la tarjeta falló ({e}); va en el procesador')
-            segs, _ = WhisperModel("small", device="cpu", compute_type="int8").transcribe(tmp, language="es", word_timestamps=True)
-            W = [[w.start, w.end] for seg in segs for w in seg.words]
+        W = [[w["start"], w["end"], w["word"]] for seg in r["segments"] for w in seg["words"]]
+    except ImportError:  # Windows / Linux: pip install faster-whisper. En la PC, siempre en el procesador
+        from faster_whisper import WhisperModel  # (en la tarjeta falta cublas64_12.dll y da tiempos malos)
+        segs, _ = WhisperModel("small", device="cpu", compute_type="int8").transcribe(tmp, language="es", word_timestamps=True)
+        W = [[w.start, w.end, w.word] for seg in segs for w in seg.words]
+    def peso(t):  # cuánto «dura» una palabra: sus letras; cada cifra se lee como una palabra larga
+        t = re.sub(r'[^\wáéíóúñü]', '', t.lower())
+        return max(1, sum(5 if c.isdigit() else 1 for c in t))
     for L in lineas:
         tok = L['texto'].replace('*', '').split()
-        dentro = [w for w in W if w[0] >= L['ini'] - 0.15 and w[1] <= L['fin'] + 0.15]
-        if not dentro: dentro = [[L['ini'], L['fin']]]
-        # reparto proporcional: la palabra k del guion toma la palabra de Whisper en la misma fracción
+        dentro = [w for w in W if w[0] >= L['ini'] - 0.15 and w[1] <= L['fin'] + 0.15] or [[L['ini'], L['fin'], L['texto']]]
+        # Reparto por letras (27/11/2026): Whisper casi nunca oye el mismo número de palabras que el guion
+        # (números, palabras pegadas), así que se mapea la posición en letras del guion al tiempo de lo que oyó.
+        tramos, c = [], 0.0
+        for w in dentro:
+            n = peso(w[2]); tramos.append((c, c + n, w[0], w[1])); c += n
+        total_w = c
+        pesos = [peso(t) for t in tok]; total_g = sum(pesos) or 1
+        def tiempo(x, inicio):
+            x *= total_w
+            for c0, c1, t0, t1 in tramos:
+                if x < c1 or (x == c1 and not inicio):
+                    if x < c0: return t0
+                    return t0 + (t1 - t0) * (x - c0) / max(1e-9, c1 - c0)
+            return tramos[-1][3]
         L['palabras'] = []
-        for k, t in enumerate(tok):
-            j = min(len(dentro)-1, int(k * len(dentro) / len(tok)))
-            a = dentro[j][0] if len(dentro) >= len(tok) else L['ini'] + (L['fin']-L['ini']) * k / len(tok)
-            f = dentro[j][1] if len(dentro) >= len(tok) else L['ini'] + (L['fin']-L['ini']) * (k+1) / len(tok)
-            L['palabras'].append(dict(p=t, a=round(a, 3), f=round(f, 3)))
+        acc = 0
+        for t, n in zip(tok, pesos):
+            a = tiempo(acc / total_g, True); acc += n
+            f = tiempo(acc / total_g, False)
+            L['palabras'].append(dict(p=t, a=round(a, 3), f=round(max(f, a + 0.05), 3)))
 
 def escribir(p, y):
     with wave.open(p, 'wb') as w:
