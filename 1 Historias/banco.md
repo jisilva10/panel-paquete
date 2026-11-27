@@ -31,7 +31,7 @@ Columnas: tipo · por qué engancha · fuentes por confirmar. Se tacha cuando sa
 
 ## Latinoamérica
 - **Los hipopótamos de Escobar** · crimen + hoy · de 4 a más de 150 en Colombia. · Wikipedia, BBC Mundo
-- **Neil Armstrong en la Cueva de los Tayos (1976)** · Ecuador · el astronauta en una expedición a una cueva de Morona Santiago. · Wikipedia, El Comercio
+- ~~**Neil Armstrong en la Cueva de los Tayos (1976)** · Ecuador · el astronauta en una expedición a una cueva de Morona Santiago. · Wikipedia, El Comercio~~ (012, video 3 del 28/11)
 - **El presidente al que declararon loco** · política Ecuador · Bucaram, 1997, «incapacidad mental» votada por el Congreso. · Wikipedia, El Universo
 - **El Chapo y el túnel con moto** · crimen · fuga de 2015 por un túnel de 1,5 km. · Wikipedia, BBC
 

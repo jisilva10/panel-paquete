@@ -1,8 +1,8 @@
 {
- "tipo": "",
- "epoca": "",
- "region": "",
- "tono": "",
+ "tipo": "latinoamérica",
+ "epoca": "siglo XX",
+ "region": "latinoamérica",
+ "tono": "suspenso",
  "gancho": "dato imposible",
  "primera_palabra": "este/esta",
  "desarrollo": "cronológico",
@@ -38,8 +38,9 @@
   "audio_real",
   "velocidad"
  ],
- "novedad": "",
- "edicion": "",
+ "novedad": "1 solo giro (primera vez: la biblioteca no estaba) · sin audio de los clips (primera vez) · voz a velocidad 1.00 (primera vez) · mundo vertical: la Luna arriba, la selva en el medio y la cueva abajo, la cámara baja de una a otra · la biblioteca «de lo que se dijo» dibujada punteada y transparente",
+ "edicion": "mundo de papel continuo y vertical: la Luna (Armstrong en traje, bandera, la Tierra) → la cámara cae por el cielo entre nubes → la selva de Morona Santiago con la boca de la Cueva de los Tayos (helechos, cartel, cinta de 70 m, los tayos que salen de noche) → el explorador y el libro con el platillo → el campamento (banderas de Ecuador y Reino Unido, carpas, gente, militares, helicóptero) → la cámara entra por la boca de la cueva al clip real del pozo (iris) → la gran sala de abajo (paredes rectas, la biblioteca punteada que se deshace, tarántula, vasijas) → sube a la superficie: camarógrafo de 1976, la cámara entra por su lente al clip de la llegada a Quito, y Armstrong se resbala en la piedra mojada; al final se ve la Luna en el cielo. 3 fotos que se levantan (Arthur Champion 1976: Armstrong de chaqueta roja en Ecuador, Armstrong en la cueva, los hallazgos) + 2 clips (Tree Films/Bill Forsyth 1976: el pozo visto desde abajo, por la boca de la cueva; Armstrong llega a Quito, por el lente de la cámara)",
  "dia": "2026-11-28",
- "hora_sugerida": "19:00"
+ "hora_sugerida": "19:00",
+ "portada_ms": 42700
 }

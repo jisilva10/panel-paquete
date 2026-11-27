@@ -5,60 +5,89 @@ QUÉ SE HIZO · 012. El astronauta que bajó a una cueva de Ecuador
 Número: 012
 Título: El astronauta que bajó a una cueva de Ecuador
 Nombre en el panel: 012. El astronauta que bajó a una cueva de Ecuador
-Creado: 2026-11-27
-Hora programada: (AAAA-MM-DD HH:MM, Ecuador · día de la semana)
-Duración (s):
-Tipo: (noticia/tendencia | historia absurda | persona increíble | error de millones | golpe/estafa | política | crimen | inventos y ciencia | latinoamérica)
-Tema en una frase:
-Por qué debería enganchar:
-Fuentes: 1) …  2) …
+Creado: 2026-11-27 (madrugada, por la central, con adelanto: es el video 3 del 28/11/2026)
+Hora programada: 2026-11-28 19:10 (Ecuador · sábado) · franja noche (18-20), sugerida 19:00
+Duración (s): 59.63
+Tipo: latinoamérica
+Tema en una frase: En 1976, siete años después de pisar la Luna, Neil Armstrong fue el presidente de honor de una expedición británico-ecuatoriana de más de cien personas (militares, científicos, helicópteros; la pagaron los dos gobiernos) a la Cueva de los Tayos, en Morona Santiago: un pozo de unos 70 m lleno de tayos (guácharos, pájaros que solo salen de noche). Buscaban la «biblioteca de metal» que el explorador Juan Moricz decía haber visto (hojas de metal con la historia de la humanidad) y de la que habló el libro «El oro de los dioses» de Von Däniken (extraterrestres). Lo bajaron hasta el fondo. No había ninguna biblioteca: encontraron tarántulas gigantes, cerámica y conchas de miles de años. Vistazo cuenta que, antes de bajar, Armstrong pisó una piedra mojada y se resbaló unos tres metros en un pie (lo grabó una cinta de video).
+Por qué debería enganchar: el primer hombre en la Luna buscando una biblioteca de metal en una cueva de Ecuador es un «¿en serio?» que se entiende en el primer segundo; hay material real muy bueno (la película de 1976 de Tree Films y las fotos de un espeleólogo que estuvo ahí, con Armstrong dentro de la cueva); remate irónico (el que caminó en la Luna se resbaló en una piedra). Primer «latinoamérica» desde el 25/11.
+Fuentes: 1) BBC Mundo, Darío Brooks, «La Cueva de los Tayos, la legendaria y misteriosa formación de Ecuador que despertó la fascinación del astronauta Neil Armstrong» (27/11/2017)  2) Vistazo (Ecuador), María Belén Arroyo, «El primer hombre que pisó la Luna resbaló en la Cueva de los Tayos, en Ecuador en 1976» (10/04/2026). Apoyo: Wikipedia «Cueva de los Tayos» (expedición de 1976: más de cien personas, militares británicos y ecuatorianos, la pagaron Ecuador y el Reino Unido, no apareció la biblioteca; sí restos arqueológicos y entierros de ~1.500 a. C.); J. C. Whalley, «The Los Tayos Expedition», Yorkshire Ramblers Club Journal, vol. 11 n.º 38 (1979): Armstrong era el «President», lo bajaron por el pozo hasta el sumidero; tarántulas gigantes, cerámica y conchas de miles de años; helicópteros.
+Datos con cuidado: la biblioteca de metal y los extraterrestres se cuentan solo como «lo que se dijo» («decía», «un libro famoso habló de») y la biblioteca se dibuja punteada y transparente (imaginada). No se nombra a Moricz ni a Von Däniken en la voz, ni al padre Crespi (nada religioso). «Setenta metros»: BBC Mundo (Wikipedia: 65 m). «Presidente de honor»: Whalley («President and figurehead»). El resbalón: Vistazo (reportaje de Carlos Vera de 1976), dicho tal cual: «se resbaló en una piedra mojada» (no se cayó). El clip del final es la llegada a Quito, no el resbalón: la voz dice «hay un video de ese viaje» y el clip es de ese viaje. Armstrong no dice ninguna frase.
 
 == TEXTO ==
-Primera palabra:
-Gancho (primera frase, literal):
-Tipo de gancho: (en medio del lío | pregunta | dato imposible | frase del protagonista | otro)
-Estructura: intro (s a s) · desarrollo (s a s) · giro (s) · cierre (s a s)
-Desarrollo (cómo se cuenta): (cronológico | final primero | lista de 3 | misterio al final | cuenta regresiva | dos versiones)
-Giros (cuántos y cuáles):
-Narrador en: (tercera persona | segunda persona «tú» | primera persona)
-Personajes que hablan:
-Cierre (estilo): (dato que remata | ironía | bucle al gancho | frase del protagonista | pregunta | otro)
-Frase de cierre (literal):
-Palabras totales:
-Emociones usadas en la voz:
-Ritmo de la voz: (rapido | medio | dramatico: el tercer dato de voces.py)
-Velocidad de la voz: (1.00 | 1.07 | 1.12 | 1.17: el cuarto dato de voces.py)
+Primera palabra: Este
+Gancho (primera frase, literal): «Este astronauta caminó en la Luna... y siete años después bajó a una cueva de Ecuador a buscar una biblioteca de metal.»
+Tipo de gancho: dato imposible
+Estructura: gancho en la Luna: Armstrong en el traje (visor dorado levantado) da saltitos encima del disco de la Luna que gira, con la bandera y la Tierra atrás (0-2.5 s) · en «siete» la cámara se aleja y se ve la Luna entera; cae por el cielo entre nubes de papel (2.5-4 s) · en «bajó» llega a la selva: lomas, helechos y la boca del pozo con su escalera de soga (4-6.6 s) · en «biblioteca» sale de la boca la biblioteca de metal brillando, punteada, con un «?» (6.6-8.2 s) · «Mil novecientos setenta y seis»: sube el cartel CUEVA DE LOS TAYOS · MORONA SANTIAGO · 1976 (8.2-13.6 s) · «hueco de setenta metros»: la cámara se aleja hasta ver todo el pozo y la sala de abajo; baja una cinta amarilla y la etiqueta «70 m» (13.6-15.7 s) · «pájaros»: los tayos salen volando del pozo; en «noche» se hace de noche con estrellas y la Luna (15.7-18 s) · «Un explorador»: un explorador sin nombre (sombrero, barba) señala el pozo (18.1-19.7 s) · «allá abajo»: la cámara baja a la sala y en la pared brilla la biblioteca punteada con su «?» (19.7-23.4 s) · «un libro famoso»: un libro morado sube y se abre; en «extraterrestres» sale un platillo volador con su rayo (23.4-26.4 s) · el campamento: suben la bandera de Ecuador (en «Ecuador») y la del Reino Unido (en «Reino»), carpas; en «cien» aparecen 16 personitas (científicos y soldados) detrás de las carpas; en «militares» tres soldados; en «helicópteros» aterriza un helicóptero del ejército ecuatoriano (26.4-34.2 s) · «presidente de honor»: Armstrong con chaqueta roja y camisa celeste baja del helicóptero; se levanta la foto real de Armstrong de chaqueta roja en Ecuador; en «Neil» saluda; los soldados hacen el saludo (34.2-36.6 s) · la cámara vuelve a la boca de la cueva y en «Bajó» se mete por el hueco: clip real del pozo visto desde abajo, con la soga (37.9-40.3 s) · «hasta el fondo»: Armstrong con traje azul de espeleólogo, arnés rojo y casco con lámpara llega abajo; se levanta la foto real de Armstrong en la cueva (40.3-42 s) · giro (el único): «Y la biblioteca de metal...»: la biblioteca brilla en la pared con la luz de su lámpara... en «no estaba» se deshace en pedazos y polvo (42-44.6 s) · «tarántulas gigantes»: una tarántula baja del techo por su hilo, Armstrong se asusta (45-47.2 s) · «vasijas de hace miles de años»: suben dos vasijas y una concha del piso y la foto real de los hallazgos (47.3-49.5 s) · «ni una sola hoja de metal»: la lámpara barre la pared vacía (49.5-51.5 s) · cierre: la cámara sube a la superficie; un camarógrafo de 1976 con su cámara en trípode; en «video» la cámara entra por el lente al clip real de Armstrong llegando a Quito (52.8-55.9 s) · «el primer hombre que caminó en la Luna»: Armstrong (casco y traje de la cueva) camina hacia la piedra mojada; en «resbaló» se desliza en un pie con los brazos al aire y saltan gotas; en «mojada» recupera el equilibrio (55.9-58 s) · cola sin voz: la cámara se aleja hacia arriba y en el cielo de día está la Luna (58-59.6 s).
+Desarrollo (cómo se cuenta): cronológico (base): la Luna (1969) → 1976: la cueva, la leyenda, la expedición, la bajada, lo que encontraron; el resbalón como dato final.
+Giros (cuántos y cuáles): 1 (PRUEBA) · la biblioteca de metal no estaba (solo tarántulas y vasijas). El resbalón no es giro: es el dato que remata.
+Narrador en: tercera persona
+Personajes que hablan: NARRADOR (solo)
+Cierre (estilo): dato que remata (con ironía)
+Frase de cierre (literal): «Eso sí, hay un video de ese viaje: el primer hombre que caminó en la Luna... se resbaló en una piedra mojada.»
+Palabras totales: 153
+Emociones usadas en la voz: misterio, confidencial, tension, asombro, tension, asombro, cierre
+Ritmo de la voz: rapido (base)
+Velocidad de la voz: 1.00 (PRUEBA; 58,4 s de voz; Whisper la transcribió entera, solo oyó «tallos» por «Tayos» y «culgado» por «colgado»)
 
 == EDICIÓN ==
-Mundo (lugar de papel):
-Lugares y cómo se entra a cada uno:
-Personajes dibujados (y a quién se parecen):
-Fotos reales (cuántas, de dónde, en qué segundo):
-Clips reales (cuántos, de dónde, cuánto duran, cómo entran):
-Subtítulos (estilo, tamaño, posición):
-Música (cuál y a qué volumen):
-Efectos de sonido (cuántos y en qué palabras):
-Audio original de los clips:
-Silencios:
-Transiciones y cámara (cómo cambia y cada cuánto):
-El primer segundo (qué se ve y qué se mueve):
-Portada (escena y titular):
-Texto de la publicación:
+Mundo (lugar de papel): uno solo y VERTICAL: arriba en el espacio la Luna (disco de papel gris con cráteres que gira despacio, bandera de EE. UU., la Tierra), abajo el cielo con nubes de papel, la selva de Morona Santiago (dos capas de cordillera verde con neblina, árboles, helechos) y, cortados como una maqueta, la tierra con sus capas, el pozo de 70 m con su escalera de soga y la gran sala de abajo de paredes rectas (como las de los Tayos). De izquierda a derecha en la superficie: el libro, el explorador, la boca de la cueva con el cartel, la piedra mojada y el camarógrafo, el campamento (banderas, carpas, gente, soldados) y el helipuerto.
+Lugares y cómo se entra a cada uno: la Luna (ya en movimiento) → se aleja en «siete» y cae por el cielo → la selva en «bajó» → se acerca a la boca → cartel en «Mil» → se aleja a todo el pozo en «hueco» → vuelve a la boca en «pájaros» y se hace de noche → al explorador → baja a la sala en «abajo» → al libro en «libro» → viaja al campamento en «Ecuador» → se abre en «cien» → soldados → helicóptero → Armstrong y su foto → viaja a la cueva y ENTRA por la boca (iris al clip) en «Bajó» → sale en la sala → biblioteca, tarántula, vasijas → sube por el pozo en «Eso» → al camarógrafo → ENTRA por el lente (iris al clip) en «video» → sale a la piedra → resbalón → se aleja hacia el cielo con la Luna. Tramos de 1,1 s como máximo.
+Personajes dibujados (y a quién se parecen): Neil Armstrong parecido a sus fotos de 1976 (pelo castaño claro con raya al costado y entradas, ojos celestes, cara ancha y mandíbula cuadrada): con traje lunar (casco burbuja y visor dorado levantado), con chaqueta roja y camisa celeste (como en la foto de Champion y lo que cuenta Vistazo) y con traje azul de espeleólogo, arnés rojo y casco amarillo con lámpara (como en la foto en la cueva); un explorador sin nombre (sombrero, barba); 16 personitas (científicos y soldados); tres soldados ecuatorianos; un camarógrafo con gorra; tayos (pardos con pintas blancas, pico ganchudo, ojos grandes); una tarántula gigante. Armstrong nunca habla.
+Fotos reales (cuántas, de dónde, en qué segundo): 3, todas «se levantan del suelo» en su estaca, con «Foto: Arthur Champion (…)» (espeleólogo de la expedición; fotogramas de su video «1976 British-Ecuadorian expedition to la Cueva de los Tayos», YouTube DunfE2PNz70, 720p, s. 1898, 1928 y 1990) · Armstrong de chaqueta roja con niños en Ecuador (34.9-37 s) · Armstrong con otro espeleólogo dentro de la cueva (40.3-41.9 s, aparece al salir del clip) · los hallazgos: cerámica y una concha sobre una lona (47.4-49.5 s).
+Clips reales (cuántos, de dónde, cuánto duran, cómo entran): 2, de la película «The Legend of Los Tayos» (Tree Films, Glasgow, dirigida por Bill Forsyth, 1976; subida por Arthur Champion, YouTube kXmep2gp8w8, 720p recortado a 4:3) · el pozo visto desde abajo con la luz arriba y la soga (s. 1783.5-1786.9 del original), 2,4 s (37.9-40.3), la cámara entra por la boca de la cueva y se abre en iris; fuente «Video: Tree Films · Bill Forsyth (Cueva de los Tayos, 1976)» · Armstrong llegando a Quito, sonriente, entre pilotos (s. 1948.6-1951.8), 2,9 s (52.8-55.6), la cámara entra por el lente de la cámara del camarógrafo; fuente «Video: Tree Films · Bill Forsyth (Quito, 1976)».
+Subtítulos (estilo, tamaño, posición): Lilita One 84 px, hasta 3 palabras, la que suena en amarillo #ffd23f, borde tinta, y=1580, sin «...», «:», «*» ni coma o punto final.
+Música (cuál y a qué volumen): historia.mp3 (la de siempre) desde su segundo 12, al 32 % con sidechain a la voz; se apaga en los últimos 2 s.
+Efectos de sonido (cuántos y en qué palabras): 14 · papel-despliega al inicio, whoosh-grave en «siete» (cae de la Luna), papel-aletea en «biblioteca» (sale de la boca), carton-pone en «Mil» (cartel), papel-aletea en «pájaros», pop en «explorador», whoosh-corto en «extraterrestres» (platillo), carton-pone en «Ecuador» (banderas), whoosh-cine en «helicópteros», whoosh-cine en «Bajó» (se mete al pozo), golpe-seco en «no» (la biblioteca se deshace), pop en «tarántulas», whoosh-corto en «Eso» (sube), papel-swish en «resbaló». Sin braam ni golpe al final.
+Audio original de los clips: NO (PRUEBA): los dos clips van mudos, solo voz y música.
+Silencios: no.
+Transiciones y cámara (cómo cambia y cada cuánto): la cámara cae de la Luna a la selva, viaja de lado por la superficie, baja por el pozo y sube, y entra dos veces por un objeto (la boca de la cueva y el lente de la cámara) con iris al clip; de noche con estrellas y la Luna; sacudida chica en el resbalón; cambia cada 2-3 s; paneo suave con respiración.
+El primer segundo (qué se ve y qué se mueve): Armstrong en el traje lunar ya da saltitos sobre la Luna que gira, con la Tierra arriba; la cámara se le acerca despacio.
+Portada (escena y titular): el clímax (42,7 s, sin subtítulo: index.html armado con «construir.py qwen sin-subs» y hyperframes snapshot): Armstrong con el casco y la luz de su lámpara sobre la biblioteca punteada con el «?»; placas «ARMSTRONG BAJÓ A ESTA CUEVA» (amarilla) y «¿QUÉ HABÍA ADENTRO?» (tinta): afirmación + pregunta (base). portada_ms 42700.
+Texto de la publicación: «Después de pisar la Luna, Armstrong bajó a una cueva de Ecuador a buscar una biblioteca de metal.» (97 caracteres; es el título de YouTube) + «Fuentes: BBC Mundo (2017) · Vistazo (2026) · video: Tree Films (1976) · fotos: Arthur Champion» + #NeilArmstrong #CuevaDeLosTayos #Ecuador #historiareal #enserio
 
-== PALANCAS == (lo escribe solo limpiar.py desde etiquetas.json)
+== PALANCAS == (copiado de etiquetas.json; ★ = se probó a propósito en este video)
+Modo: explorar · Pruebas: giros, audio_real, velocidad
+Historia: Tema: latinoamérica · Época: siglo XX · Dónde pasó: latinoamérica · Tono: suspenso
+Texto: Tipo de gancho: dato imposible · Primera palabra: este/esta · Cómo se desarrolla: cronológico · ★ Giros: 1 · Narrador: tercera persona · Quién habla: solo narrador · Frase final: dato que remata · Llamado al público: no
+Edición y sonido: Transición: cámara entra por un objeto · Cada cuánto cambia la imagen: medio (2-3 s) · Cámara: paneo suave · Fotos + clips reales: 4-5 · Cómo entra lo real: mezcla · Letreros en pantalla: pocos · El primer segundo: ya en movimiento · Subtítulos: Lilita 84 px abajo · Música: historia (la de siempre) · Volumen de música: media (≈32 %) · Efectos de sonido: normales (7-14) · ★ Audio original del clip: no · Silencio antes del giro: no
+Voz, duración, portada: Duración: 50-60 s · Pausas de la voz: rapido · ★ Velocidad de la voz: 1.00 · Escena de portada: el clímax · Titular de portada: afirmación + pregunta · Texto de la publicación: afirmación que intriga
+Publicación: Hora de subida: noche (18-20)
 
 == QUÉ SE PROBÓ ==
-Modo del laboratorio: (explorar | ganador | rival | nuevo)
-Lo que se repitió de los ganadores (y de cuál):
-Lo nuevo que se probó en este video: (una línea por prueba: palanca · de qué a qué · por qué)
-Hipótesis (qué espero que pase):
+Modo del laboratorio: explorar (3 pruebas, una por grupo)
+Lo que se repitió de los ganadores (y de cuál): todavía 0 piezas con 48 h. Se repitió la base de 001-011: gancho «dato imposible» con «Este» (como 005, 008-011), cronológico, solo narrador en tercera persona, cierre que remata (como 004, 005, 007, 009-011), 5 reales en mezcla (3 fotos que se levantan, un clip por la boca de la cueva y otro por el lente de una cámara), la cámara entra por un objeto, música «historia» al 32 %, 14 efectos, voz rápida, 50-60 s, portada del clímax con afirmación + pregunta. Para no repetir a los del 28/11: el 010 probó duración corta, misterio al final y foto que se levanta; el 011, primera persona, primer plano de la cara y portada de solo pregunta: aquí nada de eso (dura 59,6 s, tercera persona, arranca ya en movimiento).
+Lo nuevo que se probó en este video:
+- giros · 2 → 1 · nunca probado: un solo giro (la biblioteca no estaba) y el resto es subida de tensión; el resbalón queda como dato que remata, no como giro. ¿Un solo golpe fuerte retiene igual que dos?
+- audio_real · bajito (≈35 %) → no · nunca probado: los dos clips sin su audio (la película de 1976 tiene música de documental y voces en inglés): solo voz y música. ¿El audio real suma o da igual?
+- velocidad · 1.07 → 1.00 · nunca probado: la voz a su velocidad natural (pausas cortas, sin acelerar). 153 palabras dieron 58,4 s de voz.
+Hipótesis (qué espero que pase): Armstrong + «biblioteca de metal» en el gancho trae vistas en todas las redes y la portada con la pregunta trae toques; la voz a 1.00 se entiende mejor pero puede bajar la retención media (el video dura casi 60 s); sin el audio de los clips no se nota la diferencia. Riesgo: el giro único llega en el segundo 43: los que se van a los 20 s no lo ven.
 
 == RESULTADO (se llena después; lo actualiza la rutina) ==
 48 h · TikTok: ___  Instagram: ___  YouTube: ___  Retención IG: ___
 Lectura: (¿ganó, perdió? ¿por qué creo?)
 
 == GUION COMPLETO ==
-(pegar aquí guion.txt tal cual, con fuentes)
+# 012. El astronauta que bajó a una cueva de Ecuador · Neil Armstrong en la Cueva de los Tayos, Morona Santiago (Ecuador), 1976
+# Fuentes: 1) BBC Mundo, Darío Brooks, «La Cueva de los Tayos, la legendaria y misteriosa formación de Ecuador que despertó la fascinación del astronauta Neil Armstrong» (27/11/2017)  2) Vistazo (Ecuador), María Belén Arroyo, «El primer hombre que pisó la Luna resbaló en la Cueva de los Tayos, en Ecuador en 1976» (10/04/2026).
+# Apoyo: Wikipedia «Cueva de los Tayos» (expedición de 1976: más de cien personas, militares británicos y ecuatorianos, la pagaron los dos gobiernos; no se halló la biblioteca; sí restos arqueológicos y entierros de hace unos 1.500 a. C.); J. C. Whalley, «The Los Tayos Expedition», Yorkshire Ramblers' Club Journal (1979): Armstrong era el presidente de la expedición, lo bajaron por el pozo con escaleras hasta el sumidero, tarántulas gigantes, cerámica y conchas de miles de años; helicópteros.
+# Datos con cuidado: la biblioteca de metal y los extraterrestres son «lo que se dijo» (Moricz y el libro de Von Däniken, 1973), nunca se dan por ciertos. El pozo de entrada: unos 70 m (BBC Mundo; Wikipedia, 65 m). El resbalón: Vistazo (pisó una piedra mojada, se deslizó unos tres metros en un pie y recuperó el equilibrio; lo grabó una cinta de video).
+# Nadie habla con frases inventadas: solo el narrador.
+# Formato: QUIEN [emoción]: texto  ·  ... = pausa larga  ·  *palabra* = con fuerza
+NARRADOR [misterio]: Este astronauta caminó en la Luna... y siete años después bajó a una cueva de Ecuador a buscar una *biblioteca de metal*.
+NARRADOR [confidencial]: Mil novecientos setenta y seis. La Cueva de los Tayos, en Morona Santiago: un hueco de setenta metros lleno de pájaros que solo salen de noche.
+NARRADOR [tension]: Un explorador decía que allá abajo había hojas de metal con la historia de la humanidad grabada... y un libro famoso habló de extraterrestres.
+NARRADOR [asombro]: Ecuador y el Reino Unido armaron una expedición de más de cien personas, con militares y helicópteros... y de presidente de honor, Neil Armstrong.
+NARRADOR [tension]: Bajó colgado de una escalera hasta el fondo de la cueva.
+NARRADOR [asombro]: Y la biblioteca de metal... *no estaba*. Encontraron tarántulas gigantes y vasijas de hace miles de años... pero ni una sola hoja de metal.
+NARRADOR [cierre]: Eso sí, hay un video de ese viaje: el primer hombre que caminó en la Luna... se *resbaló* en una piedra mojada.
 
 == CÓMO SE ARMÓ ==
-(paso a paso corto: qué escena tiene cada línea, qué se cambió del motor, qué falló y cómo se arregló)
+1. Historia: la #3 de hoy.md del 28/11 (latinoamérica). ya_hecho.py "Neil Armstrong" "Cueva de los Tayos" "Tayos" y "Armstrong" "Morona Santiago" "astronauta" → solo aparecía como plan en notas.md (no hecho). Se tachó en banco.md. Lugar en la cola dado por la central: DIA 2026-11-28, VIDEO 3. Laboratorio: pruebas giros, audio_real, velocidad; hora 19:00 ±20 (el 27/11 hubo uno a las 18:50: se puso 19:10).
+2. Material: yt-dlp --js-runtimes node de dos videos de Arthur Champion (espeleólogo de la expedición): «Exploration of La Cueva de los Tayos in 1976» (la película de Tree Films / Bill Forsyth) y «1976 British-Ecuadorian expedition to la Cueva de los Tayos» (sus fotos). Hojas cada 15 s y cada 1-2 s para elegir; tramos a 720p con --download-sections. Fotos: fotogramas recortados con PIL (sin las bandas negras). Clips a fotogramas (fps=30, crop 4:3 960x720 → 800x600): pozo 102 cuadros, llegada 96 (toma continua, sin cortes). No se usó Wikimedia.
+3. Voz: voces.py . qwen rapido 1.00 → 58,4 s (59,6 con la cola). El reparto nuevo de voces.py salió bien en 5 de 7 líneas, pero en las dos con cifras («mil novecientos setenta y seis» y «cien») quedó corrido: «La» a 10,88 s cuando sonaba a 10,40; «con» a 30,98 cuando sonaba a 31,76; «militares» 0,8 s antes (Whisper da «1976» y «100» en cifras y el reparto por letras no las cuadra). Se corrigió con un script (alinear.py en el scratchpad de la sesión): faster-whisper small en CPU con tiempos por palabra, las cifras pasadas a palabras con num2words y repartidas por letras dentro del tramo de la cifra, el comienzo de cada palabra después de un silencio ajustado con la energía de la voz (Whisper ponía «1976» a 8,82 y sonaba desde 8,26) y el final de la cifra hasta donde empieza el silencio; difflib para cuadrar con el guion. 153 de 153 palabras con su tiempo; se revisó contra la energía de la voz en los tramos dudosos.
+4. Película: plantilla.html nueva entera: armstrong() con tres trajes (lunar, chaqueta roja, espeleólogo con casco y lámpara) y brazos y piernas que se mueven, persona() (explorador, gente, soldados, camarógrafo), luna() que gira con huellas y bandera, nubes, lomas con parallax anclado al suelo, tierra() con el pozo y la sala recortados y su luz, biblioteca() punteada que se deshace en pedazos, tayo(), libro que se abre y platillo con rayo, banderas de EE. UU., Ecuador y Reino Unido, carpas, helicóptero con escarapela de Ecuador, tarántula, vasijas y concha, piedra mojada con gotas, cámara de cine de 1976 en trípode, fotoLevanta() y clip() (iris). Subtítulos con save/restore y textAlign left. construir.py: 14 efectos, sin audio de clips, opción «sin-subs» para la portada.
+5. Lo que se vio mal en los snapshots y las hojas y se arregló (3 renders): el cartel y la foto de los hallazgos se cortaban en el borde (cámara movida, foto más a la izquierda); la biblioteca y su «?» se cortaban a la derecha (el «?» va arriba al centro); los tayos se amontonaban (repartidos en círculo); las nubes tenían rayas por dentro (sin borde por pieza); abajo los títeres quedaban sobre los subtítulos (la cámara baja 180 px en la sala); se veían los palitos debajo de la banda del suelo (bandas de 760 px); las vasijas se pisaban (separadas); la tarántula le caía en la cara a Armstrong (más a la derecha y más chica); la gente del campamento quedaba delante de las carpas (ahora detrás); la biblioteca de la segunda vez quedaba delante de Armstrong; los soldados y la foto quedaban encima del helicóptero (helipuerto más a la derecha) y la foto de la chaqueta roja duraba 0,7 s (ahora sube en «presidente» y la cámara se queda: 2 s); el brazo de Armstrong al resbalar atravesaba la cámara del camarógrafo (camarógrafo más lejos).
+6. Render: hyperframes 0.8.33, ~2 min por render, 39,4 MB. revisar_celeste.py: 1789 cuadros, 0 vacíos, todo bien. ffmpeg sin errores de principio a fin; duración 59,63 s (la voz con la cola, 59,62). −14,5 LUFS. Se miraron las 5 hojas (un fotograma por segundo) de cada render. Sin BOM en plantilla.html (editada solo con Python utf8 y la herramienta de escritura).
+7. Portada: hyperframes snapshot a 42,7/42,9/43,1 s con el index.html sin subtítulos; se eligió 42,7; portada.py con las dos placas.
+8. Programado con npm run programar (primero --probar) para el sábado 28/11 a las 19:10.
