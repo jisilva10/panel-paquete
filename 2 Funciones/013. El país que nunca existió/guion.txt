@@ -1,0 +1,12 @@
+# 013. El país que nunca existió · Gregor MacGregor y Poyais · Londres, 1822 → la costa de Honduras (Black River) → París → Caracas (1845)
+# Fuentes: 1) Wikipedia «Gregor MacGregor» (con Sinclair, The Land That Never Was, 2003): préstamo de 200.000 libras (oct. 1822); guía «Sketch of the Mosquito Shore» de un tal capitán Strangeways (1822): Saint Joseph con bulevares anchos, mansiones, un teatro, una ópera; billetes del Banco de Poyais que los colonos cambiaron por su plata de verdad; unos 250 colonos en 1822-1823, más de la mitad murió; juicio en Francia en 1826, absuelto; Venezuela en 1838, recibido como héroe; murió en Caracas en 1845 y lo enterraron con honores militares.  2) Historic UK, «Gregor MacGregor, Prince of Poyais»: «Cazique» (príncipe) de Poyais en la bahía de Honduras; unas 200.000 libras en un año; el segundo barco con unos 200 colonos encontró selva; juicio en Francia en 1826 y absuelto; Venezuela en 1838 «a hero's welcome»; murió en Caracas en 1845, enterrado con honores militares.
+# Datos con cuidado: «príncipe» por «Cazique» (así lo traduce Historic UK). Peleó en las guerras de independencia de Venezuela y Nueva Granada (Wikipedia). Nadie habla con frases inventadas: solo el narrador.
+# Formato: QUIEN [emoción]: texto  ·  ... = pausa larga  ·  *palabra* = con fuerza
+NARRADOR [misterio]: Este hombre consiguió *doscientas mil libras*... para un país que no existía.
+NARRADOR [confidencial]: Londres, mil ochocientos veintidós. Gregor MacGregor, un escocés que había peleado por la independencia de Venezuela, dice que es el príncipe de Poyais, un país en la costa de Honduras.
+NARRADOR [asombro]: Hasta publica una guía: la capital tiene calles anchas, mansiones, un teatro... y una *ópera*.
+NARRADOR [tension]: Vende tierras, vende bonos, imprime sus propios billetes... y unas doscientas cincuenta personas cambian su plata de verdad por esos billetes y se suben a los barcos.
+NARRADOR [asombro]: Llegan... y no hay capital, ni teatro, ni ópera. Solo *selva*.
+NARRADOR [solemne]: Más de la mitad murió allí.
+NARRADOR [indignado]: ¿Y MacGregor? Se va a Francia y lo intenta otra vez. Lo juzgan por estafa... y sale *absuelto*.
+NARRADOR [cierre]: Se fue a vivir a Venezuela, lo recibieron como a un héroe... y cuando murió, lo enterraron con *honores militares*.
