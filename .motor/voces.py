@@ -196,8 +196,13 @@ def tiempos_palabras(y, lineas):
         W = [[w["start"], w["end"]] for seg in r["segments"] for w in seg["words"]]
     except ImportError:  # Windows / Linux: pip install faster-whisper
         from faster_whisper import WhisperModel
-        segs, _ = WhisperModel("small", device="auto").transcribe(tmp, language="es", word_timestamps=True)
-        W = [[w.start, w.end] for seg in segs for w in seg.words]
+        try:
+            segs, _ = WhisperModel("small", device="auto").transcribe(tmp, language="es", word_timestamps=True)
+            W = [[w.start, w.end] for seg in segs for w in seg.words]
+        except Exception as e:  # en la PC falta cublas64_12.dll: en la tarjeta falla → procesador (26/11/2026)
+            print(f'Whisper en la tarjeta falló ({e}); va en el procesador')
+            segs, _ = WhisperModel("small", device="cpu", compute_type="int8").transcribe(tmp, language="es", word_timestamps=True)
+            W = [[w.start, w.end] for seg in segs for w in seg.words]
     for L in lineas:
         tok = L['texto'].replace('*', '').split()
         dentro = [w for w in W if w[0] >= L['ini'] - 0.15 and w[1] <= L['fin'] + 0.15]
