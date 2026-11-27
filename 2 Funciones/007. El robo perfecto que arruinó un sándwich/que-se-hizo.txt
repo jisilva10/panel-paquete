@@ -5,60 +5,89 @@ QUÉ SE HIZO · 007. El robo perfecto que arruinó un sándwich
 Número: 007
 Título: El robo perfecto que arruinó un sándwich
 Nombre en el panel: 007. El robo perfecto que arruinó un sándwich
-Creado: 2026-11-26
-Hora programada: (AAAA-MM-DD HH:MM, Ecuador · día de la semana)
-Duración (s):
-Tipo: (noticia/tendencia | historia absurda | persona increíble | error de millones | golpe/estafa | política | crimen | inventos y ciencia | latinoamérica)
-Tema en una frase:
-Por qué debería enganchar:
-Fuentes: 1) …  2) …
+Creado: 2026-11-26 (por la central, con adelanto: es el video 1 del 27/11/2026)
+Hora programada: 2026-11-27 18:50 (Ecuador · viernes)
+Duración (s): 55.2
+Tipo: crimen
+Tema en una frase: En febrero de 2003, la banda de Leonardo Notarbartolo («la Escuela de Turín») vació más de cien cajas de la bóveda del Antwerp Diamond Center, dos pisos bajo tierra y con radar, sensores de calor y sísmicos, y se llevó más de 100 millones de dólares; Notarbartolo llevaba años con una oficina en el edificio haciéndose pasar por comerciante; «Speedy», nervioso, tiró la basura del robo en un bosque junto a la autopista E19; el dueño del terreno la encontró y llamó a la policía; entre la basura había un sándwich de salame a medio comer con el ADN de Notarbartolo; lo detuvieron cinco días después, le dieron 10 años y los diamantes nunca aparecieron.
+Por qué debería enganchar: la contradicción se entiende en un segundo (el robo perfecto vs. un sándwich), hay suspenso de película de atracos y un remate concreto (los diamantes siguen perdidos). Primer crimen de la cuenta.
+Fuentes: 1) Wikipedia, «Antwerp diamond heist» (consultada 26/11/2026; cita a Wired, Joshua Davis, 12/03/2009)  2) National Geographic, Roff Smith, «Five Men Pulled Off the Largest Diamond Heist Ever» (10/05/2013).
+Datos con cuidado: «más de cien cajas» porque las fuentes no coinciden (Wikipedia 109 de 189; National Geographic 123 de 160). «Durante años» porque una dice más de 2 y la otra 4. Que los guardias «se acostumbraron a verlo» es lo que dice Wikipedia. El sándwich de salame con su ADN está en las dos. «Speedy» es el apodo que da Wikipedia al que tiró la basura (la policía cree que es Pietro Tavano: no se nombra). Nadie dice frases inventadas. Los diamantes: «nunca aparecieron» (National Geographic: «were not recovered»; Wikipedia: la mayoría sin recuperar). No se cuenta la versión de Notarbartolo (fraude al seguro) porque los expertos no la creen.
 
 == TEXTO ==
-Primera palabra:
-Gancho (primera frase, literal):
-Tipo de gancho: (en medio del lío | pregunta | dato imposible | frase del protagonista | otro)
-Estructura: intro (s a s) · desarrollo (s a s) · giro (s) · cierre (s a s)
-Desarrollo (cómo se cuenta): (cronológico | final primero | lista de 3 | misterio al final | cuenta regresiva | dos versiones)
-Giros (cuántos y cuáles):
-Narrador en: (tercera persona | segunda persona «tú» | primera persona)
-Personajes que hablan:
-Cierre (estilo): (dato que remata | ironía | bucle al gancho | frase del protagonista | pregunta | otro)
-Frase de cierre (literal):
-Palabras totales:
-Emociones usadas en la voz:
-Ritmo de la voz: (rapido | medio | dramatico: el tercer dato de voces.py)
-Velocidad de la voz: (1.00 | 1.07 | 1.12 | 1.17: el cuarto dato de voces.py)
+Primera palabra: Este
+Gancho (primera frase, literal): «Este fue el robo más perfecto de la historia... y lo arruinó un sándwich.»
+Tipo de gancho: contradicción
+Estructura: gancho en la bóveda: el saco del botín sube, sello verde «ROBO PERFECTO», el sándwich cae del techo, aplasta el saco y raja el sello (0-3.7 s) · la cámara sube a la calle de Amberes de noche: el Diamond Center, letrero «AMBERES · BÉLGICA 2003» y la foto real del cartel del edificio (4-5.8 s) · baja por el pozo (-1, -2) a la bóveda (5.8-9.7 s) · radar que barre, rayos de calor rojos, sensor sísmico con sacudida (9.9-12.2 s) · sube al edificio y entra por la ventana de la oficina: Notarbartolo y su foto real, la lupa de comerciante, las hojas del calendario que vuelan, el guardia que saluda y se duerme (12.3-22.5 s) · de noche en la bóveda: tres ladrones con pasamontañas, la puerta redonda se abre, las cajas se abren solas (22.7-26.6 s) · la cámara entra por el dial de la puerta: clip real de la bóveda saqueada (26.7-30.1 s) · lupa de joyero con un diamante real + «+$100 MILLONES»; la alarma dormida («Z Z») (30.2-32.7 s) · la autopista E19: el auto naranja de Speedy sudando, las bolsas vuelan al bosque (32.7-38.5 s) · el bosque: el dueño (gorra y chaleco verdes) y el clip real del dueño del terreno, llega el policía (38.6-41.7 s) · zoom al sándwich entre la basura, las rodajas de salame (41.7-44.4 s) · el ADN sale del sándwich y sube la foto de Notarbartolo (44.5-46.4 s) · vuelve a la oficina: lo detiene un policía, sello «5 DÍAS DESPUÉS» (46.5-48.7 s) · «10 AÑOS» y bajan los barrotes sobre la ventana (48.8-51 s) · baja a la bóveda vacía: tres signos de pregunta en «nunca» (51-55.2 s)
+Desarrollo (cómo se cuenta): cronológico
+Giros (cuántos y cuáles): 2 · Speedy se pone nervioso y tira la basura en un bosque · entre la basura, el sándwich con el ADN de Notarbartolo
+Narrador en: tercera persona
+Personajes que hablan: NARRADOR (solo)
+Cierre (estilo): dato que remata
+Frase de cierre (literal): «Le dieron diez años de cárcel... pero los diamantes, hasta hoy, nunca aparecieron.»
+Palabras totales: 165
+Emociones usadas en la voz: misterio, tension, confidencial, tension, asombro, burla, tension, asombro, cierre
+Ritmo de la voz: rapido
+Velocidad de la voz: 1.17 (prueba; se entendió todo: Whisper transcribió bien «Speedy», «ADN» y «Notarbartolo»; no hizo falta bajar)
 
 == EDICIÓN ==
-Mundo (lugar de papel):
-Lugares y cómo se entra a cada uno:
-Personajes dibujados (y a quién se parecen):
-Fotos reales (cuántas, de dónde, en qué segundo):
-Clips reales (cuántos, de dónde, cuánto duran, cómo entran):
-Subtítulos (estilo, tamaño, posición):
-Música (cuál y a qué volumen):
-Efectos de sonido (cuántos y en qué palabras):
-Audio original de los clips:
-Silencios:
-Transiciones y cámara (cómo cambia y cada cuánto):
-El primer segundo (qué se ve y qué se mueve):
-Portada (escena y titular):
-Texto de la publicación:
+Mundo (lugar de papel): un solo corte de Amberes de noche (luna, estrellas, ciudad lejana con la catedral en parallax): la calle con el Diamond Center (5 x 2 ventanas encendidas, la oficina del primer piso con ventana grande, la puerta y el letrero DIAMOND CENTER en Rye), la tierra en corte con vetas, el pozo del ascensor con -1 y -2, la bóveda gris (40 cajas, radar en el techo, rayos rojos, sensor sísmico, puerta redonda con dial); a la derecha, la autopista con el cartel azul E19 y después el bosque de papel.
+Lugares y cómo se entra a cada uno: bóveda al empezar → la cámara sube a la calle en «Amberes» → baja por el pozo en «pisos»/«bóveda» → sube al edificio en «italiano» y entra por la ventana de la oficina en «oficina» → baja a la bóveda en «semana» → se mete por el dial de la puerta en «cajas» (iris al clip) → al salir, la bóveda con el saco → viaja a la autopista en «banda» (2) → al bosque en «bosque» → zoom al sándwich en «sándwich» (2) → sube con el ADN → vuelve a la oficina en «detuvieron» → baja a la bóveda en «diamantes» (3). Cámara: tramos de ≤0,9 s, zoom 0,7 a 7.
+Personajes dibujados (y a quién se parecen): Leonardo Notarbartolo, parecido a su foto (cara redonda y morena, pelo oscuro corto con entradas, cejas gruesas, suéter azul oscuro con cuello blanco); guardia (gorra y uniforme azul, estrella); 3 ladrones con pasamontañas negros; Speedy (genérico, en el auto, gota de sudor); el dueño del terreno (gorra y chaleco verdes, canas, como en el clip); 2 policías (gorra azul oscuro, bigote).
+Fotos reales (cuántas, de dónde, en qué segundo): 2 · el cartel «DIAMOND CENTER» del edificio (fotograma del documental de la VRT, YouTube UrAgsQRFNdk, segundo 150.4), se levanta en «Bélgica» (~4.3 s) a la izquierda del edificio · la foto de Notarbartolo (fotograma del mismo documental, segundo 988.5, la foto de la izquierda), se levanta en «Notarbartolo» (~13.8 s) en la oficina y otra vez junto al ADN (~45.6 s). Fuente chiquita «Foto: VRT · YouTube».
+Clips reales (cuántos, de dónde, cuánto duran, cómo entran): 3 · la bóveda saqueada en 2003 (VRT Heimwee, «Diamantroof Antwerpen: hoe het plan kon slagen», YouTube UrAgsQRFNdk, segundo 134.5-138) por el dial de la puerta con iris, 26.7-30.1 s, título «ASÍ QUEDÓ LA BÓVEDA», recortado para sacar el logo · un diamante en pinzas en el World Diamond Centre de Amberes (AP Archive, YouTube jiYRbpYORlM, 2013, segundo 0.3-2.3) dentro de una lupa de joyero, 30.2-32.1 s · el dueño del terreno en el bosque (VRT, segundo 554.2-557.5, sin su letrero) en un marco que se levanta, 39.4-42.6 s. Fuente: «Video: VRT · YouTube» y «Video: AP Archive · YouTube (2013)».
+Subtítulos (estilo, tamaño, posición): Lilita One 84 px, hasta 3 palabras, la que suena en amarillo #ffd23f, borde tinta, y=1580, sin «...», «:» ni asteriscos.
+Música (cuál y a qué volumen): historia.mp3 al 45 % (prueba: antes 32 %) con sidechain a la voz, se apaga en los últimos 2 s.
+Efectos de sonido (cuántos y en qué palabras): 13 · papel-despliega al inicio, golpe-seco en «perfecto» (sello), carton-cae en «sándwich», whoosh-grave en «Amberes», whoosh-corto en «oficina», pop en «guardias», whoosh-cine al entrar por el dial, pop al abrir la lupa, whoosh-corto en «Speedy» (auto), papel-aletea en «basura», whoosh-cine en el zoom al sándwich, metal en «detuvieron» (esposas), golpe-seco en «cárcel» (barrotes). Sin braam ni golpe al final.
+Audio original de los clips: los 3, al 35 % (volumen 0,55 en la mezcla, con fundido de 0,3-0,4 s).
+Silencios: no.
+Transiciones y cámara (cómo cambia y cada cuánto): la cámara entra por objetos (la ventana de la oficina, el dial de la puerta, la lupa) y viaja por el corte (arriba/abajo, a la derecha); cambia cada 2-3 s; paneo suave con respiración; sacudida corta en «temblor».
+El primer segundo (qué se ve y qué se mueve): la bóveda con el radar barriendo, los rayos rojos titilando y el saco del botín que sube.
+Portada (escena y titular): el clímax (45.8 s): el ADN saliendo del sándwich entre la basura y la foto real de Notarbartolo, escena subida 220 px; placas «ROBARON 100 MILLONES» (amarilla) y «¿Y LO DELATÓ UN SÁNDWICH?» (tinta). portada_ms 45800.
+Texto de la publicación: «Robaron 100 millones en diamantes de la bóveda más segura del mundo… y un sándwich lo arruinó todo.» (99 caracteres; es el título de YouTube) + «Fuentes: Wikipedia «Antwerp diamond heist» · National Geographic (2013)» + #robo #diamantes #historiareal #Amberes #enserio
 
-== PALANCAS == (lo escribe solo limpiar.py desde etiquetas.json)
+== PALANCAS == (copiado de etiquetas.json; ★ = se probó a propósito en este video)
+Modo: explorar · Pruebas: velocidad, gancho, musica_vol
+Historia: Tema: crimen · Época: 2000-2015 · Dónde pasó: Europa · Tono: suspenso
+Texto: ★ Tipo de gancho: contradicción · Primera palabra: este/esta · Cómo se desarrolla: cronológico · Giros: 2 · Narrador: tercera persona · Quién habla: solo narrador · Frase final: dato que remata · Llamado al público: no
+Edición y sonido: Transición: cámara entra por un objeto · Cada cuánto cambia la imagen: medio (2-3 s) · Cámara: paneo suave · Fotos + clips reales: 4-5 · Cómo entra lo real: mezcla · Letreros en pantalla: sello o cifra en cada giro · El primer segundo: ya en movimiento · Subtítulos: Lilita 84 px abajo · Música: historia (la de siempre) · ★ Volumen de música: alta (≈45 %) · Efectos de sonido: normales (7-14) · Audio original del clip: bajito (≈35 %) · Silencio antes del giro: no
+Voz, duración, portada: Duración: 50-60 s · Pausas de la voz: rapido · ★ Velocidad de la voz: 1.17 · Escena de portada: el clímax · Titular de portada: afirmación + pregunta · Texto de la publicación: afirmación que intriga
+Publicación: Hora de subida: noche (18-20)
 
 == QUÉ SE PROBÓ ==
-Modo del laboratorio: (explorar | ganador | rival | nuevo)
-Lo que se repitió de los ganadores (y de cuál):
-Lo nuevo que se probó en este video: (una línea por prueba: palanca · de qué a qué · por qué)
-Hipótesis (qué espero que pase):
+Modo del laboratorio: explorar (3 pruebas, una por grupo)
+Lo que se repitió de los ganadores (y de cuál): todavía 0 piezas con 48 h. Se repitió la base (mundo continuo, la cámara entra por objetos, 4-5 reales, cronológico, 2 giros, cierre que remata, solo narrador, ritmo rápido) y lo que asoma en los números: el 004 (estafa con giros) tiene la mejor retención de IG (41 %) → otro golpe con giros, ahora crimen.
+Lo nuevo que se probó en este video:
+- gancho · dato imposible → contradicción · nunca probado: «el robo más perfecto… lo arruinó un sándwich» (dos cosas que no van juntas en la primera frase).
+- velocidad · 1.07 → 1.17 · nunca probado: la voz más rápida que hay; 165 palabras en 55 s. Se entendía bien (Whisper la transcribió entera).
+- musica_vol · media (≈32 %) → alta (≈45 %) · nunca probado: más energía de película de atracos.
+- (No era prueba, pero cambió de la base) letreros: quedó «sello o cifra en cada giro» (ROBO PERFECTO, AMBERES 2003, +$100 MILLONES, 5 DÍAS DESPUÉS, 10 AÑOS) en vez de «pocos». Anotado tal cual en etiquetas.json.
+- Época «2000-2015»: opción nueva agregada a variables.json (2003 no cabía en «siglo XX» ni en «últimos 10 años»).
+Hipótesis (qué espero que pase): la contradicción en el gancho retiene más los primeros 3 s que el dato imposible; la voz a 1.17 baja la salida a la mitad; la música alta da más energía sin tapar la voz (el sidechain la aparta). Riesgo: 1.17 puede sonar apurado en TikTok, y la música alta puede molestar a quien escucha con audífonos.
 
 == RESULTADO (se llena después; lo actualiza la rutina) ==
 48 h · TikTok: ___  Instagram: ___  YouTube: ___  Retención IG: ___
 Lectura: (¿ganó, perdió? ¿por qué creo?)
 
 == GUION COMPLETO ==
-(pegar aquí guion.txt tal cual, con fuentes)
+# 007. El robo perfecto que arruinó un sándwich · Amberes, Bélgica, febrero de 2003
+# Fuentes: 1) Wikipedia, «Antwerp diamond heist» (consultada 26/11/2026; cita a Wired, Joshua Davis, 12/03/2009)  2) National Geographic, Roff Smith, «Five Men Pulled Off the Largest Diamond Heist Ever» (10/05/2013).
+# Formato: QUIEN [emoción]: texto  ·  ... = pausa larga  ·  *palabra* = con fuerza
+NARRADOR [misterio]: Este fue el robo más perfecto de la historia... y lo arruinó un *sándwich*.
+NARRADOR [tension]: Amberes, Bélgica, dos mil tres. Dos pisos bajo tierra, la bóveda de diamantes más vigilada del mundo. Radar, sensores de calor, de temblor...
+NARRADOR [confidencial]: Un italiano, Leonardo Notarbartolo, alquiló una oficina en el edificio y se hizo pasar por comerciante. Durante años. Los guardias se acostumbraron a verlo.
+NARRADOR [tension]: Un fin de semana de febrero, su banda entró a la bóveda... y abrió más de cien cajas fuertes.
+NARRADOR [asombro]: Más de cien millones de dólares en diamantes, oro y joyas. Sin que sonara *una* alarma.
+NARRADOR [burla]: Pero uno de la banda, al que le decían Speedy, se puso nervioso... y tiró la basura del robo en un bosque.
+NARRADOR [tension]: El dueño del terreno la encontró y llamó a la policía. Y entre la basura... un sándwich de salame a medio comer.
+NARRADOR [asombro]: Tenía el ADN de Notarbartolo. Lo detuvieron cinco días después del robo.
+NARRADOR [cierre]: Le dieron diez años de cárcel... pero los diamantes, hasta hoy, *nunca* aparecieron.
 
 == CÓMO SE ARMÓ ==
-(paso a paso corto: qué escena tiene cada línea, qué se cambió del motor, qué falló y cómo se arregló)
+1. Historia: la central dejó el día 27/11 y el número 1. ganadores.py fallaba (`out +=` dentro de una función: UnboundLocalError) y se arregló. 10 candidatas (hoy.md del 27/11); se eligió Amberes por ser crimen (tema que nunca salió), tono suspenso y Europa. El Louvre se descartó porque ya_hecho.py marca «París» (el 004). Se agregó y tachó en banco.md.
+2. Material: Wikimedia no tiene fotos del robo. Se usó el documental de la tele pública belga (VRT Heimwee, 2008, 52 min, YouTube UrAgsQRFNdk, bajado a 480p con yt-dlp --js-runtimes node) y el clip de AP de 2013 (otro robo, el del aeropuerto: solo se usaron sus primeros segundos, un diamante en el World Diamond Centre). Se miraron hojas de fotogramas cada 20 s y después cada segundo para elegir lo real (las escenas recreadas con actores no se usaron). Clips a fotogramas (fps=30) recortando los logos de VRT y AP.
+3. Voz: voces.py . qwen rapido 1.17 → 54 s de voz (55.16 con la cola). Las líneas 2, 5 y 9 quedaron con tiempos repartidos parejos (Whisper con CUDA falla por cublas64_12.dll; en CPU sí transcribe): se comprobó con Whisper en CPU que dice todo bien.
+4. Película: plantilla.html nueva entera (el mundo en corte vertical; funciones edificio/oficinaDentro, calle, boveda, ruta, bosque, persona con pelo, gorra, pasamontañas, canas, cejas, teléfono, esposas, gota; sandwich() con mordisco por destination-out; clipIris, clipLupa, clipEnMarco, fotoEnPalo). construir.py: 13 efectos, música 0.45, audio de los 3 clips, tiempos en cp1252.
+5. Lo que se vio mal en las hojas y se arregló (3 renders más): el letrero DIAMOND CENTER de la calle tapaba el borde de la ventana de la oficina (la oficina subió 90 px y el edificio quedó con 2 filas de ventanas); la foto del cartel y el letrero AMBERES se cortaban en los bordes (más chicos, edificio más angosto y cámara a 0.7); la cabeza de Speedy quedaba sobre el techo del auto y parecía la sirena de un patrullero (se bajó a la ventana y el auto pasó de azul a naranja); el clip del dueño tapaba al títere del dueño (el dueño a la derecha, el clip al medio, el policía a la izquierda); los palitos de los ladrones atravesaban la tierra bajo la bóveda (palitos cortos); la cifra «+$100 MILLONES» tocaba la lupa (más arriba); el policía y el dueño quedaban cortados en el zoom al sándwich (bajan antes del zoom); el auto se asomaba detrás de los árboles en el ADN (se va después de «dueño»); la foto del ADN se cortaba a la derecha (cámara corrida); los subtítulos pisaban el letrero DIAMOND CENTER en la oficina (cámara de la oficina a zoom 1.6 y más arriba).
+6. Render: hyperframes 0.8.33, 1 min 39 s, 28 MB. revisar_celeste.py: 1655 cuadros, 0 vacíos, todo bien. ffmpeg sin errores de principio a fin; duración 55.17 s (la voz da 55.16). −14.4 LUFS. Se miraron las 5 hojas (un fotograma por segundo) del render final.
+7. Portada: snapshot de hyperframes en 45.8 s con SUBS = false, escena subida 220 px (relleno abajo con la misma tierra), portada.py con las dos placas.

@@ -8,7 +8,7 @@
  },
  "variables": {
   "tipo":            {"grupo": "H", "nombre": "Tema", "auto": "lo decide la historia; los 3 del día, de 3 temas distintos", "opciones": ["noticia/tendencia", "historia absurda", "persona increíble", "error de millones", "golpe/estafa", "política", "crimen", "inventos y ciencia", "latinoamérica"]},
-  "epoca":           {"grupo": "H", "nombre": "Época", "opciones": ["esta semana", "últimos 10 años", "siglo XX", "antes de 1900"]},
+  "epoca":           {"grupo": "H", "nombre": "Época", "opciones": ["esta semana", "últimos 10 años", "siglo XX", "antes de 1900", "2000-2015"]},
   "region":          {"grupo": "H", "nombre": "Dónde pasó", "opciones": ["latinoamérica", "EE. UU.", "Europa", "Asia", "África/Oceanía"]},
   "tono":            {"grupo": "H", "nombre": "Tono", "opciones": ["chistoso", "serio con respeto", "indignante", "suspenso", "tierno"]},
   "gancho":          {"grupo": "A", "nombre": "Tipo de gancho", "opciones": ["dato imposible", "pregunta", "en medio del lío", "frase del protagonista", "tú (segunda persona)", "cifra gigante", "final primero", "contradicción"]},

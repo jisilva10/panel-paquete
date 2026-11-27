@@ -1,8 +1,8 @@
 {
- "tipo": "",
- "epoca": "",
- "region": "",
- "tono": "",
+ "tipo": "crimen",
+ "epoca": "2000-2015",
+ "region": "Europa",
+ "tono": "suspenso",
  "gancho": "contradicción",
  "primera_palabra": "este/esta",
  "desarrollo": "cronológico",
@@ -16,7 +16,7 @@
  "camara": "paneo suave",
  "reales": "4-5",
  "clip_entra": "mezcla",
- "texto_pantalla": "pocos",
+ "texto_pantalla": "sello o cifra en cada giro",
  "arranque": "ya en movimiento",
  "subtitulos": "Lilita 84 px abajo",
  "musica": "historia (la de siempre)",
@@ -38,8 +38,9 @@
   "gancho",
   "musica_vol"
  ],
- "novedad": "",
- "edicion": "",
+ "novedad": "gancho «contradicción» (primera vez) · velocidad 1.17 (primera vez) · música al 45 % (primera vez) · primer crimen · época 2000-2015 (opción nueva) · el mundo en corte vertical (calle arriba, bóveda abajo)",
+ "edicion": "mundo de papel continuo en corte (Amberes de noche: la calle con el Diamond Center arriba y la bóveda dos pisos bajo tierra, el pozo con -1/-2, la oficina vista por la ventana, la autopista E19 y el bosque) + 2 fotos que se levantan (cartel del edificio y Notarbartolo) + 3 clips (la bóveda saqueada por el dial de la puerta, un diamante por la lupa de joyero, el dueño del terreno en un marco que se levanta)",
  "dia": "2026-11-27",
- "hora_sugerida": "19:00"
+ "hora_sugerida": "19:00",
+ "portada_ms": 45800
 }
