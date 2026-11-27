@@ -32,6 +32,10 @@ args = sys.argv[1:]
 def arg(nombre, defecto=None):
     return args[args.index(nombre) + 1] if nombre in args and args.index(nombre) + 1 < len(args) else defecto
 HOY = datetime.date.today()
+# --dia AAAA-MM-DD: el día en que SALE el video (se pueden hacer con días de adelanto).
+# --dia auto: el primer día desde hoy que todavía no tiene sus 3 videos.
+DIA_ARG = arg('--dia')
+if DIA_ARG and DIA_ARG != 'auto': HOY = datetime.date.fromisoformat(DIA_ARG)
 
 # ── datos ─────────────────────────────────────────────────────────────────────
 def leer(f):
@@ -73,7 +77,8 @@ def funciones():
         if m: e['duracion'] = balde_duracion(float(m.group(1)))          # la real manda
         m = re.match(r'(\d{4}-\d\d-\d\d) (\d\d):(\d\d)', c.get('Hora programada', ''))
         if m and not e.get('franja'): e['franja'] = franja_de(int(m.group(2)))
-        out.append(dict(nombre=n, num=int(n[:3]), e=e, creado=c.get('Creado', ''), hora=m.group(0) if m else '',
+        dia = (m.group(1) if m else '') or e.get('dia') or c.get('Creado', '')   # el día en que sale
+        out.append(dict(nombre=n, num=int(n[:3]), e=e, creado=dia, hora=m.group(0) if m else '',
                         ruta=os.path.join('2 Funciones', n, 'que-se-hizo.txt')))
     return out
 
@@ -185,19 +190,41 @@ def temas(fs):
 
 # ── informe ───────────────────────────────────────────────────────────────────
 def main():
+    global HOY
     fs = funciones()
     carpeta = arg('--carpeta')
     if carpeta:  # la función recién creada no cuenta: así el plan sale igual que antes de crearla
         fs = [f for f in fs if f['nombre'] != os.path.basename(os.path.normpath(carpeta))]
+    # Reservas (.motor/reservas.txt: «DIA K quién fecha-hora»): un lugar de la cola tomado por una sesión que
+    # todavía no crea su carpeta. Valen 3 horas; después cuenta solo la carpeta.
+    RES = os.path.join(RAIZ, '.motor', 'reservas.txt')
+    ahora = datetime.datetime.now()
+    res = []
+    try:
+        for l in open(RES, encoding='utf8'):
+            p_ = l.split()
+            if len(p_) >= 4 and (ahora - datetime.datetime.fromisoformat(p_[3])).total_seconds() < 3 * 3600:
+                res.append((p_[0], int(p_[1])))
+    except OSError: pass
+    def ocupados(d):
+        return max([sum(1 for f in fs if f['creado'] == d)] + [k for dd, k in res if dd == d])
+    if DIA_ARG == 'auto':
+        while ocupados(HOY.isoformat()) >= 3: HOY += datetime.timedelta(days=1)
+        if '--reservar' in args:
+            k = ocupados(HOY.isoformat()) + 1
+            open(RES, 'a', encoding='utf8').write(f"{HOY.isoformat()} {k} {arg('--reservar', 'sesion')} {ahora.isoformat(timespec='seconds')}\n")
+            print(f'DIA={HOY.isoformat()} VIDEO={k} (reservado)')
+            return
     piezas, error = panel()
     maduras = puntuar(fs, piezas)
     est = estadistica(fs)
     hoy_ya = [f for f in fs if f['creado'] == HOY.isoformat()]
-    k_video = int(arg('--video', len(hoy_ya) + 1))
+    k_video = int(arg('--video', ocupados(HOY.isoformat()) + 1))
     pl = plan(fs, est, maduras, k_video)
     franjas, usos = franjas_del_dia(fs)
     dia = (HOY - INICIO).days + 1
     fase = 'EXPLORAR (semanas 1-3 o menos de 30 videos con 48 h: 3 pruebas por video)' if pl['modo'] == 'explorar' else '7 ganador · 2 rival · 1 nuevo'
+    print(f'DIA={HOY.isoformat()} VIDEO={k_video}')
     o = [f'# Laboratorio · {HOY.isoformat()} · día {dia} · fase {fase}', '',
          f'{len(fs)} funciones · {maduras} con 48 h o más en el panel' + (f' · ⚠️ panel sin leer: {error}' if error else ''), '']
 
@@ -253,6 +280,7 @@ def main():
         for k, v in pl['etiquetas'].items():
             if not e.get(k) or k in probadas: e[k] = v   # lo que se prueba siempre manda
         e['modo'] = pl['modo']
+        e['dia'] = HOY.isoformat()   # el día en que sale (así los videos hechos con adelanto cuentan en su día)
         e['pruebas'] = probadas
         e['franja'] = e.get('franja') or franjas[min(k_video, len(franjas)) - 1]
         e['hora_sugerida'] = HORA_FRANJA[e['franja']]
