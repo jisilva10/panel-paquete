@@ -14,7 +14,7 @@ La corren 3 tareas programadas en la PC con Windows, **una por video y cada una 
 
 ## 0b. ¿Para qué día es tu video? (JIS, 26/11/2026: se pueden hacer con días de adelanto)
 - Los videos pueden quedar hechos y programados para días que vienen (una «central» los hace de uno en uno cuando sobran tokens). Por eso **cada video es para el primer día que todavía no tiene sus 3**, no siempre para hoy.
-- `python .motor\laboratorio.py --dia auto --reservar <quién>` → dice `DIA=AAAA-MM-DD VIDEO=K (reservado)` y anota ese lugar en `.motoreservas.txt` (vale 3 h), así otra sesión que arranque a la vez no toma el mismo. Hazlo UNA sola vez por sesión, al empezar. Ese es TU día y TU número: úsalos en todo lo que sigue (`--dia DIA --video K` en cada llamada al laboratorio, `hoy.md` de ese día, la hora con esa fecha). Si la sesión ya trae día y número (la central los da), usa esos.
+- `python .motor\laboratorio.py --dia auto --reservar <quién>` → dice `DIA=AAAA-MM-DD VIDEO=K (reservado)` y anota ese lugar en `.motor\reservas.txt` (vale 3 h), así otra sesión que arranque a la vez no toma el mismo. Hazlo UNA sola vez por sesión, al empezar. Ese es TU día y TU número: úsalos en todo lo que sigue (`--dia DIA --video K` en cada llamada al laboratorio, `hoy.md` de ese día, la hora con esa fecha). Si la sesión ya trae día y número (la central los da), usa esos.
 - `hoy.md` es la lista **del día que se está llenando** (dice la fecha arriba): el VIDEO 1 de un día la escribe; los videos 2 y 3 la usan solo si su fecha es su DIA. Si no, eligen solos la mejor que no repita tema de su DIA.
 - `ganadores.py`, `laboratorio.py --guardar`, aprendizajes y estilo.md: una vez por día de verdad (la primera sesión del día que los encuentre sin hacer hoy).
 
