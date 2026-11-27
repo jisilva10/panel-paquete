@@ -1,8 +1,8 @@
 {
- "tipo": "",
- "epoca": "",
- "region": "",
- "tono": "",
+ "tipo": "historia absurda",
+ "epoca": "siglo XX",
+ "region": "EE. UU.",
+ "tono": "chistoso",
  "gancho": "dato imposible",
  "primera_palabra": "este/esta",
  "desarrollo": "misterio que se revela al final",
@@ -38,8 +38,9 @@
   "desarrollo",
   "clip_entra"
  ],
- "novedad": "",
- "edicion": "",
+ "novedad": "duración 20-30 s (primera vez: 28,4 s, la mitad que todos los anteriores) · desarrollo «misterio que se revela al final» (primera vez: una calcomanía amarilla «¿?» tapa el cuello del gallo todo el video y se despega en la última palabra, «cabeza») · lo real entra siempre como «foto que se levanta» (primera vez: las 3 fotos y el clip suben del suelo en su estaca) · primer «historia absurda» · el clip final va en la cola, después de la voz",
+ "edicion": "mundo de papel continuo de izquierda a derecha (el gallinero con la cerca, una vaca y un chancho → la casa de los Olsen con la ventana de la cocina → la caja de manzanas en el patio → la carpa de feria «¡EL GALLO MILAGRO! 25¢» en corte, por dentro un escenario con el letrero MIKE con focos → FRUITA · HOY); noche entre «cena» y «mañana»; la cámara entra por la puerta de la carpa (el frente se desvanece) + 3 fotos que se levantan (los Olsen, la postal de 1945 con su calcomanía, la foto de LIFE en la revelación) + 1 clip que se levanta (la fiesta de Fruita 2026, KKCO 11 News)",
  "dia": "2026-11-28",
- "hora_sugerida": "15:30"
+ "hora_sugerida": "15:30",
+ "portada_ms": 24900
 }

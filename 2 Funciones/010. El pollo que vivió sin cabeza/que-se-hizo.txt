@@ -5,60 +5,86 @@ QUÉ SE HIZO · 010. El pollo que vivió sin cabeza
 Número: 010
 Título: El pollo que vivió sin cabeza
 Nombre en el panel: 010. El pollo que vivió sin cabeza
-Creado: 2026-11-27
-Hora programada: (AAAA-MM-DD HH:MM, Ecuador · día de la semana)
-Duración (s):
-Tipo: (noticia/tendencia | historia absurda | persona increíble | error de millones | golpe/estafa | política | crimen | inventos y ciencia | latinoamérica)
-Tema en una frase:
-Por qué debería enganchar:
-Fuentes: 1) …  2) …
+Creado: 2026-11-27 (madrugada, por la central, con adelanto: es el video 1 del 28/11/2026)
+Hora programada: 2026-11-28 15:40 (Ecuador · sábado) · franja tarde (14-17), sugerida 15:30
+Duración (s): 28.4
+Tipo: historia absurda
+Tema en una frase: Mike, un gallo blanco de la granja de Lloyd y Clara Olsen en Fruita (Colorado, EE. UU.): el 10/09/1945 Lloyd le cortó la cabeza para la cena, el hacha no tocó la vena yugular y le dejó casi todo el tronco del cerebro; a la mañana siguiente seguía vivo y caminando. Lo alimentaron con un gotero (leche y agua directo al esófago), lo llevaron de feria en feria como «Miracle Mike» (salió en Life y Time), cobraban 25 centavos y llegaron a ganar 4.500 dólares al mes. Vivió 18 meses; murió ahogado en un motel de Phoenix en marzo de 1947 (eso no se cuenta: no cabía en 25 s). Fruita le hace un festival cada año desde 1999.
+Por qué debería enganchar: el «¿en serio?» más puro de la cuenta, contado como misterio: el gancho dice que vivió «sin algo que ningún animal puede perder» y no dice qué; una calcomanía amarilla «¿?» le tapa el cuello todo el video y se despega en la última palabra. Es el primer video de 20-30 s (los anteriores, 52-61 s): si en IG se quedan ~20 s, aquí lo ven entero.
+Fuentes: 1) BBC News, Chris Stokel-Walker, «The chicken that lived for 18 months without a head» (10/09/2015)  2) Wikipedia, «Mike the Headless Chicken» (consultada 27/11/2026; cita Time 29/10/1945 y el Guinness).
+Datos con cuidado: «lo eligió para la cena»: BBC (ese día mataba 40 o 50 pollos para vender la carne; su mujer los limpiaba) y Wikipedia (su mujer lo mandó por un pollo para la cena): se dijo «para la cena» sin más. «A la mañana siguiente seguía vivo»: BBC (lo dejaron de noche en una caja de manzanas en el porche y al otro día seguía vivo). Gotero: las dos. Ferias: las dos (BBC: el promotor Hope Wade, Life). 4.500 dólares al mes en su mejor momento: Wikipedia. «Un año y medio» = 18 meses: las dos. Lloyd Olsen solo aparece, no habla.
 
 == TEXTO ==
-Primera palabra:
-Gancho (primera frase, literal):
-Tipo de gancho: (en medio del lío | pregunta | dato imposible | frase del protagonista | otro)
-Estructura: intro (s a s) · desarrollo (s a s) · giro (s) · cierre (s a s)
-Desarrollo (cómo se cuenta): (cronológico | final primero | lista de 3 | misterio al final | cuenta regresiva | dos versiones)
-Giros (cuántos y cuáles):
-Narrador en: (tercera persona | segunda persona «tú» | primera persona)
-Personajes que hablan:
-Cierre (estilo): (dato que remata | ironía | bucle al gancho | frase del protagonista | pregunta | otro)
-Frase de cierre (literal):
-Palabras totales:
-Emociones usadas en la voz:
-Ritmo de la voz: (rapido | medio | dramatico: el tercer dato de voces.py)
-Velocidad de la voz: (1.00 | 1.07 | 1.12 | 1.17: el cuarto dato de voces.py)
+Primera palabra: Este
+Gancho (primera frase, literal): «Este gallo vivió un año y medio... sin algo que ningún animal puede perder.»
+Tipo de gancho: dato imposible (con el misterio adentro: no dice qué le faltaba)
+Estructura: gancho en el gallinero: Mike ya camina con la calcomanía «¿?» en el cuello; zoom a la calcomanía en «medio»; en «animal» se asoman una vaca y un chancho por la cerca y miran; en «perder» se van (0-4.5 s) · «COLORADO 1945» cae del cielo junto a la casa (4.6-7.3 s) · «granjero»: sube Lloyd Olsen con Mike y se levanta la foto real de Lloyd y Clara; «eligió»: levanta el hacha; «cena»: aparece el plato servido en la ventana de la cocina (7.3-9.2 s) · noche: todo se oscurece y sale la luna; «mañana»: sale el sol, sube Lloyd junto a la caja de manzanas (9.2-11.5 s) · giro 1 «seguía vivo»: la tapa de la caja salta y Mike sale de un salto aleteando, Lloyd con los ojos y la boca abiertos; «caminando por el patio» (11.5-14.3 s) · «gotero»: primer plano, Lloyd le da gotas sobre la calcomanía, ya sonriendo (14.4-16.7 s) · «feria en feria»: la carpa a rayas «¡EL GALLO MILAGRO! 25¢», la cámara entra por la puerta y el frente se desvanece: Mike en un pedestal, una visitante asombrada y la postal real de 1945 (con su calcomanía) se levanta del suelo (16.8-18.3 s) · giro 2 «ganar»: un frasco que se llena de monedas y el sello «$4.500 AL MES» (18.4-20.7 s) · cierre: foco del escenario y el letrero MIKE con focos en «Mike»; zoom a la calcomanía que tiembla en «hizo... sin»; en «cabeza» la calcomanía sale volando y se ve el cuello sin cabeza, y a su lado se levanta la foto real de LIFE (20.9-25.4 s) · cola sin voz: la cámara sale de la carpa a «FRUITA · HOY» y se levanta el clip real de la fiesta de 2026 con gente vestida de gallo corriendo, con su audio bajito (25.4-28.4 s)
+Desarrollo (cómo se cuenta): misterio que se revela al final (PRUEBA): todo el video se sabe que le falta algo y se ve la calcomanía «¿?» donde debería estar la cabeza (en el títere y en la postal); la palabra «cabeza» es la última de la voz y es cuando se despega.
+Giros (cuántos y cuáles): 2 · a la mañana siguiente seguía vivo (después de «lo eligió para la cena») · llegó a ganar 4.500 dólares al mes. (La revelación «sin cabeza» es el remate del cierre.)
+Narrador en: tercera persona
+Personajes que hablan: NARRADOR (solo)
+Cierre (estilo): dato que remata (la revelación del misterio)
+Frase de cierre (literal): «Se llamaba Mike. Y todo eso lo hizo... sin cabeza.»
+Palabras totales: 69
+Emociones usadas en la voz: misterio, tension, asombro, confidencial, cierre
+Ritmo de la voz: rapido (base)
+Velocidad de la voz: 1.07 (base; Whisper transcribió todas las palabras: «Colorado» lo oye «calorado», los números los da en cifras)
 
 == EDICIÓN ==
-Mundo (lugar de papel):
-Lugares y cómo se entra a cada uno:
-Personajes dibujados (y a quién se parecen):
-Fotos reales (cuántas, de dónde, en qué segundo):
-Clips reales (cuántos, de dónde, cuánto duran, cómo entran):
-Subtítulos (estilo, tamaño, posición):
-Música (cuál y a qué volumen):
-Efectos de sonido (cuántos y en qué palabras):
-Audio original de los clips:
-Silencios:
-Transiciones y cámara (cómo cambia y cada cuánto):
-El primer segundo (qué se ve y qué se mueve):
-Portada (escena y titular):
-Texto de la publicación:
+Mundo (lugar de papel): una sola franja de Fruita (Colorado) en 1945, de izquierda a derecha y de día, con mesetas rojas bajas de Colorado al fondo (parallax) y pasto verde: el GALLINERO con su cerca → la CASA de los Olsen (tablas crema, techo marrón, ventana de la cocina con la mesa) → la CAJA DE MANZANAS «APPLES» en el patio → la CARPA de feria a rayas rojas y crema, en corte (por dentro: pared granate, escenario de tablas, pedestal) → «FRUITA · HOY», el lugar de la fiesta de ahora.
+Lugares y cómo se entra a cada uno: gallinero al empezar (la cámara ya se mueve y hace zoom a la calcomanía) → viaja a la casa en «Colorado» → se queda en Lloyd y la ventana → noche entre «cena» y «mañana» → viaja a la caja en «mañana» → primer plano del gotero en «alimentaron» → viaja a la carpa en «feria» (1) y ENTRA por la puerta (el frente se desvanece) en «feria» (2) → se acerca al escenario en «llamaba» y a la calcomanía en «sin» → se aleja en «cabeza» → sale a FRUITA · HOY en la cola. Tramos de 0,5-1 s.
+Personajes dibujados (y a quién se parecen): Mike, gallo blanco tipo wyandotte (plumas con borde gris, cola negra, patas amarillas) con el cuello que termina redondo (sin sangre) y la calcomanía amarilla «¿?» encima; Lloyd Olsen parecido a su foto (cara delgada, sombrero de vaquero claro, camisa oscura y overol de mezclilla); una vaca y un chancho (solo cabezas, por la cerca); una visitante de la feria (pelo rubio, vestido rojo, manos arriba).
+Fotos reales (cuántas, de dónde, en qué segundo): 3, todas «se levantan del suelo» en su estaca · Lloyd y Clara Olsen (familia Waters, vía BBC; fuente «Foto: familia Waters · BBC») en «granjero» (~7.4 s) · la postal «Miracle Mike» de 1945 (BBC; recortada a la foto; con una calcomanía «¿?» dibujada sobre el cuello) en «feria» 2 (~17.2 s) · Mike sin cabeza (LIFE / Getty Images 1945, vía BBC; recortada para que no se vea la cabeza que estaba sobre la mesa) en «cabeza» (~23.9 s). Imágenes de ichef.bbci.co.uk a 976 px (comprobadas: JPEG).
+Clips reales (cuántos, de dónde, cuánto duran, cómo entran): 1 · la fiesta «Mike the Headless Chicken Festival» 2026 en Fruita: gente con disfraces inflables de gallo corriendo (KKCO 11 News, YouTube gv0p5yK1bgI, segundo 21.9-24.4, recortado arriba para sacar el zócalo del noticiero), 2,5 s, en una foto que se levanta en la cola (25.5-28 s), fuente «Video: KKCO 11 News (Fruita, 2026)».
+Subtítulos (estilo, tamaño, posición): Lilita One 84 px, hasta 3 palabras, la que suena en amarillo #ffd23f, borde tinta, y=1580, sin «...», «:», «*» ni coma o punto final.
+Música (cuál y a qué volumen): historia.mp3 (la de siempre) desde su segundo 12, al 32 % con sidechain a la voz; se apaga en los últimos 2 s.
+Efectos de sonido (cuántos y en qué palabras): 14 · papel-despliega al inicio, pop en «animal» (la vaca y el chancho), carton-pone en «Colorado» (cartel), papel-despliega en «granjero» (foto), whoosh-grave en «cena» (cae la noche), papel-swish en «mañana», pop en «vivo» (la tapa de la caja), whoosh-corto en «feria» 1, papel-despliega en «feria» 2 (postal), metal en «ganar» (monedas), carton-pone en «cuatro» (sello), riser 0,9 s antes de «hizo», papel-aletea en «cabeza» (se despega la calcomanía), whoosh-corto al salir a FRUITA · HOY. Sin braam ni golpe al final.
+Audio original de los clips: el de la fiesta (gente, gritos) al 35 % (0,55 en la mezcla, fundidos de 0,3/0,4 s) en la cola.
+Silencios: no.
+Transiciones y cámara (cómo cambia y cada cuánto): la cámara viaja por la franja y ENTRA por la puerta de la carpa; noche y día con un velo azul y la luna; foco de escenario (viñeta oscura) desde «Mike» hasta la salida; zoom fuerte (1,85) a la calcomanía antes de la revelación; cambia cada 2-3 s; paneo suave con respiración.
+El primer segundo (qué se ve y qué se mueve): Mike ya camina de un lado a otro en el gallinero con la calcomanía «¿?» y la cámara se le acerca.
+Portada (escena y titular): el clímax (24.9 s, sin subtítulo): la carpa con el letrero MIKE, la foto de LIFE y el títere de Mike sin cabeza; placas «VIVIÓ 18 MESES SIN CABEZA» (amarilla) y «¿CÓMO ES POSIBLE?» (tinta). portada_ms 24900. (La portada revela el misterio: se prueba si el «¿en serio?» en la portada trae más vistas aunque el video lo guarde para el final.)
+Texto de la publicación: «En 1945 un granjero lo eligió para la cena. El gallo tenía otros planes… durante 18 meses.» (94 caracteres; es el título de YouTube) + «Fuentes: BBC News (2015) · Wikipedia «Mike the Headless Chicken»» + #MikeElPollo #historiareal #curiosidades #Colorado #enserio
 
-== PALANCAS == (lo escribe solo limpiar.py desde etiquetas.json)
+== PALANCAS == (copiado de etiquetas.json; ★ = se probó a propósito en este video)
+Modo: explorar · Pruebas: duracion, desarrollo, clip_entra
+Historia: Tema: historia absurda · Época: siglo XX · Dónde pasó: EE. UU. · Tono: chistoso
+Texto: Tipo de gancho: dato imposible · Primera palabra: este/esta · ★ Cómo se desarrolla: misterio que se revela al final · Giros: 2 · Narrador: tercera persona · Quién habla: solo narrador · Frase final: dato que remata · Llamado al público: no
+Edición y sonido: Transición: cámara entra por un objeto · Cada cuánto cambia la imagen: medio (2-3 s) · Cámara: paneo suave · Fotos + clips reales: 4-5 · ★ Cómo entra lo real: foto que se levanta · Letreros en pantalla: pocos · El primer segundo: ya en movimiento · Subtítulos: Lilita 84 px abajo · Música: historia (la de siempre) · Volumen de música: media (≈32 %) · Efectos de sonido: normales (7-14) · Audio original del clip: bajito (≈35 %) · Silencio antes del giro: no
+Voz, duración, portada: ★ Duración: 20-30 s · Pausas de la voz: rapido · Velocidad de la voz: 1.07 · Escena de portada: el clímax · Titular de portada: afirmación + pregunta · Texto de la publicación: afirmación que intriga
+Publicación: Hora de subida: tarde (14-17)
 
 == QUÉ SE PROBÓ ==
-Modo del laboratorio: (explorar | ganador | rival | nuevo)
-Lo que se repitió de los ganadores (y de cuál):
-Lo nuevo que se probó en este video: (una línea por prueba: palanca · de qué a qué · por qué)
-Hipótesis (qué espero que pase):
+Modo del laboratorio: explorar (3 pruebas, una por grupo)
+Lo que se repitió de los ganadores (y de cuál): todavía 0 piezas con 48 h. Se repitió la base de 001-009: gancho «dato imposible» con «Este» (como 005, 008 y 009), solo narrador, 2 giros, cierre que remata (como 004, 005, 007, 009), 4 reales, la cámara entra por un objeto (la puerta de la carpa), música «historia» al 32 %, 14 efectos, voz rápida a 1.07. Para no repetir al 009: música de siempre (009 probó suspenso), ritmo rápido (009 probó medio), no es lista de 3.
+Lo nuevo que se probó en este video:
+- duracion · 50-60 s → 20-30 s · nunca probado: 28,4 s (25,2 de voz + 2,5 s del clip de la fiesta en la cola). En IG el tiempo medio de visión está en 16-24 s para TODOS los videos: si duran 28 s, se ven casi enteros y pueden dar la vuelta (bucle).
+- desarrollo · cronológico → misterio que se revela al final · nunca probado: el gancho dice que le faltaba algo y no qué; la calcomanía «¿?» tapa el cuello del títere y de la postal todo el video y se despega en «cabeza», la última palabra.
+- clip_entra · mezcla → foto que se levanta · nunca probado: las 3 fotos y también el clip suben del suelo en su estaca (nada entra por un visor, una ventana o una pantalla).
+Hipótesis (qué espero que pase): el video corto con el misterio se ve entero (retención IG arriba del 60 % y más vueltas), sube la retención media de la cuenta y no pierde vistas por ser corto. Riesgo: tan corto, menos tiempo de visión total por persona (YouTube puede premiarlo menos); y la portada ya cuenta el secreto.
 
 == RESULTADO (se llena después; lo actualiza la rutina) ==
 48 h · TikTok: ___  Instagram: ___  YouTube: ___  Retención IG: ___
 Lectura: (¿ganó, perdió? ¿por qué creo?)
 
 == GUION COMPLETO ==
-(pegar aquí guion.txt tal cual, con fuentes)
+# 010. El pollo que vivió sin cabeza · Mike, Fruita (Colorado, EE. UU.), 1945-1947
+# Fuentes: 1) BBC News, Chris Stokel-Walker, «The chicken that lived for 18 months without a head» (10/09/2015)  2) Wikipedia, «Mike the Headless Chicken» (consultada 27/11/2026; cita Time, 29/10/1945, y el Guinness).
+# Datos: 10/09/1945 Lloyd Olsen mataba pollos para vender (BBC: 40 o 50 ese día); a la mañana siguiente el gallo seguía vivo (BBC). Lo alimentaban con un gotero (BBC y Wikipedia). Recorrió ferias (BBC: Life y la gira; Wikipedia: Time y Life). 4.500 dólares al mes en su mejor momento (Wikipedia). Vivió 18 meses (las dos).
+# Nadie habla con frases inventadas: solo el narrador.
+# Formato: QUIEN [emoción]: texto  ·  ... = pausa larga  ·  *palabra* = con fuerza
+NARRADOR [misterio]: Este gallo vivió un año y medio... sin algo que ningún animal puede perder.
+NARRADOR [tension]: Colorado, mil novecientos cuarenta y cinco. Un granjero lo eligió para la cena.
+NARRADOR [asombro]: Pero a la mañana siguiente, el gallo seguía vivo... y caminando por el patio.
+NARRADOR [confidencial]: Lo alimentaron con un gotero, lo llevaron de feria en feria, y llegó a ganar cuatro mil quinientos dólares al mes.
+NARRADOR [cierre]: Se llamaba Mike. Y todo eso lo hizo... *sin cabeza*.
 
 == CÓMO SE ARMÓ ==
-(paso a paso corto: qué escena tiene cada línea, qué se cambió del motor, qué falló y cómo se arregló)
+1. Historia: la #1 de hoy.md del 28/11 (la dejó este mismo video 1, con 11 candidatas revisadas; tendencias de hoy sin giro). ya_hecho.py "Mike" "Fruita" "pollo sin cabeza" y "Lloyd Olsen" "Colorado" "sin cabeza" → nuevo. Se tachó en banco.md (push en ese momento). Lugar en la cola dado por la central: DIA 2026-11-28, VIDEO 1. Antes, paso 1 del día: ganadores.py (0 piezas con 48 h), laboratorio --guardar, aprendizajes y estilo.md (push).
+2. Material: Wikimedia Commons no tiene fotos de Mike; las 3 fotos salen de la nota de la BBC (ichef.bbci.co.uk, 976 px, JPEG comprobado) y se recortaron con PIL (LIFE: sin la cabeza que estaba sobre la mesa; postal: solo la foto, sin el poema). Clip: yt-dlp --js-runtimes node del video de KKCO 11 News (360p), hoja de fotogramas cada 1 s y cada 0,25 s para elegir la toma; a fotogramas (fps=30) con crop=420:270:110:0 y scale 840x540 (sin el zócalo). 75 de 84 cuadros (antes del corte de toma).
+3. Voz: voces.py . qwen rapido 1.07 → 25,2 s de voz (26,6 con la cola). Las líneas 2 y 4 (las de números) quedaron con tiempos parejos (en CUDA falta cublas64_12.dll): se corrió faster-whisper small en CPU y se alinearon con difflib (script en el scratchpad de la sesión); «mil novecientos cuarenta y cinco» y «cuatro mil quinientos» se repartieron a mano por sílabas entre los tiempos de Whisper (5,46-7,25 y 18,74-19,72). 69 de 69 palabras con su tiempo.
+4. Película: plantilla.html nueva entera: gallo() sin cabeza (cuello redondo, plumas con borde, ala con plumas), calco() la calcomanía «¿?» que tiembla antes de la revelación y sale volando girando en «cabeza», lloyd() con overol, sombrero de vaquero, hacha que se levanta y un brazo que se estira hasta encima del cuello con el gotero (ángulo calculado), persona() para la visitante, vaca y chancho, gallinero, casa con plato en la ventana, caja de manzanas con tapa que salta, carpa en corte con frente que se desvanece, letrero MIKE con focos que se prenden y apagan, frasco que se llena de monedas, sello «$4.500 AL MES», fotoLevanta() (foto o clip en una estaca que sube del suelo estirándose en vertical), noche con velo y luna, foco de escenario. construir.py: la duración = «cabeza» + 1,6 s de revelación + 2,5 s de clip; 14 efectos; audio del clip de KKCO; loudnorm −14 y +0,6 dB (daba −14,6).
+5. Lo que se vio mal en las hojas y se arregló (5 vueltas): todo se veía chico y alto (zoom 1,0-1,2 → 1,25-1,85 y la cámara más abajo); las mesetas parecían una pared roja (más bajas y claras); el letrero COLORADO 1945 quedaba detrás de la casa (va a la izquierda y se va hacia arriba en «granjero»); el chancho se cortaba en el borde; la carpa se veía detrás de Lloyd en el patio (la carpa pasó a x=4300); Lloyd se cortaba en el borde del patio y el gallo quedaba detrás de su overol (caja, gallo y Lloyd más a la izquierda); el gotero apuntaba al cuerpo del gallo (ahora el brazo se calcula hasta encima del cuello y el gotero cuelga derecho); el sello «$4.500» tapaba la calcomanía y se cortaba al moverse la cámara (más a la derecha y se va en «mes»); la revelación duraba 0,7 s (ahora 1,6 s); la foto de LIFE se cortaba a la izquierda; el viaje a FRUITA · HOY pasaba por pasto vacío (HOY más cerca de la carpa); el clip mostraba un corte de toma al final (75 cuadros). Además: al editar plantilla.html con PowerShell (Set-Content -Encoding utf8) quedó un BOM al principio y el render salió con una franja celeste de 18 px arriba: se sacó el BOM y se volvió a renderizar.
+6. Render: hyperframes 0.8.33, ~45 s por render, 14,7 MB (7 renders). revisar_celeste.py: 851 cuadros, 0 vacíos, todo bien. ffmpeg sin errores de principio a fin; duración 28,37 s (la mezcla, 28,34). −14,2 LUFS. Se miraron las 3 hojas (un fotograma por segundo) del render final y las de 2 por segundo de los anteriores.
+7. Portada: fotograma 24,9 s del video (sin subtítulo: la voz ya terminó y la revelación sigue en pantalla); portada.py con las dos placas.
+8. Programado con npm run programar (primero --probar) para el sábado 28/11 a las 15:40; quedó en la cola del panel (IG, TT, YT pendientes).
