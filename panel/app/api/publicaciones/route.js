@@ -72,6 +72,11 @@ export async function PATCH(req) {
   } else if (accion === 'tt_quitar_aprobacion') {
     if (p.tt_estado !== 'pendiente') return NextResponse.json({ error: 'Este video ya empezó a salir' }, { status: 409 });
     cambio = { tt_aprobacion: null };
+  } else if (accion === 'tt_reenviar') {
+    // TikTok dijo «en la bandeja de entrada» pero a JIS no le llegó (008 y 009, 27/11/2026): se manda otra vez.
+    if (!p.video_url) return NextResponse.json({ error: 'El video ya no está: súbelo de nuevo' }, { status: 409 });
+    if (!['en_tiktok', 'en_borradores', 'error'].includes(p.tt_estado)) return NextResponse.json({ error: 'TikTok todavía no lo recibió' }, { status: 409 });
+    cambio = { estado: 'programada', tt_estado: 'pendiente', tt_error: null, tt_publish_id: null };
   } else if (accion === 'tt_publicado') {
     if (p.tt_estado !== 'en_borradores') return NextResponse.json({ error: 'No está en borradores' }, { status: 409 });
     cambio = { tt_estado: 'publicado' };
